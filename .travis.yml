@@ -1,0 +1,7 @@
+language: java
+sudo: false # faster builds
+jdk:
+- oraclejdk8
+script:
+  - cd src/jaxy
+  - "mvn clean package"
