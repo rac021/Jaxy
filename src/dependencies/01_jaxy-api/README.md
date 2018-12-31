@@ -2,7 +2,7 @@
 
 | Branch    | build status  |
 |-----------|---------------|
-| [master](https://github.com/rac021/G-Jax-Api/tree/master)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/G-Jax-Api)|
+| [master](https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider)|
 
 
 ## installation
