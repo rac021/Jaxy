@@ -10,7 +10,7 @@
 
 -    [https://github.com/rac021/Jaxy]( https://github.com/rac021/Jaxy)
 
--    [https://github.com/rac021/Jax-D]( https://github.com/rac021/Jax-D )
+-    [https://github.com/rac021/Jax-D]( https://github.com/rac021/Jax-D ) ( Decricated )
 
 
 **Requirements :**
