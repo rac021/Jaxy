@@ -52,7 +52,7 @@
 ## installation
 
 ```xml
-  mvn clean package 
+  ./compile.sh
 ```  
 ------------------------------------------------------
 
