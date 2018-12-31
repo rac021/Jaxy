@@ -2,8 +2,6 @@ language: java
 sudo: false # faster builds
 jdk:
   - oraclejdk8
-#before_install:
-#  - cd src/jaxy
 script:
   - cd /home/travis/build/rac021/Jaxy/src/dependencies/01_jaxy-api 
   - mvn clean install
