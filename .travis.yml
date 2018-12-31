@@ -14,7 +14,7 @@ script:
   - cd /home/travis/build/rac021/Jaxy/src/dependencies/05_jaxyClient
   - mvn clean install
   - mkdir /home/travis/build/rac021/Jaxy/src/jaxy/src/main/resources/jaxy-client
-  - mv /home/travis/build/rac021/Jaxy/src/dependencies/05_jaxyClient/target/jaxyClient.jar \
+  - cp /home/travis/build/rac021/Jaxy/src/dependencies/05_jaxyClient/target/jaxyClient.jar \
        /home/travis/build/rac021/Jaxy/src/jaxy/src/main/resources/jaxy-client/ 
   - cd /home/travis/build/rac021/Jaxy/src/jaxy
   - mvn clean package 
