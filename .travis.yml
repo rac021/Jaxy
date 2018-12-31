@@ -1,7 +1,8 @@
 language: java
 sudo: false # faster builds
 jdk:
-- oraclejdk8
-script:
+  - oraclejdk8
+before_install:
   - cd src/jaxy
-  - "mvn clean package"
+script:
+  - mvn clean package
