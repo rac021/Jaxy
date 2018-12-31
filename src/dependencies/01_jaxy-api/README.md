@@ -2,7 +2,7 @@
 
 | Branch    | build status  |
 |-----------|---------------|
-| [master](https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider)|
+| [master](https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/Jaxy)|
 
 
 ## installation
@@ -21,10 +21,10 @@ Meven dependency :
 
 **Implementation :** 
 
--    [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-service-discovery]( ) 
+-    [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-service-discovery]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/03_jaxy-service-discovery) 
 
 -    [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-security-provider]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) 
 
 -    [https://github.com/rac021/Jaxy]( https://github.com/rac021/Jaxy)
 
--    [https://github.com/rac021/Jax-D]( https://github.com/rac021/Jax-D)
+-    [https://github.com/rac021/Jax-D]( https://github.com/rac021/Jax-D) ( Deprecated )
