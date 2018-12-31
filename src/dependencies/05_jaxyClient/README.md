@@ -7,7 +7,7 @@
 
 
 
-**G-Jax-Client** is an **UI** add-on for the projects **[Jax-Y]( https://github.com/rac021/Jax-Y)**  and **[Jax-D]( https://github.com/rac021/Jax-D)** 
+**jaxyClient-Api** is an add-on for the projects **[JaxY]( https://github.com/rac021/Jaxy)**  and **[Jax-D]( https://github.com/rac021/Jax-D)** 
 
 ## installation
 
@@ -15,18 +15,30 @@
   mvn clean compile assembly:single
 ```  
 ```xml
-  java -jar target/g-jax-client.jar
+  java -jar target/jaxyClient.jar
 ```  
 
 -------------------------------------
 
-#### Custom Sign On Panel
+#### Sample customSingOn Client
 
-![custom-g-jax-client](https://user-images.githubusercontent.com/7684497/27563357-6570deea-5ad1-11e7-9396-c287592cd050.png)
+```xml
 
+java -jar jaxyClient.jar confPath jaxy_conf.txt \
+                         password admin         \
+                         login    admin        
+
+```
 -------------------------------------
 
-#### KeyCloak Panel
+#### Sample KeyCloak Client
 
-![sso-g-jax-client](https://user-images.githubusercontent.com/7684497/27563489-458badd4-5ad2-11e7-8192-9cc309dbc374.png)
+```xml
+java -jar jaxyClient.jar confPath            jaxy_conf.txt \
+                         keycloak_client_id  my_app        \
+                         keycloak_secret_id  my_secret     \
+                         keycloak_login      admin         \
+                         keycloak_password   password      \
+                         out outputData.txt
+```             
 
