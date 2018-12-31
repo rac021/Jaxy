@@ -1,13 +1,13 @@
-# G-Jax-Client [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT) 
+# JaxyClient [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT) 
 
 
 | Branch    | build status  |
 |-----------|---------------|
-| [master](https://github.com/rac021/G-Jax-Client/tree/master)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/G-Jax-Client)|
+| [master](https://github.com/rac021/jaxyClient/tree/master)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/jaxyClient)|
 
 
 
-**jaxyClient-Api** is an add-on for the projects **[JaxY]( https://github.com/rac021/Jaxy)**  and **[Jax-D]( https://github.com/rac021/Jax-D)** 
+**jaxyClient** is an add-on for the projects **[Jaxy]( https://github.com/rac021/Jaxy)**  and **[Jax-D]( https://github.com/rac021/Jax-D)** 
 
 ## installation
 
