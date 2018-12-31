@@ -3,11 +3,11 @@
 
 | Branch    | build status  |
 |-----------|---------------|
-| [master](https://github.com/rac021/Jax-Y/tree/master)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/Jax-Y)|
+| [master](https://github.com/rac021/Jaxy/tree/master)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/Jaxy)|
 
 
 
- **Jax-Y** is Generic Jax-Rs web Service based over yaml configuration implementing the project  **[G-Jax-Api]( https://github.com/rac021/G-Jax-Api)**
+ **Jax-Y** is Generic Jax-Rs web Service based over yaml configuration implementing the project  **[jaxy-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-api)**
 
 **SourceForge Download Link** : **[https://sourceforge.net/projects/jax-y/?source=typ_redirect]( https://sourceforge.net/projects/jax-y/?source=typ_redirect)** 
 
@@ -16,13 +16,18 @@
 
 **Linked Projects :** 
 
--    [https://github.com/rac021/G-Jax-Api]( https://github.com/rac021/G-Jax-Api) ( Api )
+- **Api :**
+   * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)
 
--    [https://github.com/rac021/G-Jax-Service-Discovery]( https://github.com/rac021/G-Jax-Service-Discovery) ( Default Service Discovery Implementation )
+- **Default Service Discovery Implementation :**
+   * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-service-discovery]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/03_jaxy-service-discovery) 
 
--    [https://github.com/rac021/G-Jax-Security-Provider]( https://github.com/rac021/G-Jax-Security-Provider) ( Default Security Provider Implementation )
+- **Default Security Provider Implementation :**
+   * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-security-provider]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) 
    
--    [https://github.com/rac021/G-Jax-Client]( https://github.com/rac021/G-Jax-Client) ( GUI )
+- **GUI :**
+   * [https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi]( https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi) 
+
 
 **Requirements :**
 
