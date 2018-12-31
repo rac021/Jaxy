@@ -5,7 +5,16 @@ jdk:
 #before_install:
 #  - cd src/jaxy
 script:
-  - cd src/dependencies/01_jaxy-api 
+  - cd /home/travis/build/rac021/Jaxy/src/dependencies/01_jaxy-api 
   - mvn clean install
   - cd /home/travis/build/rac021/Jaxy/src/dependencies/02_jaxy-security-provider
   - mvn clean install
+  - cd /home/travis/build/rac021/Jaxy/src/dependencies/03_jaxy-service-discovery
+  - mvn clean install
+  - cd /home/travis/build/rac021/Jaxy/src/dependencies/04_certMe
+  - mvn clean install
+  - cd /home/travis/build/rac021/Jaxy/src/dependencies/05_jaxyClient
+  - mvn clean install
+  - cd /home/travis/build/rac021/Jaxy/src/jaxy
+  - mvn clean package 
+  
