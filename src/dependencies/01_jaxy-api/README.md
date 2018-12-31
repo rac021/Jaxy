@@ -12,8 +12,8 @@ Meven dependency :
 ```xml
  <dependency>
     <groupId>com.github.rac021</groupId>
-    <artifactId>G-Jax-Api</artifactId>
-    <version>1.1</version>
+    <artifactId>jaxy-api</artifactId>
+    <version>2.1</version>
 </dependency>
 ```
 
@@ -21,10 +21,10 @@ Meven dependency :
 
 **Implementation :** 
 
--    [https://github.com/rac021/G-Jax-Service-Discovery]( https://github.com/rac021/G-Jax-Service-Discovery) 
+-    [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-service-discovery]( ) 
 
--    [https://github.com/rac021/G-Jax-Security-Provider]( https://github.com/rac021/G-Jax-Security-Provider) 
+-    [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-security-provider]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) 
 
--    [https://github.com/rac021/Jax-Y]( https://github.com/rac021/Jax-Y)
+-    [https://github.com/rac021/Jaxy]( https://github.com/rac021/Jaxy)
 
 -    [https://github.com/rac021/Jax-D]( https://github.com/rac021/Jax-D)
