@@ -7,7 +7,7 @@
 
 
 
- **Jax-Y** is Generic Jax-Rs web Service based over yaml configuration implementing the project  **[jaxy-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-api)**
+ **Jaxy** is Generic Jax-Rs web Service based over yaml configuration implementing the project  **[jaxy-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-api)**
 
 **SourceForge Download Link** : **[https://sourceforge.net/projects/jax-y/?source=typ_redirect]( https://sourceforge.net/projects/jax-y/?source=typ_redirect)** 
 
