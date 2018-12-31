@@ -53,7 +53,9 @@
 
 ```xml
   ./compile.sh
-```  
+``` 
+The jar jaxy-thorntail.jar is copied into the folder jaxy
+
 ------------------------------------------------------
 
 ## Demo 
