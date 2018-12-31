@@ -5,4 +5,4 @@ jdk:
 #before_install:
 #  - cd src/jaxy
 script:
-  - cd src/jaxy ; mvn clean package
+  - cd src/dependencies/01_jaxy-api ; mvn clean package ; cd src/jaxy ; mvn clean package
