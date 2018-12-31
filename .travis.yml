@@ -6,6 +6,6 @@ jdk:
 #  - cd src/jaxy
 script:
   - cd src/dependencies/01_jaxy-api 
-  - mvn clean package 
-  - cd /Jaxy/src/jaxy 
-  - mvn clean package
+  - mvn clean install
+  - cd /home/travis/build/rac021/Jaxy/src/dependencies/02_jaxy-security-provider
+  - mvn clean install
