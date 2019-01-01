@@ -19,11 +19,11 @@ import java.nio.charset.StandardCharsets ;
 public class TemplateManager {
     
     final static Pattern  PATTERN  =  Pattern.compile( "\\{\\{(.*?)\\}\\}" , 
-                                                       Pattern.DOTALL )     ;
+                                                       Pattern.DOTALL )    ;
    
     static String MatcherPart = "(?i)PART(\t| |\n)*\\{\\{\\{(\t| |\n)*.*?(\\}\\}\\})" ;
     
-    enum PART { HEADER, BODY, FOOTER }                                             ;
+    enum PART { HEADER, BODY, FOOTER }                                                ;
     
     public static List<String> extractArgs( String template ) {
         
@@ -87,20 +87,24 @@ public class TemplateManager {
     private static String extractPart ( String template , PART part ) {
         
         Pattern  pattern  =  Pattern.compile( MatcherPart.replace("PART", part.name()), 
-                                              Pattern.DOTALL )   ;
+                                              Pattern.DOTALL )        ;
         
         Matcher match = pattern.matcher(template) ;
         if (match.find()) {
-           return match.group().trim().replaceAll("(?i)" + part.name() + "(\t| )*.*\\{\\{\\{.*(\n)?", "")
-                                      .replaceAll("(?s)(\n)?(\t| )*\\}\\}\\}", "");
+           return match.group().trim().replaceAll( "(?i)" + part.name()               +
+                                                   "(\t| |\n)*.*\\{\\{\\{.*(\n)?", "" )
+                                      .replaceAll("\\}\\}\\}", "")                    ;
+                                     /*
+                                      .replaceAll("(?s)(\n)?(\t| |\n)*\\}\\}\\}", "") ;
+                                     */
         }
         return "" ;
     }
     
     public static String readFile ( String path ) {
         try {
-              return new String( Files.readAllBytes(Paths.get(path)),
-                                 StandardCharsets.UTF_8 ) .replaceAll("(?m)^[ \t]*\r?\n", "") ;
+              return new String( Files.readAllBytes(Paths.get(path)) ,
+                                 StandardCharsets.UTF_8 ).trim()     ;
         } catch (IOException ex)           {
             throw new RuntimeException(ex) ;
         }
