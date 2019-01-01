@@ -57,7 +57,7 @@
 ```xml
   ./compile.sh
 ``` 
-A jar **jaxy-thorntail.jar** is created and copied into the folder **jaxy**
+A jar **jaxy-thorntail.jar** is created and copied into the folder **[jaxy](https://github.com/rac021/Jaxy/tree/master/jaxy)**
 
 ------------------------------------------------------
 
