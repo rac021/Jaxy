@@ -86,17 +86,15 @@ public class TemplateManager {
 
     private static String extractPart ( String template , PART part ) {
         
-        Pattern  pattern  =  Pattern.compile( MatcherPart.replace("PART", part.name()), 
-                                              Pattern.DOTALL )        ;
+        Pattern  pattern  = attern.compile( MatcherPart.replace("PART", part.name())  , 
+                                              Pattern.DOTALL )                        ;
         
-        Matcher match = pattern.matcher(template) ;
+        Matcher match     = pattern.matcher(template)                                 ;
+        
         if (match.find()) {
            return match.group().trim().replaceAll( "(?i)" + part.name()               +
                                                    "(\t| |\n)*.*\\{\\{\\{.*(\n)?", "" )
-                                      .replaceAll("\\}\\}\\}", "")                    ;
-                                     /*
-                                      .replaceAll("(?s)(\n)?(\t| |\n)*\\}\\}\\}", "") ;
-                                     */
+                                      .replaceAll("(\n)?(\t| )*.*\\}\\}\\}", "")      ;
         }
         return "" ;
     }
