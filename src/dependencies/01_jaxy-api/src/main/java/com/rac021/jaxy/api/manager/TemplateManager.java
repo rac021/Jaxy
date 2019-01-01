@@ -21,7 +21,7 @@ public class TemplateManager {
     final static Pattern  PATTERN  =  Pattern.compile( "\\{\\{(.*?)\\}\\}" , 
                                                        Pattern.DOTALL )     ;
    
-    static String MatcherPart = "(?i)PART(\t| )*\\{\\{\\{(\t| |\n)*.*?(\\}\\}\\})" ;
+    static String MatcherPart = "(?i)PART(\t| |\n)*\\{\\{\\{(\t| |\n)*.*?(\\}\\}\\})" ;
     
     enum PART { HEADER, BODY, FOOTER }                                             ;
     
