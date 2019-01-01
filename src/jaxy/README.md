@@ -1,15 +1,19 @@
-# Jaxy  <img src="https://cloud.githubusercontent.com/assets/7684497/25315596/e191fb00-2857-11e7-99bf-8e233b4eb795.jpg" width="50"> [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT) 
+# Jaxy  <img src="https://cloud.githubusercontent.com/assets/7684497/25315596/e191fb00-2857-11e7-99bf-8e233b4eb795.jpg" width="50"> [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
+
 
 
 | Branch    | build status  |
 |-----------|---------------|
-| [master](https://github.com/rac021/Jaxy/tree/master/src/jaxy)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/Jaxy/src/jaxy)|
-
+| [master](https://github.com/rac021/Jaxy/tree/master)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/Jaxy)|
 
 
  **Jaxy** is Generic Jax-Rs web Service based over yaml configuration implementing the project  **[Jaxy-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)**
 
-**SourceForge Download Link** : **[https://sourceforge.net/projects/jax-y/?source=typ_redirect]( https://sourceforge.net/projects/jax-y/?source=typ_redirect)** 
+**SourceForge Download Link** : **[https://sourceforge.net/projects/jaxy/?source=typ_redirect]( https://sourceforge.net/projects/jaxy/?source=typ_redirect)** 
+
+---------------------------------------------------------------------------------
+
+[ Take a look at Jaxy ( Features ) ](https://github.com/rac021/Jaxy/tree/master/docs)
 
 
 ------------------------------------------------------
@@ -25,7 +29,7 @@
 - **Default Security Provider Implementation :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-security-provider]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) 
    
-- **Default Client-Api :**
+- **Default Jaxy-Client-Api ( Downloadable from Jaxy Web-UI ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxyClient-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/05_jaxyClient) 
    
 - **GUI :**
@@ -45,15 +49,16 @@
 ## installation
 
 ```xml
-  mvn clean package 
-```  
+  mvn clean package
+``` 
+java -jar target/jaxy-thorntail.jar
+
 ------------------------------------------------------
 
 ## Demo 
 
 ```xml
-  
-  
+   
 
 ```  
 
@@ -63,3 +68,4 @@
 
 
 ============================
+
