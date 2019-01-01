@@ -32,7 +32,7 @@
 - **Default Security Provider Implementation :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-security-provider]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) 
    
-- **Default Client-Api :**
+- **Default Embedded-Client :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxyClient-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/05_jaxyClient) 
    
 - **GUI :**
