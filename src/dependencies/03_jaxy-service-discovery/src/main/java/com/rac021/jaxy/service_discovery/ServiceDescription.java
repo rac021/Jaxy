@@ -47,14 +47,14 @@ import com.rac021.jaxy.api.manager.TemplateManager ;
        
         String templateHeader = TemplateManager.extractHeader( template )    ;
      
-        String templateBody   = TemplateManager.removeMultipleBlankSpaces (
-                                  TemplateManager.extractBody ( template ))  ;
+        String templateBody   = TemplateManager.removeMultipleBlankSpaces    (
+                                  TemplateManager.extractBody ( template ) ) ;
       
         String templateFooter = TemplateManager.extractFooter( template )    ;
        
-        this.template     = template != null ? templateHeader +
-                                               templateBody   +
-                                               templateFooter : null         ;
+        this.template         = template != null ? templateHeader +
+                                                   templateBody   +
+                                                   templateFooter : null     ;
     }
     
     public ServiceDescription()    {
