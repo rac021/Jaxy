@@ -47,7 +47,8 @@ import javax.xml.bind.annotation.XmlRootElement ;
                             template.replaceAll("(?i)header *\\{\\{\\{ *\n", "")
                                     .replaceAll("(?i)body *\\{\\{\\{ *\n", "")
                                     .replaceAll("(?i)footer *\\{\\{\\{ *\n", "")
-                                    .replaceAll("\\}\\}\\} *\n", "") : null    ;
+                                    .replaceAll("\\}\\}\\}*", "")
+                                    .trim() : null                             ;
     }
     
     public ServiceDescription()    {
