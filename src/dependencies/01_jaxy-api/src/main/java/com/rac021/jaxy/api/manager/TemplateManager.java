@@ -99,7 +99,8 @@ public class TemplateManager {
     
     public static String readFile ( String path ) {
         try {
-            return new String( Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8 ) ;
+              return new String( Files.readAllBytes(Paths.get(path)),
+                                 StandardCharsets.UTF_8 ) .replaceAll("(?m)^[ \t]*\r?\n", "") ;
         } catch (IOException ex)           {
             throw new RuntimeException(ex) ;
         }
