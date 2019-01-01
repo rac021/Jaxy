@@ -3,13 +3,15 @@
  <DATAS>  
  }}} 
 
- body {{{ 
+ body {{{
+ 
   <data>
      "Model"   : "{{ model }}"
      "Distance": "{{ distance_km }}"
-  </data>
+  </data>     
  }}}
 
- footer {{{  
+ footer {{{ 
+ 
  </DATAS>
  }}}
