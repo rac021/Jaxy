@@ -4,7 +4,7 @@
 
 ============================
 
-# Jaxy 2 ( Features ) :
+# Jaxy ( Features ) :
 
 #### Fault tolerance integration : Circuit Breaker, Fallback, Bulkhead, metrics, health check :
 
