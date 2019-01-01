@@ -1,17 +1,15 @@
 
- header {{{
+ header {{{ 
  <DATAS>  
  }}} 
 
- body {{{
- 
-  <data>
-     "Model"   : "{{ model }}"
-     "Distance": "{{ distance_km }}"
-  </data>     
+ body {{{ 
+    <data>
+       "Model"   : "{{ model }}"
+       "Distance": "{{ distance_km }}"
+    </data>   
  }}}
 
  footer {{{ 
- 
- </DATAS>
+ </DATAS> 
  }}}
