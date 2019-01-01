@@ -1,7 +1,5 @@
 # Jaxy
 
-[ Take a look at Jaxy-2 ( Features ) ](https://github.com/rac021/Jaxy/tree/master/docs)
-
 =============================================================================
 
 # Jaxy  <img src="https://cloud.githubusercontent.com/assets/7684497/25315596/e191fb00-2857-11e7-99bf-8e233b4eb795.jpg" width="50"> [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
@@ -13,10 +11,13 @@
 | [master](https://github.com/rac021/Jaxy/tree/master)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/Jaxy)|
 
 
-
  **Jaxy** is Generic Jax-Rs web Service based over yaml configuration implementing the project  **[Jaxy-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)**
 
 **SourceForge Download Link** : **[https://sourceforge.net/projects/jaxy/?source=typ_redirect]( https://sourceforge.net/projects/jaxy/?source=typ_redirect)** 
+
+---------------------------------------------------------------------------------
+
+[ Take a look at Jaxy-2 ( Features ) ](https://github.com/rac021/Jaxy/tree/master/docs)
 
 
 ------------------------------------------------------
