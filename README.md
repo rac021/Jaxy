@@ -18,22 +18,26 @@
 
 ------------------------------------------------------
 
-**Linked Projects :** 
+**Linked Projects and structure :** 
 
-- **Api :**
+- **Api : ( Directory : [src/dependencies/01_jaxy-api](https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api) ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)
 
-- **Default Service Discovery Implementation :**
+- **Default Security Provider Implementation ( Directory : [src/dependencies/02_jaxy-security-provider](https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) ) :**
+   * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-security-provider]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) 
+     
+- **Default Service Discovery Implementation  ( Directory : [src/dependencies/03_jaxy-service-discovery](https://github.com/rac021/Jaxy/tree/master/src/dependencies/03_jaxy-service-discovery) ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-service-discovery]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/03_jaxy-service-discovery) 
 
-- **Default Security Provider Implementation :**
-   * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-security-provider]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) 
-   
-- **Default Jaxy-Client-Api ( Downloadable from Jaxy Web-UI ) :**
+- **CertMe ( Lets's Encrypt Certificate Generator ) ( Directory : [src/dependencies/04_certMe](https://github.com/rac021/Jaxy/tree/master/src/dependencies/04_certMe) ) :**
+   * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/certMe]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/04_certMe) 
+
+- **Default Jaxy-Client-Api ( Downloadable from Jaxy Web-UI ) ( Directory : [src/dependencies/05_jaxyClient](https://github.com/rac021/Jaxy/tree/master/src/dependencies/05_jaxyClient) ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxyClient-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/05_jaxyClient) 
    
-- **GUI :**
+- **GUI ( Directory : [src/bonus/JaxyClientUi](https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi) ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi]( https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi) 
+
 
 
 **Requirements :**
@@ -51,7 +55,7 @@
 ```xml
   ./compile.sh
 ``` 
-The jar jaxy-thorntail.jar is copied into the folder jaxy
+A jar **jaxy-thorntail.jar** is created and copied into the folder **jaxy**
 
 ------------------------------------------------------
 
