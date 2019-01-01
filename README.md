@@ -20,6 +20,9 @@
 
 **Linked Projects and structure :** 
 
+- **Jaxy ( Java Project ) ( Directory : [src/jaxy](https://github.com/rac021/Jaxy/tree/master/src/jaxy) ) :**
+   * [https://github.com/rac021/Jaxy/tree/master/src/jaxy]( https://github.com/rac021/Jaxy/tree/master/src/jaxy) 
+      
 - **Jaxy-Api : ( Directory : [src/dependencies/01_jaxy-api](https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api) ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)
 
@@ -37,7 +40,6 @@
    
 - **GUI ( Directory : [src/bonus/JaxyClientUi](https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi) ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi]( https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi) 
-
 
 
 **Requirements :**
