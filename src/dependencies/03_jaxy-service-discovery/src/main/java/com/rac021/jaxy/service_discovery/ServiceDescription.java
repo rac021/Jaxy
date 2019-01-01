@@ -5,6 +5,7 @@ import java.util.Map ;
 import java.util.Set ;
 import javax.xml.bind.annotation.XmlType ;
 import javax.xml.bind.annotation.XmlRootElement ;
+import com.rac021.jaxy.api.manager.TemplateManager ;
 
 /**
  *
@@ -43,12 +44,17 @@ import javax.xml.bind.annotation.XmlRootElement ;
         this.accepts      = accepts    ;
         this.ciphers      = ciphers    ;
         this.maxThreads   = maxThreads ;
-        this.template     = template != null ?
-                            template.replaceAll("(?i)header *\\{\\{\\{ *\n", "")
-                                    .replaceAll("(?i)body *\\{\\{\\{ *\n", "")
-                                    .replaceAll("(?i)footer *\\{\\{\\{ *\n", "")
-                                    .replaceAll("\\}\\}\\}*", "")
-                                    .trim() : null                             ;
+       
+        String templateHeader = TemplateManager.extractHeader( template )    ;
+     
+        String templateBody   = TemplateManager.removeMultipleBlankSpaces (
+                                  TemplateManager.extractBody ( template ))  ;
+      
+        String templateFooter = TemplateManager.extractFooter( template )    ;
+       
+        this.template     = template != null ? templateHeader +
+                                               templateBody   +
+                                               templateFooter : null         ;
     }
     
     public ServiceDescription()    {
@@ -71,15 +77,15 @@ import javax.xml.bind.annotation.XmlRootElement ;
     }
 
     public Map<String, String> getParams() {
-        return params ;
+        return params   ;
     }
 
     public void setParams(Map<String, String> params) {
-        this.params = params ;
+        this.params = params   ;
     }
 
     public Set<String> getCiphers() {
-        return ciphers ;
+        return ciphers         ;
     }
 
     public void setCiphers(Set<String> ciphers)   {
@@ -87,7 +93,7 @@ import javax.xml.bind.annotation.XmlRootElement ;
     }
 
     public Set<String> getAccepts() {
-        return accepts ;
+        return accepts         ;
     }
 
     public void setAccepts(Set<String> accepts)   {
@@ -95,15 +101,15 @@ import javax.xml.bind.annotation.XmlRootElement ;
     }
 
     public Integer getMaxThreads() {
-        return maxThreads ;
+        return maxThreads      ;
     }
 
     public void setMaxThreads(Integer maxThreads) {
         this.maxThreads = maxThreads ;
     }
 
-    public String getTemplate()   {
-        return template ;
+    public String getTemplate()      {
+        return template       ;
     }
 
     public void setTemplate(String template) {
