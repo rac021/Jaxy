@@ -20,7 +20,7 @@
 
 **Linked Projects and structure :** 
 
-- **Api : ( Directory : [src/dependencies/01_jaxy-api](https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api) ) :**
+- **Jaxy-Api : ( Directory : [src/dependencies/01_jaxy-api](https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api) ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)
 
 - **Default Security Provider Implementation ( Directory : [src/dependencies/02_jaxy-security-provider](https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) ) :**
