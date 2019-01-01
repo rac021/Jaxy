@@ -38,8 +38,8 @@
 - **Default Jaxy-Client-Api ( Downloadable from Jaxy Web-UI ) ( Directory : [src/dependencies/05_jaxyClient](https://github.com/rac021/Jaxy/tree/master/src/dependencies/05_jaxyClient) ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxyClient-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/05_jaxyClient) 
    
-- **GUI ( Directory : [src/bonus/JaxyClientUi](https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi) ) :**
-   * [https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi]( https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi) 
+- **GUI ( Directory : [src/add-on/JaxyClientUi](https://github.com/rac021/Jaxy/tree/master/src/add-on/JaxyClientUi) ) :**
+   * [https://github.com/rac021/Jaxy/tree/master/src/add-on/JaxyClientUi]( https://github.com/rac021/Jaxy/tree/master/src/add-on/JaxyClientUi) 
 
 
 **Requirements :**
