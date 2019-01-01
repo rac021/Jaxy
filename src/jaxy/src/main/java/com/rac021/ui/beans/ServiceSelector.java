@@ -99,7 +99,7 @@ public class ServiceSelector implements Serializable  {
         return this.selectedService != null                  ?
                this.selectedService.getTemplate() != null    ?
                this.selectedService.getTemplate()
-                   .split("\r\n|\r|\n").length - 2 : 2 : 2   ;
+                   .split("\r\n|\r|\n").length - 1 : 2 : 2   ;
     }
 
     public String getSelectedServiceMaxThreads() {
