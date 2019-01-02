@@ -86,7 +86,7 @@ public class TemplateManager {
 
     private static String extractPart ( String template , PART part ) {
         
-        Pattern  pattern  = attern.compile( MatcherPart.replace("PART", part.name())  , 
+        Pattern  pattern  = Pattern.compile( MatcherPart.replace("PART", part.name()) , 
                                               Pattern.DOTALL )                        ;
         
         Matcher match     = pattern.matcher(template)                                 ;
