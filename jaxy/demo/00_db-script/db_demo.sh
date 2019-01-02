@@ -1,8 +1,8 @@
 #!/bin/bash
  
-  DATABASE="aero"
+  DATABASE="aviation"
   
-  # The USER which is used by Jax-Y
+  # The USER which is used by Jaxy
   DB_USER_CONNECTION="jaxy_user"
   DB_PASSWORD_CONNECTION="jaxy_password"
  
@@ -12,7 +12,7 @@
   
   LOGIN_COLUMN_NAME="login"
   PASSWORD_COLUMN_NAME="password"
-  STORAGE_PASSWORD_ALGO="MD5"
+  STORAGE_PASSWORD_ALGO="MD5" # or SHA2
   
   ## Users Example
   #### User One  
@@ -121,14 +121,15 @@
   
   
   
-    CREATE TABLE $TABLE_NAME_EXAMPLE ( model            varchar(255) ,
-                                       total_passengers integer      ,
-                                       distance_km      integer      , 
-                                       speed_km_h       integer      ,
-                                       cost_euro        integer      ,
+  CREATE TABLE $TABLE_NAME_EXAMPLE ( model            varchar(255) ,
+                                     total_passengers integer      ,
+                                     distance_km      integer      , 
+                                     speed_km_h       integer      ,
+                                     cost_euro        integer      ,
 
-                                       CONSTRAINT pk_aircraft PRIMARY KEY ( model )
+                                     CONSTRAINT pk_aircraft PRIMARY KEY ( model )
   ) ;
+  
   -- Source http://avions.findthebest.fr
   
   INSERT INTO aircraft VALUES ( 'Tupolev TU-414A'             , 26   , 15575 , 900  , 17  ) ;
