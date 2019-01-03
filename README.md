@@ -67,8 +67,8 @@ A jar **jaxy-thorntail.jar** is created and copied into the folder **[jaxy](http
 
  -  ## [ 1. Installing the demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script)
 
+ -  ## [ 2. Public_services ( Minimalist configuration file )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services)
   
-
 ------------------------------------------------------
 
 
