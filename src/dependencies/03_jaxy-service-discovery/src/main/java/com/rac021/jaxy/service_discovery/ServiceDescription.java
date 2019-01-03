@@ -45,16 +45,21 @@ import com.rac021.jaxy.api.manager.TemplateManager ;
         this.ciphers      = ciphers    ;
         this.maxThreads   = maxThreads ;
        
-        String templateHeader = TemplateManager.extractHeader( template )    ;
-     
-        String templateBody   = TemplateManager.removeMultipleBlankSpaces    (
-                                  TemplateManager.extractBody ( template ) ) ;
-      
-        String templateFooter = TemplateManager.extractFooter( template )    ;
-       
-        this.template         = template != null ? templateHeader +
-                                                   templateBody   +
-                                                   templateFooter : null     ;
+        if ( template != null && ! template.trim().isEmpty() )                  {
+            
+            String templateHeader = TemplateManager.extractHeader( template )   ;
+
+            String templateBody   = TemplateManager.removeMultipleBlankSpaces (
+                                      TemplateManager.extractBody ( template )) ;
+
+            String templateFooter = TemplateManager.extractFooter( template )   ;
+
+                this.template     = templateHeader + "\n" +
+                                    templateBody   + "\n" +
+                                    templateFooter        ;
+        } else {
+            this.template = null                          ;
+        }
     }
     
     public ServiceDescription()    {
