@@ -27,7 +27,7 @@ password        : jaxy_password                        # Password
 ### SERVICES ############################
 #########################################
 
-Services :
+Services :        # List of the Services
  - planes  :      # Service One ( Named planes )
      Query : >    # The SQL Query
              SELECT model , total_passengers , distance_km  
