@@ -582,11 +582,13 @@ public class YamlConfigurator implements IConfigurator      {
                                     Policy.Public.name().toLowerCase() ) ;
     }
 
-    public String getTemplateUri(String serviceCode)       {
+    public String getTemplateUri(String serviceCode )          {
         
-        return getAbsolutePath ( (String) 
-                         ( (Map) getService( serviceCode ) )
-                         .get(TEMPLATE_URI))               ; 
+      return ( serviceCode == null || serviceCode.isEmpty() )  ?
+              null : 
+              getAbsolutePath ( (String) 
+                             ( (Map) getService( serviceCode ) )
+                               .get(TEMPLATE_URI))             ; 
     }
        
     public String getPathConfig() {
