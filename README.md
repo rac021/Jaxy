@@ -52,7 +52,7 @@
 
 -----------------------------------------------------
 
-## installation
+## installation [ ( watch the demo ) ](https://www.youtube.com/watch?v=6IqxzSankpw&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&index=1)
 
 ```xml
   ./compile.sh
