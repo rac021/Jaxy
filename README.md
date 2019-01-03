@@ -65,16 +65,13 @@ A jar **jaxy-thorntail.jar** is created and copied into the folder **[jaxy](http
 
 ## Demo 
 
-```xml
-  
+ -  ## [ 1. Installing th demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script)
+
   
 
-```  
+------------------------------------------------------
 
 
   [Talk_2017_PasSageEnSeine]( https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf
 ) ( PDF ) 
-
-
-============================
 
