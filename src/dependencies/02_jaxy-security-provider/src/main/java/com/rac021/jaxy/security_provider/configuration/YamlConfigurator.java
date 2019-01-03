@@ -1010,9 +1010,11 @@ public class YamlConfigurator implements IConfigurator      {
 
     private static String getAbsolutePath( String path ) {
       
-      return 
-         PathCalculator.getAbsolutPathFromRelatifPathFor( path                , 
-                                                          SERVICE_CONF_PATH ) ;
+      return ( path == null || path.isEmpty() )  ?
+               null : 
+               PathCalculator.
+                    getAbsolutPathFromRelatifPathFor( path                , 
+                                                      SERVICE_CONF_PATH ) ;
     }
       
     private void setSessionTimeOut()                               {
