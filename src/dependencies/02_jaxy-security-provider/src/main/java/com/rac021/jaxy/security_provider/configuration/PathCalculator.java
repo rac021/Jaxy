@@ -14,8 +14,9 @@ public class PathCalculator {
     public static String getAbsolutPathFromRelatifPathFor ( String relativePath ,
                                                             String absolutePath ) {
      
-        Path pathBase     = Paths.get(relativePath)     ;
-        Path pathAbsolute = Paths.get(absolutePath)     ;
+        if( relativePath == null || relativePath.isEmpty() ) return null ;
+        Path pathBase     = Paths.get(relativePath)                      ;
+        Path pathAbsolute = Paths.get(absolutePath)                      ;
         
         return pathAbsolute.resolve(pathBase).normalize()
                            .toString()                  ;
