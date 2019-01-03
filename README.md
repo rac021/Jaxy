@@ -59,6 +59,8 @@
 ``` 
 A jar **jaxy-thorntail.jar** is created and copied into the folder **[jaxy](https://github.com/rac021/Jaxy/tree/master/jaxy)**
 
+  [![Watch the video](https://user-images.githubusercontent.com/7684497/50618868-c831e400-0ef5-11e9-8049-84d5c4566fb8.jpg)](https://www.youtube.com/watch?v=6IqxzSankpw&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&index=1)
+  
 ------------------------------------------------------
 
 ## Demo 
