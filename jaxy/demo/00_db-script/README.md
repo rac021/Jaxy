@@ -1,7 +1,4 @@
 
-
-
-
  ## Installing The Demo Database
 
   1 - Goto the directory  **jaxy/demo/00_db-script**
