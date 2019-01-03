@@ -544,10 +544,11 @@ public class YamlConfigurator implements IConfigurator      {
     public Integer getMaxThreadsByServiceCode( String serviceCode )   { 
      
        String  maxTh = ( (String) ( (Map) getService( serviceCode )   )
-                         .get(MAX_THREADS)).replaceAll(" +", " ")     ;
+                         .get(MAX_THREADS))     ;
         
-       return ( (maxTh != null ) && ( ! maxTh.isEmpty() ) ) ?
-              Integer.parseInt ( maxTh )   :  null          ;
+       return ( (maxTh != null ) && ( ! maxTh.trim().isEmpty() ) )    ?
+              Integer.parseInt ( maxTh.replaceAll(" +", " ") )  : 
+              null                                              ;
     }
     
     public List<Map<String, Object>> getServices()  { 
