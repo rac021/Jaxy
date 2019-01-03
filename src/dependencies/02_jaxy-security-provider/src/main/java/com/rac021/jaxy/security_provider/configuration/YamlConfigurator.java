@@ -266,7 +266,7 @@ public class YamlConfigurator implements IConfigurator      {
             keycloakFile = getAbsolutePath( keycloakPath ) ;
               
             keycloakUrl   =  (String) ((Map)this.configuration
-                                                .get(AUTHENTICATION) ).get( KEYCLOAKURL )
+                                                .get(AUTHENTICATION) ).get( KEYCLOAKURL  )
                                                 .toString().replaceAll(" +", " ").trim() ; 
          }
       }
@@ -499,13 +499,14 @@ public class YamlConfigurator implements IConfigurator      {
        if ((getConfiguration().get(SSL_MODE)) != null )           {
         
         String sslMod = (String )getConfiguration().get(SSL_MODE) ;
+           
         if( sslMod.equalsIgnoreCase(SslMode.SELF_SSL.name())     ||
             sslMod.equalsIgnoreCase(SslMode.LETS_ENCRYPT.name()) ||
-            sslMod.equalsIgnoreCase(SslMode.PROVIDED_SSL.name())  ) {
-        
-             YamlConfigurator.sslMode = SslMode.valueOf(sslMod) ;
+            sslMod.equalsIgnoreCase(SslMode.PROVIDED_SSL.name())  ) 
+        {
+              YamlConfigurator.sslMode = SslMode.valueOf(sslMod)  ;
         } else {
-             YamlConfigurator.sslMode =  SslMode.SELF_SSL ;
+              YamlConfigurator.sslMode =  SslMode.SELF_SSL        ;
         }
         
        }
@@ -520,18 +521,18 @@ public class YamlConfigurator implements IConfigurator      {
                                   .get(CERT_PATH)  ) ;
       }
       
-      if((getConfiguration().get(KEY_STORE_PASSWORD)) != null ) {
+      if((getConfiguration().get(KEY_STORE_PASSWORD)) != null )  {
          this.keyStorePassword = (String) getConfiguration()
                                  .get(KEY_STORE_PASSWORD) ;
       }
       
-      if((getConfiguration().get(KEY_PASSWORD)) != null )       {
+      if((getConfiguration().get(KEY_PASSWORD)) != null )        {
          this.keyPassword = (String) getConfiguration()
                             .get(KEY_PASSWORD) ;
       }
       
-      if((getConfiguration().get(ALIAS)) != null )              {
-        this.alias = (String) getConfiguration().get(ALIAS)     ;
+      if((getConfiguration().get(ALIAS)) != null )               {
+        this.alias = (String) getConfiguration().get(ALIAS)      ;
       }
     }
   
@@ -540,11 +541,13 @@ public class YamlConfigurator implements IConfigurator      {
         return validRequestTimeout       ;
     }
     
-    public Integer getMaxThreadsByServiceCode( String serviceCode ) { 
+    public Integer getMaxThreadsByServiceCode( String serviceCode )   { 
      
-      return Integer.parseInt ( 
-                 ( (String) ( (Map) getService( serviceCode ) )
-                       .get(MAX_THREADS)).replaceAll(" +", " ") )   ; 
+       String  maxTh = ( (String) ( (Map) getService( serviceCode )   )
+                         .get(MAX_THREADS)).replaceAll(" +", " ")     ;
+        
+       return ( (maxTh != null ) && ( ! maxTh.isEmpty() ) ) ?
+              Integer.parseInt ( maxTh )   :  null          ;
     }
     
     public List<Map<String, Object>> getServices()  { 
@@ -631,8 +634,8 @@ public class YamlConfigurator implements IConfigurator      {
         return keycloakFile       ;
     }
     
-    public String getKeycloakUrl()     {
-        return keycloakUrl       ;
+    public String  getKeycloakUrl()    {
+        return keycloakUrl        ;
     }
           
     public String getPasswordStorage() {
@@ -818,11 +821,14 @@ public class YamlConfigurator implements IConfigurator      {
       
     }
 
-    private void setDefaultMaxThreadsPerService() {
-        if((getConfiguration().get( DEFAULT_MAX_THREADS_PER_SERVICE)) != null )  {
-         this.defaultMaxThreadsPerService = 
+    private void setDefaultMaxThreadsPerService()              {
+        
+      if( ( getConfiguration()
+            .get( DEFAULT_MAX_THREADS_PER_SERVICE)) != null )  {
+      
+          this.defaultMaxThreadsPerService = 
                  Integer.parseInt((String) getConfiguration()
-                       .get(DEFAULT_MAX_THREADS_PER_SERVICE))   ;
+                        .get(DEFAULT_MAX_THREADS_PER_SERVICE)) ;
        }
     }
  
