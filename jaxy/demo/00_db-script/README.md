@@ -1,5 +1,5 @@
 
- ## Installing The Demo Database
+ ## Installing The Demo Database [ ( watch the demo ) ](https://www.youtube.com/watch?v=9HhyiNcwFi0&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&index=2)
 
   1 - Goto the directory  **jaxy/demo/00_db-script**
                   
