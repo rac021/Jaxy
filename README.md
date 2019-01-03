@@ -67,39 +67,39 @@ A jar **jaxy-thorntail.jar** is created and copied into the folder **[jaxy](http
 
  -  ### [ 00. Installing the demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script)
  
- -  ### [ 01. Public_services ( Minimalist configuration file )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services)
+ -  ### [ 01. Public_services ( Minimalist configuration file](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services)
  
- -  ### [ 02. Secured_services )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services)
+ -  ### [ 02. Secured_services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services)
  
  -  ### [ 03. UI )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/03_ui)
  
- -  ### [ 04. Test scripts for Public Services )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/04_test_scripts_for_public_services)
+ -  ### [ 04. Test scripts for Public Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/04_test_scripts_for_public_services)
  
- -  ### [ 05. Test scripts_for_Secured_Services )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/05_test_scripts_for_secured_services)
+ -  ### [ 05. Test scripts_for_Secured_Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/05_test_scripts_for_secured_services)
   
- -  ### [ 06. Test scripts_for_Decryption )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/06_test_scripts_for_decryption)
+ -  ### [ 06. Test scripts_for_Decryption](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/06_test_scripts_for_decryption)
   
- -  ### [ 07. Test_Templating )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/07_test_templating)
+ -  ### [ 07. Test_Templating](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/07_test_templating)
  
- -  ### [ 08. Test java Client_for Public Services )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/08_test_java_client_for_public_services)
+ -  ### [ 08. Test java Client_for Public Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/08_test_java_client_for_public_services)
   
- -  ### [ 09. Test java Client_for Secured_Services )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/09_test_java_client_for_secured_services)
+ -  ### [ 09. Test java Client_for Secured_Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/09_test_java_client_for_secured_services)
  
- -  ### [ 10. Test java Client_for Decryption )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/10_test_java_client_for_decryption)
+ -  ### [ 10. Test java Client_for Decryption](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/10_test_java_client_for_decryption)
  
- -  ### [ 11. Test keycloak authentication )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/11_test_keycloak_authentication)
+ -  ### [ 11. Test keycloak authentication](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/11_test_keycloak_authentication)
  
- -  ### [ 12. Test scripts keycloak )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/12_test_scripts_keycloak)
+ -  ### [ 12. Test scripts keycloak](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/12_test_scripts_keycloak)
  
- -  ### [ 13. Test java Client keycloak )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/13_test_java_client_keycloak)
+ -  ### [ 13. Test java Client keycloak](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/13_test_java_client_keycloak)
  
- -  ### [ 14. Test CustomSignOn Auth from Ui )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/14_test_CustomSignOn_Auth_from_Ui)
+ -  ### [ 14. Test CustomSignOn Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/14_test_CustomSignOn_Auth_from_Ui)
 
- -  ### [ 15. Test CustomSignOn Auth from Ui )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/15_test_KeyCloak_Auth_from_Ui)
+ -  ### [ 15. Test CustomSignOn Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/15_test_KeyCloak_Auth_from_Ui)
 
- -  ### [ 16. Test Monitoring )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring)
+ -  ### [ 16. Test Monitoring](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring)
 
- -  ### [ 17. Test letsEncrypt )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/17_test_letsEncrypt)
+ -  ### [ 17. Test letsEncrypt](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/17_test_letsEncrypt)
  
 ------------------------------------------------------
 
