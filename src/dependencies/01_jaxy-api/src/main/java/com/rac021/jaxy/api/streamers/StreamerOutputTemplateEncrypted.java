@@ -245,7 +245,7 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
             LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
         }
         finally {
-            System.out.println(" CLOSE WRITER AND BAOSTREAM") ;
+            LOGGER.log( Level.CONFIG, " StreamerOutputTemplateEncrypted : CLOSE WRITER AND BAOSTREAM")   ;
             isFinishedProcess = true        ;
             ISignOn.SERVICE_NAME.remove()   ;
             ISignOn.ENCRYPTION_KEY.remove() ;
@@ -260,10 +260,10 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
     }
 
     @Override
-    public StreamerOutputTemplateEncrypted wrapResource( IResource resource     , 
-                                                          Class dto             ,
-                                                          String filteredIndexs ,
-                                                          MultivaluedMap<String , String> ... sqlParams ) {
+    public StreamerOutputTemplateEncrypted wrapResource( IResource resource    , 
+                                                         Class dto             ,
+                                                         String filteredIndexs ,
+                                                         MultivaluedMap<String , String> ... sqlParams ) {
         rootResourceWraper(resource, dto, filteredIndexs, sqlParams) ;
         return this                                                  ;
     }
