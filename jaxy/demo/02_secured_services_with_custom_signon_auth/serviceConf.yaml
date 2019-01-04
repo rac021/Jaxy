@@ -9,7 +9,7 @@
 
 
 #######################################################
-###### Mandatory Settings #############################
+###### Mandatory Settings #############################
 #######################################################
 
 #########################################
@@ -17,23 +17,56 @@
 ### DataBase ############################
 #########################################
 
-driverClassName : org.postgresql.Driver
-connectionUrl   : jdbc:postgresql://127.0.0.1/aero
-userName        : jaxy_user
-password        : jaxy_password
+driverClassName : org.postgresql.Driver                # Database Driver
+connectionUrl   : jdbc:postgresql://127.0.0.1/aviation # Database URL
+userName        : jaxy_user                            # UserName 
+password        : jaxy_password                        # Password
 
 #########################################
 #########################################
 ### SERVICES ############################
 #########################################
 
-Services :
- - planes  :
-     Query : > 
-            SELECT model , total_passengers , distance_km  
-            FROM aircraft
+Services :        # List of the Services
+ - planes  :      # Service One ( Named planes )
+     Query : >    # The SQL Query
+             SELECT model , total_passengers , distance_km  
+             FROM aircraft
      MaxThreads : 2
- - vip_planes :
-     Query : > 
-            SELECT * FROM aircraft
-     MaxThreads : 2
+ - vip_planes :   # Service Two ( Named vip_planes )
+     Query : >    # The SQL Query  
+             SELECT * FROM aircraft
+     MaxThreads : 2     
+     
+authentication :        # Enable Security 
+
+  type : customSignOn   # Authentication mode = customSignOn  
+  
+  secured       :       # List The Services That will be secured
+  
+    vip_planes  :       # The VIP_PLANE Service 
+      Accept    : [ Xml/Plain      , 
+                    Xml/Encrypted  ,
+                    Json/Plain     , 
+                    Json/Encrypted ]  # MediaType ( Produced format )
+      Ciphers   : [ AES_128_CBC  , 
+                    AES_128_ECB  , 
+                    AES_256_CBC  , 
+                    AES_256_ECB  ]    # Cipher that can be used to encrypt data 
+                    
+  credentials   :  # The Table used for authentication 
+    tableName          : users  # The table created by the script in the database aviation
+    loginColumnName    : login  # The column Name 
+    passwordColumnName : password -> MD5  # Here we say that column where passwords are stored is named password 
+                                          # And these passwords are stored in MD5 format in the database
+  
+  paramToSign :  # How Queries are signed 
+    login     : PLAIN   # function = PLAIN ( login )
+    password  : MD5     # function = MD5 ( password ) ( is Equal to the Hash used in passwordColumnName )
+    timeStamp : PLAIN   # function = PLAIN( timeStamp ) 
+    
+  algoSign    : SHA2    # Signature = SHA2 ( PLAIN ( login ) + MD5 ( password ) + PLAIN( timeStamp ) )
+  
+  validRequestTimeout : 5 # Request Validity in seconds ( Default : 30 S )
+ 
+ 
