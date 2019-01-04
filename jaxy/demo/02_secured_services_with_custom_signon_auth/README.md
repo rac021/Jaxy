@@ -30,4 +30,6 @@ Table ( **users** ) in the **aviation database** ( created by the **script db_sc
 
 -----------------------------------------------------------
 
+Jaxy is called using an HTTP Query with the header **API-Key-Token** which contains the signature 
+
 ![jaxy_calculatore_02](https://user-images.githubusercontent.com/7684497/50697672-2fa97a00-1043-11e9-9314-324264611c1d.jpg)
