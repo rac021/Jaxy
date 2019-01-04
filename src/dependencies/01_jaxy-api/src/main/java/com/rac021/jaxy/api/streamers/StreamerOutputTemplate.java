@@ -129,7 +129,7 @@ public class StreamerOutputTemplate extends Streamer implements StreamingOutput 
             LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
         
         } finally {
-            System.out.println(" CLOSE WRITER AND BAOSTREAM") ;
+            LOGGER.log( Level.CONFIG, " StreamerOutputTemplate : CLOSE WRITER AND BAOSTREAM")   ;
             isFinishedProcess = true      ;
             ISignOn.SERVICE_NAME.remove() ;
             writer.close()                ;
