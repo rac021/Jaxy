@@ -77,4 +77,5 @@ authentication :        # Enable Security
                        
 
   validRequestTimeout : 5 # Request Validity in seconds ( Default : 30 S )
- 
+                          # beyond 5 seconds, the request will be rejected by jaxy
+
