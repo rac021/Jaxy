@@ -215,7 +215,7 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
             LOGGER.log(Level.SEVERE, null, ex) ;
         }
         finally {
-           System.out.println(" CLOSE WRITER AND BAOSTREAM") ;
+           LOGGER.log( Level.CONFIG, " StreamerOutputXmlEncrypted : CLOSE WRITER AND BAOSTREAM " )  ;
            isFinishedProcess = true        ;
            ISignOn.SERVICE_NAME.remove()   ;
            ISignOn.ENCRYPTION_KEY.remove() ;
@@ -232,9 +232,9 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
 
     @Override
     public StreamerOutputXmlEncrypted wrapResource( IResource resource    ,
-                                                     Class dto             ,
-                                                     String filteredIndexs ,
-                                                     MultivaluedMap <String, String> ... sqlParams ) {
+                                                    Class dto             ,
+                                                    String filteredIndexs ,
+                                                    MultivaluedMap <String, String> ... sqlParams ) {
 
       rootResourceWraper( resource, dto, filteredIndexs, sqlParams) ;
       return this                                                   ;
