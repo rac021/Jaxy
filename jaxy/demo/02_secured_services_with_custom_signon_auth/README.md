@@ -13,12 +13,12 @@ Table ( **users** ) in the **aviation database** ( created by the **script db_sc
 
 ### The Configuration file :  
 
-![jaxy_signature](https://user-images.githubusercontent.com/7684497/50672853-bd9d4a80-0fda-11e9-866e-201066044304.png)
-
+![jaxy_signature_final](https://user-images.githubusercontent.com/7684497/50673350-592fba80-0fdd-11e9-9156-e87e6c6839ef.png)
 
 ```
         Login =  my_login            password =  my_password             timeStamp =   123456789
     
 ```
 
-![jaxy_signature_calcuclator](https://user-images.githubusercontent.com/7684497/50672733-2d5f0580-0fda-11e9-9b88-704d9278eaeb.jpg)
+![jaxy_signature_calcuclator](https://user-images.githubusercontent.com/7684497/50673452-18847100-0fde-11e9-83d6-f28653eb0688.jpg)
+
