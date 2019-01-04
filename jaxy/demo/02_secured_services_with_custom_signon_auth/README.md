@@ -20,6 +20,5 @@ Table ( **users** ) in the **aviation database** ( created by the **script db_sc
     
 ```
 
-![jaxy_signature_calcuclator](https://user-images.githubusercontent.com/7684497/50695677-a6dc0f80-103d-11e9-853f-c0a19bf89f9d.jpg)
-
+![jaxy_calculatore_01](https://user-images.githubusercontent.com/7684497/50696690-6cc03d00-1040-11e9-960d-e2dd63934b7f.jpg)
 
