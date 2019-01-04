@@ -49,24 +49,39 @@ authentication :        # Enable Security
                     Xml/Encrypted  ,
                     Json/Plain     , 
                     Json/Encrypted ]  # MediaType ( Produced format )
-      Ciphers   : [ AES_128_CBC  , 
+      Ciphers   : [ AES_128_CBC  ,
                     AES_128_ECB  , 
                     AES_256_CBC  , 
-                    AES_256_ECB  ]    # Cipher that can be used to encrypt data 
+                    AES_256_ECB  ]    # List of the Ciphers that can be used to encrypt data 
                     
   credentials   :  # The Table used for authentication 
     tableName          : users  # The table created by the script in the database aviation
     loginColumnName    : login  # The column Name 
-    passwordColumnName : password -> MD5  # Here we say that column where passwords are stored is named password 
+    passwordColumnName : password -> MD5  # Here we say that column where passwords are stored is named password
                                           # And these passwords are stored in MD5 format in the database
   
-  paramToSign :  # How Queries are signed 
-    login     : PLAIN   # function = PLAIN ( login )
-    password  : MD5     # function = MD5 ( password ) ( is Equal to the Hash used in passwordColumnName )
-    timeStamp : PLAIN   # function = PLAIN( timeStamp ) 
-    
-  algoSign    : SHA2    # Signature = SHA2 ( PLAIN ( login ) + MD5 ( password ) + PLAIN( timeStamp ) )
-  
+  paramToSign :  # How HTTP Queries are signed 
+    # Parametrs used in the signature are : 
+    login     : PLAIN   # Function applied on the login is PLAIN_TEXT. # Ex : PLAIN ( "my_login" ) = my_login
+    password  : MD5     # Function applied on the password is MD5 ( for this Demo )
+                        # ( is Equal to the Hash used in passwordColumnName )
+                        # Ex : MD5 ( "my_password" ) = A865A7E0DDBF35FA6F6A232E0893BEA4
+    timeStamp : PLAIN   # Function applied on the timeStamp is PLAIN
+                        #  Ex : PLAIN ( "123456789" ) = 123456789
+
+  algoSign    : SHA2    # Signature = SHA2 ( PLAIN ( login ) + MD5 ( password ) + PLAIN( timeStamp ) ) 
+                        
+                        # Ex :
+                        
+                        #   login     = "my_login"     =>  PLAIN ( login )
+                        #             = PLAIN ( "my_login") = my_login
+                        #   password  = "my_password"  =>  MD5 ( password ) 
+                        #             = MD5 ( "my_password" ) = A865A7E0DDBF35FA6F6A232E0893BEA4
+                        #   timeStamp = 123456789  =>  PLAIN ( timeStamp )
+                        #             = PLAIN ( "123456789") = 123456789
+                        #   Sign      = SHA2 ( my_login A865A7E0DDBF35FA6F6A232E0893BEA4 123456789 )  =
+                        #               94C9593395ABD56A32A67BC6CEEE437FB02B905836CA3058251D6108B4164481
+
   validRequestTimeout : 5 # Request Validity in seconds ( Default : 30 S )
  
  
