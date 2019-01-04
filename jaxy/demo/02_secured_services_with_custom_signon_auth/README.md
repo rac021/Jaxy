@@ -11,6 +11,7 @@ Table ( **users** ) in the **aviation database** ( created by the **script db_sc
 ### Example of how signature is calculated :
 
 
+### The Configuration file :  
 
 ![jaxy_signature](https://user-images.githubusercontent.com/7684497/50672853-bd9d4a80-0fda-11e9-866e-201066044304.png)
 
