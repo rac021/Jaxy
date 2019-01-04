@@ -112,7 +112,7 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
             LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
         }
         finally {
-            System.out.println(" CLOSE WRITER AND BAOSTREAM") ;
+            LOGGER.log( Level.CONFIG, " StreamerOutputXml : CLOSE WRITER AND BAOSTREAM")    ;
             isFinishedProcess = true      ;
             ISignOn.SERVICE_NAME.remove() ;
         }
@@ -124,9 +124,9 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
     
     @Override
     public StreamerOutputXml wrapResource( IResource resource     ,
-                                            Class dto             ,
-                                            String filteredIndexs ,
-                                            MultivaluedMap<String , String> ... sqlParams ) {
+                                           Class dto             ,
+                                           String filteredIndexs ,
+                                           MultivaluedMap<String , String> ... sqlParams ) {
 
       rootResourceWraper( resource, dto, filteredIndexs, sqlParams) ;
       return this                                                   ;
