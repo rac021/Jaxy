@@ -102,7 +102,7 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
         }   catch (InterruptedException ex) {
             LOGGER.log(Level.SEVERE, "Exception : ", ex) ;
         } finally {
-            System.out.println(" CLOSE WRITER AND BAOSTREAM" ) ;
+             LOGGER.log(Level.CONFIG, " StreamerOutputJson : CLOSE WRITER AND BAOSTREAM")     ;
        }
     }
 
