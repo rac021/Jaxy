@@ -20,5 +20,5 @@ Table ( **users** ) in the **aviation database** ( created by the **script db_sc
     
 ```
 
-![jaxy_calculatore_01](https://user-images.githubusercontent.com/7684497/50696690-6cc03d00-1040-11e9-960d-e2dd63934b7f.jpg)
+![jaxy_calculatore_01](https://user-images.githubusercontent.com/7684497/50697489-a72ad980-1042-11e9-891f-b814506b8a91.jpg)
 
