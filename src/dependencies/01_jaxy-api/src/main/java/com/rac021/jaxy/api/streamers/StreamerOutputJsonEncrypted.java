@@ -186,7 +186,7 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
             if (ex.getClass().getName().endsWith(".ClientAbortException")) {
                 
                 try {
-                    throw new BusinessException("ClientAbortException !! " + ex.getMessage(), ex ) ;
+                    throw new BusinessException( "ClientAbortException !! " + ex.getMessage(), ex ) ;
                 } catch (BusinessException ex1) {
                     LOGGER.log(Level.INFO , ex1.getMessage() ) ; 
                 }
@@ -203,7 +203,7 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
            LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
         
         } finally {
-            System.out.println(" CLOSE WRITER AND BAOSTREAM") ;
+            LOGGER.log(Level.CONFIG, " StreamerOutputJsonEncrypted : CLOSE WRITER AND BAOSTREAM")  ;
             isFinishedProcess = true        ;
             ISignOn.SERVICE_NAME.remove()   ;
             ISignOn.ENCRYPTION_KEY.remove() ;
