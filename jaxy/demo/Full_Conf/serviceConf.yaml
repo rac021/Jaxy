@@ -241,9 +241,10 @@ TASK_MAX_THREADS : 128
 ## LOGGER Config           ############
 #######################################
 
-##### LOG_LEVEL = CONFIG DEBUG  ERROR  FATAL 
-#####             FINE FINER FINEST INFO OFF 
-#####             SEVERE TRACE  WARN WARNING
+##### LOG_LEVEL = ALL  FINEST  FINER  FINE CONFIG 
+#####             INFO WARNING SEVERE OFF 
+#####  Avoid the Thorntail additional LOG_LEVEL :
+#####             TRACE DEBUG  WARN  ERROR  FATAL   
 
 LOG_LEVEL      : INFO
 
