@@ -69,7 +69,7 @@ A jar **jaxy-thorntail.jar** is created and copied into the folder **[jaxy](http
  
  -  ### [ 02. Secured services with Custom SignOn Auth ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services_with_custom_signon_auth)
  
- -  ### [ 03. UI](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/03_ui)
+ -  ### [ 03. Web-UI](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/03_web_ui)
  
  -  ### [ 04. Test scripts for Public Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/04_test_scripts_for_public_services)
  
