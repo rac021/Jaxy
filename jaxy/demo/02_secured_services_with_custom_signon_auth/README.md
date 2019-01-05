@@ -1,7 +1,7 @@
 
 
 
-### Secured Services ( Custom SingOn Auth )
+## Secured Services ( Custom SingOn Auth ) [ ( watch the demo ) ](https://www.youtube.com/watch?v=lFca7ujnVkg&index=4&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa)
  
    * Jaxy supports two ways to secure services :
  
