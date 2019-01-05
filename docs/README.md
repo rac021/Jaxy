@@ -60,7 +60,7 @@
 
 ![13_letsencrypt](https://user-images.githubusercontent.com/7684497/48572188-00ab3d80-e909-11e8-802f-a046fa53ab2e.png)
 
-
+---------------------------------------------
 
   [Talk_2017_PasSageEnSeine]( https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf
 ) ( PDF ) 
