@@ -84,13 +84,13 @@ authentication :        # Enable Security
 ### DeploYUI ############################
 #########################################
 
-DeployUI           : TRUE # FALSE else
+DeployUI           : TRUE # ( This enable the web-ui deployement ). by Default = FALSE 
 
-SecureUI           : TRUE # FALSE else 
+SecureUI           : TRUE # ( This will secure the ui )
 
-ui_login           : jaxy # Login    of the web-ui user
+ui_login           : jaxy # Login    of the web-ui user ( If SecureUI = TRUE, else not needed )
 
-ui_password        : jaxy # password of the web-ui user
+ui_password        : jaxy # password of the web-ui user ( If SecureUI = TRUE, else not needed )
 
-ui_session_timeout : 10 # ( mn ) # session timeOut
+ui_session_timeout : 10 # ( mn ) # session timeOut ( The session expires after 10 mn )
 
