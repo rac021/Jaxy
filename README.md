@@ -9,11 +9,9 @@
 
  **Jaxy** is Generic Jax-Rs web Service which generates robuste and secured **web services** from **SQL queries**, based over yaml configuration, it's implements the project **[Jaxy-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)**
 
----------------------------------------------------------------------------------
-  
 
-| Features              | Demo ( Youtube )      |
-|---------------------|-------------------------|
+| Features            | Demo ( Youtube )        |
+|:---------------------:|-------------------------:|
 | [ Jaxy Features ](https://github.com/rac021/Jaxy/tree/master/docs)   | [![Watch the video](https://user-images.githubusercontent.com/7684497/50719557-12ee6000-109e-11e9-8b9e-4c085b9b0760.png)](https://www.youtube.com/watch?v=6IqxzSankpw&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa) |
 
 ------------------------------------------------------
