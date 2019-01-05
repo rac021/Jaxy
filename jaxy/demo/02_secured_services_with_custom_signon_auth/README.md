@@ -64,3 +64,13 @@
 Jaxy is called using an HTTP Query with the header **API-Key-Token** which contains the signature 
 
 ![jaxy_calculatore_02](https://user-images.githubusercontent.com/7684497/50697672-2fa97a00-1043-11e9-9314-324264611c1d.jpg)
+
+
+------------------------------------------------------------
+
+
+  Jaxy generates **scripts** that **calculates** the **signatures**  **Out of the Box**.
+  
+  * For that, take a look at [  Test Scripts for Secured Services ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/05_test_scripts_for_secured_services)
+  
+
