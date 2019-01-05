@@ -1,63 +1,42 @@
-# Jaxy  <img src="https://cloud.githubusercontent.com/assets/7684497/25315596/e191fb00-2857-11e7-99bf-8e233b4eb795.jpg" width="50"> [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT) 
 
-
-| Branch    | build status  |
-|-----------|---------------|
-| [master](https://github.com/rac021/Jaxy/tree/master)  |[![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/Jaxy)|
-
-
-
- **Jaxy** is Generic Jax-Rs web Service based over yaml configuration implementing the project  **[jaxy-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-api)**
-
-**SourceForge Download Link** : **[https://sourceforge.net/projects/jax-y/?source=typ_redirect]( https://sourceforge.net/projects/jax-y/?source=typ_redirect)** 
-
-
-------------------------------------------------------
-
-**Linked Projects :** 
-
-- **Api :**
-   * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)
-
-- **Default Service Discovery Implementation :**
-   * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-service-discovery]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/03_jaxy-service-discovery) 
-
-- **Default Security Provider Implementation :**
-   * [https://github.com/rac021/Jaxy/tree/master/src/dependencies/jaxy-security-provider]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/02_jaxy-security-provider) 
-   
-- **GUI :**
-   * [https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi]( https://github.com/rac021/Jaxy/tree/master/src/bonus/JaxyClientUi) 
-
-
-**Requirements :**
-
--    `JAVA 8`
-    
--    `MAVEN 3.3.9 + `
-   
--    `Postgres | mySql `
-
------------------------------------------------------
-
-## installation
-
-```xml
-  mvn clean package 
-```  
 ------------------------------------------------------
 
 ## Demo 
 
-```xml
+ -  ### [ 00. Installing the demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script)
+ 
+ -  ### [ 01. Public services ( Minimalist configuration file ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services)
+ 
+ -  ### [ 02. Secured services with Custom SignOn Auth ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services_with_custom_signon_auth)
+ 
+ -  ### [ 03. UI](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/03_ui)
+ 
+ -  ### [ 04. Test scripts for Public Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/04_test_scripts_for_public_services)
+ 
+ -  ### [ 05. Test scripts for Secured Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/05_test_scripts_for_secured_services)
   
-  cp target/jax-y-swarm.jar demo/
+ -  ### [ 06. Test scripts for Decryption](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/06_test_scripts_for_decryption)
   
-  cd demo/
+ -  ### [ 07. Test Templating](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/07_test_templating)
+ 
+ -  ### [ 08. Test java Client for Public Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/08_test_java_client_for_public_services)
   
-  chmod +x db-script/db-planes.sh
-  
-  ./db-script/db-planes.sh 
-  
-  java -jar jax-y-swarm.jar
-  
-```  
+ -  ### [ 09. Testj ava Client for Secured Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/09_test_java_client_for_secured_services)
+ 
+ -  ### [ 10. Test java Client for Decryption](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/10_test_java_client_for_decryption)
+ 
+ -  ### [ 11. Secured services with keycloak Auth](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/11_secured_services_with_keycloak_auth)
+ 
+ -  ### [ 12. Test scripts keycloak](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/12_test_scripts_keycloak)
+ 
+ -  ### [ 13. Test java Client keycloak](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/13_test_java_client_keycloak)
+ 
+ -  ### [ 14. Test CustomSignOn Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/14_test_CustomSignOn_Auth_from_Ui)
+
+ -  ### [ 15. Test CustomSignOn Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/15_test_KeyCloak_Auth_from_Ui)
+
+ -  ### [ 16. Test Monitoring](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring)
+
+ -  ### [ 17. Test letsEncrypt](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/17_test_letsEncrypt)
+ 
+------------------------------------------------------
