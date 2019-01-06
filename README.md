@@ -15,7 +15,7 @@
 
 ------------------------------------------------------
 
-**Links and structuring of the project:** 
+**Links and structuring of the project :** 
 
 - **Jaxy ( Java Project ) ( Directory : [src/jaxy](https://github.com/rac021/Jaxy/tree/master/src/jaxy) ) :**
    * [https://github.com/rac021/Jaxy/tree/master/src/jaxy]( https://github.com/rac021/Jaxy/tree/master/src/jaxy) 
