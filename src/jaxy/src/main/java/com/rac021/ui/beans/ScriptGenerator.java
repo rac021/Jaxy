@@ -27,21 +27,26 @@ public class ScriptGenerator {
                                                   String security      ,
                                                   String templateSignature ) throws UnsupportedEncodingException {
 
-        String _url    = url.trim()                 ;
+        String _url    = url.trim()                           ;
 
-        String _params = ""                         ;
+        String _params = ""                                   ;
         
-        if( params != null &&  ! params.isEmpty() ) {
+        if ( params != null &&  ! params.isEmpty() )          {
             
-            params = params.trim()                  ;
+            params  = params.trim()                           ;
             
-            _params = " --data-urlencode \""        +
-                      params + "\" "                ;
+            _params = 
+                
+              Stream.of(params.split("&"))
+                    .map( param ->  " --data-urlencode \""    +
+                                      param.trim() + "\""     )
+                    .collect(Collectors.joining()) + " "      ;
         }
         
-        String trustCert = _url.trim().startsWith("https") ? " -k " : " "                  ;
+        String trustCert = _url.trim().startsWith("https") ? " -k " : " "   ;
 
-        String invokeService = " curl -G " + trustCert + "-H \"Accept: " + accept + "\"  " ;
+        String invokeService = " curl -G " + trustCert +
+                               "-H \"Accept: " + accept + "\"  " ;
 
         if (keep != null && !keep.isEmpty())               {
            invokeService += " -H \"Keep: " + keep + " \" " ;
@@ -126,7 +131,7 @@ public class ScriptGenerator {
             _params = 
             Stream.of(params.split("&"))
                   .map( param ->  " --data-urlencode \"" + param.trim() + "\"" )
-                    .collect(Collectors.joining()) + " " ;
+                  .collect(Collectors.joining()) + " "   ;
         }
         
         String trustCertkeyCloakUrl = keyCloakUrl.trim().startsWith("https") ? " -k " : " " ;
@@ -305,8 +310,8 @@ public class ScriptGenerator {
                  " Params                = "  + params      + "\n\n"            + 
                  " Accept                = "  + accept      + "\n\n"            +
                
-                ( ( accept != null && 
-                   accept.trim().toLowerCase().contains("encrypted") ) ? 
+               ( ( accept != null && 
+                   accept.trim().toLowerCase().contains("encrypted")  ) ? 
                ( " Cipher                = "  + cipher      + "\n\n"  ) : "" )  + 
                 
                  " Keep                  = "  + keep        + "\n\n"            +
@@ -324,7 +329,7 @@ public class ScriptGenerator {
                ( " HashPasswordAlgo      = " + hashPassword  + "\n\n"  ) : "" ) + 
                ( ( security != null && 
                    security.equalsIgnoreCase("CustomSignOn")  ) ? 
-               ( " HashTimeStampAlgo     = " + hashTimeStamp  + "\n\n"  ) : "" ) ; 
+               ( " HashTimeStampAlgo     = " + hashTimeStamp + "\n\n"  ) : "" ) ; 
                 
     }
      
@@ -404,3 +409,4 @@ public class ScriptGenerator {
     }
        
 }
+
