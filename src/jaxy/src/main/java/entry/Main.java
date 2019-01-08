@@ -180,6 +180,13 @@ public class Main                {
 
         ManagerPackager.packageResources( war, cfg.deployUI(), cfg.isSecuredUI() ) ;
         
+        /* Faces Servlet */
+        war.addServlet("Faces Servlet", "javax.faces.webapp.FacesServlet")
+           .withDisplayName("FacesServlet")
+           .withUrlPattern("*.xhtml") 
+           .withUrlPattern("*.html") ;
+       
+        
         /** Debug Mode. **/
        if( LOGGER.getLevel() == Level.FINE )           {
             
