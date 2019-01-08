@@ -35,13 +35,15 @@ public class ManagerPackager {
         addAsWebInfResource( war , "templates/Resource", "classes/templates/Resource" ) ;
         addAsWebInfResource( war , "templates/Service", "classes/templates/Service"   ) ;
         
+        
+        /** Add message properties, for internationalization . **/
         addAsWebInfResource( war ,
                              "com/rac021/jaxy/messages/messages.properties", 
                              "classes/com/rac021/jaxy/messages/messages.properties" ) ;
         
         /** Jaxy Client . **/
-        addAsWebInfResource( war ,
-                             "jaxy-client/jaxyClient.jar", 
+        addAsWebInfResource( war                                  ,
+                             "jaxy-client/jaxyClient.jar"         , 
                              "classes/jaxy-client/jaxyClient.jar" ) ;
         
         if (secureUI) {
@@ -58,16 +60,16 @@ public class ManagerPackager {
         if (deployUi) {
 
             war .addPackage("com.rac021.ui.beans")                       ;
-
+            war .addPackage("com.rac021.jaxy.jsf.handler")               ;
+             
+            /** faces-config xml . **/
+            addAsWebInfResource( war                                     ,
+                                 "WEB-INF/faces-config.xml"              ,
+                                 "faces-config.xml" )                    ;
+        
             addAsWebResource( war , "index.html", "index.html"    )      ;
             
             addAsWebResource( war , "index.xhtml" , "index.xhtml" )      ;
-            
-
-            if (secureUI) {
-                
-                addAsWebResource( war , "login.xhtml" , "login.xhtml"  ) ;
-            }
 
             addAsWebResource( war ,"details.xhtml", "details.xhtml" )    ;
             
@@ -78,7 +80,6 @@ public class ManagerPackager {
             addAsWebResource( war , 
                               "resources/ezcomp/authentication_checker.xhtml"   , 
                               "resources/ezcomp/authentication_checker.xhtml" ) ;
-           
             
             addAsWebResource( war , 
                               "resources/ezcomp/authentication_sso_checker.xhtml" ,
@@ -99,6 +100,12 @@ public class ManagerPackager {
             addAsWebResource( war , 
                               "resources/ezcomp/service_list.xhtml"  , 
                               "resources/ezcomp/service_list.xhtml") ;
+            
+            if (secureUI)   {
+                
+                addAsWebResource( war , "login.xhtml" , "login.xhtml"  ) ;
+            }
+            
           }
 
         /** Monitoring . **/
