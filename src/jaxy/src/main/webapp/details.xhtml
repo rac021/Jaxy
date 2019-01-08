@@ -184,16 +184,19 @@
                                                                        style="text-align: left">Filters</label> </b:column>
                         <b:column>
                             
-                            <b:selectOneMenu   id="selectedFilterID" 
-                                               value="#{serviceDetails.selectedFilter}" 
-                                               requiredMessage="Select Filter !" 
-                                               required="#{empty param['skipvalidation']}"
-                                               disabled="#{serviceDetails.disableFilterSelection()}" >
+                            <b:selectOneMenu  id="selectedFilterID" 
+                                              value="#{serviceDetails.selectedFilter}" 
+                                              onchange="#{serviceDetails.updateFilters()}"
+                                              requiredMessage="Select Filter !" 
+                                              required="#{empty param['skipvalidation']}"
+                                              disabled="#{serviceDetails.disableFilterSelection()}" >
                                 
                                 <f:selectItem  itemValue="" itemLabel="--select--" noSelectionOption="true" />
                                 
-                                <f:selectItems value="#{serviceSelector.selectedServiceFilters}"  />
+                                <f:selectItems value="#{serviceSelector.selectedServiceFilters}" />
                                 
+                                <f:ajax event="change" render=" @this selectedExpressionID" />
+                                  
                             </b:selectOneMenu>
                             
                         </b:column>
