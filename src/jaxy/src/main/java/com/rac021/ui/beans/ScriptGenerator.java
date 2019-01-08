@@ -278,8 +278,7 @@ public class ScriptGenerator {
         }
         
         return ""  ;
-    }
-      
+    }      
       
     protected static String generateClientConfig( String url           ,
                                                   String urlKeycloak   ,
