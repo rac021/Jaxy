@@ -5,7 +5,7 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
     <application>
-        <view-handler>com.rac021.jaxy.unzipper.CustomViewHandler</view-handler>
+        <view-handler>com.rac021.jaxy.jsf.handler.CustomViewHandler</view-handler>
     </application>
     
     
