@@ -97,38 +97,53 @@ public class ServiceDetails implements Serializable            {
         return expressions       ;
     }
 
-    public List resetExpresion() {
+    public List resetExpresion()             {
 
-        expressions = Arrays.asList("=", "&gt;", "&gt;=", "&lt;", "&le;", "not") ;
-        return expressions                                                       ;
+        expressions = Arrays.asList( "="     , 
+                                     "&gt;"  , 
+                                     "&gt;=" , 
+                                     "&lt;"  ,
+                                     "&le;"  ,
+                                     "not" ) ;
+        
+        return expressions                   ;
     }
 
-    
-     public String getSelectedFilter()  {
-        return selectedFilter        ;
+    public String getSelectedFilter()        {
+        return selectedFilter                ;
     }
 
     public void setSelectedFilter(String filter) {
-        this.selectedFilter = filter ;
+        this.selectedFilter = filter        ;
     }
     
-      public String getCipherItem()    {
+    public void updateFilters()                  {
+      
+      if ( expressionsMap.keySet()
+                         .contains (
+                           selectedFilter))      {
+             setChainedExpresion() ;
+      }
+         
+    }
+    
+    public String getCipherItem()                {
         return cipherItem    ;
     }
       
-       public List<String> getExpressions() {
+    public List<String> getExpressions()         {
         return expressions   ;
     }
        
-        public void isEmptyListExpression() {
+    public void isEmptyListExpression()          {
         selectedValue = null ;
     }
         
-     public void setCipherItem(String cipherItem) {
+    public void setCipherItem(String cipherItem) {
         this.cipherItem = cipherItem ;
     }
      
-       public String getAcceptItem() {
+    public String getAcceptItem() {
         return acceptItem ;
     }
 
@@ -136,10 +151,11 @@ public class ServiceDetails implements Serializable            {
         this.acceptItem = acceptItem ;
     }
     
-     public void updateCipher()      {
+    public void updateCipher()                   {
 
-        if (acceptItem != null && ! acceptItem.contains("crypt")) {
-            cipherItem = null ;
+        if ( acceptItem != null && 
+            ! acceptItem.contains("crypt"))      {
+            cipherItem = null    ;
         } 
         
         else {
@@ -177,7 +193,7 @@ public class ServiceDetails implements Serializable            {
         if (this.script == null)      {
             this.script = genScript() ;
         }
-        return this.script == null ? 2 : this.script.split("\r\n|\r|\n").length + 2;
+        return this.script == null ? 2 : this.script.split("\r\n|\r|\n").length + 2 ;
     }
 
     public Integer getSelectedServiceTotalLinesInScriptDecryptor() throws UnsupportedEncodingException {
@@ -201,14 +217,14 @@ public class ServiceDetails implements Serializable            {
     }
 
     public void setKeep(String keep) throws UnsupportedEncodingException {
-        this.keep = keep;
-        genScript();
+        this.keep = keep ;
+        genScript()      ;
     }
 
     public void displayMessageCopy() {
 
-        FacesMessage msg = new FacesMessage( FacesMessage.SEVERITY_INFO,
-                                             "Script",
+        FacesMessage msg = new FacesMessage( FacesMessage.SEVERITY_INFO  ,
+                                             "Script"                    ,
                                              " Script Copied to ClipBoard" ) ;
 
         FacesContext context = FacesContext.getCurrentInstance() ;
@@ -375,7 +391,7 @@ public class ServiceDetails implements Serializable            {
                                  .append(value)    ;
         }) ;
 
-        return expr.toString() ;
+        return expr.toString()    ;
     }
 
     private String buildFilters() {
@@ -426,7 +442,7 @@ public class ServiceDetails implements Serializable            {
                "</b> ( timeStamp )  " + " ] "     ;
     }
     
-      public void initData()           {
+    public void initData()             {
         this.selectedExpression = null ;
         this.selectedValue      = null ;
         this.selectedFilter     = null ;
@@ -440,7 +456,7 @@ public class ServiceDetails implements Serializable            {
         }
     }
       
-     private String getSignatureTemplate_Simple()         {
+    private String getSignatureTemplate_Simple()          {
          
           return  " Login␣" + "timeStamp␣"                +
                   globalConf.getAlgoSigneture()           + 
@@ -463,7 +479,7 @@ public class ServiceDetails implements Serializable            {
         ec.setResponseHeader("Content-Disposition", "attachment;filename=jaxyClient.jar") ;
      
         ClassLoader classLoader = new ServiceDetails().getClass().getClassLoader()        ;
-        URL    uri              = classLoader.getResource("jaxy-client/jaxyClient.jar")  ;
+        URL    uri              = classLoader.getResource("jaxy-client/jaxyClient.jar")   ;
         
         if( uri == null )  return                                                         ;
         
