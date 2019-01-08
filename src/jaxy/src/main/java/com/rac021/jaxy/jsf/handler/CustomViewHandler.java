@@ -14,10 +14,9 @@ import javax.faces.application.ViewHandlerWrapper ;
 
 public class CustomViewHandler extends ViewHandlerWrapper {
 
-    private ViewHandler wrappped;
+    private ViewHandler wrappped ;
 
-
-    public CustomViewHandler(ViewHandler wrappped) {
+    public CustomViewHandler(ViewHandler wrappped)        {
         super() ;
     }
 
@@ -27,7 +26,7 @@ public class CustomViewHandler extends ViewHandlerWrapper {
     }
 
     @Override
-    public UIViewRoot restoreView(FacesContext facesContext, String viewId) {
+    public UIViewRoot restoreView(FacesContext facesContext, String viewId)              {
 
         ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance()
                                                                      .getExternalContext()
@@ -48,3 +47,4 @@ public class CustomViewHandler extends ViewHandlerWrapper {
         return root                                          ;
     }
 }
+
