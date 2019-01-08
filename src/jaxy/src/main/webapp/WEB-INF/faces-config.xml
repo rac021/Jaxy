@@ -7,7 +7,7 @@
 
     <application>
         <view-handler>com.rac021.jaxy.jsf.handler.CustomViewHandler</view-handler>
-    </application>
-    
+    </application>    
     
 </faces-config>
+
