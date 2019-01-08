@@ -32,11 +32,10 @@ public class CustomViewHandler extends ViewHandlerWrapper {
                                                                      .getExternalContext()
                                                                      .getContext()       ;
         
-        String serverRealPath    = servletContext.getRealPath("/")                       ;
-        String serverContextPath = servletContext.getContextPath()                       ;
+        // String serverRealPath    = servletContext.getRealPath("/")                    ;
+        // String serverContextPath = servletContext.getContextPath()                    ;
 
-
-        UIViewRoot root = super.restoreView(facesContext, viewId)                        ;
+        UIViewRoot root          = super.restoreView(facesContext, viewId)               ;
 
         if (root == null) {
 
