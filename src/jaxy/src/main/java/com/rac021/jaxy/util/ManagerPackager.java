@@ -18,8 +18,8 @@ public class ManagerPackager {
         
         /** Persistence xml . **/
         
-        addAsWebInfResource( war , 
-                            "META-INF/persistence.xml",  
+        addAsWebInfResource( war                               , 
+                            "META-INF/persistence.xml"         ,  
                             "classes/META-INF/persistence.xml" ) ;
         
         /** beans xml . **/
