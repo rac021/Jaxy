@@ -1,5 +1,5 @@
 # Jaxy  <img src="https://cloud.githubusercontent.com/assets/7684497/25315596/e191fb00-2857-11e7-99bf-8e233b4eb795.jpg" width="50"> [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
-
+<sup>Setting up web services has never been easier</sup>
 
 | Branch  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  build status ( Travis ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | SourceForge |
 |-----------|---------------|---------------------------|
@@ -7,6 +7,7 @@
 
 ------------------------------------------------------
 
+ 
 | **Description** | **Jaxy** is a Generic Jax-Rs web Service which generates robuste and secured **web services** from **SQL queries**, based over yaml configuration, it's implements the project **[Jaxy-Api]( https://github.com/rac021/Jaxy/tree/master/src/dependencies/01_jaxy-api)**  | 
 |:-------------|:-------------|
 | **Features** |  [ Jaxy Provided Features ](https://github.com/rac021/Jaxy/tree/master/docs)            |
