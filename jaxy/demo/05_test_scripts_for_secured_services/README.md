@@ -118,7 +118,7 @@ So : MD5("admin") = 21232f297a57a5a743894a0e4a801fc3
 #### [6- Let's request data in JSON/ENCRYPTED format with :](https://www.youtube.com/watch?v=n3U0hMAEMnQ&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&index=7&t=9m12s)
 
 ```
-         CIPHER = AEC_256_CBC
+         CIPHER = AEC_128_CBC
 ```
 ----
 
