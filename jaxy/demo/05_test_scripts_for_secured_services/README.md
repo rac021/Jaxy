@@ -63,7 +63,7 @@ So : MD5("admin") = 21232f297a57a5a743894a0e4a801fc3
 
 -----
 
-#### [Launch the bash_client as the following :](https://www.youtube.com/watch?v=n3U0hMAEMnQ&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&index=7&t=4m36s)  
+#### [Launch the bash_client as the following :](https://www.youtube.com/watch?v=n3U0hMAEMnQ&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&index=7&t=4m37s)  
 
 ```
       ./jaxy_client.sh  login=admin  password=admin      
