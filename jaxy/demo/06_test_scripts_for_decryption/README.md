@@ -19,7 +19,7 @@
 
 --------
 
-  *  2- [Launch jaxy](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=1m17s) : 
+  *  2- [Launch jaxy](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=1m07s) : 
 
 ```	   
        ./run.sh  serviceConf=jaxy/demo/demo/06_test_scripts_for_decryption/serviceConf.yaml
