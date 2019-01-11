@@ -9,8 +9,8 @@
 
  body {{{ 
     <data>
-        "Mod" : "{{ model }}"
-        "Dist" : "{{ distance_km }}"
+        "Mod"  = "{{ model }}"
+        "Dist" = "{{ distance_km }}"
     </data>   
  }}}
  
