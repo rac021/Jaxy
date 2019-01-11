@@ -32,7 +32,7 @@ Services :        # List of the Services
              SELECT model , total_passengers , distance_km  
              FROM aircraft
      MaxThreads  : 2
-     TemplateUri : template_services/template_planes.txt # IMPORTANT : Path is Relatif to THIS FILE 
+     TemplateUri : template_services/template_planes.txt # IMPORTANT : Path is Relative to THIS FILE 
                                                          # As  "plane" is a public service , TemplateUri 
                                                          # will Automatically enable the ACCEPT Type 
                                                          # Template/Plainfor this service
@@ -40,7 +40,7 @@ Services :        # List of the Services
      Query : >    # The SQL Query  
              SELECT * FROM aircraftr
      MaxThreads  : 2  
-     TemplateUri : template_services/template_planes.txt # IMPORTANT : Path is Relatif to THIS FILE
+     TemplateUri : template_services/template_planes.txt # IMPORTANT : Path is Relative to THIS FILE
                                                          # As "vip_planes" is a secured_service ,
                                                          # We have to explicitly provide the ACCEPT type 
                                                          # in the Authentication Part
@@ -103,4 +103,3 @@ ui_login           : jaxy # Login    of the web-ui user ( If SecureUI = TRUE, el
 ui_password        : jaxy # password of the web-ui user ( If SecureUI = TRUE, else not needed )
 
 ui_session_timeout : 10 # ( mn ) # session timeOut ( The session expires after 10 mn )
-
