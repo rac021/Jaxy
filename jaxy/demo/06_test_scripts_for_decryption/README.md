@@ -19,7 +19,7 @@
 
 --------
 
-  *  2- [Launch jaxy](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=1m07s) : 
+  *  2- [Launch jaxy : ](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=1m07s) 
 
 ```	   
        ./run.sh  serviceConf=jaxy/demo/demo/06_test_scripts_for_decryption/serviceConf.yaml
@@ -27,7 +27,7 @@
       
 ----
 
-  * 3- [Go to the **WEB-UI**](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=1m33s) : 
+  * 3- [Go to the **WEB-UI : **](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=1m33s) 
   
 ```	   
        http://localhost:8080/
@@ -36,7 +36,7 @@
 ----
 
 
-#### [6- Let's request data in **JSON/ENCRYPTED** format with :](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=2m1s)
+  * 4- [ Let's request data in **JSON/ENCRYPTED** format with : ](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=2m1s)
 
 ```
          CIPHER = AEC_128_CBC
@@ -47,7 +47,7 @@
 
 ---
 
-[**Run it ...**](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=2m49s) : 
+[**Run it ... :**](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=2m49s) 
   
 ```
           cd       jaxy/jaxy_clients/
@@ -66,7 +66,7 @@ Now , **Copy**  ( or **Download** ) **jaxy_decryptor**
 
 ---
 
-[**Run it ...**](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=4m11s) : 
+[**Run it ... :**](https://www.youtube.com/watch?v=C88RK9TUS_w&index=9&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=4m11s)
 
 ```
           chmod +x jaxy_decryptor.sh
