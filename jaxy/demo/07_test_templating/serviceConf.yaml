@@ -39,7 +39,7 @@ Services :        # List of the Services
                                                          # Template/Plain for this service
  - vip_planes :   # Service Two ( Named vip_planes )
      Query : >    # The SQL Query  
-             SELECT * FROM aircraftr
+             SELECT * FROM aircraft
      MaxThreads  : 2  
      TemplateUri : template_services/template_planes.txt # IMPORTANT : Path is Relative to THIS FILE
                                                          # you can also provide a full path
