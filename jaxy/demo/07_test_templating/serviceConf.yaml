@@ -35,8 +35,8 @@ Services :        # List of the Services
      TemplateUri : template_services/template_planes.txt # IMPORTANT : Path is Relative to THIS FILE 
                                                          # you can also provide a full path
                                                          # As  "plane" is a public service , TemplateUri 
-                                                         # will Automatically enable the ACCEPT Type 
-                                                         # Template/Plainfor this service
+                                                         # will Automatically ENABLE the ACCEPT Type 
+                                                         # Template/Plain for this service
  - vip_planes :   # Service Two ( Named vip_planes )
      Query : >    # The SQL Query  
              SELECT * FROM aircraftr
@@ -105,3 +105,4 @@ ui_login           : jaxy # Login    of the web-ui user ( If SecureUI = TRUE, el
 ui_password        : jaxy # password of the web-ui user ( If SecureUI = TRUE, else not needed )
 
 ui_session_timeout : 10 # ( mn ) # session timeOut ( The session expires after 10 mn )
+
