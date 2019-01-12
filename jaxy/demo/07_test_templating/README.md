@@ -1,19 +1,19 @@
 
 
-## Test_Templating [ ( watch the demo ) ](https://www.youtube.com/watch?v=rUchXzXWnkQ&t=0s&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&index=10)
+## Test_Templating [ ( watch the demo ) ](https://www.youtube.com/watch?v=UGeskeCrxSg&t=0s&index=10&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa)
  
   If **Json** or **XML** are **insufficient** , in this case , the **Templating model** can eventually meet your needs.
   
 --------
 
-### [1- Open the file_configuration ](https://youtu.be/rUchXzXWnkQ?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=19) ( **demo 07** ) :
+### [1- Open the file_configuration ](https://youtu.be/UGeskeCrxSg?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=19) ( **demo 07** ) :
 
 ```               
         vim jaxy/demo/07_test_templating/serviceConf.yaml
 ``` 
 --------
 
-### [2- Enable Templating](https://youtu.be/rUchXzXWnkQ?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=42)  :
+### [2- Enable Templating](https://youtu.be/UGeskeCrxSg?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=42)  :
 
  In order to use Templating, juste provide in the configuration file a **TemplateUri** ( which **indicates** where the **templating file** is **located** )
  
@@ -21,7 +21,7 @@
 
 -------
 
- ### [ 3- Let's take_a_look_at our Templating_file :](https://youtu.be/rUchXzXWnkQ?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=169)
+ ### [ 3- Let's take_a_look_at our Templating_file :](https://youtu.be/UGeskeCrxSg?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=169)
 
         vim jaxy/demo/07_test_templating/template_services/template_planes.txt 
         
@@ -49,13 +49,13 @@
 
 ----
 
-### [4- **Recap**](https://youtu.be/rUchXzXWnkQ?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=287)
+### [4- **Recap**](https://youtu.be/UGeskeCrxSg?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=287)
  
  ![recap_tempating](https://user-images.githubusercontent.com/7684497/51068814-c36edd80-1623-11e9-89c3-d0bfda90e752.png)
 
 ----
 
-### [5- Launch jaxy : ](https://youtu.be/rUchXzXWnkQ?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=381) 
+### [5- Launch jaxy : ](https://youtu.be/UGeskeCrxSg?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=381) 
 
 ```	   
        ./run.sh  serviceConf=jaxy/demo/demo/07_test_templating/serviceConf.yaml
@@ -63,14 +63,14 @@
       
 ----
 
- ### [6- Go to the **WEB-UI :**](https://youtu.be/rUchXzXWnkQ?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=414) 
+ ### [6- Go to the **WEB-UI :**](https://youtu.be/UGeskeCrxSg?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=414) 
   
 ```	   
        http://localhost:8080/
 ```
 ----
 
- ### [7- Let's request data in **Template/Plain** format with : ](https://youtu.be/rUchXzXWnkQ?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=432)
+ ### [7- Let's request data in **Template/Plain** format with : ](https://youtu.be/UGeskeCrxSg?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=432)
 
 ----
 
@@ -78,7 +78,7 @@
 
 ---
 
-### [ 9- **Run it ... :**](https://youtu.be/rUchXzXWnkQ?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=511) 
+### [ 9- **Run it ... :**](https://youtu.be/UGeskeCrxSg?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=511) 
   
 ```
           cd       jaxy/jaxy_clients/
