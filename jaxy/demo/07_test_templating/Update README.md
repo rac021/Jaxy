@@ -25,7 +25,7 @@
 
         vim jaxy/demo/07_test_templating/template_services/template_planes.txt 
         
-  * A template_file is composed of Three_parts  :
+  * A template_file is composed of **Three_Parts**  :
 
 
          1 - Header Part   :  ( Optional        )
