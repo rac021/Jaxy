@@ -42,7 +42,7 @@
   *  In the **template_planes.txt**, the values :
 
 
-         "{{ model }}"            corresponds to the column model in the SQL Query 
+         "{{ model }}"        corresponds to the column model in the SQL Query 
 
 
          "{{ distance_km }}"  corresponds to the column distance_km
