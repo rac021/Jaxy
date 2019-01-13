@@ -51,7 +51,7 @@
 
 ### [4- **Recap**](https://youtu.be/UGeskeCrxSg?list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&t=287)
  
- ![recap_tempating](https://user-images.githubusercontent.com/7684497/51068814-c36edd80-1623-11e9-89c3-d0bfda90e752.png)
+ ![recap_tempating](https://user-images.githubusercontent.com/7684497/51088787-675fa280-1764-11e9-8ac4-faa037d1994a.png)
 
 ----
 
