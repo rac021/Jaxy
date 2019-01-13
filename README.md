@@ -89,7 +89,7 @@
  
  -  ### [ 14. Test CustomSignOn Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/14_test_CustomSignOn_Auth_from_Ui)
 
- -  ### [ 15. Test CustomSignOn Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/15_test_KeyCloak_Auth_from_Ui)
+ -  ### [ 15. Test Keycloak Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/15_test_KeyCloak_Auth_from_Ui)
 
  -  ### [ 16. Test Monitoring](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring)
 
