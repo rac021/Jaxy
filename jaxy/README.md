@@ -1,10 +1,15 @@
+---
 
-------------------------------------------------------
+## Installation : 
 
+ -  ### [ 00_0. Installing Jaxy ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy)
+
+ -  ### [ 00_1. Installing the demo Database ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script)
+ 
+ ---
+ 
 ## Demo 
 
- -  ### [ 00. Installing the demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script)
- 
  -  ### [ 01. Public services ( Minimalist configuration file ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services)
  
  -  ### [ 02. Secured services with Custom SignOn Auth ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services_with_custom_signon_auth)
@@ -33,7 +38,7 @@
  
  -  ### [ 14. Test CustomSignOn Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/14_test_CustomSignOn_Auth_from_Ui)
 
- -  ### [ 15. Test CustomSignOn Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/15_test_KeyCloak_Auth_from_Ui)
+ -  ### [ 15. Test Keycloak Auth from Ui](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/15_test_KeyCloak_Auth_from_Ui)
 
  -  ### [ 16. Test Monitoring](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring)
 
