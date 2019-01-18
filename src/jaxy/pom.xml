@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     
     <modelVersion>4.0.0</modelVersion>
@@ -16,62 +17,10 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <packaging.type>war</packaging.type>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <version.io.thorntail>2.3.0.Final-SNAPSHOT</version.io.thorntail>
+        <version.io.thorntail>2.3.0.Final</version.io.thorntail>
         <version.jaxy>2.1</version.jaxy>
     </properties>
     
-    <repositories>
-        <repository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Repository Group</name>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    
-    <pluginRepositories>
-        
-        <pluginRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>spring</id>
-            <name>Spring releases</name>
-            <url>http://repo.spring.io/libs-release-remote/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-        
-    </pluginRepositories>
-
     <dependencyManagement>
         
         <dependencies>
@@ -176,7 +125,7 @@
     
     <dependencies>
         
-        <!-- jaxy-security-provider Dependency -->         
+        <!-- jaxy-security-provider Dependency -->
         <dependency>
             <groupId>com.github.rac021</groupId>
             <artifactId>jaxy-security-provider</artifactId>
@@ -190,12 +139,11 @@
             <version>${version.jaxy}</version>
         </dependency>
         
-        <!-- Thorntail ( WildFly Swarm ) Dependencies -->   
+        <!-- Thorntail ( WildFly Swarm ) Dependencies -->
         <dependency>
             <groupId>io.thorntail</groupId>
             <artifactId>microprofile</artifactId>
-        </dependency>
-        
+        </dependency>        
         <dependency>
             <groupId>io.thorntail</groupId>
             <artifactId>jpa-eclipselink</artifactId>
@@ -206,7 +154,7 @@
         </dependency>
         <dependency>
             <groupId>io.thorntail</groupId>
-            <artifactId>management-console</artifactId>	
+            <artifactId>management-console</artifactId>
         </dependency>
         <dependency>
             <groupId>io.thorntail</groupId>
@@ -253,13 +201,6 @@
             <version>1.13</version>
         </dependency>
         
-        <!-- JaxRs -->
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-
         <!-- Bootsfaces -->
         <dependency>
             <groupId>net.bootsfaces</groupId>
@@ -290,4 +231,3 @@
     </dependencies>
 
 </project>
-
