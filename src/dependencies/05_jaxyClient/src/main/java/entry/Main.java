@@ -252,17 +252,14 @@ public class Main {
        }
        
        if( security != null  &&
-           ( security.equalsIgnoreCase("CustomSignOn") || 
-             security.equalsIgnoreCase("Public")    )   )             {
+           ( security.equalsIgnoreCase("CustomSignOn")   )      )     {
            
-           checkNotNull(algoSign)          ;
-           checkNotNull(password)          ;
-           checkNotNull(login)             ;
-           checkNotNull(hashLoginAlgo)     ;
-           checkNotNull(hashPasswordAlgo ) ;
-           checkNotNull(hashTimeStampAlgo) ;
-           checkNotNull(_login           ) ;
-           checkNotNull(_password        ) ;
+           checkNotNull( "AlgeSign"          , algoSign          )    ;
+           checkNotNull( "Password"          , password          )    ;
+           checkNotNull( "Login"             , login             )    ;
+           checkNotNull( "HashLoginAlgo"     , hashLoginAlgo     )    ;
+           checkNotNull( "HashPasswordAlgo"  , hashPasswordAlgo  )    ;
+           checkNotNull( "HashTimeStampAlgo" , hashTimeStampAlgo )    ;
            
            if( accept != null                                    &&
                accept.trim().toLowerCase().contains("encrypted") &&
@@ -333,16 +330,15 @@ public class Main {
         
     }
     
-    private static void checkNotNull ( String toCheck )                {
+    private static void checkNotNull ( String key , String toCheck )   {
           
            if( toCheck == null || toCheck.trim().isEmpty())            {
                System.out.println(" " )                                ;
-               System.out.println( " "+ toCheck + " not Provided ! " ) ;
-               System.out.println( " Please, provide the " + toCheck ) ;
+               System.out.println( " "+ key + " not Provided ! " )     ;
+               System.out.println( " Please, provide : "  +  key )     ;
                System.out.println(" " )                                ;
                System.exit( 0 )                                        ;
            }
-           
     }
 }
 
