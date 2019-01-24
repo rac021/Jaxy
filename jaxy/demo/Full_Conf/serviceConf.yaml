@@ -17,10 +17,10 @@
 ### DataBase ############################
 #########################################
 
-driverClassName : org.postgresql.Driver
-connectionUrl   : jdbc:postgresql://127.0.0.1/aero
-userName        : jaxy_user
-password        : jaxy_password
+driverClassName : org.postgresql.Driver                # Database Driver
+connectionUrl   : jdbc:postgresql://127.0.0.1/aviation # Database URL
+userName        : jaxy_user                            # UserName 
+password        : jaxy_password                        # Password
 
 #######################################################
 ###### Optional Settings ##############################
