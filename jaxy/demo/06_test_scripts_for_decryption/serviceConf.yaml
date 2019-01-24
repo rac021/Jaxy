@@ -93,3 +93,4 @@ ui_login           : jaxy # Login    of the web-ui user ( If SecureUI = TRUE, el
 ui_password        : jaxy # password of the web-ui user ( If SecureUI = TRUE, else not needed )
 
 ui_session_timeout : 10 # ( mn ) # session timeOut ( The session expires after 10 mn )
+
