@@ -289,7 +289,7 @@ public class Model {
        
        request.addHeader( "Authorization",  " Bearer " + token  ) ;
        
-       invocker( _url.split("://")[0] , out , request )           ;
+       invoker( _url.split("://")[0] , out , request )            ;
        return "Done ! "                                           ;  
     }
      
@@ -315,13 +315,13 @@ public class Model {
             request.addHeader( "Cipher", cipher )              ;
         }
 
-        invocker( _url.split("://")[0] , out , request )       ;
+        invoker( _url.split("://")[0] , out , request )        ;
     }
     
     
-    private static void invocker(  String transport      ,
-                                   final Writer  out     , 
-                                   final HttpGet request ) throws Exception {
+    private static void invoker(  String transport      ,
+                                  final Writer  out     , 
+                                  final HttpGet request ) throws Exception {
         
         final CountDownLatch latch = new CountDownLatch(1) ;
 
