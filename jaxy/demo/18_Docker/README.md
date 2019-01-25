@@ -6,20 +6,22 @@
  sudo docker network create jaxy_net
 ```
 
-
 * **In order to access the container by its hostname and container name from a host machine**
 
 ```
-
    docker run -d                                   \
           -v /var/run/docker.sock:/tmp/docker.sock \
           -v /etc/hosts:/tmp/hosts                 \
           --name docker-hoster                     \
           dvdarias/docker-hoster
-    
-
 ```
-* **Run Docker Jaxy-DataBase**
+
+## 1. **Using Docker Hub :**
+
+
+* **Run Docker Jaxy-DataBase** 
+
+  ( by copying the  [ ( db/init.sql ) ](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/db/init.sql) file into the  **docker-entrypoint-initdb.d** folder of the container )
 
 ```
    docker run -i -t                                       \
@@ -41,17 +43,17 @@
 * **Run Docker Jaxy-App**
 
 ```
-   docker run --name jaxy  -P                          \
-              --network jaxy_net                       \
-              --hostname jaxy                          \
-              --network-alias "jaxy.com"               \
-              -v $(pwd)/jaxy_test_for_docker:/app/service jaxy 
+   docker run --name jaxy  -P                             \
+              --network jaxy_net                          \
+              --hostname jaxy                             \
+              --network-alias "jaxy.com"                  \
+              -v $(pwd)/jaxy_test_for_docker:/app/service rac021/jaxy 
 ```
 
 ----
 ----
 
-## **Build the docker image of Jaxy from scratch :**
+## 2. **Build the docker image of Jaxy from scratch :**
 
 ``` 
      docker build -t jaxy -f Dockerfile ../../ 
