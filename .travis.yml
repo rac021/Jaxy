@@ -29,7 +29,7 @@ jobs:
   include:
     - stage: build docker image
       script:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile .
       - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo "snapshot" ; fi`
       - docker images
