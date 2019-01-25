@@ -52,4 +52,14 @@
               -v $(pwd)/jaxy_test_for_docker:/app/service jaxy 
 ```
 
+----
+----
 
+## **Build the docker image of Jaxy from scratch :**
+
+``` 
+     cd Jaxy 
+     
+     docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile . 
+     
+```
