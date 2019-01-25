@@ -97,12 +97,10 @@ public class LoginAuthenticator implements Serializable {
                 keystore.store(fos, password) ;
             }
 
-            keystore = KeyStore.getInstance(KeyStore.getDefaultType())  ;
-
         } catch ( IOException | KeyStoreException | 
                   NoSuchAlgorithmException        |
                   CertificateException ex)        {
-            System.out.println(ex)                ;
+            throw new RuntimeException( ex )      ;
         }
     }
     
