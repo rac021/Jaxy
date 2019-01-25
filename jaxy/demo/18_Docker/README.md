@@ -1,13 +1,13 @@
 
 
-* Create Network 
+* **Create Network** 
 
 ```
  sudo docker network create jaxy_net
 ```
 
 
-* In order to access the container by its hostname and container name from a host machine
+* **In order to access the container by its hostname and container name from a host machine**
 
 ```
 
@@ -19,7 +19,7 @@
     
 
 ```
-* Run Docker Jaxy-DataBase
+* **Run Docker Jaxy-DataBase**
 
 ```
    docker run -i -t                                       \
@@ -32,13 +32,13 @@
               --network jaxy_net                          \
               postgres:9.6.11-alpine
 ```
-* Test Jaxy-DataBase
+* **Test Jaxy-DataBase**
 ``` 
    psql -h localhost -p 7777 -U jaxy -d aviation
  
 ```
 
-* Run Docker Jaxy-App
+* **Run Docker Jaxy-App**
 
 ```
    docker run --name jaxy  -P                          \
