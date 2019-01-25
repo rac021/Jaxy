@@ -35,7 +35,7 @@ password        : jaxy_password                        # Password
 
 ############################################
 
-_authentication : # using HTTP
+authentication : # using HTTP
   type : customSignOn   
   secured       :
     vip_planes  : 
@@ -55,7 +55,7 @@ _authentication : # using HTTP
   validRequestTimeout : 5 # Request Validity in secondes ( Default : 30 )
   
   
-authentication  :
+disabled_authentication  :
   type          : SSO 
   url           : https://localhost:8543/auth/realms/my_realm/protocol/openid-connect/token # http://localhost:8180/auth/realms/my_realm/protocol/openid-connect/token
   keycloakFile  : keyCloak/keyCloak_https.json ## keyCloak/keyCloak_http.json -> Path of the keyCloak file # Relatif to this file
