@@ -1,4 +1,7 @@
 
+
+## Github Project : https://github.com/rac021/Jaxy
+
 ########################
 # Step : Compile Jaxy ##
 ########################
@@ -33,5 +36,3 @@ ENTRYPOINT ["/bin/bash", "-c", "/app/run.sh serviceConf=service/serviceConf.yaml
 
 CMD []
 
-# docker build -t jaxy .
-# docker run --net=host -v $(pwd)/jaxy_test_for_docker:/app/service jaxy 
