@@ -1,3 +1,3 @@
 
 
-docker run -e POSTGRES_PASSWORD=jaxy -v jaxy_db.sql:/docker-entrypoint-initdb.d/ postgres:9.6.11-alpine
+ docker run -i -t -e POSTGRES_USER=jaxy  -e POSTGRES_PASSWORD=jaxy -v $(pwd)/db/:/docker-entrypoint-initdb.d/ postgres:9.6.11-alpine /bin/bash
