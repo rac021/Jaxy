@@ -15,6 +15,7 @@ WORKDIR /tmp
 
 RUN ./compile.sh 
 
+
 #########################
 # Step : Package image ##
 #########################
@@ -25,8 +26,12 @@ COPY run.sh /app/
 
 WORKDIR /app/
 
-CMD /app/run.sh serviceConf=jaxy/demo/Full_Conf/serviceConf.yaml
-
-
 COPY --from=compilation_stage /tmp/jaxy/ /app/jaxy
+
+
+CMD run.sh serviceConf=services/serviceConf.yaml
+
+
+# docker build -t jaxy .
+# docker run -i -t --net=host -v $(pwd)/jaxy_text_for_docker:/app/service jaxy /bin/bash
 
