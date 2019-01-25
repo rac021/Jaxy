@@ -54,8 +54,6 @@
 ## **Build the docker image of Jaxy from scratch :**
 
 ``` 
-     cd Jaxy 
-     
-     docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile . 
+     docker build -t jaxy -f Dockerfile ../../ 
      
 ```
