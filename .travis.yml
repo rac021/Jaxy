@@ -1,3 +1,4 @@
+
 language: java
 
 sudo: false # faster builds
@@ -21,18 +22,14 @@ script:
 
 env:
   global:
-    - secure: "nbwgZbJh9YTKsfRqyk467V9G80GDfBAOQ/aQ6bfcXyGPqRCJbVqxBLlD3Pz+3JFDHZzBEqRffhFYCabH0/sjkqg2JzHi9MTPFyomuNzpP7Z+fEvdwu/s6m2Zym66PdKsgh8ZKcEsJh34jDZuvGUjtb8VABgLELywLLzzV3eGArtuyHZmBLDJAb+qkbDNspYXkWS64efH1q18lcZaGOx9BHzOLfMB8rId7W+zBK54P5UxkHFC9t1EmZuWBmT/yBiMywgvY77f3FhdMVb616D5O/mepEWMsPSSAcL5H43qra8NJGj06MiELSu4vMupQrYZrvIMwHq9B9J7BFdEYy9cIQX0PwSjDp1jL4D1kZRcqeCaYjhLwEmtu6Pk4/mCj9YD7W3I6MhgtI+/1urfDJWnx19IPL1Z9R4NWLHhy/LDOq3ACizT/+cmwentA2BKw7JDC4gMR3GyVWMu4Iuqtb7A0ATaqqW5FZsw09Ku+7NFf8rDmMmrXzyTXyjo3IXQaSJ2K+oqTkDatpMx0GfiPuA5p2TiyQ+mKMHihRhaI3/lDeM93v/Y0KfMDt1MlFWaKGn2htgqdybE129RDaTYNza4Dxb2vbHwl2I/mG+6uej+MbFUrpF8DAK8kjq3c2mbZTAKsE7WX1Xc6BTgHyAgqzeUQUaU5bLOvdIKgATK6pX/ft0=" # DOCKER_EMAIL
     - secure: "B1PVjcoyruSZExjsJcTKN9oNvKXEG4Z4cwZd0fADx8oaLAsmjyUBbjp9MdewyFXQhye/MnHN4AJnlC0mKPaDkR7m8oXcLcZpVj7b8NEyDOgneSmMnUEdyn2KivpDonCMI0GUTB+8JSe+0G8fHk/8T0K9Xj1+s9WcVZZwmuQdQ2zznkbgCVweePp0D7tLaC0Yt7QBgPQdzqSkJd82YacV/gWH0nHLpt1qXTNGKbihiRP3dO6htU7LJKs4EH4km87oDsCgm6hJXPJHNpSMtTT90NuzrHY7b6+niJgO7hjyNmTkoeas9MsRFThGBc5durw5QEHX78g1wM9XCtNvO92WVKBr1zjJlIbPfod5C4bx2auA9b8tMANZ+CO0LOSgdAq6b/G+yFVO1ybsqKWUrPz91VZO0beSY7zEmL4jy3Ku5ZuJvtZH3QEaNWGgO/+EItk/jBcT1FN0kqHZS4xp7TuzLiEFAXFBuXqgDyi9V8+6MtC+K41iz45JEFFvKf8/ASqty56EmjGU+2I2HMLS/KiXv9y/7FOwZ2R9LRpDT6MwVuXJ+3Gvd8RiaSgsCe8DnGmBj/ub+TmQc4C3TjkTxTBL+Mdb9ARkL1yL3Eal2nr98w6aWMbM3o6MlHFCiXA8DdqqANeGLl0sCkapYrhaIorIKVjkXF4y3QiPoOaGIbRdlNE=" # DOCKER_USER
     - secure: "Oi1HSQlG6e+QQuzwtWZidghOsVzt0gElTEx7bzFCUTyz2voh6JtcIhCmMb3Coz5WjzWwfWjsIvKR39vpd7A66OK6Qbh1Hldwrg6s8dx/sBXLUP5WL91d2s6vLHykg79xt/BJolgIIzw9uKZPmh98XPpUyOtv9Gqf75BqeDUzv6V9eNKlA1DPIFj0ii/49+u5cbID5fawK4dTxQON3A1n3n5yDg/TjsQ5fIQHRwCfiC5wU1TCVQD+myLcpLpwc0mfbjOI/5wDyRW8MbhMdXNKnWBW3Mb3cnx3quecskpqEgReKnW6sg0v5W2DyamLeLEQTMCWy4Dzpxy+8XzWCLMgs83/IxLiHdsWa2kC+QA6y1XzBglZ5jr1SjfyU9G5bwN/k5oeF+pxNxJstShgHOWHWdIP0XmDqIOLlW4LpqAFjw7b11FGsph7g2ppHI5Qz2hmowuM/Brcr4ZptWKrppKj/ch5MvgP9RgYcvRs5EGCC0+qFEDamn8YU1j/E5b/y6J42/ZH5Xgtrl982nQx24PWB2NUe5Qv++qrD5ph80iGNgEI5Xfzllw/bK1YfZC/bqaoPZ/JmzsIZMrg2NuxtU7VTBFIFkZ5wlL3jxdBD4D8MVMbmGjhiGy0WHsuTn37q173Flo+3MpsGFw8lrEWEuOlCM+01DanwkKFw1bv6hJskUM=" # DOCKER_PASS
     
-jobs:
-  include:
-    - stage: build docker image
-      script:
-      - echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME --password-stdin
-      - docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile .
-      - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo "snapshot" ; fi`
-      - docker images
-      - docker tag jaxy $DOCKER_USERNAME/jaxy:$TAG
-      - docker push $DOCKER_USERNAME/jaxy:$TAG
+after_success:
+    - echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME --password-stdin
+    - docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile .
+    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo "$TRAVIS_BUILD_NUMBER" ; fi`
+    - docker images
+    - docker tag jaxy $DOCKER_USERNAME/jaxy:$TAG
+    - docker push $DOCKER_USERNAME/jaxy:$TAG
 
