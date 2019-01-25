@@ -24,7 +24,7 @@
   ( by copying the  [ ( db/init.sql ) ](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/db/init.sql) file into the  **docker-entrypoint-initdb.d** folder of the container )
 
 ```
-   docker run -i -t                                       \
+   docker run -d                                          \
               -e POSTGRES_USER=jaxy                       \
               -e POSTGRES_PASSWORD=jaxy                   \
               -e POSTGRES_DB=aviation                     \
@@ -35,6 +35,7 @@
               postgres:9.6.11-alpine
 ```
 * **Test Jaxy-DataBase**
+
 ``` 
    psql -h localhost -p 7777 -U jaxy -d aviation
  
@@ -43,11 +44,17 @@
 * **Run Docker Jaxy-App**
 
 ```
-   docker run --name jaxy  -P                             \
+   docker run --name jaxy -d -P                           \
               --network jaxy_net                          \
               --hostname jaxy                             \
               --network-alias "jaxy.com"                  \
               -v $(pwd)/jaxy_test_for_docker:/app/service rac021/jaxy 
+```
+
+* **Check Logs**
+
+```
+   docker container logs -f jaxy
 ```
 
 ----
