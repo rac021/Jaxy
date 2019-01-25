@@ -24,3 +24,4 @@ jobs:
     - stage: build docker image
       script:
       - docker build -t rac021/jaxt -f jaxy/demo/18_Docker/Dockerfile .
+
