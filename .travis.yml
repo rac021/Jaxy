@@ -23,7 +23,7 @@ jobs:
   include:
     - stage: build docker image
       script:
-      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile .
       - docker images
       - docker tag jaxy $DOCKER_USERNAME/jaxy
