@@ -1,11 +1,5 @@
 
-  DROP  DATABASE aviation  ;
-  DROP  USER     jaxy_user ;
- 
-  CREATE DATABASE aviation  TEMPLATE       template0 ; 
-  CREATE USER     jaxy_user WITH PASSWORD 'jaxy_password'  ;
-  
-  -- Create Table for Authentication 
+-- Create Table for Authentication 
    
   CREATE TABLE users  ( login     varchar(255) ,
                         password  varchar(255) ,
