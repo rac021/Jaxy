@@ -43,10 +43,6 @@
 ```
    docker run --name jaxy  -P                          \
               --network jaxy_net                       \
-              --expose 8443                            \
-              --expose 8181                            \
-              -p  8443:8443                            \
-              -p  8181:8181                            \
               --hostname jaxy                          \
               --network-alias "jaxy.com"               \
               -v $(pwd)/jaxy_test_for_docker:/app/service jaxy 
