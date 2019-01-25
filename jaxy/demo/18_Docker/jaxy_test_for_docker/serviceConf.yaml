@@ -49,7 +49,8 @@ authentication : # using HTTP
     passwordColumnName : password -> MD5  # Default Storage : PLAIN
   paramToSign :    # Ex : Signature = SHA2 ( login + MD5 ( password ) + timeStamp )
     login     : PLAIN 
-    password  : MD5     # password hashed with MD5 in the signature of the request ( Equal to the Hash used in passwordColumn )
+    password  : MD5     # password hashed with MD5 in the signature of the request 
+                        # ( Equal to the Hash used in passwordColumn )
     timeStamp : PLAIN
   algoSign    : SHA2
   validRequestTimeout : 5 # Request Validity in secondes ( Default : 30 )
@@ -57,8 +58,10 @@ authentication : # using HTTP
   
 disabled_authentication  :
   type          : SSO 
-  url           : https://localhost:8543/auth/realms/my_realm/protocol/openid-connect/token # http://localhost:8180/auth/realms/my_realm/protocol/openid-connect/token
-  keycloakFile  : keyCloak/keyCloak_https.json ## keyCloak/keyCloak_http.json -> Path of the keyCloak file # Relatif to this file
+  url           : https://localhost:8543/auth/realms/my_realm/protocol/openid-connect/token
+                  # http://localhost:8180/auth/realms/my_realm/protocol/openid-connect/token
+  keycloakFile  : keyCloak/keyCloak_https.json ## keyCloak/keyCloak_http.json -> 
+                                               ## Path of the keyCloak file # Relatif to this file
   secured       : 
     vip_planes  : 
       GET     : [ manager ] # Operation + list of roles. Ex : GET : [ admin, tester, manager ]
