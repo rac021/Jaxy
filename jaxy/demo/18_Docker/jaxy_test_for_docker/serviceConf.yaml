@@ -18,7 +18,7 @@
 #########################################
 
 driverClassName : org.postgresql.Driver                # Database Driver
-connectionUrl   : jdbc:postgresql://127.0.0.1/aviation # Database URL
+connectionUrl   : jdbc:postgresql://jaxy_db/aviation   # Database URL
 userName        : jaxy_user                            # UserName 
 password        : jaxy_password                        # Password
 
