@@ -28,3 +28,4 @@ jobs:
       - docker images
       - docker tag jaxy $DOCKER_USERNAME/jaxy
       - docker push $DOCKER_USERNAME/jaxy
+
