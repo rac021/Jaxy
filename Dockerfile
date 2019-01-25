@@ -29,9 +29,8 @@ WORKDIR /app/
 COPY --from=compilation_stage /tmp/jaxy/ /app/jaxy
 
 
-CMD run.sh serviceConf=services/serviceConf.yaml
+CMD run.sh serviceConf=service/serviceConf.yaml
 
 
 # docker build -t jaxy .
-# docker run -i -t --net=host -v $(pwd)/jaxy_text_for_docker:/app/service jaxy /bin/bash
-
+# docker run -i -t --net=host -v $(pwd)/jaxy_text_for_docker:/app/service jaxy 
