@@ -18,12 +18,18 @@ script:
   - mvn clean install
   - cd /home/travis/build/rac021/Jaxy/src/jaxy
   - mvn clean package 
-  
+
+env:
+  global:
+    - secure: "nbwgZbJh9YTKsfRqyk467V9G80GDfBAOQ/aQ6bfcXyGPqRCJbVqxBLlD3Pz+3JFDHZzBEqRffhFYCabH0/sjkqg2JzHi9MTPFyomuNzpP7Z+fEvdwu/s6m2Zym66PdKsgh8ZKcEsJh34jDZuvGUjtb8VABgLELywLLzzV3eGArtuyHZmBLDJAb+qkbDNspYXkWS64efH1q18lcZaGOx9BHzOLfMB8rId7W+zBK54P5UxkHFC9t1EmZuWBmT/yBiMywgvY77f3FhdMVb616D5O/mepEWMsPSSAcL5H43qra8NJGj06MiELSu4vMupQrYZrvIMwHq9B9J7BFdEYy9cIQX0PwSjDp1jL4D1kZRcqeCaYjhLwEmtu6Pk4/mCj9YD7W3I6MhgtI+/1urfDJWnx19IPL1Z9R4NWLHhy/LDOq3ACizT/+cmwentA2BKw7JDC4gMR3GyVWMu4Iuqtb7A0ATaqqW5FZsw09Ku+7NFf8rDmMmrXzyTXyjo3IXQaSJ2K+oqTkDatpMx0GfiPuA5p2TiyQ+mKMHihRhaI3/lDeM93v/Y0KfMDt1MlFWaKGn2htgqdybE129RDaTYNza4Dxb2vbHwl2I/mG+6uej+MbFUrpF8DAK8kjq3c2mbZTAKsE7WX1Xc6BTgHyAgqzeUQUaU5bLOvdIKgATK6pX/ft0=" # DOCKER_EMAIL
+    - secure: "B1PVjcoyruSZExjsJcTKN9oNvKXEG4Z4cwZd0fADx8oaLAsmjyUBbjp9MdewyFXQhye/MnHN4AJnlC0mKPaDkR7m8oXcLcZpVj7b8NEyDOgneSmMnUEdyn2KivpDonCMI0GUTB+8JSe+0G8fHk/8T0K9Xj1+s9WcVZZwmuQdQ2zznkbgCVweePp0D7tLaC0Yt7QBgPQdzqSkJd82YacV/gWH0nHLpt1qXTNGKbihiRP3dO6htU7LJKs4EH4km87oDsCgm6hJXPJHNpSMtTT90NuzrHY7b6+niJgO7hjyNmTkoeas9MsRFThGBc5durw5QEHX78g1wM9XCtNvO92WVKBr1zjJlIbPfod5C4bx2auA9b8tMANZ+CO0LOSgdAq6b/G+yFVO1ybsqKWUrPz91VZO0beSY7zEmL4jy3Ku5ZuJvtZH3QEaNWGgO/+EItk/jBcT1FN0kqHZS4xp7TuzLiEFAXFBuXqgDyi9V8+6MtC+K41iz45JEFFvKf8/ASqty56EmjGU+2I2HMLS/KiXv9y/7FOwZ2R9LRpDT6MwVuXJ+3Gvd8RiaSgsCe8DnGmBj/ub+TmQc4C3TjkTxTBL+Mdb9ARkL1yL3Eal2nr98w6aWMbM3o6MlHFCiXA8DdqqANeGLl0sCkapYrhaIorIKVjkXF4y3QiPoOaGIbRdlNE=" # DOCKER_USER
+    - secure: "zEFX1UgFAi9DVwA29QOvt7pDoqut/U+M/i5I4DJtfiltGj5fFppR5goCfa5eGdR1so8waL7+Oy+fB+QalXEBHFoEy0nPbyXCxrQQCbAAmTfH1hZIVa5P6xGRnRwWaIumKV2IYU+NGmNqCQf5ItfZio9evqtvUllYMSCAbq/AWqXHj8KKJS/zg/UAcFMUkE1vdr2pUIHv/BznkbS+nhycJ0y5YtsL0Oo22d4XOar8UcqSKyGr8zSHETNttBZ1FF/clV2MUObMh+6tcGjwfwg4XK1hdsCkYB6FJcXtaHVd+7AQe5bLp8Zj1w+qWuz6d6qQilc3l84JQlClXDXnearDRkaOKXgpJIhBsw3WNEWF9BaIeICnZhXvycPBdzZYOMxnhXt0t9J+LwFikx7fKgGkq34YWh+kDwmb3vWn58zSqg3ZhlHulJ5fiRn50qkSb6EWGilRBDDrKZckt1OCpfKNHnvF47xBGWta0cEY73XX68cmXU4FFXgfD2V7de1Ef3wFYLbKQZod26DHp4xdZioFr7QBgBgOf/9L7U15nu8hlh7gH/lKZ9PLI5PYE5C8Q18gzKmIOk+I7fID+XR+lnkXWBjeRqWmrnfJRwOgx9+XcTJE7YcMMs01L2NJG4HroYNm6B+PtOjGD+tVr0jX5fqq2cgxtDt20O/zQlGkgI4VO3E=" # DOCKER_PASS
+    
 jobs:
   include:
     - stage: build docker image
       script:
-      - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile .
       - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo "snapshot" ; fi`
       - docker images
