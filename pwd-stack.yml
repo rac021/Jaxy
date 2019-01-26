@@ -7,7 +7,7 @@ services:
     image: postgres:9.6.11-alpine
     hostname: jaxy_db
     volumes:
-      - /db/:/docker-entrypoint-initdb.d/ 
+      - /jaxy/demo/18_Docker/db/:/docker-entrypoint-initdb.d/ 
     environment:
       POSTGRES_USER: jaxy
       POSTGRES_PASSWORD: jaxy
