@@ -35,5 +35,6 @@ services:
 networks:
   jaxy_net:
      name: bridge
+     scope: swarm
 
 
