@@ -1,5 +1,5 @@
 
-version: '3.5'
+version: '3.6'
 
 services:
 
@@ -9,6 +9,8 @@ services:
     restart: always
     volumes:
       - /db/:/docker-entrypoint-initdb.d/ 
+    restart:
+      on-failure
     environment:
       POSTGRES_USER: jaxy
       POSTGRES_PASSWORD: jaxy
@@ -26,6 +28,8 @@ services:
     restart: always
     volumes:
       - /jaxy_test_for_docker/:/app/service rac021/jaxy 
+    restart:
+      on-failure
     ports:
       - 8181:8181
       - 8443:8443
@@ -33,7 +37,7 @@ services:
       - jaxy_net
       
 networks:
-  jaxy_net:
+  jaxy_net: {}
   
 
 
