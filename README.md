@@ -12,6 +12,7 @@
 |:-------------|:-------------|
 | **Features** |  [ Jaxy Provided Features ](https://github.com/rac021/Jaxy/tree/master/docs)            |
 | **Youtube**  |  [![Watch the video](https://user-images.githubusercontent.com/7684497/50719557-12ee6000-109e-11e9-8b9e-4c085b9b0760.png)](https://www.youtube.com/watch?v=6IqxzSankpw&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa)  |
+| **Play With Docker** | [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/pwd-stack.yml)
 
 
 ------------------------------------------------------
@@ -98,7 +99,6 @@
  -  ### [ 18._Docker](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker)
  
 ------------------------------------------------------
-
 
   [Talk_2017_PasSageEnSeine]( https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf
 ) ( PDF ) 
