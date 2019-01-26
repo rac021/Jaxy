@@ -35,6 +35,7 @@ services:
 networks:
   jaxy_net:
      name: jaxy_net
-     external: true
+
+
      
 
