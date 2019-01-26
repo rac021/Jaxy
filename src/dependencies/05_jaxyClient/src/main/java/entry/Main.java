@@ -251,7 +251,17 @@ public class Main {
            System.exit( 0 )                ;
        }
        
-       if( security != null  &&
+       if (  security != null  &&
+           ( security.equalsIgnoreCase("Public")   )      )           {
+         
+           Model.invokeService_Using_Public( printWriter , 
+                                             url         , 
+                                             params      ,
+                                             accept      ,
+                                             keep        ) ;
+       }
+	    
+       if (  security != null  &&
            ( security.equalsIgnoreCase("CustomSignOn")   )      )     {
            
            checkNotNull( "AlgeSign"          , algoSign          )    ;
