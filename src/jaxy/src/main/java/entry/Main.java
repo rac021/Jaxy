@@ -257,10 +257,10 @@ public class Main                {
         LOGGER.log( Level.INFO, message("new_line")) ;
 
         LOGGER.log( Level.INFO, message("service_discovery") ,
-                    new Object[] { cfg.getTransport()    ,
-                                   cfg.getIp()           ,
-                                   cfg.getSelectedPort() ,
-                                   CONTEXT} )            ;
+                    new Object[] { cfg.getTransport()        ,
+                                   HostManager.getHostName() ,
+                                   cfg.getSelectedPort()     ,
+                                   CONTEXT}                ) ;
 
         LOGGER.log( Level.INFO, message("new_line")) ;
         LOGGER.log( Level.INFO, message("monitor"))  ;
