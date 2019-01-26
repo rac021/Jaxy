@@ -32,3 +32,6 @@ services:
     networks:
       - jaxy_net
       
+networks:
+  jaxy_net:
+      
