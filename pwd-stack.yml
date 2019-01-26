@@ -23,7 +23,7 @@ services:
     image: rac021/jaxy
     hostname: jaxy
     volumes:
-      - /jaxy_test_for_docker/:/app/service rac021/jaxy 
+      - /jaxy/demo/18_Docker/jaxy_test_for_docker/:/app/service rac021/jaxy 
     ports:
       - 8181:8181
       - 8443:8443
