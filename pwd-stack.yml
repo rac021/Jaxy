@@ -34,5 +34,6 @@ services:
       
 networks:
   jaxy_net:
-     name: bridge
+  
+
 
