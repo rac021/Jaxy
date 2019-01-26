@@ -8,8 +8,6 @@ services:
     hostname: jaxy_db
     volumes:
       - /db/:/docker-entrypoint-initdb.d/ 
-    restart:
-      on-failure
     environment:
       POSTGRES_USER: jaxy
       POSTGRES_PASSWORD: jaxy
@@ -26,8 +24,6 @@ services:
     hostname: jaxy
     volumes:
       - /jaxy_test_for_docker/:/app/service rac021/jaxy 
-    restart:
-      on-failure
     ports:
       - 8181:8181
       - 8443:8443
