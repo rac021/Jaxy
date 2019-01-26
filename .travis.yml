@@ -35,8 +35,7 @@ script:
 after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME --password-stdin
     - docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile .
-    # - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo "$TRAVIS_BUILD_NUMBER" ; fi`
-    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER" ; else echo "latest" ; fi`
+    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ] ; then echo "travis-$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER" ; else echo "travis-$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER-snapshot" ; fi`
     - docker images
     - docker tag jaxy $DOCKER_USERNAME/jaxy:$TAG
     - docker push $DOCKER_USERNAME/jaxy:$TAG
