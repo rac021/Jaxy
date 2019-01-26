@@ -12,8 +12,6 @@ services:
       POSTGRES_USER: jaxy
       POSTGRES_PASSWORD: jaxy
       POSTGRES_DB: aviation
-    ports:
-      - 7777:5432
     networks:
       - jaxy_net
       
@@ -26,7 +24,6 @@ services:
       - /jaxy/demo/18_Docker/jaxy_test_for_docker/:/app/service rac021/jaxy 
     ports:
       - 8181:8181
-      - 8443:8443
     networks:
       - jaxy_net
       
