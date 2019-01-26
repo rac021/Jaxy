@@ -6,7 +6,6 @@ services:
   jaxy_db:
     image: postgres:9.6.11-alpine
     hostname: jaxy_db
-    restart: always
     volumes:
       - /db/:/docker-entrypoint-initdb.d/ 
     restart:
@@ -25,7 +24,6 @@ services:
       - jaxy_db
     image: rac021/jaxy
     hostname: jaxy
-    restart: always
     volumes:
       - /jaxy_test_for_docker/:/app/service rac021/jaxy 
     restart:
