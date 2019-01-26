@@ -77,7 +77,7 @@
  
  -  ### [ 08. Test java Client for Public Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/08_test_java_client_for_public_services)
   
- -  ### [ 09. Testj ava Client for Secured Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/09_test_java_client_for_secured_services)
+ -  ### [ 09. Test java Client for Secured Services](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/09_test_java_client_for_secured_services)
  
  -  ### [ 10. Test java Client for Decryption](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/10_test_java_client_for_decryption)
  
