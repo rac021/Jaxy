@@ -53,24 +53,7 @@ authentication : # using HTTP
                         # ( Equal to the Hash used in passwordColumn )
     timeStamp : PLAIN
   algoSign    : SHA2
-  validRequestTimeout : 5 # Request Validity in secondes ( Default : 30 )
-  
-  
-disabled_authentication  :
-  type          : SSO 
-  url           : https://localhost:8543/auth/realms/my_realm/protocol/openid-connect/token
-                  # http://localhost:8180/auth/realms/my_realm/protocol/openid-connect/token
-  keycloakFile  : keyCloak/keyCloak_https.json ## keyCloak/keyCloak_http.json -> 
-                                               ## Path of the keyCloak file # Relatif to this file
-  secured       : 
-    vip_planes  : 
-      GET     : [ manager ] # Operation + list of roles. Ex : GET : [ admin, tester, manager ]
-      POST    : [ manager ] 
-      TRACE   : [ manager ] 
-      DELETE  : [ manager ] 
-      CONNECT : [ manager ] 
-      OPTION  : [ manager ] 
-      PUT     : [ manager ]       
+  validRequestTimeout : 5 # Request Validity in secondes ( Default : 30 )       
       
 #########################################
 #########################################
@@ -81,22 +64,15 @@ Services :
  - planes :
      Query : > 
             SELECT model , total_passengers , distance_km  
-            FROM aircraft LIMIT 1
-     Accept    : [ Xml/Plain ]
+            FROM aircraft 
      TemplateUri : template_services/template_planes.txt    # Path Relatif to this file
      MaxThreads : 2
  - vip_planes :
      Query : > 
             SELECT * FROM aircraft
-     MaxThreads : 1
+     MaxThreads : 2
      TemplateUri : template_services/template_planes.txt    # Path Relatif to this file
- - planesBis_1 :
-     Query : > 
-            SELECT model , total_passengers , distance_km  
-            FROM aircraft
-     TemplateUri : template_services/template_planes.txt    # Path Relatif to this file
-     MaxThreads : 1 
-
+ 
 #########################################
 ##### Technical Settings ################
 #########################################
@@ -111,7 +87,7 @@ IP         : localhost
 HTTP_PORT  : 8181       
 HTTPS_PORT : 8443      
 
-TRANSPORT  : HTTPS  # HTTPS
+TRANSPORT  : HTTP  # HTTPS
 
 # IF SSL_MODE =
 #  SELF_SSL     : CERTIFICATE IS AUTO GENERATED
@@ -143,7 +119,6 @@ CERTIFICATE_PATH   :  my-release-key.keystore # jaxy_cert.p12
 KEY_PASSWORD       :  jaxyjaxy
 ALIAS              :  jaxy_alias_name  
 KEY_STORE_PASSWORD :  jaxyjaxy
-
 
 #################################
 #################################
@@ -191,7 +166,7 @@ SelectSize         : 5000
 ### Optional
 
 ## Application Context 
-ROOT_APPLICATION_CONTEXT : jaxy # same as /jaxy
+ROOT_APPLICATION_CONTEXT : / # /jaxy
 
 # Context of the Admin Console
 ADMIN_CONSOLE_CONTEXT    : /console
@@ -216,7 +191,6 @@ MANAGEMENT_BIND_ADRESS      : 0.0.0.0
 
 ##########################################
 ##########################################
-
 
 #################################
 ############ APP ################
