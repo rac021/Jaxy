@@ -222,7 +222,7 @@ public class Model {
         return  new InputStreamReader(response.getEntity().getContent())  ;
     }
     
-    private static String getKeyCloakResponseAsString( HttpResponse response ) throws IOException {
+    private static String getKeyCloakResponseAsString( HttpResponse response ) throws IOException    {
     
         StringBuilder result = new StringBuilder()    ;
         
@@ -293,6 +293,24 @@ public class Model {
        return "Done ! "                                           ;  
     }
      
+    public static void invokeService_Using_Public ( Writer out        ,
+                                                    String serviceUrl ,
+                                                    String params     ,
+                                                    String accept     , 
+                                                    String keep       ) throws Exception {
+        
+        Objects.requireNonNull(out)                            ;
+
+        String _url = buildUrlWithParams( serviceUrl, params ) ;
+
+        final HttpGet request = new HttpGet( _url )            ;
+
+        request.addHeader( "Accept", accept)                   ;
+        request.addHeader( "Keep", keep  )                     ;
+        
+        invoker( _url.split("://")[0] , out , request )        ;
+    }
+	
     public static void invokeService_Using_Custom ( Writer out        ,
                                                     String serviceUrl ,
                                                     String params     ,
