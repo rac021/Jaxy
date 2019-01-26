@@ -3,7 +3,7 @@
 
 | Branch  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  build status ( Travis ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | SourceForge |
 |-----------|---------------|---------------------------|
-| [master](https://github.com/rac021/Jaxy/tree/master)  | [![Build Status](https://travis-ci.org/ontop/ontop.svg?branch=master)](https://travis-ci.org/rac021/Jaxy) | [ Jaxy Download Link ]( https://sourceforge.net/projects/jaxy/)
+| [master](https://github.com/rac021/Jaxy/tree/master)  | [![Build Status](https://api.travis-ci.org/rac021/Jaxy.svg?branch=master)](https://travis-ci.org/rac021/Jaxy) | [ Jaxy Download Link ]( https://sourceforge.net/projects/jaxy/)
 
 ------------------------------------------------------
 
