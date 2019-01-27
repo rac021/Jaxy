@@ -1,5 +1,5 @@
 
-package com.rac021.jaxy.grafana ;
+package com.rac021.jaxy.ee.grafana ;
 
 import java.util.List ;
 import java.util.Arrays ;
