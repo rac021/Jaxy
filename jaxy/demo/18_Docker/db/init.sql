@@ -1,4 +1,9 @@
 
+
+-- Create User for Jaxy App 
+
+ CREATE USER  jaxy_user WITH PASSWORD 'jaxy_password'  ;
+  
 -- Create Table for Authentication 
    
   CREATE TABLE users  ( login     varchar(255) ,
@@ -13,8 +18,7 @@
   INSERT INTO users VALUES ( 'public' , '4c9184f37cff01bcdc32dc486ec36961' ) ; -- HASHED password 
   
   GRANT SELECT ON users to jaxy_user  ;
-  
-  
+    
   
   CREATE TABLE aircraft ( model            varchar(255) ,
                           total_passengers integer      ,
