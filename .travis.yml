@@ -41,7 +41,7 @@ after_success:
     - docker push $DOCKER_USERNAME/jaxy:$TAG
     - docker tag jaxy $DOCKER_USERNAME/jaxy:latest
     - docker push $DOCKER_USERNAME/jaxy:latest
-    - docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile_PWD . # Jaxy Image for Play with docker ( pwd ) 
+    - docker build -t jaxy -f jaxy/demo/18_Docker/play_with_docker/Dockerfile_PWD . # Jaxy Image for Play with docker ( pwd ) 
     - docker tag jaxy $DOCKER_USERNAME/jaxy:pwd
     - docker push $DOCKER_USERNAME/jaxy:pwd
     
