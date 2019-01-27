@@ -157,9 +157,9 @@ public class YamlConfigurator implements IConfigurator      {
     private final String KEYCLOAKFILE        = "keycloakFile"        ;
     private final String KEY_PASSWORD        = "KEY_PASSWORD"        ;
    
-    private final String OVERRIDE_HOST       =  "OVERRIDE_HOST"      ;
-    private final String HOST_TYPE           =  "HOST_TYPE"          ;
-    private final String IP                  =  "IP"                 ;
+    private final String OVERRIDE_HOST       = "OVERRIDE_HOST"       ;
+    private final String HOST_TYPE           = "HOST_TYPE"           ;
+    private final String IP                  = "IP"                  ;
     
     private final String REJECT_CONNECTION_WHEN_LIMIT_EXEEDED  = "RejectConnectionsWhenLimitExceeded"  ;
     private final String DEFAULT_MAX_THREADS_PER_SERVICE       = "DefaultMaxThreadsPerService"         ;
