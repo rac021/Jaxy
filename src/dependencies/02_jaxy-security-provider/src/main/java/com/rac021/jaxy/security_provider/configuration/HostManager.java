@@ -56,7 +56,7 @@ public class HostManager {
            if( HOST_NAME == null ) getHostName()     ;
            
            IP    = InetAddress.getByName( HOST_NAME )
-                              .toString()            ; 
+                              .getHostAddress()             ;
            
        } catch( UnknownHostException ex )                   {
             LOGGER.log(Level.WARNING, ex.getMessage(), ex ) ;
