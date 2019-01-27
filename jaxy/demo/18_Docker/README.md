@@ -1,4 +1,5 @@
 
+## 1. **Using Docker Hub images :**
 
 * **Create Network** 
 
@@ -6,7 +7,8 @@
  sudo docker network create jaxy_net
 ```
 
-* **In order to access the container by its hostname and container name from a host machine**
+* **In order to access the container by its hostname and container name from a host machine**    
+    Run the following command ( **Optional** ) :
 
 ```
    docker run -d                                   \
@@ -16,10 +18,8 @@
           dvdarias/docker-hoster
 ```
 
-## 1. **Using Docker Hub images :**
 
-
-* **Run Docker Jaxy-DataBase** 
+* **Run Docker Jaxy-DataBase :** 
 
   ( by copying the  [ ( db/init.sql ) ](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/db/init.sql) file into the  **docker-entrypoint-initdb.d** folder of the container )
 
@@ -34,14 +34,14 @@
               --network jaxy_net                          \
               postgres:9.6.11-alpine
 ```
-* **Test Jaxy-DataBase**
+* **Test Jaxy-DataBase :**
 
 ``` 
    psql -h localhost -p 7777 -U jaxy -d aviation
  
 ```
 
-* **Run Docker Jaxy-App**
+* **Run Docker Jaxy-App :**
 
 ```
    docker run --name jaxy -d -P                           \
@@ -52,7 +52,7 @@
               rac021/jaxy 
 ```
 
-* **Check Logs**
+* **Check Logs :**
 
 ```
    docker container logs -f jaxy
@@ -64,6 +64,8 @@
 ## 2. **Build the docker image of Jaxy from scratch :**
 
 ``` 
-     docker build -t jaxy -f Dockerfile ../../ 
-     
+     docker build -t jaxy -f Dockerfile ../../      
 ```
+---
+
+## 3. **Try Play With Docker** [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/play_with_docker/pwd-stack.yml)  Using : [pwd-stack.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/play_with_docker/pwd-stack.yml) file
