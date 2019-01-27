@@ -44,12 +44,14 @@
 * **Run Docker Jaxy-App :**
 
 ```
-   docker run --name jaxy -d -P                           \
-              --hostname jaxy                             \
-              --network-alias "jaxy.com"                  \
-              -v $(pwd)/jaxy_test_for_docker:/app/service \
-              --network jaxy_net                          \
-              rac021/jaxy 
+   docker run --name jaxy -d -P                                   \
+              --hostname jaxy                                     \
+              --network-alias "jaxy.com"                          \
+              -v $(pwd)/jaxy_test_for_docker:/app/service         \
+              -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy \
+              -v $(pwd)/logs:/app/jaxy/logs                       \
+              --network jaxy_net                                  \
+              rac021/jaxy               
 ```
 
 * **Check Logs :**
