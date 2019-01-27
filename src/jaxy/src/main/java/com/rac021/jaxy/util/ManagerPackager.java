@@ -118,7 +118,6 @@ public class ManagerPackager {
         
         war .addPackage("com.rac021.jaxy.cors")                     ;
         war .addPackage("com.rac021.jaxy.health")                   ;
-        war .addPackage("com.rac021.jaxy.grafana")                  ;
         war .addPackage("com.rac021.jaxy.messages")                 ;
         war .addPackage("com.rac021.jaxy.unzipper")                 ;
         war .addPackage("com.rac021.jaxy.service.time")             ;
