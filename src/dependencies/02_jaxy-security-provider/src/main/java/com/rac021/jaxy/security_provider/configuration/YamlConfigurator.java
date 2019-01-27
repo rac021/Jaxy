@@ -485,7 +485,9 @@ public class YamlConfigurator implements IConfigurator      {
     private void setServerConfiguration()                         {
  
         
-       if ((getConfiguration().get(OVERRIDE_HOST)) != null )      {
+       if (   ( getConfiguration().get(OVERRIDE_HOST)) != null  &&
+            ! ((String) getConfiguration().get(OVERRIDE_HOST))
+                                          .isEmpty() )           {
        
            this.HOST = (String) getConfiguration()
                                 .get(OVERRIDE_HOST) ;
