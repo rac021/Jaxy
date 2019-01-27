@@ -56,12 +56,15 @@ public class GrafanaManager {
                                                 .replace( Template.TITLE, Template.TITLE_TIMERS )
                                                 .replace( Template.UUID, UUID.randomUUID().toString()) ;
 
-             
-        String grafanaOutputFolder = System.getProperty("user.dir") + File.separator    +
-                                                                      "monitoring_jaxy" +
-                                                                      File.separator    +
-                                                                      "provisioning"    +
-                                                                       File.separator   ;
+        
+        String jarFileLocation     = System.getProperty("java.class.path")
+                                           .split(":" + System.getProperty("java.io.tmpdir"))[0] ;
+        
+        String folder              = new File(jarFileLocation).getParentFile().getAbsolutePath() ;
+       
+        String grafanaOutputFolder = folder         +  File.separator  +  "monitoring_jaxy" +
+                                     File.separator + "provisioning"   +  File.separator    ;
+        
         Files.createDirectories(Paths.get(grafanaOutputFolder))                 ;
         Files.createDirectories(Paths.get(grafanaOutputFolder + "dashboards"))  ;
         Files.createDirectories(Paths.get(grafanaOutputFolder + "datasources")) ;
