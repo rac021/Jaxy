@@ -13,7 +13,6 @@ import java.util.ArrayList ;
 import java.util.logging.Level ;
 import java.util.logging.Logger ;
 import java.util.stream.Collectors ;
-import com.rac021.jaxy.grafana.Template ;
 import com.rac021.jaxy.shared.Transformer ;
 import com.rac021.jaxy.shared.JaxyLocator ;
 import com.rac021.jaxy.api.crypto.AcceptType ;
