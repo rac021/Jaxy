@@ -28,9 +28,9 @@
               -e POSTGRES_USER=jaxy                       \
               -e POSTGRES_PASSWORD=jaxy                   \
               -e POSTGRES_DB=aviation                     \
+              --name jaxy_db                              \
               -v $(pwd)/db/:/docker-entrypoint-initdb.d/  \
               -p 7777:5432                                \
-              --name jaxy_db                              \
               --network jaxy_net                          \
               postgres:9.6.11-alpine
 ```
@@ -45,10 +45,11 @@
 
 ```
    docker run --name jaxy -d -P                           \
-              --network jaxy_net                          \
               --hostname jaxy                             \
               --network-alias "jaxy.com"                  \
-              -v $(pwd)/jaxy_test_for_docker:/app/service rac021/jaxy 
+              -v $(pwd)/jaxy_test_for_docker:/app/service \
+              --network jaxy_net                          \
+              rac021/jaxy 
 ```
 
 * **Check Logs**
