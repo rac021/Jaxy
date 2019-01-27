@@ -4,10 +4,8 @@ version: '3.6'
 services:
 
   jaxy_db:
-    image: postgres:9.6.11-alpine
+    image: rac021/jaxy_db_pwd
     hostname: jaxy_db
-    volumes:
-      - ./jaxy/demo/18_Docker/db/:/docker-entrypoint-initdb.d/ 
     environment:
       POSTGRES_USER: jaxy
       POSTGRES_PASSWORD: jaxy
@@ -18,10 +16,8 @@ services:
   jaxy:
     depends_on:
       - jaxy_db
-    image: rac021/jaxy
+    image: rac021/jaxy:pwd
     hostname: jaxy
-    volumes:
-      - ./jaxy/demo/18_Docker/jaxy_test_for_docker/:/app/service rac021/jaxy 
     ports:
       - 8181:8181
     networks:
