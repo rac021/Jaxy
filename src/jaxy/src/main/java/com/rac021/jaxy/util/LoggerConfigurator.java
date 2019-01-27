@@ -6,6 +6,7 @@ import java.util.Map ;
 import java.util.HashMap ;
 import org.jboss.modules.Module ;
 import java.util.logging.LogManager ;
+import com.rac021.jaxy.shared.JaxyLocator ;
 import org.jboss.modules.ModuleLoadException ;
 import org.wildfly.swarm.config.logging.Level ;
 import org.wildfly.swarm.logging.LoggingFraction ;
@@ -18,11 +19,11 @@ import com.rac021.jaxy.security_provider.configuration.YamlConfigurator ;
  */
 public class LoggerConfigurator {
     
-    private static final String LOG_FILE =  System.getProperty("user.dir") + 
-                                            File.separator                 + 
-                                            "logs"                         +
-                                            File.separator                 + 
-                                            "jaxy"                         ;
+    private static final String LOG_FILE  =  JaxyLocator.getJaxyJarLocation() + 
+                                             File.separator                   + 
+                                             "logs"                           +
+                                             File.separator                   + 
+                                             "jaxy"                           ;
         
     public static LoggingFraction getLoggingFraction( String logLevel      , 
                                                       YamlConfigurator cfg ) {
