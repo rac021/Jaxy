@@ -15,6 +15,7 @@ import java.util.logging.Logger ;
 import java.util.stream.Collectors ;
 import com.rac021.jaxy.grafana.Template ;
 import com.rac021.jaxy.shared.Transformer ;
+import com.rac021.jaxy.shared.JaxyLocator ;
 import com.rac021.jaxy.api.crypto.AcceptType ;
 import com.rac021.jaxy.api.root.ServicesManager ;
 import static com.rac021.jaxy.io.Reader.readFile ;
@@ -57,10 +58,7 @@ public class GrafanaManager {
                                                 .replace( Template.UUID, UUID.randomUUID().toString()) ;
 
         
-        String jarFileLocation     = System.getProperty("java.class.path")
-                                           .split(":" + System.getProperty("java.io.tmpdir"))[0] ;
-        
-        String folder              = new File(jarFileLocation).getParentFile().getAbsolutePath() ;
+        String folder = JaxyLocator.getJaxyJarLocation()                                    ;
        
         String grafanaOutputFolder = folder         +  File.separator  +  "monitoring_jaxy" +
                                      File.separator + "provisioning"   +  File.separator    ;
