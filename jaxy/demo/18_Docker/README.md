@@ -16,7 +16,7 @@
           dvdarias/docker-hoster
 ```
 
-## 1. **Using Docker Hub :**
+## 1. **Using Docker Hub images :**
 
 
 * **Run Docker Jaxy-DataBase** 
