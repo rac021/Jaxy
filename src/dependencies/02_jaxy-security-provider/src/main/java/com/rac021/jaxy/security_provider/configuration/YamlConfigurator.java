@@ -76,7 +76,7 @@ public class YamlConfigurator implements IConfigurator      {
    
     /* Server Configuration */
     
-    private String  ip                = "localhost" ; 
+    private String  HOST              = "localhost" ; 
     private String  httpPort          = "8080"      ;
     private String  httpsPort         = "8443"      ;
     private String  transport         = "http"      ; // HTTPS 
@@ -121,9 +121,6 @@ public class YamlConfigurator implements IConfigurator      {
     
     /** File Config Properties  . */
     
-    private final String LETS_ENCRYPT_CERT_GENERATOR_Path = "letsEncryptCertificateGeneratorPath" ;
-    private final String LETS_ENCRYPT_CHALLENGE_Path      = "letsEncryptChallengePath"            ;
-    
     private final String TYPE                = "type"                ;
     private final String ALIAS               = "ALIAS"               ;
     private final String LOGIN               = "login"               ;
@@ -146,9 +143,6 @@ public class YamlConfigurator implements IConfigurator      {
     private final String PARAMTOSIGN         = "paramToSign"         ;
     private final String SERVICECONF         = "serviceConf"         ;
     private final String TEMPLATE_URI        = "TemplateUri"         ;
-    private final String KEYCLOAKFILE        = "keycloakFile"        ;
-    private final String KEYCLOAKURL         = "url"                 ;
-    private final String KEY_PASSWORD        = "KEY_PASSWORD"        ;
     private final String AUTHENTICATION      = "authentication"      ;
     private final String CERT_PATH           = "CERTIFICATE_PATH"    ;
     private final String LOGINCOLUMNNAME     = "loginColumnName"     ;
@@ -158,6 +152,14 @@ public class YamlConfigurator implements IConfigurator      {
     private final String KEY_STORE_PASSWORD  = "KEY_STORE_PASSWORD"  ;
     private final String MAXCONCURRENTUSERS  = "MaxConcurrentUsers"  ;
     private final String VALIDREQUESTTIMEOUT = "validRequestTimeout" ;
+    
+    private final String KEYCLOAKURL         = "url"                 ;
+    private final String KEYCLOAKFILE        = "keycloakFile"        ;
+    private final String KEY_PASSWORD        = "KEY_PASSWORD"        ;
+   
+    private final String OVERRIDE_HOST       =  "OVERRIDE_HOST"      ;
+    private final String HOST_TYPE           =  "HOST_TYPE"          ;
+    private final String IP                  =  "IP"                 ;
     
     private final String REJECT_CONNECTION_WHEN_LIMIT_EXEEDED  = "RejectConnectionsWhenLimitExceeded"  ;
     private final String DEFAULT_MAX_THREADS_PER_SERVICE       = "DefaultMaxThreadsPerService"         ;
@@ -182,6 +184,9 @@ public class YamlConfigurator implements IConfigurator      {
     
     private final String ROOT_APPLICATION_CONTEXT              = "ROOT_APPLICATION_CONTEXT"            ;
     
+     private final String LETS_ENCRYPT_CERT_GENERATOR_Path     = "letsEncryptCertificateGeneratorPath" ;
+    private final String LETS_ENCRYPT_CHALLENGE_Path           = "letsEncryptChallengePath"            ;
+   
     private static final String UI_SESSION_TIME_OUT            = "ui_session_timeout"                  ;
     private static       int       SESSION_TIME_OUT            = 15 /* mn */                           ;
     
@@ -479,23 +484,46 @@ public class YamlConfigurator implements IConfigurator      {
     
     private void setServerConfiguration()                         {
  
-       if ((getConfiguration().get("IP")) != null )               {
-         this.ip = (String) getConfiguration()
-                             .get("IP") ;
+        
+       if ((getConfiguration().get(OVERRIDE_HOST)) != null )      {
+       
+           this.HOST = (String) getConfiguration()
+                                .get(OVERRIDE_HOST) ;
        }
+       
+       else if ((getConfiguration().get(HOST_TYPE)) != null )    {
+           
+         String hostType = (String) getConfiguration()
+                                   .get(HOST_TYPE) ;
+         
+         if( hostType.equalsIgnoreCase(IP))        {
+             this.HOST = HostManager.getHostName() ;
+         }
+         else {
+             this.HOST = HostManager.getIp()       ;
+         }
+         
+       } else {
+           
+             this.HOST = HostManager.getHostName() ;
+       }
+       
        if ((getConfiguration().get(HTTP_PORT)) != null )          {
          this.httpPort = (String) getConfiguration()
                              .get(HTTP_PORT) ;
        }
+       
        if ((getConfiguration().get(HTTPS_PORT)) != null )         {
          this.httpsPort = (String) getConfiguration()
                              .get(HTTPS_PORT) ;
        }
+       
        if ((getConfiguration().get(TRANSPORT)) != null )          {
          this.transport = (String) getConfiguration()
                              .get(TRANSPORT).toString()
                              .toLowerCase()   ;
        }
+       
        if ((getConfiguration().get(SSL_MODE)) != null )           {
         
         String sslMod = (String )getConfiguration().get(SSL_MODE) ;
@@ -505,7 +533,9 @@ public class YamlConfigurator implements IConfigurator      {
             sslMod.equalsIgnoreCase(SslMode.PROVIDED_SSL.name())  ) 
         {
               YamlConfigurator.sslMode = SslMode.valueOf(sslMod)  ;
-        } else {
+        } 
+        else {
+            
               YamlConfigurator.sslMode =  SslMode.SELF_SSL        ;
         }
         
@@ -664,15 +694,15 @@ public class YamlConfigurator implements IConfigurator      {
         return maxConcurrentUsers      ;
     }
 
-    public String getIp()        {
-        return ip ;
+    public String getHost()        {
+        return HOST ;
     }
 
-    public void setIp(String ip) {
-        this.ip = ip;
+    public void setIp(String HOST) {
+        this.HOST = HOST;
     }
 
-    public String getHttpPort()  {
+    public String getHttpPort()    {
         return httpPort ;
     }
 

@@ -9,7 +9,6 @@ import javax.inject.Inject ;
 import java.io.Serializable ;
 import javax.annotation.PostConstruct ;
 import javax.faces.context.FacesContext ;
-import com.rac021.jaxy.domain.HostManager ;
 import javax.faces.context.ExternalContext ;
 import javax.faces.application.FacesMessage ;
 import javax.enterprise.context.SessionScoped ;
@@ -111,10 +110,10 @@ public class ServiceSelector implements Serializable  {
     public String getSelectedServiceUriTemplate() {
 
         return this.selectedService != null       ?
-               yamlConfigurator.getTransport().toLowerCase() + "://"
-               + HostManager.HOST_NAME + ":" + yamlConfigurator.getSelectedPort() 
-               + yamlConfigurator.getRootApplicationContext() + "/rest/resources/"
-               + this.selectedService.getServiceName() : "--"  ;
+               yamlConfigurator.getTransport().toLowerCase() + "://"                 +
+               yamlConfigurator.getHost() + ":" + yamlConfigurator.getSelectedPort() +
+               yamlConfigurator.getRootApplicationContext() + "/rest/resources/"     +
+               this.selectedService.getServiceName() : "--" ;
     }
     
       public void redirectIfEmptyService() {

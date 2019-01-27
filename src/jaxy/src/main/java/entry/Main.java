@@ -4,7 +4,6 @@ package entry ;
 import java.util.logging.Level ;
 import org.wildfly.swarm.Swarm ;
 import java.util.logging.Logger ;
-import com.rac021.jaxy.domain.HostManager ;
 import com.rac021.jaxy.messages.Displayer ;
 import org.jboss.shrinkwrap.api.ShrinkWrap ;
 import org.wildfly.swarm.jaxrs.JAXRSArchive ;
@@ -74,7 +73,7 @@ public class Main                {
         System.setProperty( SwarmProperties.BIND_ADDRESS ,
                             cfg.getJaxyBindAdress()      )        ;
         
-        String HOST = HostManager.getHostName()                   ;
+        String HOST = cfg.getHost()                               ;
         
         final String CONTEXT  = cfg.getRootApplicationContext()   ;
         
@@ -212,7 +211,7 @@ public class Main                {
         LOGGER.log( Level.INFO                                      ,
                     message("server_started_at")                    ,
                     new Object[] { cfg.getTransport()               ,
-                                   HostManager.getHostName()        , 
+                                   cfg.getHost()                    , 
                                    cfg.getSelectedPort(), CONTEXT } ) ;
         
         LOGGER.log( Level.INFO                             , 
@@ -224,7 +223,7 @@ public class Main                {
 
         LOGGER.log( Level.INFO,  message("admin_console")    ,
                     new Object[] { cfg.getTransport()        ,
-                                   HostManager.getHostName() , 
+                                   cfg.getHost()             , 
                                    cfg.getSelectedPort()     ,  
                                    CONTEXT                   ,
                                    ADMIN_CONSLE }        )   ;
@@ -236,7 +235,7 @@ public class Main                {
            LOGGER.log( Level.INFO                               , 
                        message("management_interface")          ,
                        new Object[] { "http"                    ,
-                                      HostManager.getHostName() ,
+                                      cfg.getHost()             ,
                                       cfg.isHttpsTransport() ? managementPortHttps : 
                                                                managementPortHttp  } ) ;
               
@@ -258,7 +257,7 @@ public class Main                {
 
         LOGGER.log( Level.INFO, message("service_discovery") ,
                     new Object[] { cfg.getTransport()        ,
-                                   HostManager.getHostName() ,
+                                   cfg.getHost()             ,
                                    cfg.getSelectedPort()     ,
                                    CONTEXT}                ) ;
 
@@ -268,25 +267,25 @@ public class Main                {
         LOGGER.log( Level.INFO      , 
                     message("node") ,
                     new Object[] { cfg.getTransport()        , 
-                                   HostManager.getHostName() , 
+                                   cfg.getHost()             , 
                                    cfg.getSelectedPort()}    ) ;
         
         LOGGER.log( Level.INFO        , 
                     message("health") ,
                     new Object[] { cfg.getTransport()        ,
-                                   HostManager.getHostName() ,
+                                   cfg.getHost()             ,
                                    cfg.getSelectedPort()}    ) ;
         
         LOGGER.log( Level.INFO      ,
                     message("heap") ,
                     new Object[] { cfg.getTransport()       ,
-                                   HostManager.getHostName(),
+                                   cfg.getHost()            ,
                                    cfg.getSelectedPort()}   ) ;
         
         LOGGER.log( Level.INFO         , 
                     message("threads") ,
                     new Object[] { cfg.getTransport()        , 
-                                   HostManager.getHostName() , 
+                                   cfg.getHost()             , 
                                    cfg.getSelectedPort()}    ) ;
         
         LOGGER.log( Level.INFO, message("new_line"));
@@ -294,7 +293,7 @@ public class Main                {
         LOGGER.log( Level.INFO        , 
                     message("metrics"),
                     new Object[] { cfg.getTransport()        , 
-                                   HostManager.getHostName() , 
+                                   cfg.getHost()             , 
                                    cfg.getSelectedPort()}    ) ;
       
         LOGGER.log( Level.INFO, message("new_line")) ;
@@ -305,7 +304,7 @@ public class Main                {
           LOGGER.log( Level.INFO , 
                       message("web_ui")                        ,
                       new Object[] { cfg.getTransport()        , 
-                                     HostManager.getHostName() , 
+                                     cfg.getHost()             , 
                                      cfg.getSelectedPort()     ,
                                      CONTEXT                   ,
                                      cfg.isSecuredUI() })      ;

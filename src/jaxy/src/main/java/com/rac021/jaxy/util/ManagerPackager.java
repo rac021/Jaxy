@@ -132,7 +132,6 @@ public class ManagerPackager {
         war .addPackage("com.rac021.jaxy.ee.grafana")               ;
         
         war .addPackage("com.rac021.jaxy.io")                       ;
-        war .addPackage("com.rac021.jaxy.domain")                   ;
         war .addPackage("com.rac021.jaxy.shared")                   ;
 
         war .addPackage("entry")                                    ;

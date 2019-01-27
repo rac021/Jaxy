@@ -7,7 +7,6 @@ import java.net.InetAddress ;
 import java.util.logging.Level ;
 import java.util.logging.Logger ;
 import java.net.UnknownHostException ;
-import javax.annotation.PostConstruct ;
 import javax.enterprise.context.ApplicationScoped ;
 import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 
@@ -22,23 +21,16 @@ import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 
 public class HostManager {
 
-    public static        String HOST_NAME = null     ;
+    private static       String HOST_NAME = null         ;
     
-    public static        String IP        = null     ;
+    private static       String IP        = null         ;
 
-    private static final Logger LOGGER = getLogger() ;
+    private static final Logger LOGGER    = getLogger()  ;
 
-    @PostConstruct
-    public void init()  {         }
-
-    public static void getHost()  {
-       HOST_NAME = getHostName()  ;
-       IP        = getIp()        ;
-    }
     
-    private static String getHostName()              {
+    public static String getHostName()                  {
 
-       if ( HOST_NAME != null ) return HOST_NAME     ;
+       if ( HOST_NAME != null ) return HOST_NAME        ;
         
        try {
 
@@ -55,7 +47,7 @@ public class HostManager {
        
     }
     
-    private static String getIp()                    {
+    public static String getIp()                     {
 
        if ( IP != null ) return IP                   ;
         

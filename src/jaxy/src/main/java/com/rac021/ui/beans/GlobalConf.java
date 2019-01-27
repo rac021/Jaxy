@@ -4,7 +4,6 @@ package com.rac021.ui.beans ;
 import javax.inject.Named ; 
 import javax.inject.Inject ;
 import java.io.Serializable ;
-import com.rac021.jaxy.domain.HostManager ;
 import javax.enterprise.context.ApplicationScoped ;
 import com.rac021.jaxy.api.root.ConcurrentUsersManager ;
 import com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator ;
@@ -73,7 +72,7 @@ public class GlobalConf implements Serializable         {
     public String getHost() {
 
         return yamlConfigurator.getTransport()  + "://" + 
-               HostManager.getHostName()        + ":"   +
+               yamlConfigurator.getHost()       + ":"   +
                yamlConfigurator.getSelectedPort()       ;
     }
 
