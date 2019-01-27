@@ -35,7 +35,7 @@ password        : jaxy_password                        # Password
 
 ############################################
 
-_authentication : # using HTTP
+authentication : # using HTTP
   type : customSignOn   
   secured       :
     vip_planes  : 
@@ -55,7 +55,7 @@ _authentication : # using HTTP
   validRequestTimeout : 5 # Request Validity in secondes ( Default : 30 )
   
   
-authentication  :
+disabled_authentication  :
   type          : SSO 
   url           : https://localhost:8543/auth/realms/my_realm/protocol/openid-connect/token # http://localhost:8180/auth/realms/my_realm/protocol/openid-connect/token
   keycloakFile  : keyCloak/keyCloak_https.json ## keyCloak/keyCloak_http.json -> Path of the keyCloak file # Relatif to this file
@@ -78,7 +78,7 @@ Services :
  - planes :
      Query : > 
             SELECT model , total_passengers , distance_km  
-            FROM aircraft LIMIT 1
+            FROM aircraft -- LIMIT 1
      Accept    : [ Xml/Plain ]
      TemplateUri : template_services/template_planes.txt    # Path Relatif to this file
      MaxThreads : 2
@@ -103,12 +103,27 @@ Services :
 ### SERVER ######################
 #################################
 
-IP         : localhost 
-
 HTTP_PORT  : 8181       
 HTTPS_PORT : 8443      
 
 TRANSPORT  : HTTPS  # HTTPS
+
+#################################
+### HOST CONFIG #################
+#################################
+
+# If you want to DISPLAY the HOSTNAME in the urls 
+# provide HOSTE_NAME for the HOST_TYPE key 
+# If you want to DISPLAY the IP in the urls 
+# provide IP for the HOST_TYPE key
+HOST_TYPE = HOST_NAME # IP 
+
+# Provide value if you want to 
+# OVERRIDE the HOSTNAME AND IP . 
+# Default : No Value ( EMPTY )
+OVERRIDE_HOST = 
+
+#################################
 
 # IF SSL_MODE =
 #  SELF_SSL     : CERTIFICATE IS AUTO GENERATED
