@@ -497,10 +497,10 @@ public class YamlConfigurator implements IConfigurator      {
                                    .get(HOST_TYPE) ;
          
          if( hostType.equalsIgnoreCase(IP))        {
-             this.HOST = HostManager.getHostName() ;
+             this.HOST = HostManager.getIp()       ;
          }
          else {
-             this.HOST = HostManager.getIp()       ;
+             this.HOST = HostManager.getHostName() ;
          }
          
        } else {
