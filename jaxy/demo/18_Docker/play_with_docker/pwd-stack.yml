@@ -20,8 +20,6 @@ services:
     hostname: jaxy
     ports:
       - 8181:8181
-    volumes:
-      - ./monitoring_jaxy:/app/jaxy/monitoring_jaxy
     networks:
       - jaxy_net
       
