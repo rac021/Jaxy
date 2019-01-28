@@ -37,7 +37,9 @@ services:
       TRANSPORT: http
       WAIT: 30
     volumes:
-      - /root/provisioning:/app/mon/
+      - type: bind
+        source: /root/provisioning
+        target: /app/mon/
     ports:
       - 3000:3000
     networks:
