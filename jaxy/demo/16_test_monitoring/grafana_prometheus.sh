@@ -7,12 +7,19 @@
  ## Example Cmd : ./grafana_prometheus.sh https # Start Prometheus with Https Configuration then grafana 
 
  ## Example Cmd : ./grafana_prometheus.sh stop  # Stop  Prometheus then grafana
-
+ 
  echo ;  echo " Transport Mode  => $TRANSPORT "   
 
  echo ;  echo " MONITORING_PATH => $MONITORING_PATH" ; echo 
+ 
+ if [ -n "$WAIT" ] ; then
+    
+   SLEEP=$(($WAIT * 1))
+   echo " Wait for Jaxy. $WAIT s... " ; echo ; sleep $SLEEP
+ 
+ fi
 
- if [ -n "$MONITORING_PATH" ] ; then # If launched into Docker
+ if [ -n "$MONITORING_PATH" ] ; then # Docker deployment 
 
     JAXY_MONITORING_FILES_PATH="$MONITORING_PATH"
 
@@ -177,7 +184,7 @@
  cd $PROMETHEUS_PATH  && ./prometheus --config.file=prometheus.yml & # --log.level=debug
 
  
- if [ -n "$MONITORING_PATH" ] ; then # If launched into Docker 
+ if [ -n "$MONITORING_PATH" ] ; then # Docker deployment 
 
      cd $GRAFANA_PATH/bin && ./grafana-server 
 
@@ -186,5 +193,3 @@
      cd $GRAFANA_PATH/bin && ./grafana-server &
 
  fi
-
- 
