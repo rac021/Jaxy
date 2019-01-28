@@ -39,7 +39,7 @@ services:
     volumes:
       - type: bind
         source: /root/provisioning
-        target: /app/mon/
+        target: /app/mon/provisioning
     ports:
       - 3000:3000
     networks:
