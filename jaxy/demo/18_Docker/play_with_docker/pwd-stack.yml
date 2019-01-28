@@ -21,17 +21,12 @@ services:
     ports:
       - 8181:8181
     volumes:
-      - monitoring:/app/jaxy/monitoring_jaxy:consistent
+      - type: bind
+        source: /root/monitoring_jaxy
+        target: /app/jaxy/monitoring_jaxy
     networks:
       - jaxy_net
-            
-volumes:
-  monitoring:
-    driver_opts:
-      type: none
-      device: ./monitoring_jaxy
-      o: bind
-      
+
 networks:
   jaxy_net: {}
   
