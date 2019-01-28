@@ -35,8 +35,9 @@ services:
     environment:
       MONITORING_PATH: /app/mon/provisioning
       TRANSPORT: http
+      WAIT: 30
     volumes:
-      - /root/provisioning/:/app/mon/
+      - /root/provisioning:/app/mon/
     ports:
       - 3000:3000
     networks:
