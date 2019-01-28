@@ -29,7 +29,7 @@
  fi
 
 
- GRAFANA_PATH="grafana-5.4.2"
+ GRAFANA_PATH="grafana-5.4.3"
 
  PROMETHEUS_PATH="prometheus-2.6.0.linux-amd64"
 
