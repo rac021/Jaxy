@@ -27,7 +27,7 @@ services:
     networks:
       - jaxy_net
       
-jaxy_monitoring:
+  jaxy_monitoring:
     depends_on:
       - jaxy
     image: rac021/jaxy-monitoring
