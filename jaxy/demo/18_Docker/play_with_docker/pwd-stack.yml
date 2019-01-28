@@ -42,6 +42,7 @@ services:
         target: /app/mon/provisioning
     ports:
       - 3000:3000
+      - 9090:9090
     networks:
       - jaxy_net
 
