@@ -8,5 +8,5 @@
                  -e "TRANSPORT=http"                        \ 
                  -v ./monitoring_jaxy/:/app/mon/            \
                  -e "MONITORING_PATH=/app/mon/provisioning" \
-                 --name mon   jaxy-mon
+                 --name mon   jaxy-monitoring
 ```
