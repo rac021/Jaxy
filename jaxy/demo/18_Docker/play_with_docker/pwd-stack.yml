@@ -1,5 +1,5 @@
 
-version: '3'
+version: '3.6'
 
 services:
 
@@ -21,7 +21,9 @@ services:
     ports:
       - 8181:8181
     volumes:
-      - ./monitoring_jaxy:/app/jaxy/monitoring_jaxy
+      - type: bind
+        source: /root
+        target: /app/jaxy/monitoring_jaxy
     networks:
       - jaxy_net
 
