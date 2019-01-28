@@ -7,8 +7,21 @@
  ## Example Cmd : ./grafana_prometheus.sh https # Start Prometheus with Https Configuration then grafana 
 
  ## Example Cmd : ./grafana_prometheus.sh stop  # Stop  Prometheus then grafana
- 
- 
+
+ echo ;  echo " Transport Mode  => $TRANSPORT "   
+
+ echo ;  echo " MONITORING_PATH => $MONITORING_PATH" ; echo 
+
+ if [ -n "$MONITORING_PATH" ] ; then # If launched into Docker
+
+    JAXY_MONITORING_FILES_PATH="$MONITORING_PATH"
+
+ else 
+
+    JAXY_MONITORING_FILES_PATH="../../monitoring_jaxy/provisioning"
+ fi
+
+
  GRAFANA_PATH="grafana-5.4.2"
 
  PROMETHEUS_PATH="prometheus-2.6.0.linux-amd64"
@@ -17,8 +30,6 @@
 
  JAXY_PROVISIONING_DATASOURCE_PATH="provisioning/datasources"
 
- JAXY_MONITORING_FILES_PATH="../../monitoring_jaxy/provisioning"
- 
  PROMETHEUS_CONF="conf/prometheus"
  
  GRAFANA_CONF="conf/grafana"
@@ -34,7 +45,7 @@
     echo
  }
 
- if [ "$1" == "help" ] ; then
+ if [ "$1" == "help" ] || [ "$WANT" == "help" ] ; then
     help 
     exit 
  fi 
@@ -135,7 +146,7 @@
  sleep 2
  
  
- if [ "$1" == "https" ] ; then
+ if [ "$1" == "https" ] || [ "$TRANSPORT" == "https" ] ; then
  
     ## HTTPS MODE 
     
@@ -165,6 +176,15 @@
  
  cd $PROMETHEUS_PATH  && ./prometheus --config.file=prometheus.yml & # --log.level=debug
 
- cd $GRAFANA_PATH/bin && ./grafana-server &
+ 
+ if [ -n "$MONITORING_PATH" ] ; then # If launched into Docker 
+
+     cd $GRAFANA_PATH/bin && ./grafana-server 
+
+ else 
+
+     cd $GRAFANA_PATH/bin && ./grafana-server &
+
+ fi
 
  
