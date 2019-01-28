@@ -35,7 +35,7 @@ services:
     environment:
       MONITORING_PATH: /app/mon/provisioning
       TRANSPORT: http
-      WAIT: 30
+      WAIT: 40
     volumes:
       - type: bind
         source: /root/provisioning
