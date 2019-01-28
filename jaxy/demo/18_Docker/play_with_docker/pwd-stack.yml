@@ -32,6 +32,9 @@ services:
       - jaxy
     image: rac021/jaxy-monitoring
     hostname: jaxy_monitoring
+    environment:
+      MONITORING_PATH: app/mon/provisioning
+      TRANSPORT: http
     ports:
       - 3000:3000
     networks:
