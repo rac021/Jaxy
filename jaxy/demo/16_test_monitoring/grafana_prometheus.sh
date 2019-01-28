@@ -181,15 +181,7 @@
  
  echo 
  
- cd $PROMETHEUS_PATH  && ./prometheus --config.file=prometheus.yml & # --log.level=debug
-
+ cd $PROMETHEUS_PATH  && ./prometheus --config.file=prometheus.yml & # --log.level=debug 
  
- if [ -n "$MONITORING_PATH" ] ; then # Docker deployment 
+ cd $GRAFANA_PATH/bin && ./grafana-server &
 
-     cd $GRAFANA_PATH/bin && ./grafana-server 
-
- else 
-
-     cd $GRAFANA_PATH/bin && ./grafana-server &
-
- fi
