@@ -41,7 +41,6 @@ services:
       - 3000:3000
     networks:
       - jaxy_net
-    command: sleep 10000
 
 networks:
   jaxy_net: {}
