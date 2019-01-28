@@ -26,6 +26,17 @@ services:
         target: /app/jaxy/monitoring_jaxy
     networks:
       - jaxy_net
+      
+jaxy_monitoring:
+    depends_on:
+      - jaxy
+    image: rac021/jaxy-monitoring
+    hostname: jaxy_monitoring
+    ports:
+      - 3000:3000
+    networks:
+      - jaxy_net
+    command: sleep 10000
 
 networks:
   jaxy_net: {}
