@@ -8,16 +8,22 @@
 
  ## Example Cmd : ./grafana_prometheus.sh stop  # Stop  Prometheus then grafana
  
+ if [ "$1" == "stop" ] ; then
+    
+    echo
+    
+    # kill prometheus service
+    fuser -k 9090/tcp
+ 
+    # kill grafana service 
+    fuser -k 3000/tcp
+ 
+    exit 
+ fi 
+ 
  echo ;  echo " Transport Mode  => $TRANSPORT "   
 
  echo ;  echo " MONITORING_PATH => $MONITORING_PATH" ; echo 
- 
- if [ -n "$WAIT" ] ; then
-    
-   SLEEP=$(($WAIT * 1))
-   echo " Wait for Jaxy. $WAIT s... " ; echo ; sleep $SLEEP
- 
- fi
 
  if [ -n "$MONITORING_PATH" ] ; then # Docker deployment 
 
@@ -31,7 +37,7 @@
 
  GRAFANA_PATH="grafana-5.4.3"
 
- PROMETHEUS_PATH="prometheus-2.6.0.linux-amd64"
+ PROMETHEUS_PATH="prometheus-2.7.0.linux-amd64"
 
  JAXY_PROVISIONING_DASHBOARD_PATH="provisioning/dashboards"
 
@@ -70,7 +76,19 @@
     echo " Oupss ! Prometheus Server not found at path [ $PROMETHEUS_PATH ] "
     echo ; exit 
  fi
+    
+ # kill prometheus service
+ fuser -k 9090/tcp
  
+ # kill grafana service 
+ fuser -k 3000/tcp
+ 
+ if [ -n "$WAIT" ] ; then
+    
+   SLEEP=$(($WAIT * 1))
+   echo " Wait for Jaxy. $WAIT s... " ; echo ; sleep $SLEEP
+ 
+ fi
   
  if [ ! -d "$JAXY_MONITORING_FILES_PATH" ]; then
  
@@ -88,26 +106,6 @@
  
  echo
 
- 
- if [ "$1" == "stop" ] ; then
-    
-    echo
-    
-    # kill prometheus service
-    fuser -k 9090/tcp
- 
-    # kill grafana service 
-    fuser -k 3000/tcp
- 
-    exit 
- fi 
-   
- # kill prometheus service
- fuser -k 9090/tcp
- 
- # kill grafana service 
- fuser -k 3000/tcp
- 
  if [ -d "$JAXY_PROVISIONING_DASHBOARD_PATH" ]; then
  
     echo " ++ Installing [ $JAXY_PROVISIONING_DASHBOARD_PATH ] "
@@ -118,7 +116,6 @@
     echo " ++ Folder [ $JAXY_PROVISIONING_DASHBOARD_PATH ] NOT FOUND ! "
     echo
  fi
-
 
  if [ -d "$JAXY_PROVISIONING_DATASOURCE_PATH" ]; then
  
@@ -181,7 +178,8 @@
  
  echo 
  
- cd $PROMETHEUS_PATH  && ./prometheus --config.file=prometheus.yml & # --log.level=debug 
- 
- cd $GRAFANA_PATH/bin && ./grafana-server &
+ cd $PROMETHEUS_PATH  && ./prometheus --config.file=prometheus.yml & # --log.level=debug
 
+ cd $GRAFANA_PATH/bin && ./grafana-server &
+ 
+ 
