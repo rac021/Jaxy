@@ -21,7 +21,7 @@ services:
     ports:
       - 8181:8181
     volumes:
-      - ./:/app/jaxy/monitoring_jaxy
+      - monitoring:/app/jaxy/monitoring_jaxy
     networks:
       - jaxy_net
       
@@ -32,7 +32,7 @@ services:
       MONITORING_PATH: /app/mon/provisioning
       TRANSPORT: http
     volumes:
-      - ./:/app/mon/
+      - monitoring:/app/mon/
     ports:
       - 3000:3000
       - 9090:9090
