@@ -34,7 +34,6 @@
     JAXY_MONITORING_FILES_PATH="../../monitoring_jaxy/provisioning"
  fi
 
-
  GRAFANA_PATH="grafana-5.4.3"
 
  PROMETHEUS_PATH="prometheus-2.7.0.linux-amd64"
@@ -83,12 +82,15 @@
  # kill grafana service 
  fuser -k 3000/tcp
  
- if [ -n "$WAIT" ] ; then
-    
-   SLEEP=$(($WAIT * 1))
-   echo " Wait for Jaxy. $WAIT s... " ; echo ; sleep $SLEEP
- 
- fi
+ COUNT=0 # Wait For jaxy to Provide the Provisioning Directory ( Max : 60 * 2 seconds ) 
+            
+ while  [  ! -d "$JAXY_MONITORING_FILES_PATH" ] && [ $COUNT -lt 60 ] ;do
+            
+     sleep 2
+     let   "COUNT++"            
+     echo " Wait for The Provisioning Directory : [ $JAXY_MONITORING_FILES_PATH ] ... "
+            
+ done
   
  if [ ! -d "$JAXY_MONITORING_FILES_PATH" ]; then
  
