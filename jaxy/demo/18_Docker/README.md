@@ -81,4 +81,6 @@
 
 ## 4. **Try Play With Docker** [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/play_with_docker/pwd-stack.yml)  Using : [pwd-stack.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/play_with_docker/pwd-stack.yml) file
 
+## 4. **Try Play With Docker** [![Try in PWD COMPOSE](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/play_with_docker/docker-compose.yml) 
+
 ---
