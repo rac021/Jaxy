@@ -92,6 +92,8 @@
             
  done
   
+ sleep 3 
+ 
  if [ ! -d "$JAXY_MONITORING_FILES_PATH" ]; then
  
     echo
