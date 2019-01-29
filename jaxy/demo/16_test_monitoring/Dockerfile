@@ -3,7 +3,7 @@
 # Step : Package image ##
 #########################
 
-FROM debian:latest
+FROM debian:buster
 
 COPY . /app/
 
