@@ -22,7 +22,7 @@ services:
       - 8181:8181
     volumes:
       - type: bind
-        source: ./
+        source: .
         target: /app/jaxy/monitoring_jaxy
     networks:
       - jaxy_net
@@ -35,7 +35,7 @@ services:
       TRANSPORT: http
     volumes:
       - type: bind
-        source: ./
+        source: .
         target: /app/mon/
     ports:
       - 3000:3000
