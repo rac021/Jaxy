@@ -1,6 +1,7 @@
 
-
 ## Github Project : https://github.com/rac021/Jaxy
+
+## Compile Jaxy with it's all dependencies 
 
 ########################
 # Step : Compile Jaxy ##
