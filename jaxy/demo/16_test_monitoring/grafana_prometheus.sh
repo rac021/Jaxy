@@ -85,7 +85,8 @@
  COUNT=0 # Wait For jaxy to Provide the Provisioning Directory ( Max : 60 * 2 seconds ) 
  
  # Wait until Jaxy Creates TWO directories : "datasources" AND "dashboard" in the Folder $JAXY_MONITORING_FILES_PATH
- while [ "$( find $JAXY_MONITORING_FILES_PATH -mindepth 1 -maxdepth 1 -type d | wc -l)" -ne 2 ] && [ $COUNT -lt 60 ] ; do
+ while [ "$( find $JAXY_MONITORING_FILES_PATH -mindepth 1 -maxdepth 1 -type d 2>&1 | wc -l)" -ne 2 ] && 
+       [ $COUNT -lt 60 ] ; do
     
      sleep 2
      let   "COUNT++"            
