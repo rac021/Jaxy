@@ -63,7 +63,7 @@
 ----
 ----
 
-## 2. **Build the docker image of Jaxy from scratch :**
+## 2. **Build the docker image of Jaxy from scratch : [Dockerfile](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/Dockerfile)**
 
 ``` 
      docker build -t jaxy -f Dockerfile ../../      
