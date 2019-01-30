@@ -40,7 +40,7 @@ services:
       - jaxy_net
 
 volumes:
-     monitoring: 
+     monitoring: {}
      
 networks:
   jaxy_net: {}
