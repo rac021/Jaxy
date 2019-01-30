@@ -183,7 +183,7 @@
  
  echo 
  
- cd $PROMETHEUS_PATH  && ./prometheus --config.file=prometheus.yml & # --log.level=debug
+ cd $PROMETHEUS_PATH  && ./prometheus --config.file=prometheus.yml & # --storage.local.target-heap-size=2G --log.level=debug
 
  cd $GRAFANA_PATH/bin && ./grafana-server &
  
