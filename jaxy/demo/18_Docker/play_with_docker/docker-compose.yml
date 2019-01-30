@@ -1,5 +1,5 @@
 
-version: '3'
+version: '3.3'
 
 services:
 
@@ -32,14 +32,16 @@ services:
       MONITORING_PATH: /app/mon/provisioning
       TRANSPORT: http
     volumes:
-      - monitoring:/app/mon/
+      - monitoring:/root/provisioning
     ports:
       - 3000:3000
       - 9090:9090
     networks:
       - jaxy_net
 
+volumes:
+     monitoring: 
+     
 networks:
   jaxy_net: {}
-  
   
