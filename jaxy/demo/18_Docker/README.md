@@ -92,13 +92,13 @@
 
 ## 3. **Docker Compose :**  
 
- * Using : [docker-compose-cso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose_cso.yml) file ( Custom Sing-On Auth Demo )
+ * Using : [docker-compose-cso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose-cso.yml) file ( Custom Sing-On Auth Demo )
 
 ```
      docker-compose -f docker-compose-sco.yml up
 ```
 
-* Using : [docker-compose-sso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose_sso.yml) file ( Single Sing-On : Keycloak Demo )
+* Using : [docker-compose-sso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose-sso.yml) file ( Single Sing-On : Keycloak Demo )
 
 ```
      docker-compose -f docker-compose-sso.yml up
