@@ -72,8 +72,7 @@
 ---
 
 
-## 3. **Docker Compose :** 
-*using [docker-compose.yml]( https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose.yml )* 
+## 3. **Docker Compose :**  Using : [docker-compose.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose.yml) file
 
 ```
      docker-compose -f docker-compose.yml up
