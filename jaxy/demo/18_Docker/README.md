@@ -72,7 +72,8 @@
 ---
 
 
-## 3. **Docker Compose :**
+## 3. **Docker Compose :** 
+*using the **Dockerfile** located in [play with docker ]( https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/play_with_docker ) Directory* 
 
 ```
      docker-compose -f play_with_docker/docker-compose.yml up
