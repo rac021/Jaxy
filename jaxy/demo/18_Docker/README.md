@@ -80,7 +80,7 @@
 ```
 ---
 
-## 4. **Try Play With Docker** [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/play_with_docker/docker-compose.yml)  Using : [docker-compose.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/play_with_docker/docker-compose.yml) file
+## 4. **Try Play With Docker** [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/play_with_docker/docker-compose.yml)  Using : [docker-compose.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose.yml) file
 
 
       Jaxy app          :   Port  8181 
@@ -90,8 +90,4 @@
       Prometheus server :   Port  9090     
      
 ---
-
-
-## 5. **Try Play With Docker** [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/play_with_docker/docker_compose_01.yml)  Using : [docker-compose_01.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/play_with_docker/docker_compose_01.yml) file
-
 
