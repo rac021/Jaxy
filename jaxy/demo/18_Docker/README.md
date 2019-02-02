@@ -19,7 +19,7 @@
 ```
 ---
 
-**1.1 -  CustomSignon Demo :** 
+**1.1 -  CustomSignon Demo [ ( custom_signon_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/custom_signon_auth) :** 
 
 * **Run Docker Jaxy-DataBase :** 
 
@@ -46,18 +46,29 @@
 * **Run Docker Jaxy-App :**
 
 ```
-   docker run --name jaxy -d -P                                   \
-              --hostname jaxy                                     \
-              --network-alias "jaxy.com"                          \
-              -v $(pwd)/jaxy_test_for_docker:/app/service         \
-              -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy \
-              -v $(pwd)/logs:/app/jaxy/logs                       \
-              --network jaxy_net                                  \
+   docker run --name jaxy -d -P                                              \
+              --hostname jaxy                                                \
+              --network-alias "jaxy.com"                                     \
+              -v $(pwd)/jaxy_test_for_docker/custom_signon_auth:/app/service \
+              -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy            \
+              -v $(pwd)/logs:/app/jaxy/logs                                  \
+              --network jaxy_net                                             \
               rac021/jaxy               
 ```
 ---
 
-**1.2 -  SSO Demo ( Keycloak ) :**
+**1.2 -  SSO Demo [ ( sso_keycloak_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth) :**
+
+```
+   docker run --name jaxy -d -P                                              \
+              --hostname jaxy                                                \
+              --network-alias "jaxy.com"                                     \
+              -v $(pwd)/jaxy_test_for_docker/sso_keycloak:/app/service       \
+              -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy            \
+              -v $(pwd)/logs:/app/jaxy/logs                                  \
+              --network jaxy_net                                             \
+              rac021/jaxy               
+```
 
 ---
 
