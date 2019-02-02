@@ -88,6 +88,8 @@
       Grafana server    :   Port  3000 
      
       Prometheus server :   Port  9090     
-     
+  
+* **Note** : it seems there's a bug in **play-with-docker** when **deploying grafana** :  [Reported bug](https://github.com/play-with-docker/play-with-docker/issues/318)
+
 ---
 
