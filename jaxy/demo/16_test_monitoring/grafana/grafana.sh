@@ -15,7 +15,6 @@
     echo
  }
 
-
  function killGrafana()  {
 	
     fuser -k 3000/tcp    
