@@ -24,18 +24,38 @@ services:
       - monitoring:/app/jaxy/monitoring_jaxy
     networks:
       - jaxy_net
-      
-  jaxy_monitoring:
-    image: rac021/jaxy-monitoring
-    hostname: jaxy_monitoring
+     
+  jaxy_prometheus:
+    image: rac021/jaxy-prometheus
+    hostname: jaxy_prometheus
+    depends_on:
+      - jaxy
     environment:
       MONITORING_PATH: /app/mon/provisioning
-      TRANSPORT: http
+      JAXY_HOST: jaxy
+      JAXY_PORT: 8181
+      JAXY_TRANSPORT: http
+      SCARPE_INTERVAL: 2s
+    volumes:
+      - monitoring:/app/mon/
+    ports:
+      - 9090:9090
+    networks:
+      - jaxy_net
+ 
+  jaxy_grafana:
+    image: rac021/jaxy-grafana
+    hostname: jaxy_grafana
+    depends_on:
+      - jaxy
+      - jaxy_prometheus
+    environment:
+      MONITORING_PATH: /app/mon/provisioning
+      PROMETHEUS_URL: http://jaxy_prometheus:9090
     volumes:
       - monitoring:/app/mon/
     ports:
       - 3000:3000
-      - 9090:9090
     networks:
       - jaxy_net
 
@@ -44,4 +64,4 @@ volumes:
      
 networks:
   jaxy_net: {}
-  
+
