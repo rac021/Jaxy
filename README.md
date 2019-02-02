@@ -12,7 +12,7 @@
 |:-------------|:-------------|
 | **Features** |  [ Jaxy Provided Features ](https://github.com/rac021/Jaxy/tree/master/docs)            |
 | **Youtube**  |  [![Watch the video](https://user-images.githubusercontent.com/7684497/50719557-12ee6000-109e-11e9-8b9e-4c085b9b0760.png)](https://www.youtube.com/watch?v=6IqxzSankpw&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa)  |
-| **Play With Docker** | [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/play_with_docker/docker-compose.yml)
+| **Play With Docker** | [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/docker-compose.yml)
 
 
 ------------------------------------------------------
