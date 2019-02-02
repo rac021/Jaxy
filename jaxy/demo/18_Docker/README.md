@@ -90,14 +90,36 @@
 ---
 
 
-## 3. **Docker Compose :**  Using : [docker-compose.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose.yml) file
+## 3. **Docker Compose :**  
+
+ * Using : [docker-compose-cso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose_cso.yml) file ( Custom Sing-On Auth Demo )
 
 ```
-     docker-compose -f docker-compose.yml up
+     docker-compose -f docker-compose-sco.yml up
 ```
+
+* Using : [docker-compose-sso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose_sso.yml) file ( Single Sing-On : Keycloak Demo )
+
+```
+     docker-compose -f docker-compose-sso.yml up
+```
+
+
 ---
 
-## 4. **Try Play With Docker** [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/docker-compose.yml)  Using : [docker-compose.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose.yml) file
+## 4. **Try Play With Docker :**
+
+ #### **Custom Sig-On Auth Demo : Using [docker-compose.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose-cso.yml) file** [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/docker-compose-cso.yml)  
+
+
+      Jaxy app          :   Port  8181 
+     
+      Grafana server    :   Port  3000 
+     
+      Prometheus server :   Port  9090     
+
+
+ #### **Single Sign-On ( Keycloak ) Demo : Using [docker-compose-sso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose-sso.yml) file** [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/docker-compose-sso.yml)  
 
 
       Jaxy app          :   Port  8181 
@@ -106,7 +128,9 @@
      
       Prometheus server :   Port  9090     
   
+---
+
 * **Note** : it seems there's a bug in **play-with-docker** when **deploying grafana** :  [Reported bug](https://github.com/play-with-docker/play-with-docker/issues/318)
 
----
+
 
