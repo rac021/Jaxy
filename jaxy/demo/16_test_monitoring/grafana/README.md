@@ -17,7 +17,7 @@
                  --name jaxy-grafana   rac021/jaxy-grafana
 ```
 
---
+---
 
 * **Note** : The **monitoring_jaxy** directory has the following structure  
 
