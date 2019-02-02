@@ -19,7 +19,7 @@
 ```
 ---
 
-**1.1 -  CustomSignon Demo [ ( custom_signon_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/custom_signon_auth) :** 
+**1.1 -  Custom-Sign-On Demo [ ( custom_signon_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/custom_signon_auth) :** 
 
 * **Run Docker Jaxy-DataBase :** 
 
@@ -57,7 +57,7 @@
 ```
 ---
 
-**1.2 -  SSO Demo [ ( sso_keycloak_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth) :**
+**1.2 -  Single-Sing-On Demo [ ( sso_keycloak_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth) :**
 
 ```
    docker run --name jaxy -d -P                                              \
