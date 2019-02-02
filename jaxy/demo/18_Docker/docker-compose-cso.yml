@@ -16,7 +16,7 @@ services:
   jaxy:
     depends_on:
       - jaxy_db
-    image: rac021/jaxy:cso_pwd
+    image: rac021/jaxy:cso-pwd
     hostname: jaxy
     ports:
       - 8181:8181
