@@ -4,7 +4,7 @@
 
 
 ```
-      docker build  -t rac021/jaxy-grafana  -f grafana/Dockerfile grafana/
+      docker build  -t rac021/jaxy-grafana  -f ./Dockerfile  .
 ```
 
 
@@ -14,5 +14,5 @@
                  -e "MONITORING_PATH=/app/mon/provisioning"      \
                  -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
                  -v ./monitoring_jaxy/:/app/mon/                 \
-                 --name mon   jaxy-monitoring
+                 --name jaxy-grafana   rac021/jaxy-grafana
 ```
