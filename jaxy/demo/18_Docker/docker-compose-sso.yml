@@ -13,7 +13,7 @@ services:
     networks:
       - jaxy_net
       
-  keycloak:
+  keycloakme:
     image: rac021/jaxy-keycloakme
     hostname: keycloakme
     ports:
