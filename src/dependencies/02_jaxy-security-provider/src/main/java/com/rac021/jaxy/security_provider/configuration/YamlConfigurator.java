@@ -496,7 +496,6 @@ public class YamlConfigurator implements IConfigurator      {
               ovr.equalsIgnoreCase("ENV_VARIABLE") ) {
            
              this.HOST = System.getenv("JAXY_URL")   ;
-             this.HOST = ovr                         ;
           
           } else {
             
