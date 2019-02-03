@@ -95,12 +95,12 @@ TRANSPORT  : HTTP  # HTTPS
 # provide HOSTE_NAME for the HOST_TYPE key 
 # If you want to DISPLAY the IP in the urls 
 # provide IP for the HOST_TYPE key
-HOST_TYPE = HOST_NAME # IP 
+HOST_TYPE : HOST_NAME # IP 
 
 # Provide value if you want to 
 # OVERRIDE the HOSTNAME AND IP . 
 # Default : No Value ( EMPTY )
-OVERRIDE_HOST = 
+OVERRIDE_HOST : 
 
 # IF SSL_MODE =
 #  SELF_SSL     : CERTIFICATE IS AUTO GENERATED
