@@ -74,6 +74,7 @@
 ```
    docker run --name jaxy -d -P                                        \
               --hostname jaxy                                          \
+              -p 8181:8181                                             \
               --network-alias "jaxy.com"                               \
               -v $(pwd)/jaxy_test_for_docker/sso_keycloak:/app/service \
               -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy      \
