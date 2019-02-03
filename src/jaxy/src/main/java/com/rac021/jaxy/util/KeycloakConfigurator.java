@@ -2,8 +2,9 @@
 package com.rac021.jaxy.util ;
 
 import java.io.File ;
-import java.util.List ;
 import java.util.Map ;
+import java.util.List ;
+import java.util.Objects ;
 import java.util.logging.Level ;
 import java.util.logging.Logger ;
 import org.wildfly.swarm.keycloak.Secured ;
@@ -21,7 +22,9 @@ public class KeycloakConfigurator {
     
     public static void configurate( YamlConfigurator cfg )         {
         
-          /** Set KeyCloak Properties if SSO is Enable . **/
+         Objects.requireNonNull( cfg )                             ;
+        
+        /** Set KeyCloak Properties if SSO is Enable . **/
           
         if ( cfg.getAuthenticationType().equalsIgnoreCase("SSO") && 
              cfg.getKeycloakFile() != null )                      {
