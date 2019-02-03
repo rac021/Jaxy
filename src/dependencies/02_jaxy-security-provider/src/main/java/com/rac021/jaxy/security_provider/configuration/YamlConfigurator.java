@@ -482,15 +482,27 @@ public class YamlConfigurator implements IConfigurator      {
       }
     }
     
-    private void setServerConfiguration()                         {
+    private void setServerConfiguration()                        {
  
         
-       if (   ( getConfiguration().get(OVERRIDE_HOST)) != null  &&
+       if ( ( getConfiguration().get(OVERRIDE_HOST)) != null &&
             ! ((String) getConfiguration().get(OVERRIDE_HOST))
                                           .isEmpty() )           {
        
-           this.HOST = (String) getConfiguration()
-                                .get(OVERRIDE_HOST) ;
+          String ovr = (String) getConfiguration()
+                               .get(OVERRIDE_HOST)   ;
+          
+          if( System.getenv("JAXY_URL") != null  &&
+              ovr.equalsIgnoreCase("ENV_VARIABLE") ) {
+           
+             this.HOST = System.getenv("JAXY_URL")   ;
+             this.HOST = ovr                         ;
+          
+          } else {
+            
+             this.HOST = (String) getConfiguration()
+                               .get(OVERRIDE_HOST) ;
+          }
        }
        
        else if ((getConfiguration().get(HOST_TYPE)) != null )    {
