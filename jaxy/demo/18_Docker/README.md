@@ -36,6 +36,7 @@
               --network jaxy_net                          \
               postgres:9.6.11-alpine
 ```
+
 * **Test Jaxy-DataBase :**
 
 ``` 
@@ -59,6 +60,22 @@
 
 **1.2 -  Single-Sing-On Demo [ ( sso_keycloak_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth) :**
 
+* **Run Docker Jaxy-DataBase :** 
+
+  ( by copying the  [ ( db/init.sql ) ](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/db/init.sql) file into the  **docker-entrypoint-initdb.d** folder of the container )
+
+```
+   docker run -d                                          \
+              -e POSTGRES_USER=jaxy                       \
+              -e POSTGRES_PASSWORD=jaxy                   \
+              -e POSTGRES_DB=aviation                     \
+              --name jaxy_db                              \
+              -v $(pwd)/db/:/docker-entrypoint-initdb.d/  \
+              -p 7777:5432                                \
+              --network jaxy_net                          \
+              postgres:9.6.11-alpine
+```
+              
 * **Note :** For keycloak docker image refer to [ KeycloakMe ]( https://github.com/rac021/KeycloakMe/tree/master/script_version#using-docker--dockerfile-- ) Project 
 
 ```
