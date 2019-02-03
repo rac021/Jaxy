@@ -27,7 +27,7 @@ services:
   jaxy:
     depends_on:
       - jaxy_db
-      - keycloak
+      - keycloakme
     image: rac021/jaxy:sso-pwd
     hostname: jaxy
     ports:
