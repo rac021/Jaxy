@@ -59,14 +59,26 @@
 
 **1.2 -  Single-Sing-On Demo [ ( sso_keycloak_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth) :**
 
+* **Note :** For keycloak docker image refer to [ KeycloakMe ]( https://github.com/rac021/KeycloakMe/tree/master/script_version#using-docker--dockerfile-- ) Project 
+
 ```
-   docker run --name jaxy -d -P                                              \
-              --hostname jaxy                                                \
-              --network-alias "jaxy.com"                                     \
-              -v $(pwd)/jaxy_test_for_docker/sso_keycloak:/app/service       \
-              -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy            \
-              -v $(pwd)/logs:/app/jaxy/logs                                  \
-              --network jaxy_net                                             \
+   docker run -d  -p 8180:8180           \
+                  --hostname keycloakme  \
+                  -e "TRANSPORT=http"    \
+                  -e "MODE=DEMO"         \
+                  --network jaxy_net     \
+                  --name keycloakme      \
+                  rac021/jaxy-keycloakme                    
+```
+
+```
+   docker run --name jaxy -d -P                                        \
+              --hostname jaxy                                          \
+              --network-alias "jaxy.com"                               \
+              -v $(pwd)/jaxy_test_for_docker/sso_keycloak:/app/service \
+              -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy      \
+              -v $(pwd)/logs:/app/jaxy/logs                            \
+              --network jaxy_net                                       \
               rac021/jaxy               
 ```
 
