@@ -7,7 +7,7 @@
  sudo docker network create jaxy_net
 ```
 
-* **In order to access the container by its hostname and container name from a host machine**    
+* **In order to access the container by its hostname and container name from a host machine** 
     Run the following command ( **Optional** ) :
 
 ```
@@ -54,7 +54,7 @@
               -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy            \
               -v $(pwd)/logs:/app/jaxy/logs                                  \
               --network jaxy_net                                             \
-              rac021/jaxy               
+              rac021/jaxy 
 ```
 ---
 
@@ -85,7 +85,7 @@
                   -e "MODE=DEMO"         \
                   --network jaxy_net     \
                   --name keycloakme      \
-                  rac021/jaxy-keycloakme                    
+                  rac021/jaxy-keycloakme
 ```
 
 ```
@@ -97,7 +97,7 @@
               -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy           \
               -v $(pwd)/logs:/app/jaxy/logs                                 \
               --network jaxy_net                                            \
-              rac021/jaxy               
+              rac021/jaxy
 ```
 
 ---
@@ -114,7 +114,7 @@
 ## 2. **Build the docker image of Jaxy from scratch : [Dockerfile](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/Dockerfile)**
 
 ``` 
-     docker build -t jaxy -f Dockerfile ../../      
+     docker build -t jaxy -f Dockerfile ../../
 ```
 ---
 ---
@@ -146,15 +146,15 @@
 | **Single Sign-On Auth Demo** |  [docker-compose-sso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose-sso.yml)         | [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/docker-compose-sso.yml) |
 
 
-      Jaxy app          :   Port  8181 
+      Jaxy app          :   Port  8181
      
-      Grafana server    :   Port  3000 
+      Grafana server    :   Port  3000
      
-      Prometheus server :   Port  9090     
+      Prometheus server :   Port  9090
+      
+      Keycloak server   :   Port  8180
 
 ---
 
 * **Note** : it seems there's a bug in **play-with-docker** when **deploying grafana** :  [Reported bug](https://github.com/play-with-docker/play-with-docker/issues/318)
-
-
 
