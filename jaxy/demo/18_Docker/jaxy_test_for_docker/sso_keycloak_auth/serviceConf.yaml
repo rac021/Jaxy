@@ -38,8 +38,8 @@ password        : jaxy_password                        # Password
 authentication  :
   type          : SSO 
   url           : http://keycloakme:8180/auth/realms/my_realm/protocol/openid-connect/token                  
-  keycloakFile  : keyCloak/keyCloak_https.json ## keyCloak/keyCloak_http.json ->
-                                               ## Path of the keyCloak file # Relatif to this file
+  keycloakFile  : keyCloak/keyCloak_http.json ## keyCloak/keyCloak_http.json ->
+                                              ## Path of the keyCloak file # Relatif to this file
   secured       : 
     vip_planes  : 
       GET     : [ manager ] # Operation + list of roles. Ex : GET : [ admin, tester, manager ]
