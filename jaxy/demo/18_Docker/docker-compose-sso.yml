@@ -13,9 +13,21 @@ services:
     networks:
       - jaxy_net
       
+  keycloak:
+    image: rac021/jaxy-keycloakme
+    hostname: keycloakme
+    ports:
+      - 8180:8180
+    environment:
+      TRANSPORT: http
+      MODE: DEMO
+    networks:
+      - jaxy_net     
+
   jaxy:
     depends_on:
       - jaxy_db
+      - keycloak
     image: rac021/jaxy:sso-pwd
     hostname: jaxy
     ports:
