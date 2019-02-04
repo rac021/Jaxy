@@ -148,7 +148,7 @@
 **Note :** In the **Single Sign-On Auth Demo**, for the keycloak docker image, refer to [ KeycloakMe ]( https://github.com/rac021/KeycloakMe/tree/master/script_version#using-docker--dockerfile-- ) Project
 
 ```
-      Jaxy app          :   Port  8181
+      Jaxy app          :   Port  8181 ( LOGIN/PASSWORD : jaxy/jaxy )
      
       Grafana server    :   Port  3000
      
