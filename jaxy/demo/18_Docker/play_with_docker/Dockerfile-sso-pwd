@@ -38,7 +38,7 @@ RUN chmod +x /app/*.sh
 
 COPY --from=compilation_stage /tmp/jaxy/ /app/jaxy
 
-ENTRYPOINT ["source /app/jaxy_pwd_launcher.sh"]
+ENTRYPOINT ["/bin/bash source /app/jaxy_pwd_launcher.sh"]
 
 CMD ["serviceConf=jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/serviceConf.yaml"]
 
