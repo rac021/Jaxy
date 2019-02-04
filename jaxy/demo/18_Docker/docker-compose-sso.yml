@@ -36,7 +36,7 @@ services:
       - monitoring:/app/jaxy/monitoring_jaxy
     networks:
       - jaxy_net
-    network_mode: host 
+    network: host 
      
   jaxy_prometheus:
     image: rac021/jaxy-prometheus
