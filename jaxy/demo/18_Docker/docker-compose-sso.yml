@@ -37,7 +37,7 @@ services:
     networks:
       - jaxy_net
     build:
-    network: host
+      network: host
      
   jaxy_prometheus:
     image: rac021/jaxy-prometheus
