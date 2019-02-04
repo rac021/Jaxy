@@ -18,5 +18,12 @@ export JAXY_URL="$JAXY_URL"
 
 export KEYCLOAK_URL="$KEYCLOAK_URL"
 
+echo 
+echo " ============================== "
+echo " - JAXY_URL     : $JAXY_URL     "
+echo " - KEYCLOAK_URL : $KEYCLOAK_URL "
+echo " ============================== "
+echo
+
 ./run.sh $1 
 
