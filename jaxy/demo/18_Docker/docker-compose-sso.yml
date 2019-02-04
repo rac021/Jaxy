@@ -71,6 +71,14 @@ services:
     networks:
       - jaxy_net
 
+  whoami:
+    image: emilevauge/whoami
+    hostname: whoami
+    ports:
+      - 80:80
+    networks:
+      - jaxy_net
+ 
 volumes:
      monitoring: {}
      
