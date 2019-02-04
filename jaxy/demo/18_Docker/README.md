@@ -157,7 +157,7 @@
       Keycloak server   :   Port  8180
 ```
 
-####  Docker Images used for this Demo : [ Docker-Hub ](https://hub.docker.com/r/rac021/jaxy)
+####  Docker images are pulled from : [ Docker-Hub ](https://hub.docker.com/r/rac021/jaxy)
 
 ---
 
