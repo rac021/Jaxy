@@ -24,7 +24,7 @@ services:
       TRANSPORT: http
       MODE: DEMO
     networks:
-      - jaxy_net     
+      - jaxy_net    
 
   jaxy:
     depends_on:
@@ -38,7 +38,9 @@ services:
       - monitoring:/app/jaxy/monitoring_jaxy
       - /docker.log:/app/jaxy/docker/docker.log
     networks:
-      - jaxy_net
+      - jaxy_net    
+    environment:
+      WHOAMI_PORT: 7777
      
   jaxy_prometheus:
     image: rac021/jaxy-prometheus
@@ -73,6 +75,15 @@ services:
       - 3000:3000
     networks:
       - jaxy_net
+      
+  whoami:
+    image: emilevauge/whoami
+    hostname: whoami
+    ports:
+      - 7777:80
+    networks:
+      - jaxy_net      
+      
  
 volumes:
      monitoring: {}
