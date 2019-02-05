@@ -59,7 +59,11 @@
 
                     <label class="input-group-addon" style="text-align: left">URI : </label>
                     <h:outputText class="form-control btn-success" 
-                                  style="margin-bottom: 5px; height:65px;"
+                                  style="width: 600px ; 
+                                         display:table-cell;
+                                         word-break: break-all ;
+                                         vertical-align: middle;
+                                         border: 2px solid; "
                                   id="selectedServiceUri" 
                                   value="#{serviceSelector.getSelectedServiceUriTemplate()}" />
 
@@ -68,7 +72,7 @@
                                      id="selectedServiceArgs" 
                                      value="#{serviceSelector.getSelectedServiceParamsAsString()}" 
                                      readonly="true" style="overflow:hidden; margin-bottom: 5px ; 
-                                     resize: none;" rows="4" />
+                                     resize: none;  margin-top: 5px " rows="4" />
 
                     <label class="input-group-addon" style="text-align: left">Template : </label>
                     <b:inputTextarea class="form-control"
