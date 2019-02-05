@@ -10,6 +10,8 @@ services:
       POSTGRES_USER: jaxy
       POSTGRES_PASSWORD: jaxy
       POSTGRES_DB: aviation
+    ports:
+      - 5432:5432
     networks:
       - jaxy_net
       
