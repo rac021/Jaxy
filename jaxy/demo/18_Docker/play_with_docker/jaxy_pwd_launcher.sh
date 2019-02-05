@@ -13,7 +13,7 @@ fi
 
 DOCKER_LOGER="/app/jaxy/docker/docker.log"
 
-PWD_URL_LINE=`grep -m 1 'GET http://ip.*./v1' $DOCKER_LOGER | sed 's/\/v1.*//' | sed 's/^.*http:\/\///' | sed 's/*-*//'`
+PWD_URL_LINE=`grep -m 1 'GET http://ip.*./v1' $DOCKER_LOGER | sed 's/\/v1.*//' | sed 's/^.*http:\/\///' | sed 's/*-*//' |  sort --unique `
 
 PWD_URL=`echo "${PWD_URL_LINE%-*}"`
 
