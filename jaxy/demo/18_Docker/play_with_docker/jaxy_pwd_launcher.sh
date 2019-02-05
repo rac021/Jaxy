@@ -36,10 +36,10 @@ while [[ ! -n  "$PWD_URL"  ]] &&  [ $COUNT -lt $MAX_ATTEMP ] ; do
 		        break 
        fi
             
-    done < <(  grep -m 10 'GET http://ip.*./v1' ~/Téléchargements/PWD.txt | sed 's/\/v1.*//'       |  \
-                                                                            sed 's/^.*http:\/\///' |  \
-                                                                            sed 's/*-*//'          |  \
-                                                                            sort --unique             )
+    done < <(  grep -m 10 'GET http://ip.*./v1' $DOCKER_LOGER | sed 's/\/v1.*//'  |  \
+                                                sed 's/^.*http:\/\///'            |  \
+                                                sed 's/*-*//'                     |  \
+                                                sort --unique                     )
     sleep 3
     let "COUNT++"            
     
