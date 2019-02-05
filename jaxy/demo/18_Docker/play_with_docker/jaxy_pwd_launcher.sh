@@ -23,7 +23,7 @@ exportEnvirVariable "JAXY_PORT"     "8181"
 
 exportEnvirVariable "KEYCLOAK_PORT" "8180"
 
-exportEnvirVariable "JAXY_URL"      "http://$PWD_URL-$JAXY_PORT.direct.labs.play-with-docker.com"
+exportEnvirVariable "JAXY_URL"      "$PWD_URL-$JAXY_PORT.direct.labs.play-with-docker.com"
 
 exportEnvirVariable "KEYCLOAK_URL"  "http://$PWD_URL-$KEYCLOAK_PORT.direct.labs.play-with-docker.com"
 
