@@ -26,7 +26,7 @@ while [[ ! -n  "$PWD_URL"  ]] &&  [ $COUNT -lt $MAX_ATTEMP ] ; do
     while read -r url ; do 
 	
        URL=`echo "${url%-*}"`
-	    URL="$URL-8181.direct.labs.play-with-docker.com"
+	    URL="$URL-5432.direct.labs.play-with-docker.com"
    	 echo " -- Check URL : $URL"   
        
        CODE_RESPONSE=`curl -s -o /dev/null -w "%{http_code}" $URL` ;
