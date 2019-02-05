@@ -2,6 +2,8 @@
 
 DOCKER_LOGER="/app/jaxy/docker/docker.log"
 
+WHOAMI_PORT=${WHOAMI_PORT:-"8080"} 
+
 exportEnvirVariable()  {
 
    echo "export $1=$2" >> ~/.bashrc
@@ -26,7 +28,7 @@ while [[ ! -n  "$PWD_URL"  ]] &&  [ $COUNT -lt $MAX_ATTEMP ] ; do
     while read -r url ; do 
 	
        URL=`echo "${url%-*}"`
-	    URL="$URL-5432.direct.labs.play-with-docker.com"
+	    URL="$URL-$WHOAMI_PORT.direct.labs.play-with-docker.com"
    	 echo " -- Check URL : $URL"   
        
        CODE_RESPONSE=`curl -s -o /dev/null -w "%{http_code}" $URL` ;
