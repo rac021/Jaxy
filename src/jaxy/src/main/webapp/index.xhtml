@@ -139,24 +139,40 @@
                     <label class="input-group-addon" style="text-align: left" >Health</label>
                     <b:commandLink  class="form-control" id="healthId" 
                                     onclick="openPage( document.getElementById('healthId').firstChild.nodeValue ); return false;"
-                                    style="margin-bottom: 5px"
+                                    style="width: 600px ; 
+                                           display:table-cell ;
+                                           word-break: break-all ;
+                                           vertical-align: middle ;
+                                           border: 2px solid ; "
                                     value="#{globalConf.getHost()}/health " />
                     
                     <label class="input-group-addon" style="text-align: left" >Metrics</label>
                     <b:commandLink  class="form-control" id="metricsId" 
-                                    style="margin-bottom: 5px"
+                                    style="width: 600px ; 
+                                           display:table-cell ;
+                                           word-break: break-all ;
+                                           vertical-align: middle ;
+                                           border: 2px solid ; " 
                                     onclick="openPage( document.getElementById('metricsId').firstChild.nodeValue ); return false;"
                                     value="#{globalConf.getHost()}/metrics " />
                                    
                     <label class="input-group-addon" style="text-align: left" >Heap</label>
                     <b:commandLink  class="form-control" id="heapId" 
-                                    style="margin-bottom: 5px"
+                                    style="width: 600px ; 
+                                           display:table-cell ;
+                                           word-break: break-all ;
+                                           vertical-align: middle ;
+                                           border: 2px solid ; "
                                     onclick="openPage( document.getElementById('heapId').firstChild.nodeValue ); return false;"
                                     value="#{globalConf.getHost()}/heap " />
                     
-                    <label class="input-group-addon" style="text-align: left" >Threads</label>
+                    <label class="input-group-addon" style="text-align: left" >Threads</label>                  
                     <b:commandLink  class="form-control" id="threadsId" 
-                                    style="margin-bottom: 5px" 
+                                    style="width: 600px ; 
+                                           display:table-cell ;
+                                           word-break: break-all ;
+                                           vertical-align: middle ;
+                                           border: 2px solid ; " 
                                     onclick="openPage( document.getElementById('threadsId').firstChild.nodeValue ); return false;"
                                     value="#{globalConf.getHost()}/threads " />
                     
