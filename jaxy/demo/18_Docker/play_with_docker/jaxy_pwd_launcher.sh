@@ -45,7 +45,7 @@ while [[ ! -n  "$PWD_URL"  ]] &&  [ $COUNT -lt $MAX_ATTEMP ] ; do
     
 done
 
-if [[ ! -n "$$PWD_URL" ]] ; then 
+if [[ ! -n "$PWD_URL" ]] ; then 
       echo
       echo " NO PWD_URL EXTRACTED ! "
       echo " Exit ... " ; echo 
