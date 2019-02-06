@@ -38,8 +38,10 @@ services:
     networks:
       - jaxy_net    
     environment:
-      WHOAMI_PORT: 7777
       KEYCLOAK_PORT: 8180
+      SESSION_ID: ${SESSION_ID}
+      DIND_COMMIT: ${DIND_COMMIT}
+      PWD_HOST_FQDN: ${PWD_HOST_FQDN}
      
   jaxy_prometheus:
     image: rac021/jaxy-prometheus
@@ -73,16 +75,8 @@ services:
     ports:
       - 3000:3000
     networks:
-      - jaxy_net
-      
-  whoami:
-    image: emilevauge/whoami
-    hostname: whoami
-    ports:
-      - 7777:80
-    networks:
-      - jaxy_net  
-      
+      - jaxy_net      
+        
   hoster:
     image: dvdarias/docker-hoster
     hostname: hoster 
