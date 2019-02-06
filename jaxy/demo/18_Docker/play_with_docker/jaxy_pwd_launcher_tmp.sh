@@ -80,9 +80,6 @@
 	    exit     
 	fi
 
-	echo ; echo " PWD_URL --> $PWD_URL" 
-	echo ; echo 
-
 	# Export Values 
 
 	JAXY_URL="$PWD_SUB_URL-$JAXY_PORT.direct.labs.play-with-docker.com"
