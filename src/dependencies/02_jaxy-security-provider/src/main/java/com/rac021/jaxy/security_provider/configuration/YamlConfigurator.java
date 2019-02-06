@@ -159,7 +159,8 @@ public class YamlConfigurator implements IConfigurator      {
    
     private final String HOST_TYPE           = "HOST_TYPE"           ;
     private final String IP                  = "IP"                  ;
-    
+    private final String OVERRIDE_HOST       = "OVERRIDE_HOST"       ;
+        
     private final String REJECT_CONNECTION_WHEN_LIMIT_EXEEDED  = "RejectConnectionsWhenLimitExceeded"  ;
     private final String DEFAULT_MAX_THREADS_PER_SERVICE       = "DefaultMaxThreadsPerService"         ;
     
@@ -481,20 +482,35 @@ public class YamlConfigurator implements IConfigurator      {
       }
     }
     
-    private void setServerConfiguration()           {
+    private void setServerConfiguration()        {
  
-        
-       if( System.getenv("JAXY_URL") != null  )     {
+       
+        if( System.getenv("JAXY_URL") != null )  {
            
-             this.HOST = System.getenv("JAXY_URL")  ;
+           this.HOST = System.getenv("JAXY_URL") ;
+            
+           System.out.println( " JAXY HOST "     +
+                               "retrieved from " +
+                               "EVN : JAXY_URL") ;
+            
+           System.out.println(" JAXY_HOST : "    +
+                       System.getenv("JAXY_URL"));
+          
+        }
+        
+        else if ( ( getConfiguration().get(OVERRIDE_HOST)) != null &&
+                ! ((String) getConfiguration().get(OVERRIDE_HOST)).isEmpty() ) {
+       
+          String ovr = (String) getConfiguration().get(OVERRIDE_HOST) ;
+          
+          this.HOST  = (String) getConfiguration().get(OVERRIDE_HOST) ;
        }
        
-       else if ((getConfiguration().get(HOST_TYPE)) != null ) {
+       else if ((getConfiguration().get(HOST_TYPE)) != null )         {
            
-         String hostType = (String) getConfiguration()
-                                   .get(HOST_TYPE) ;
+         String hostType = (String) getConfiguration().get(HOST_TYPE) ;
          
-         if( hostType.equalsIgnoreCase(IP))        {
+         if( hostType.equalsIgnoreCase( IP ))      {
              this.HOST = HostManager.getIp()       ;
          }
          else {
@@ -503,31 +519,30 @@ public class YamlConfigurator implements IConfigurator      {
          
        } else {
            
-             // Default Setting
              this.HOST = HostManager.getHostName() ;
        }
        
-       if ((getConfiguration().get(HTTP_PORT)) != null )    {
+       if ((getConfiguration().get(HTTP_PORT)) != null )   {
          this.httpPort = (String) getConfiguration()
                              .get(HTTP_PORT) ;
        }
        
-       if ((getConfiguration().get(HTTPS_PORT)) != null )   {
+       if ((getConfiguration().get(HTTPS_PORT)) != null )  {
          this.httpsPort = (String) getConfiguration()
                              .get(HTTPS_PORT) ;
        }
        
-       if ((getConfiguration().get(TRANSPORT)) != null )    {
+       if ((getConfiguration().get(TRANSPORT)) != null )   {
          this.transport = (String) getConfiguration()
-                             .get(TRANSPORT).toString()
-                             .toLowerCase()   ;
+                                  .get(TRANSPORT).toString()
+                                  .toLowerCase()           ;
        }
        
        if ((getConfiguration().get(SSL_MODE)) != null )           {
         
         String sslMod = (String )getConfiguration().get(SSL_MODE) ;
            
-        if( sslMod.equalsIgnoreCase(SslMode.SELF_SSL.name())     ||
+        if( sslMod.equalsIgnoreCase(SslMode.SELF_SSL.name()    ) ||
             sslMod.equalsIgnoreCase(SslMode.LETS_ENCRYPT.name()) ||
             sslMod.equalsIgnoreCase(SslMode.PROVIDED_SSL.name())  ) 
         {
