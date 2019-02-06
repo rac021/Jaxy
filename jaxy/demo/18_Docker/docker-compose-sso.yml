@@ -39,7 +39,7 @@ services:
       - jaxy_net    
     environment:
       WHOAMI_PORT: 7777
-      KEYCLOAK_PORT:8180
+      KEYCLOAK_PORT: 8180
      
   jaxy_prometheus:
     image: rac021/jaxy-prometheus
