@@ -9,7 +9,7 @@
 
  if [[ -n "$SESSION_ID" ]] && [[ -n "$PWD_HOST_FQDN" ]]  && [[ -n "$DIND_COMMIT" ]] ; then # IN PWD
 	
-	 echo ; echo " In PWD .. " ; echo  
+	 echo ; echo " In Play With Docker .. " ; echo  
 	 COUNT=0
 	 MAX_ATTEMPT=15
  
@@ -18,9 +18,9 @@
 	   let "COUNT++" 
 	done
   
-  	if [ -f "$DOCKER_LOGER" ] ; then 
+  	if [ ! -f "$DOCKER_LOGER" ] ; then 
 	     echo " NO DOCKER LOG FILE FOUND !"
-	     echo " Exit ... "
+	     echo ; echo " Exit ... " ; echo
 	     exit
 	fi
 	
