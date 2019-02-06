@@ -232,7 +232,7 @@ TASK_MAX_THREADS : 128
 ##### LOG_LEVEL = ALL  FINEST  FINER  FINE CONFIG 
 #####             INFO WARNING SEVERE OFF 
 #####  Avoid the Thorntail additional LOG_LEVEL :
-#####             TRACE DEBUG  WARN  ERROR  FATAL   
+#####            TRACE DEBUG  WARN  ERROR  FATAL   
 
 LOG_LEVEL      : INFO
 
