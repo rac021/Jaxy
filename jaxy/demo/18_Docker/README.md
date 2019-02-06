@@ -148,13 +148,15 @@
 **Note :** In the **Single Sign-On Auth Demo**, for the keycloak docker image, refer to [ KeycloakMe ]( https://github.com/rac021/KeycloakMe/tree/master/script_version#using-docker--dockerfile-- ) Project
 
 ```
-      Jaxy app          :   Port  8181 ( LOGIN/PASSWORD : jaxy/jaxy )
+      Jaxy app   server  :  Port  8181 ( LOGIN / PASSWORD : jaxy / jaxy )
      
-      Grafana server    :   Port  3000
+      Grafana    server  :  Port  3000 ( LOGIN/PASSWORD : admin / admin )
      
-      Prometheus server :   Port  9090
+      Prometheus server  :  Port  9090 ( No PASSWORD                    )
       
-      Keycloak server   :   Port  8180
+      Keycloak   server  :  Port  8180 ( LOGIN/PASSWORD : admin / admin )
+      
+      Whoami     service :  Port  7777 ( Just for automation  on  PWD   )
 ```
 
 ####  Docker images are pulled from : [ Docker-Hub ](https://hub.docker.com/r/rac021/jaxy)
