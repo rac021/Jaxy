@@ -5,18 +5,18 @@
 ### DEPLOYING JAXY ON PWD WITH ONE CLICK     ######
 ###################################################
 
-DOCKER_LOGER="/app/jaxy/docker/docker.log"
+ DOCKER_LOGER="/app/jaxy/docker/docker.log"
 
-COUNT=0
+ COUNT=0
 
-MAX_ATTEMPT=6
+ MAX_ATTEMPT=6
 
-while [ ! -f "$DOCKER_LOGER" ]  &&  [ $COUNT -lt $MAX_ATTEMPT ] ; do
-  sleep 1
-  let "COUNT++" 
-done
+ while [ ! -f "$DOCKER_LOGER" ]  &&  [ $COUNT -lt $MAX_ATTEMPT ] ; do
+   sleep 1
+   let "COUNT++" 
+ done
   
-if [ -f "$DOCKER_LOGER" ] ; then 
+ if [ -f "$DOCKER_LOGER" ] ; then 
 
 	JAXY_PORT=${JAXY_PORT:-"8181"} 
 
@@ -131,8 +131,8 @@ if [ -f "$DOCKER_LOGER" ] ; then
 	echo " ============================== " ; echo
 
 	./run.sh $1 
-else 
+ else 
  
 	./run.sh $1 
-fi
+ fi
 
