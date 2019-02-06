@@ -7,22 +7,26 @@
 
  DOCKER_LOGER="/app/jaxy/docker/docker.log"
 
- COUNT=0
-
- MAX_ATTEMPT=6
-
- while [ ! -f "$DOCKER_LOGER" ]  &&  [ $COUNT -lt $MAX_ATTEMPT ] ; do
-   sleep 1
-   let "COUNT++" 
- done
+ if [[ -n "$SESSION_ID" ]] && [[ -n "$PWD_HOST_FQDN" ]]  && [[ -n "$DIND_COMMIT" ]] ; then # IN PWD
+	
+	 echo ; echo " In PWD .. " ; echo  
+	 COUNT=0
+	 MAX_ATTEMPT=15
+ 
+	while [ ! -f "$DOCKER_LOGER" ]  &&  [ $COUNT -lt $MAX_ATTEMPT ] ; do
+	   sleep 1
+	   let "COUNT++" 
+	done
   
- if [ -f "$DOCKER_LOGER" ] ; then 
-
+  	if [ -f "$DOCKER_LOGER" ] ; then 
+	     echo " NO DOCKER LOG FILE FOUND !"
+	     echo " Exit ... "
+	     exit
+	fi
+	
 	JAXY_PORT=${JAXY_PORT:-"8181"} 
 
-	WHOAMI_PORT=${WHOAMI_PORT:-"8080"} 
-
-	exportEnvirVariable()  {
+	exportEnvirVariable()   {
 
 	   echo "export $1=$2" >> ~/.bashrc
 	   source ~/.bashrc
@@ -47,28 +51,24 @@
 
 	COUNT=0
 
-	MAX_ATTEMPT=30
+	MAX_ATTEMPT=60
 
 	while [[ ! -n  "$PWD_SUB_URL"  ]] &&  [ $COUNT -lt $MAX_ATTEMPT ] ; do           
 
 	    while read -r url ; do 
 
-	       SUB_URL=`echo "${url%-*}"`
-	       TEST_URL="$SUB_URL-$WHOAMI_PORT.direct.labs.play-with-docker.com"
-	       echo " -- Check URL : $TEST_URL"   
-
-	       CODE_RESPONSE=`curl -s -o /dev/null -w "%{http_code}" $TEST_URL`
-
-	       if [ "$CODE_RESPONSE" -ne "000" ] ; then 
-		     PWD_SUB_URL="$SUB_URL"
-		     break 
-	       fi
+               if [[ "$url" == *"$SESSION_ID"* ]]; then # URL Contains SESSION_ID ?
+	       
+		  SUB_URL=`echo "${url%-*}"`
+         	  PWD_SUB_URL="$SUB_URL"
+	          break 
+	       fi	       
 
 	    done < <(  grep -m 10 'GET http://ip.*./v1' $DOCKER_LOGER | sed 's/\/v1.*//'  | \
-							sed 's/^.*http:\/\///'            | \
-							sed 's/*-*//'                     | \
-							sort --unique                     )
-	    sleep 3
+						        sed 's/^.*http:\/\///'            | \
+						        sed 's/*-*//'                     | \
+						        sort --unique                     )
+	    sleep 1
 	    let "COUNT++"            
 
 	done
@@ -99,40 +99,40 @@
 	  KEYCLOAK_URL="http://$PWD_SUB_URL-$KEYCLOAK_PORT.direct.labs.play-with-docker.com"
 
 	  serviceConfLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/serviceConf.yaml"
-	  HttpkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_http.json"
+  	  HttpkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_http.json"
 	  HttspkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_https.json"
 
 	  if [[ -f $serviceConfLocation ]] ; then 
 
-		  replaceInFile "http://.*/protocol/openid-connect/token"                          \
+	 	  replaceInFile "http://.*/protocol/openid-connect/token"                          \
 				"$KEYCLOAK_URL/auth/realms/my_realm/protocol/openid-connect/token" \
 				 $serviceConfLocation           
-	      fi 
+	  fi 
 
-	      if [[ -f $HttpkeycloakFileLocation ]] ; then 
+	  if [[ -f $HttpkeycloakFileLocation ]] ; then 
 
 		  replaceInFile  "\"auth-server-url\":.*"                         \
 				 "\"auth-server-url\": \"$KEYCLOAK_URL/auth\" , " \
 				 $HttpkeycloakFileLocation         
-	      fi 
+	  fi 
 
-	      if [[ -f $HttpskeycloakFileLocation ]] ; then 
+	  if [[ -f $HttpskeycloakFileLocation ]] ; then 
 
 		   replaceInFile  "\"auth-server-url\":.*"                         \
 				  "\"auth-server-url\": \"$KEYCLOAK_URL/auth\" , " \
 				  $HttpskeycloakFileLocation        
 	  fi 
 
-
 	  echo " - KEYCLOAK_URL : $KEYCLOAK_URL "
 
-	fi 
+	  echo " ============================== " ; echo
 
-	echo " ============================== " ; echo
+	  ./run.sh $1 
 
-	./run.sh $1 
- else 
+	fi
  
+ else 
+ 	echo ; echo " Docker-compose .. " ; echo  
 	./run.sh $1 
  fi
 
