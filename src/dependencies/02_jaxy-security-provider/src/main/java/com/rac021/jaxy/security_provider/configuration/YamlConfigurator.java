@@ -495,7 +495,9 @@ public class YamlConfigurator implements IConfigurator      {
             
            System.out.println(" JAXY_HOST : "    +
                        System.getenv("JAXY_URL"));
-          
+            
+           System.out.println(" ")               ;
+            
         }
         
         else if ( ( getConfiguration().get(OVERRIDE_HOST)) != null &&
