@@ -157,7 +157,6 @@ public class YamlConfigurator implements IConfigurator      {
     private final String KEYCLOAKFILE        = "keycloakFile"        ;
     private final String KEY_PASSWORD        = "KEY_PASSWORD"        ;
    
-    private final String OVERRIDE_HOST       = "OVERRIDE_HOST"       ;
     private final String HOST_TYPE           = "HOST_TYPE"           ;
     private final String IP                  = "IP"                  ;
     
@@ -482,29 +481,15 @@ public class YamlConfigurator implements IConfigurator      {
       }
     }
     
-    private void setServerConfiguration()                        {
+    private void setServerConfiguration()           {
  
         
-       if ( ( getConfiguration().get(OVERRIDE_HOST)) != null &&
-            ! ((String) getConfiguration().get(OVERRIDE_HOST))
-                                          .isEmpty() )           {
-       
-          String ovr = (String) getConfiguration()
-                               .get(OVERRIDE_HOST)   ;
-          
-          if( System.getenv("JAXY_URL") != null  &&
-              ovr.equalsIgnoreCase("ENV_VARIABLE") ) {
+       if( System.getenv("JAXY_URL") != null  )     {
            
-             this.HOST = System.getenv("JAXY_URL")   ;
-          
-          } else {
-            
-             this.HOST = (String) getConfiguration()
-                               .get(OVERRIDE_HOST) ;
-          }
+             this.HOST = System.getenv("JAXY_URL")  ;
        }
        
-       else if ((getConfiguration().get(HOST_TYPE)) != null )    {
+       else if ((getConfiguration().get(HOST_TYPE)) != null ) {
            
          String hostType = (String) getConfiguration()
                                    .get(HOST_TYPE) ;
@@ -518,20 +503,21 @@ public class YamlConfigurator implements IConfigurator      {
          
        } else {
            
+             // Default Setting
              this.HOST = HostManager.getHostName() ;
        }
        
-       if ((getConfiguration().get(HTTP_PORT)) != null )          {
+       if ((getConfiguration().get(HTTP_PORT)) != null )    {
          this.httpPort = (String) getConfiguration()
                              .get(HTTP_PORT) ;
        }
        
-       if ((getConfiguration().get(HTTPS_PORT)) != null )         {
+       if ((getConfiguration().get(HTTPS_PORT)) != null )   {
          this.httpsPort = (String) getConfiguration()
                              .get(HTTPS_PORT) ;
        }
        
-       if ((getConfiguration().get(TRANSPORT)) != null )          {
+       if ((getConfiguration().get(TRANSPORT)) != null )    {
          this.transport = (String) getConfiguration()
                              .get(TRANSPORT).toString()
                              .toLowerCase()   ;
