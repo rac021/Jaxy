@@ -24,6 +24,8 @@ services:
       - monitoring:/app/jaxy/monitoring_jaxy
     networks:
       - jaxy_net
+    environment:
+      WHOAMI_PORT: 7777
      
   jaxy_prometheus:
     image: rac021/jaxy-prometheus
@@ -58,6 +60,14 @@ services:
       - 3000:3000
     networks:
       - jaxy_net
+
+  whoami:
+    image: emilevauge/whoami
+    hostname: whoami
+    ports:
+      - 7777:80
+    networks:
+      - jaxy_net     
 
 volumes:
      monitoring: {}
