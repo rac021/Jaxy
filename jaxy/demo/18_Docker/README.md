@@ -146,12 +146,11 @@
 | **Single Sign-On Auth Demo** |  [docker-compose-sso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose-sso.yml)         | [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/docker-compose-sso.yml) |
 
 ```
-      Jaxy app   server  :  Port  8181 ( LOGIN / PASSWORD : jaxy / jaxy )
+      Jaxy app   server  :  Port  8181 ( LOGIN / PASSWORD : jaxy / jaxy )     
      
-      Grafana    server  :  Port  3000 ( LOGIN/PASSWORD : admin / admin )
-     
-      Prometheus server  :  Port  9090 ( No PASSWORD                    )
-
+      Grafana    server  :  Port  3000 ( LOGIN/PASSWORD : admin / admin )  |
+                                                                            | => Monitoring
+      Prometheus server  :  Port  9090 ( No PASSWORD                    )  |
 
 ```
 
