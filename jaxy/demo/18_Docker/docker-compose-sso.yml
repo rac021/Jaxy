@@ -81,8 +81,16 @@ services:
     ports:
       - 7777:80
     networks:
-      - jaxy_net      
+      - jaxy_net  
       
+  hoster:
+    image: dvdarias/docker-hoster
+    hostname: hoster 
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock 
+      - /etc/hosts:/tmp/hosts 
+    networks:
+      - jaxy_net     
  
 volumes:
      monitoring: {}
