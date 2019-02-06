@@ -28,7 +28,7 @@ services:
     environment:
       SESSION_ID: ${SESSION_ID}
       DIND_COMMIT: ${DIND_COMMIT}
-      PWD_HOST_FQDN: ${PWD_HOST_FQDN
+      PWD_HOST_FQDN: ${PWD_HOST_FQDN}
      
   jaxy_prometheus:
     image: rac021/jaxy-prometheus
