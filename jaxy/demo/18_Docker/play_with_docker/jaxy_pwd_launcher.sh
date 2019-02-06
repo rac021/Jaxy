@@ -86,7 +86,7 @@ echo " - JAXY_URL     : $JAXY_URL     "
 
 if [[ -n  "$KEYCLOAK_PORT"  ]] ; then 
      
-      KEYCLOAK_URL="$PWD_SUB_URL-$KEYCLOAK_PORT.direct.labs.play-with-docker.com"
+      KEYCLOAK_URL="http://$PWD_SUB_URL-$KEYCLOAK_PORT.direct.labs.play-with-docker.com"
 
       serviceConfLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/serviceConf.yaml"
       HttpkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_http.json"
