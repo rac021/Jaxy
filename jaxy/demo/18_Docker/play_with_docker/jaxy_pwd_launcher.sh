@@ -88,10 +88,10 @@
 	exportEnvirVariable "JAXY_URL"   "$JAXY_URL"
 
 	echo 
-	echo " ============================== "
-	echo " - JAXY_URL     : $JAXY_URL     "
+	echo " =================================== "
 	echo 
-
+	echo " - JAXY_URL     : $JAXY_URL     "
+	
 	if [[ -n  "$KEYCLOAK_PORT"  ]] ; then 
 
 	  KEYCLOAK_URL="http://$PWD_SUB_URL-$KEYCLOAK_PORT.direct.labs.play-with-docker.com"
@@ -121,12 +121,13 @@
 				  $HttpskeycloakFileLocation        
 	  fi 
 
-	  echo " - KEYCLOAK_URL : $KEYCLOAK_URL "
+	  echo ; echo " - KEYCLOAK_URL : $KEYCLOAK_URL "
 
-	  echo " ============================== " ; echo
 	  
 	fi
 	
+	 echo ; echo " =================================== " ; echo
+	 
 	./run.sh $1 
 
  
