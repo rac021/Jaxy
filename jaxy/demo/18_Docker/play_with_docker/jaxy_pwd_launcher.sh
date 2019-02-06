@@ -1,10 +1,13 @@
 #/bin/bash
 
+###################################################
+### THIS SCRIPT IS A SIMPLE HACK WHICH ALLOWS #####
+### DEPLOYING JAXY ON PWD WITH ONE CLICK     ######
+###################################################
+
 DOCKER_LOGER="/app/jaxy/docker/docker.log"
 
-JAXY_PORT="8181"
-
-KEYCLOAK_PORT="8180"
+JAXY_PORT=${JAXY_PORT:-"8181"} 
 
 WHOAMI_PORT=${WHOAMI_PORT:-"8080"} 
 
@@ -15,6 +18,15 @@ exportEnvirVariable()  {
 
 }
  
+function replaceInFile() {
+
+   old="$1"
+   new="$2"
+   file="$3"
+ 
+   sed -i "s~$1~$2~g" $3
+}
+
 if [ ! -f ~/.bashrc ]; then
     touch ~/.bashrc
 fi
@@ -64,23 +76,49 @@ echo ; echo
 # Export Values 
 
 JAXY_URL="$PWD_SUB_URL-$JAXY_PORT.direct.labs.play-with-docker.com"
-
-KEYCLOAK_URL="$PWD_SUB_URL-$KEYCLOAK_PORT.direct.labs.play-with-docker.com"
-
-exportEnvirVariable "JAXY_PORT"     "$JAXY_PORT"
-
-exportEnvirVariable "KEYCLOAK_PORT" "$KEYCLOAK_PORT"
-
-exportEnvirVariable "JAXY_URL"      "$JAXY_URL"
-
-exportEnvirVariable "KEYCLOAK_URL"  "$KEYCLOAK_URL"
+exportEnvirVariable "JAXY_PORT"  "$JAXY_PORT"
+exportEnvirVariable "JAXY_URL"   "$JAXY_URL"
 
 echo 
 echo " ============================== "
 echo " - JAXY_URL     : $JAXY_URL     "
-echo " - KEYCLOAK_URL : $KEYCLOAK_URL "
-echo " ============================== "
-echo
+
+
+if [[ -n  "$KEYCLOAK_PORT"  ]] ; then 
+     
+      KEYCLOAK_URL="$PWD_SUB_URL-$KEYCLOAK_PORT.direct.labs.play-with-docker.com"
+
+      serviceConfLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/serviceConf.yaml"
+      HttpkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_http.json"
+      HttspkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_https.json"
+      
+      if [[ -f $serviceConfLocation ]] ; then 
+      
+          replaceInFile "http://.*/protocol/openid-connect/token"                          \
+                        "$KEYCLOAK_URL/auth/realms/my_realm/protocol/openid-connect/token" \
+		         $serviceConfLocation           
+      fi 
+      
+      if [[ -f $HttpkeycloakFileLocation ]] ; then 
+      
+          replaceInFile  "\"auth-server-url\":.*"                         \
+	                 "\"auth-server-url\": \"$KEYCLOAK_URL/auth\" , " \
+			 $HttpkeycloakFileLocation         
+      fi 
+      
+      if [[ -f $HttpskeycloakFileLocation ]] ; then 
+      
+           replaceInFile  "\"auth-server-url\":.*"                         \
+	                  "\"auth-server-url\": \"$KEYCLOAK_URL/auth\" , " \
+			  $HttpskeycloakFileLocation        
+      fi 
+      
+      
+      echo " - KEYCLOAK_URL : $KEYCLOAK_URL "
+
+fi 
+
+echo " ============================== " ; echo
 
 ./run.sh $1 
 
