@@ -80,19 +80,17 @@
 	    exit     
 	fi
 
-	echo ; echo " PWD_URL --> $PWD_URL" 
-	echo ; echo 
-
 	# Export Values 
 
 	JAXY_URL="$PWD_SUB_URL-$JAXY_PORT.direct.labs.play-with-docker.com"
+	
 	exportEnvirVariable "JAXY_PORT"  "$JAXY_PORT"
 	exportEnvirVariable "JAXY_URL"   "$JAXY_URL"
 
 	echo 
 	echo " ============================== "
 	echo " - JAXY_URL     : $JAXY_URL     "
-
+	echo 
 
 	if [[ -n  "$KEYCLOAK_PORT"  ]] ; then 
 
@@ -126,10 +124,11 @@
 	  echo " - KEYCLOAK_URL : $KEYCLOAK_URL "
 
 	  echo " ============================== " ; echo
-
-	  ./run.sh $1 
-
+	  
 	fi
+	
+	./run.sh $1 
+
  
  else 
  	echo ; echo " Docker-compose .. " ; echo  
