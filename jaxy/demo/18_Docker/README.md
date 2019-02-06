@@ -148,9 +148,9 @@
 ```
       Jaxy app   server  :  Port  8181 ( LOGIN / PASSWORD : jaxy / jaxy )     
      
-      Grafana    server  :  Port  3000 ( LOGIN/PASSWORD : admin / admin )  |
-                                                                            | => Monitoring
-      Prometheus server  :  Port  9090 ( No PASSWORD                    )  |
+      Grafana    server  :  Port  3000 ( LOGIN/PASSWORD : admin / admin )   ¯\
+                                                                              | => Monitoring
+      Prometheus server  :  Port  9090 ( No PASSWORD                    )   _/
 
 ```
 
