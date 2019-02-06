@@ -145,19 +145,36 @@
 | **Custom Sign-On Auth Demo** |  [docker-compose-cso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose-cso.yml)         | [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/docker-compose-cso.yml) |
 | **Single Sign-On Auth Demo** |  [docker-compose-sso.yml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/docker-compose-sso.yml)         | [![Try in PWD](https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/rac021/Jaxy/master/jaxy/demo/18_Docker/docker-compose-sso.yml) |
 
-**Note :** In the **Single Sign-On Auth Demo**, for the keycloak docker image, refer to [ KeycloakMe ]( https://github.com/rac021/KeycloakMe/tree/master/script_version#using-docker--dockerfile-- ) Project
-
 ```
       Jaxy app   server  :  Port  8181 ( LOGIN / PASSWORD : jaxy / jaxy )
      
       Grafana    server  :  Port  3000 ( LOGIN/PASSWORD : admin / admin )
      
       Prometheus server  :  Port  9090 ( No PASSWORD                    )
-      
+
+
+```
+
+ In the **Single Sign-On Auth Demo**, Keycloak server is launched :
+  
+```
       Keycloak   server  :  Port  8180 ( LOGIN/PASSWORD : admin / admin )
       
-      Whoami     service :  Port  7777 ( Just for automation  on  PWD   )
+         ** Creates :
+          
+             - REALM            : my_realm
+             - CLIENT_ID        : my_app
+             - CLIENT_SECRET_ID : my_secret
+             - USER_1           : with login admin  / password admin
+             - USER_2           : with login public / password public
+             - ROLE             : manager
+             - Affect the Role "Manager" to the Client "my_app" 
+             - Affect the Role "Manager" to the user Admin 
 ```
+
+ **Note :** In the **Single Sign-On Auth Demo**, for the keycloak docker image, refer to [ KeycloakMe ]( https://github.com/rac021/KeycloakMe/tree/master/script_version#using-docker--dockerfile-- ) Project
+
+---
 
 ####  Docker images are pulled from : [ Docker-Hub ](https://hub.docker.com/r/rac021/jaxy)
 
