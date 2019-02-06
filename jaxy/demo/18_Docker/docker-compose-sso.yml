@@ -30,7 +30,7 @@ services:
       - keycloakme
     image: rac021/jaxy:pwd
     hostname: jaxy
-    command: "serviceConf=jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/serviceConf.yaml"
+    command: 'serviceConf=jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/serviceConf.yaml'
     ports:
       - 8181:8181
     volumes:
