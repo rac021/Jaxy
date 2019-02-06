@@ -22,6 +22,7 @@ services:
       - 8181:8181
     volumes:
       - monitoring:/app/jaxy/monitoring_jaxy
+      - /docker.log:/app/jaxy/docker/docker.log
     networks:
       - jaxy_net
     environment:
