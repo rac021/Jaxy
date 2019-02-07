@@ -47,6 +47,8 @@
 * **Run Docker Jaxy-App :**
 
 ```
+   cd jaxy/demo/18_Docker/
+   
    docker run --name jaxy -d -P                                              \
               --hostname jaxy                                                \
               --network-alias "jaxy.com"                                     \
@@ -89,6 +91,8 @@
 ```
 
 ```
+   cd jaxy/demo/18_Docker/
+   
    docker run --name jaxy -d -P                                             \
               --hostname jaxy                                               \
               -p 8181:8181                                                  \
