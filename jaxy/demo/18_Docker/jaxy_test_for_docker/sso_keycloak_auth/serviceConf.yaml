@@ -204,7 +204,7 @@ MANAGEMENT_BIND_ADRESS      : 0.0.0.0
 # IF EMPTY, MANAGEMENT_ALLOWED_ORIGIN =
 # LOCALHOST
 # * : FOR ANY
-MANAGEMENT_ALLOWED_ORIGIN : "*"
+MANAGEMENT_ALLOWED_ORIGIN : "127.0.0.1 , * "
 
 ##########################################
 ##########################################
