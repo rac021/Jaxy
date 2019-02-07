@@ -34,17 +34,10 @@ script:
   
 after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME --password-stdin
-    - docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile . 2>&1 > /dev/null
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ] ; then echo "travis-$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER" ; else echo "travis-$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER-snapshot" ; fi`
-    - docker images
+    - docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile . 2>&1 > /dev/null
     - docker tag jaxy $DOCKER_USERNAME/jaxy:$TAG
     - docker push $DOCKER_USERNAME/jaxy:$TAG
     - docker tag jaxy $DOCKER_USERNAME/jaxy:latest
     - docker push $DOCKER_USERNAME/jaxy:latest
-    - docker build -t jaxy -f jaxy/demo/18_Docker/play_with_docker/Dockerfile.pwd .  2>&1 > /dev/null # Jaxy Image with custom signOn Auth to for demo in  Play with docker ( pwd ) 
-    - docker tag jaxy $DOCKER_USERNAME/jaxy:pwd
-    - docker push $DOCKER_USERNAME/jaxy:pwd
-    #- docker build -t jaxy -f jaxy/demo/18_Docker/play_with_docker/Dockerfile-sso-pwd .  2>&1 > /dev/null # Jaxy Image with sso keycloak for demo in Play with docker ( pwd ) 
-    #- docker tag jaxy $DOCKER_USERNAME/jaxy:sso-pwd
-    #- docker push $DOCKER_USERNAME/jaxy:sso-pwd
     
