@@ -109,8 +109,10 @@ public class YamlConfigurator implements IConfigurator      {
 
     private String  adminConsoleContext          = "/console"           ;
     
-    private String  managementBindAdress         = "127.0.0.1"          ;
+    private String  managementBindAdress         = "127.0.0.1"          ;    
     
+    private String  managementAllowedOrigin      = "*"                  ;
+ 
     private String  rootApplicationContext       = "/"                  ;
     
     private int     logSize                      = 30                   ;
@@ -176,6 +178,8 @@ public class YamlConfigurator implements IConfigurator      {
     private final String ADMIN_CONSOLE_CONTEXT                 = "ADMIN_CONSOLE_CONTEXT"               ;
     
     private final String MANAGEMENT_BIND_ADRESS                = "MANAGEMENT_BIND_ADRESS"              ;
+    
+    private final String MANAGEMENT_ALLOWED_ORIGIN             = "MANAGEMENT_ALLOWED_ORIGIN"           ;
     
     private final String LOG_SIZE                              = "LOG_SIZE"                            ;
     
@@ -243,6 +247,7 @@ public class YamlConfigurator implements IConfigurator      {
                  setletsEncryptCertGeneratorPath()        ;
                  setLetsEncryptCertGeneratorStaging()     ;
                  setRejectWhenConnectionLimitExceeded()   ;
+                 setManagementAllowedOrigin()             ;
  
              }
             
@@ -1005,6 +1010,27 @@ public class YamlConfigurator implements IConfigurator      {
     
     public String getManagementBindAdress() {
         return managementBindAdress         ;
+    }
+    
+    private void setManagementAllowedOrigin() {
+       
+       Object mao = getConfiguration()
+                              .get( MANAGEMENT_ALLOWED_ORIGIN )    ;        
+       
+       if ( mao == null || ((String) mao ).isEmpty() )  {
+           
+          this.managementAllowedOrigin = 
+          getTransport() + "://" + HOST   + ":" + getSelectedPort() ;
+       }
+        
+       else  {
+           
+         this.managementAllowedOrigin =  ((String) mao )  ;           
+       }       
+    }
+    
+    public String getManagementAllowedOrigin() {
+       return managementAllowedOrigin          ;
     }
     
     private void setLogSize() {
