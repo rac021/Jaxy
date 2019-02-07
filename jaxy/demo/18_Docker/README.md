@@ -160,6 +160,8 @@
       Grafana    server  :  Port  3000 ( LOGIN/PASSWORD : admin / admin )   ¯\
                                                                               | => Monitoring
       Prometheus server  :  Port  9090 ( No PASSWORD                    )   _/
+      
+      Management server  :  Port  6981 ( LOGIN/PASSWORD : admin / admin ) 
 
 ```
 
