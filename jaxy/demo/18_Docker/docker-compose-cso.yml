@@ -18,6 +18,8 @@ services:
       - jaxy_db
     image: rac021/jaxy:pwd
     hostname: jaxy
+    entrypoint:
+      - /app/jaxy_pwd_launcher.sh
     command: 'serviceConf=jaxy/demo/18_Docker/jaxy_test_for_docker/custom_signon_auth/serviceConf.yaml'
     ports:
       - 8181:8181
