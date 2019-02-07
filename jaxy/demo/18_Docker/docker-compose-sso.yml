@@ -28,7 +28,7 @@ services:
     depends_on:
       - jaxy_db
       - keycloakme
-    image: rac021/jaxy:pwd
+    image: rac021/jaxy
     hostname: jaxy
     entrypoint:
       - /app/jaxy_pwd_launcher.sh
