@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 ###################################################
 ### THIS SCRIPT IS A SIMPLE HACK WHICH ALLOWS #####
