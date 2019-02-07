@@ -205,7 +205,7 @@ MANAGEMENT_BIND_ADRESS      : 0.0.0.0
 # LOCALHOST
 # * : FOR ANY
 # Ex : "127.0.0.1 , * "
-MANAGEMENT_ALLOWED_ORIGIN : 
+MANAGEMENT_ALLOWED_ORIGIN : "http://jaxy:8181"
 
 ##########################################
 ##########################################
