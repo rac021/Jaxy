@@ -4,6 +4,7 @@ package com.rac021.jaxy.security_provider.configuration ;
 import java.io.File ;
 import java.util.Map ;
 import java.util.List ;
+import java.util.Arrays ;
 import javax.ejb.Startup ;
 import java.util.HashMap ;
 import java.util.Objects ;
@@ -1015,7 +1016,7 @@ public class YamlConfigurator implements IConfigurator      {
     private void setManagementAllowedOrigin() {
        
        Object mao = getConfiguration()
-                              .get( MANAGEMENT_ALLOWED_ORIGIN )    ;        
+                              .get( MANAGEMENT_ALLOWED_ORIGIN )    ;
        
        if ( mao == null || ((String) mao ).isEmpty() )  {
            
@@ -1025,12 +1026,12 @@ public class YamlConfigurator implements IConfigurator      {
         
        else  {
            
-         this.managementAllowedOrigin =  ((String) mao )  ;           
+         this.managementAllowedOrigin =  ((String) mao )  ;
        }       
     }
     
-    public String getManagementAllowedOrigin() {
-       return managementAllowedOrigin          ;
+    public List<String> getManagementAllowedOrigin()             {
+       return Arrays.asList(managementAllowedOrigin.split(""))  ;
     }
     
     private void setLogSize() {
