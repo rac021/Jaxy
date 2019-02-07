@@ -112,6 +112,7 @@
 	exportEnvirVariable "JAXY_PORT"  "$JAXY_PORT"
 	exportEnvirVariable "JAXY_URL"   "$JAXY_URL"
 
+	# Override MANAGEMENT_ALLOWED_ORIGIN in $serviceConf
         replaceInFile "MANAGEMENT_ALLOWED_ORIGIN.*:.*"                \
 		      "MANAGEMENT_ALLOWED_ORIGIN  : http://$JAXY_URL" \
 		      $serviceConf
