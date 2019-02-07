@@ -5,6 +5,8 @@
 ### DEPLOYING JAXY ON PWD WITH ONE CLICK     ######
 ###################################################
 
+ ARG="$1"
+ 
  while [[ "$#" > "0" ]] ; do
  
   case $1 in
@@ -154,11 +156,11 @@
 	
 	 echo ; echo " =================================== " ; echo
 	 
-	./run.sh $1 
+	./run.sh $ARG 
 
  
  else 
  	echo ; echo " Docker-compose .. " ; echo  
-	./run.sh $1 
+	./run.sh $ARG 
  fi
 
