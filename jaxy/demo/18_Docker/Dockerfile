@@ -31,7 +31,7 @@ COPY run.sh /app/
 # Script Used Only for Play With Docker #
 # This script calls run.sh after setting some environnement variables 
 
-COPY jaxy/demo/18_Docker/play_with_docker/jaxy_pwd_launcher.sh /app/
+COPY jaxy/demo/18_Docker/play_with_docker_script/jaxy_pwd_launcher.sh /app/
 
 WORKDIR /app/
 
