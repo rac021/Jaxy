@@ -35,6 +35,7 @@ services:
     command: 'serviceConf=jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/serviceConf.yaml'
     ports:
       - 8181:8181
+      - 6981:6981
     volumes:
       - monitoring:/app/jaxy/monitoring_jaxy
       - /docker.log:/app/jaxy/docker/docker.log
