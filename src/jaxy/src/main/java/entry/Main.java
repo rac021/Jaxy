@@ -248,9 +248,7 @@ public class Main                {
            
            LOGGER.log( Level.INFO, 
                        message("management_interface_allowed_origin") ,
-                       new Object[] { cfg.getTransport() ,
-                                      HOST               , 
-                                      cfg.getSelectedPort() } ) ;
+                       new Object[] { cfg.getManagementAllowedOrigin() } ) ;
         }   
         
         LOGGER.log( Level.INFO, message("new_line")) ;
