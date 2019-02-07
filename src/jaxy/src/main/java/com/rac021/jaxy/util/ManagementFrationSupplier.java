@@ -25,11 +25,7 @@ public class ManagementFrationSupplier {
                                          
                                     ( iface) -> {
                                                  iface.allowedOrigin (
-                                                         cfg.getTransport()
-                                                             + "://"
-                                                             + HOST
-                                                             + ":"
-                                                             + cfg.getSelectedPort()
+                                                      cfg.getManagementAllowedOrigin()
                                                  ) ;
                                                  iface.securityRealm("ManagementRealm")      ;
                                                  if ( cfg.isHttpsTransport()) {
