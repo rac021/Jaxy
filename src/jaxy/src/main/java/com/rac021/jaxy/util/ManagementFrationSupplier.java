@@ -24,7 +24,7 @@ public class ManagementFrationSupplier {
                           .httpInterfaceManagementInterface ( 
                                          
                                     ( iface) -> {
-                                                 iface.allowedOrigin (
+                                                 iface.allowedOrigins (
                                                       cfg.getManagementAllowedOrigin()
                                                  ) ;
                                                  iface.securityRealm("ManagementRealm")      ;
