@@ -1031,7 +1031,7 @@ public class YamlConfigurator implements IConfigurator      {
     }
     
     public List<String> getManagementAllowedOrigin()             {
-       return Arrays.asList(managementAllowedOrigin.split(""))  ;
+       return Arrays.asList(managementAllowedOrigin.split(","))  ;
     }
     
     private void setLogSize() {
