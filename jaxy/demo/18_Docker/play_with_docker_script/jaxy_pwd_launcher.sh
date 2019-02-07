@@ -5,6 +5,29 @@
 ### DEPLOYING JAXY ON PWD WITH ONE CLICK     ######
 ###################################################
 
+ while [[ "$#" > "0" ]] ; do
+ 
+  case $1 in
+  
+      (*=*) KEY=${1%%=*}
+      
+            VALUE=${1#*=}
+            
+            case "$KEY" in
+                               
+                ("serviceConf") serviceConf=$VALUE
+                
+            esac
+      ;;
+      
+  esac
+  
+  shift
+  
+ done   
+ 
+ echo ; echo " #### serviceConf : $serviceConf " ; echo
+ 
  DOCKER_LOGER="/app/jaxy/docker/docker.log"
 
  if [[ -n "$SESSION_ID" ]] && [[ -n "$PWD_HOST_FQDN" ]]  && [[ -n "$DIND_COMMIT" ]] ; then # IN PWD
@@ -89,7 +112,7 @@
 
         replaceInFile "MANAGEMENT_ALLOWED_ORIGIN.*:.*"         \
 		      "MANAGEMENT_ALLOWED_ORIGIN  : $JAXY_URL" \
-		      $serviceConfLocation
+		      $serviceConf
 				 
 	echo 
 	echo " =================================== "
@@ -100,15 +123,14 @@
 
 	  KEYCLOAK_URL="http://$PWD_SUB_URL-$KEYCLOAK_PORT.direct.labs.play-with-docker.com"
 
-	  serviceConfLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/serviceConf.yaml"
-  	  HttpkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_http.json"
+	  HttpkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_http.json"
 	  HttspkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_https.json"
 
-	  if [[ -f $serviceConfLocation ]] ; then 
+	  if [[ -f $serviceConf ]] ; then 
 
 	 	  replaceInFile "http://.*/protocol/openid-connect/token"                          \
 				"$KEYCLOAK_URL/auth/realms/my_realm/protocol/openid-connect/token" \
-				 $serviceConfLocation
+				 $serviceConf
 	  fi 
 
 	  if [[ -f $HttpkeycloakFileLocation ]] ; then 
