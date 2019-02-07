@@ -87,6 +87,10 @@
 	exportEnvirVariable "JAXY_PORT"  "$JAXY_PORT"
 	exportEnvirVariable "JAXY_URL"   "$JAXY_URL"
 
+        replaceInFile "MANAGEMENT_ALLOWED_ORIGIN.*:.*"         \
+		      "MANAGEMENT_ALLOWED_ORIGIN  : $JAXY_URL" \
+		      $serviceConfLocation
+				 
 	echo 
 	echo " =================================== "
 	echo 
@@ -104,21 +108,21 @@
 
 	 	  replaceInFile "http://.*/protocol/openid-connect/token"                          \
 				"$KEYCLOAK_URL/auth/realms/my_realm/protocol/openid-connect/token" \
-				 $serviceConfLocation           
+				 $serviceConfLocation
 	  fi 
 
 	  if [[ -f $HttpkeycloakFileLocation ]] ; then 
 
 		  replaceInFile  "\"auth-server-url\":.*"                         \
 				 "\"auth-server-url\": \"$KEYCLOAK_URL/auth\" , " \
-				 $HttpkeycloakFileLocation         
+				 $HttpkeycloakFileLocation
 	  fi 
 
 	  if [[ -f $HttpskeycloakFileLocation ]] ; then 
 
 		   replaceInFile  "\"auth-server-url\":.*"                         \
 				  "\"auth-server-url\": \"$KEYCLOAK_URL/auth\" , " \
-				  $HttpskeycloakFileLocation        
+				  $HttpskeycloakFileLocation
 	  fi 
 
 	  echo ; echo " - KEYCLOAK_URL : $KEYCLOAK_URL "
