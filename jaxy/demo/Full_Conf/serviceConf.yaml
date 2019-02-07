@@ -226,6 +226,12 @@ MANAGEMENT_PORT_HTTPS       : 1896 # 9993
 ## 127.0.0.1 for local interface 
 MANAGEMENT_BIND_ADRESS      : 0.0.0.0
 
+# ALLOWED_ORIGIN
+# IF EMPTY, MANAGEMENT_ALLOWED_ORIGIN =
+# LOCALHOST
+# * : FOR ANY
+MANAGEMENT_ALLOWED_ORIGIN : *
+
 ##########################################
 ##########################################
 
