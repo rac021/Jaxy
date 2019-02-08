@@ -165,7 +165,7 @@
 
 ```
 
- In the **Single Sign-On Auth Demo**, Keycloak server is launched ( Project [ KeycloakMe ]( https://github.com/rac021/KeycloakMe/tree/master/script_version#using-docker--dockerfile-- ) ) :
+ In the **Single Sign-On Auth Demo**, Keycloak server is launched as following :
   
 ```
       Keycloak   server  :  Port  8180 ( LOGIN/PASSWORD : admin / admin )
