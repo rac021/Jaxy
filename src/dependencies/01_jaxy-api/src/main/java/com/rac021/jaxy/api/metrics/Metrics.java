@@ -22,11 +22,7 @@ public class Metrics {
     private static final Logger LOGGER = getLogger() ;
     
     private static final LongAdder totalExceptions       = new LongAdder() ;
-    private static final LongAdder failureAuthentication = new LongAdder() ;
-            
-            
-    @PostConstruct
-    public void init() { }
+    private static final LongAdder failureAuthentication = new LongAdder() ;            
     
     @Gauge(unit = "count", absolute = true , name = "exceptions")
     public long getTotalExceptions()       {
@@ -46,6 +42,7 @@ public class Metrics {
         failureAuthentication.increment()          ;
     }
     
+    @PostConstruct
     public void init( @Observes 
                       @Initialized(ApplicationScoped.class ) Object init ) {
         LOGGER.log(Level.INFO, " ++ Metrics Initialization.. " ) ;
