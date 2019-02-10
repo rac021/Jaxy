@@ -27,8 +27,8 @@ public class RuntimeExceptionMapper implements ExceptionMapper<RuntimeException>
          
         LOGGER.log(Level.SEVERE, ex.getMessage(), ex ) ;
          
-        return Response.status(Response.Status.OK)
-                       .header("x-reason", ex.getMessage())
+        return Response.status( Response.Status.INTERNAL_SERVER_ERROR    )
+                       .header( "x-reason", ex.getMessage() )
                        .entity ( "<status> Runtime Exception : "         +
                                  ex.getLocalizedMessage() + " </status>" )
                        .type(MediaType.APPLICATION_XML)
