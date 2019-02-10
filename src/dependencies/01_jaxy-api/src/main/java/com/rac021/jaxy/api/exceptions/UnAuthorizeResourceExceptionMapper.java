@@ -29,8 +29,8 @@ public class UnAuthorizeResourceExceptionMapper implements ExceptionMapper<UnAut
          
         return Response.status( Response.Status.UNAUTHORIZED )
                        .header( "x-reason",
-                                ex.getMessage()).entity ( "<status> UnAuthorizedResource : " +
-                                                          ex.getLocalizedMessage() + "</status>" )
+                                ex.getMessage()).entity ( "<status> " +
+                                                          ex.getLocalizedMessage() + " </status>" )
                        .type(MediaType.APPLICATION_XML)
                        .build() ;
     }
