@@ -27,7 +27,7 @@ public class UnAuthorizeResourceExceptionMapper implements ExceptionMapper<UnAut
          
         LOGGER.log(Level.SEVERE, ex.getMessage(), ex ) ;
          
-        return Response.status( Response.Status.OK)
+        return Response.status( Response.Status.UNAUTHORIZED )
                        .header( "x-reason",
                                 ex.getMessage()).entity ( "<status> UnAuthorizedResource : " +
                                                           ex.getLocalizedMessage() + "</status>" )
