@@ -150,9 +150,9 @@ public class RootService implements IRootService     {
         }
         if( ! servicesManager.containCiphersForService( codeService, cipher) 
               && accept != null  && accept.contains("crypt")  )            {
-            throw new BusinessException ( " The service [ " + codeService + 
-                                          " ] Doesn't authorize "         +
-                                          "[ " + cipher + " ] Cipher ")   ;
+            throw new BusinessException ( " The service [ " + codeService  + 
+                                          " ] Doesn't authorize "          +
+                                          "[ " + cipher + " ] Cipher ")    ;
         }
         
         if( policy == Policy.CustomSignOn ) {
@@ -181,10 +181,11 @@ public class RootService implements IRootService     {
             }
         }
         
-        LOGGER.log( Level.SEVERE, " --- Unauthorized Resource : ( code_service : {0} ) ( accept : {1} ) ( cipher : {2} ) ( token : {3} ) ",
+        LOGGER.log( Level.SEVERE, " --- Unauthorized Resource :" +
+                                  " ( code_service : {0} ) ( accept : {1} ) ( cipher : {2} ) ( token : {3} ) " ,
                                  new Object[] { codeService, accept, cipher, token } )   ;
         
-        throw new UnAuthorizedResourceException (" Unauthorized Resource ") ;
+        throw new UnAuthorizedResourceException ("Unauthorized Resource - KO_Authentication") ;
     }
 
     @GET
