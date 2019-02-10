@@ -7,6 +7,8 @@ import javax.ws.rs.PathParam ;
 import javax.ws.rs.HeaderParam ;
 import java.util.logging.Level ;
 import java.util.logging.Logger ;
+import javax.ws.rs.core.Response ;
+import javax.ws.rs.core.MediaType ;
 import javax.enterprise.inject.Any ;
 import java.time.temporal.ChronoUnit ;
 import javax.annotation.PostConstruct ;
@@ -191,9 +193,13 @@ public class RootService implements IRootService     {
                                        @PathParam("timeStamp") final String timeStamp) throws BusinessException   {
 
         if ( signOn.select(new AnnotationLiteral<Custom>() {}).get().checkIntegrity(login, timeStamp, signature)) {
-            throw new BusinessException("OK_Authorization") ;
+            
+             return Response.status ( Response.Status.OK )
+                            .entity ( "<status> OK_Authentication </status>" )
+                            .type(MediaType.APPLICATION_XML)
+                            .build() ;
         }
-        throw new UnAuthorizedResourceException ("KO_Authorization") ;
+        throw new UnAuthorizedResourceException ("KO_Authentication") ;
     }
     
     /** Force Init ApplicationScoped at deployement time . */
