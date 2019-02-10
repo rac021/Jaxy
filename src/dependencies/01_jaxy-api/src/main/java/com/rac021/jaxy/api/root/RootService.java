@@ -188,9 +188,9 @@ public class RootService implements IRootService     {
 
     @Override
     @Path(LOGIN + SEPARATOR + SIGNATURE + SEPARATOR + TIMESTAMP )
-    public Object authenticationCheck( @PathParam("login")     final String login     ,
-                                       @PathParam("signature") final String signature ,
-                                       @PathParam("timeStamp") final String timeStamp) throws BusinessException   {
+    public Response authenticationCheck( @PathParam("login")     final String login     ,
+                                         @PathParam("signature") final String signature ,
+                                         @PathParam("timeStamp") final String timeStamp) throws BusinessException {
 
         if ( signOn.select(new AnnotationLiteral<Custom>() {}).get().checkIntegrity(login, timeStamp, signature)) {
             
