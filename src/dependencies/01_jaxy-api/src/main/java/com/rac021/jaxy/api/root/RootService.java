@@ -1,6 +1,7 @@
 
 package com.rac021.jaxy.api.root ;
 
+import javax.ws.rs.GET ;
 import javax.ws.rs.Path ;
 import javax.inject.Inject ;
 import javax.ws.rs.PathParam ;
@@ -186,6 +187,7 @@ public class RootService implements IRootService     {
         throw new UnAuthorizedResourceException (" Unauthorized Resource ") ;
     }
 
+    @GET
     @Override
     @Path(LOGIN + SEPARATOR + SIGNATURE + SEPARATOR + TIMESTAMP )
     public Response authenticationCheck( @PathParam("login")     final String login     ,
