@@ -1,7 +1,7 @@
 # Jaxy  <img src="https://cloud.githubusercontent.com/assets/7684497/25315596/e191fb00-2857-11e7-99bf-8e233b4eb795.jpg" width="50"> [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 <sup>Setting up web services has never been easier</sup>
 
-| Branch  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  build status ( Travis ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Docker Pulls | SourceForge |
+| Branch  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  build status ( Travis ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  [ Docker Pulls ](https://hub.docker.com/r/rac021/jaxy) | SourceForge |
 |-----------|---------------|---------------------------|---------------------------|
 | [master](https://github.com/rac021/Jaxy/tree/master)  | [![Build Status](https://api.travis-ci.org/rac021/Jaxy.svg?branch=master)](https://travis-ci.org/rac021/Jaxy) | ![Docker Pulls](https://img.shields.io/docker/pulls/rac021/jaxy.svg) | [ Jaxy Download Link ]( https://sourceforge.net/projects/jaxy/)
 
