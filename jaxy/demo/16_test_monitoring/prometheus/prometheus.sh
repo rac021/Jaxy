@@ -48,7 +48,7 @@
                     ;;
                     ("jaxy_port")        JAXY_PORT=$VALUE   
                     ;;
-                    ("scarpe_interval")  SCARPE_INTERVAL=$VALUE
+                    ("scrape_interval")  SCARPE_INTERVAL=$VALUE
                esac
          ;;
 
