@@ -27,6 +27,7 @@
 
 ```
    docker run -d                                          \
+              --hostname jaxy_db                          \
               -e POSTGRES_USER=jaxy                       \
               -e POSTGRES_PASSWORD=jaxy                   \
               -e POSTGRES_DB=aviation                     \
@@ -103,6 +104,7 @@
 
 ```
    docker run -d                                          \
+              --hostname jaxy_db                          \
               -e POSTGRES_USER=jaxy                       \
               -e POSTGRES_PASSWORD=jaxy                   \
               -e POSTGRES_DB=aviation                     \
