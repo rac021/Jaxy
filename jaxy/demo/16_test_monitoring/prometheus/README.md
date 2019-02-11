@@ -10,7 +10,7 @@
 
 ```
       docker run -d                                              \
-                 --hostname prometheus                           \
+                 --hostname jaxy-prometheus                      \
                  -p 9090:9090                                    \
                  -e "MONITORING_PATH=/app/mon/provisioning"      \
                  -e "JAXY_HOST=jaxy"                             \
@@ -21,7 +21,7 @@
                  --name jaxy-prometheus  rac021/jaxy-prometheus
               
               
-   GoTo : http://prometheus:9090 
+   GoTo : http://jaxy-prometheus:9090 
    
 ```
 ---
