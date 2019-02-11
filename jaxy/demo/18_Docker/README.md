@@ -95,7 +95,7 @@
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
-              -network jaxy_net                               \
+              --network jaxy_net                              \
               --name jaxy_grafana   rac021/jaxy-grafana
               
    GoTo : http://jaxy-grafana:3000  
@@ -164,7 +164,7 @@
               -e "JAXY_TRANSPORT=http"                        \
               -e "SCARPE_INTERVAL=2s"                         \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
-              -network jaxy_net                               \
+              --network jaxy_net                              \
               --name jaxy_prometheus  rac021/jaxy-prometheus
               
    GoTo : http://jaxy-prometheus:9090     
@@ -179,7 +179,7 @@
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
-              -network jaxy_net                               \
+              --network jaxy_net                              \
               --name jaxy_grafana   rac021/jaxy-grafana
               
    GoTo : http://jaxy-grafana:3000  
