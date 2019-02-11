@@ -17,6 +17,13 @@
           --name docker-hoster                     \
           dvdarias/docker-hoster
 ```
+
+ * **Change Directory** 
+ 
+ ```
+   cd jaxy/demo/18_Docker/
+ ```
+ 
 ---
 
 ### **1.1 -  Custom-Sign-On Demo [ ( custom_signon_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/custom_signon_auth) :** 
@@ -48,8 +55,6 @@
 * **Run Jaxy-App :**
 
 ```
-   cd jaxy/demo/18_Docker/
-   
    docker run --name jaxy -d -P                                              \
               --hostname jaxy                                                \
               -p 8181:8181                                                   \
@@ -67,7 +72,7 @@
 
 ```
    docker run -d                                              \
-              --hostname jaxy-prometheus                      \
+              --hostname jaxy_prometheus                      \
               -p 9090:9090                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "JAXY_HOST=jaxy"                             \
@@ -75,7 +80,7 @@
               -e "JAXY_TRANSPORT=http"                        \
               -e "SCARPE_INTERVAL=2s"                         \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
-              --name jaxy-prometheus  rac021/jaxy-prometheus
+              --name jaxy_prometheus  rac021/jaxy-prometheus
               
    GoTo : http://jaxy-prometheus:9090     
 ```
@@ -84,12 +89,12 @@
 
 ```
    docker run -d                                              \
-              --hostname jaxy-grafana                         \
+              --hostname jaxy_grafana                         \
               -p 3000:3000                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
-              --name jaxy-grafana   rac021/jaxy-grafana
+              --name jaxy_grafana   rac021/jaxy-grafana
               
    GoTo : http://jaxy-grafana:3000  
 ```
@@ -149,7 +154,7 @@
 
 ```
    docker run -d                                              \
-              --hostname jaxy-prometheus                      \
+              --hostname jaxy_prometheus                      \
               -p 9090:9090                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "JAXY_HOST=jaxy"                             \
@@ -157,7 +162,7 @@
               -e "JAXY_TRANSPORT=http"                        \
               -e "SCARPE_INTERVAL=2s"                         \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
-              --name jaxy-prometheus  rac021/jaxy-prometheus
+              --name jaxy_prometheus  rac021/jaxy-prometheus
               
    GoTo : http://jaxy-prometheus:9090     
 ```
@@ -166,12 +171,12 @@
 
 ```
    docker run -d                                              \
-              --hostname jaxy-grafana                         \
+              --hostname jaxy_grafana                         \
               -p 3000:3000                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
-              --name jaxy-grafana   rac021/jaxy-grafana
+              --name jaxy_grafana   rac021/jaxy-grafana
               
    GoTo : http://jaxy-grafana:3000  
 ```
