@@ -73,7 +73,7 @@
               -e "JAXY_PORT: 8181"                            \
               -e "JAXY_TRANSPORT=http"                        \
               -e "SCARPE_INTERVAL=2s"                         \
-              -v ./monitoring_jaxy/:/app/mon/                 \
+              -v $(pwd)/monitoring_jaxy/:/app/mon/            \
               --name jaxy-prometheus  rac021/jaxy-prometheus
               
    GoTo : http://jaxy-prometheus:9090     
@@ -87,7 +87,7 @@
               -p 3000:3000                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
-              -v ./monitoring_jaxy/:/app/mon/                 \
+              -v $(pwd)/monitoring_jaxy/:/app/mon/            \
               --name jaxy-grafana   rac021/jaxy-grafana
               
    GoTo : http://jaxy-grafana:3000  
@@ -154,7 +154,7 @@
               -e "JAXY_PORT: 8181"                            \
               -e "JAXY_TRANSPORT=http"                        \
               -e "SCARPE_INTERVAL=2s"                         \
-              -v ./monitoring_jaxy/:/app/mon/                 \
+              -v $(pwd)/monitoring_jaxy/:/app/mon/            \
               --name jaxy-prometheus  rac021/jaxy-prometheus
               
    GoTo : http://jaxy-prometheus:9090     
@@ -168,7 +168,7 @@
               -p 3000:3000                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
-              -v ./monitoring_jaxy/:/app/mon/                 \
+              -v $(pwd)/monitoring_jaxy/:/app/mon/            \
               --name jaxy-grafana   rac021/jaxy-grafana
               
    GoTo : http://jaxy-grafana:3000  
@@ -190,9 +190,9 @@
 ``` 
      docker build -t jaxy -f Dockerfile ../../
 ```
----
----
 
+---
+---
 
 ## 3. **Docker Compose :**  
 
@@ -207,7 +207,6 @@
 ```
      docker-compose -f docker-compose-sso.yml up
 ```
-
 
 ---
 
