@@ -66,7 +66,7 @@
 
 ```
    docker run -d                                              \
-              --hostname prometheus                           \
+              --hostname jaxy-prometheus                      \
               -p 9090:9090                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "JAXY_HOST=jaxy"                             \
@@ -76,21 +76,21 @@
               -v ./monitoring_jaxy/:/app/mon/                 \
               --name jaxy-prometheus  rac021/jaxy-prometheus
               
-   GoTo : http://prometheus:9090     
+   GoTo : http://jaxy-prometheus:9090     
 ```
 
 * **Run Grafana** ( [Grafana Docker Image]( https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring/grafana) ) :
 
 ```
    docker run -d                                              \
-              --hostname grafana                              \
+              --hostname jaxy-grafana                         \
               -p 3000:3000                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
               -v ./monitoring_jaxy/:/app/mon/                 \
               --name jaxy-grafana   rac021/jaxy-grafana
               
-   GoTo : http://prometheus:3000  
+   GoTo : http://jaxy-grafana:3000  
 ```
 
 ---
@@ -147,7 +147,7 @@
 
 ```
    docker run -d                                              \
-              --hostname prometheus                           \
+              --hostname jaxy-prometheus                      \
               -p 9090:9090                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "JAXY_HOST=jaxy"                             \
@@ -157,21 +157,21 @@
               -v ./monitoring_jaxy/:/app/mon/                 \
               --name jaxy-prometheus  rac021/jaxy-prometheus
               
-   GoTo : http://prometheus:9090     
+   GoTo : http://jaxy-prometheus:9090     
 ```
 
 * **Run Grafana** ( [Grafana Docker Image]( https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring/grafana) ) :
 
 ```
    docker run -d                                              \
-              --hostname grafana                              \
+              --hostname jaxy-grafana                         \
               -p 3000:3000                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
               -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
               -v ./monitoring_jaxy/:/app/mon/                 \
               --name jaxy-grafana   rac021/jaxy-grafana
               
-   GoTo : http://prometheus:3000  
+   GoTo : http://jaxy-grafana:3000  
 ```
 
 ---
