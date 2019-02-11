@@ -21,7 +21,7 @@
 
 **1.1 -  Custom-Sign-On Demo [ ( custom_signon_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/custom_signon_auth) :** 
 
-* **Run Docker Jaxy-DataBase :** 
+* **Run Jaxy-DataBase :** 
 
   ( by copying the  [ ( db/init.sql ) ](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/db/init.sql) file into the  **docker-entrypoint-initdb.d** folder of the container )
 
@@ -44,7 +44,7 @@
  
 ```
 
-* **Run Docker Jaxy-App :**
+* **Run Jaxy-App :**
 
 ```
    cd jaxy/demo/18_Docker/
@@ -61,11 +61,43 @@
               
    GoTo : http://jaxy:8181    
 ```
+
+* **Run Prometheus** ( [Prometheus Docker Image]( https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring/prometheus) ) :
+
+```
+   docker run -d                                              \
+              --hostname prometheus                           \
+              -p 9090:9090                                    \
+              -e "MONITORING_PATH=/app/mon/provisioning"      \
+              -e "JAXY_HOST=jaxy"                             \
+              -e "JAXY_PORT: 8181"                            \
+              -e "JAXY_TRANSPORT=http"                        \
+              -e "SCARPE_INTERVAL=2s"                         \
+              -v ./monitoring_jaxy/:/app/mon/                 \
+              --name jaxy-prometheus  rac021/jaxy-prometheus
+              
+   GoTo : http://prometheus:9090     
+```
+
+* **Run Grafana** ( [Grafana Docker Image]( https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring/grafana) ) :
+
+```
+   docker run -d                                              \
+              --hostname grafana                              \
+              -p 3000:3000                                    \
+              -e "MONITORING_PATH=/app/mon/provisioning"      \
+              -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
+              -v ./monitoring_jaxy/:/app/mon/                 \
+              --name jaxy-grafana   rac021/jaxy-grafana
+              
+   GoTo : http://prometheus:3000  
+```
+
 ---
 
 **1.2 -  Single-Sing-On Demo [ ( sso_keycloak_auth ) ](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth) :**
 
-* **Run Docker Jaxy-DataBase :** 
+* **Run Jaxy-DataBase :** 
 
   ( by copying the  [ ( db/init.sql ) ](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/db/init.sql) file into the  **docker-entrypoint-initdb.d** folder of the container )
 
@@ -80,8 +112,8 @@
               --network jaxy_net                          \
               postgres:9.6.11-alpine
 ```
-              
-* **Note :** For keycloak docker image refer to [ KeycloakMe ]( https://github.com/rac021/KeycloakMe/tree/master/script_version#using-docker--dockerfile-- ) Project 
+  
+* **Run Keycloak** ( [KeycloakMe Docker Image]( https://github.com/rac021/KeycloakMe/tree/master/script_version#using-docker--dockerfile--) ) :
 
 ```
    docker run -d  -p 8180:8180           \
@@ -92,6 +124,8 @@
                   --name keycloakme      \
                   rac021/jaxy-keycloakme
 ```
+
+* **Run Jaxy-App :**
 
 ```
    cd jaxy/demo/18_Docker/
@@ -107,6 +141,37 @@
               rac021/jaxy
               
    GoTo : http://jaxy:8181
+```
+
+* **Run Prometheus** ( [Prometheus Docker Image]( https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring/prometheus) ) :
+
+```
+   docker run -d                                              \
+              --hostname prometheus                           \
+              -p 9090:9090                                    \
+              -e "MONITORING_PATH=/app/mon/provisioning"      \
+              -e "JAXY_HOST=jaxy"                             \
+              -e "JAXY_PORT: 8181"                            \
+              -e "JAXY_TRANSPORT=http"                        \
+              -e "SCARPE_INTERVAL=2s"                         \
+              -v ./monitoring_jaxy/:/app/mon/                 \
+              --name jaxy-prometheus  rac021/jaxy-prometheus
+              
+   GoTo : http://prometheus:9090     
+```
+
+* **Run Grafana** ( [Grafana Docker Image]( https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring/grafana) ) :
+
+```
+   docker run -d                                              \
+              --hostname grafana                              \
+              -p 3000:3000                                    \
+              -e "MONITORING_PATH=/app/mon/provisioning"      \
+              -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
+              -v ./monitoring_jaxy/:/app/mon/                 \
+              --name jaxy-grafana   rac021/jaxy-grafana
+              
+   GoTo : http://prometheus:3000  
 ```
 
 ---
