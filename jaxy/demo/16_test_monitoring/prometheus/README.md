@@ -10,7 +10,8 @@
 
 ```
       docker run -d                                              \
-                 -p 3000:3000                                    \
+                 --hostname prometheus                           \
+                 -p 9090:9090                                    \
                  -e "MONITORING_PATH=/app/mon/provisioning"      \
                  -e "JAXY_HOST=jaxy"                             \
                  -e "JAXY_PORT: 8181"                            \
@@ -18,6 +19,10 @@
                  -e "SCARPE_INTERVAL=2s"                         \
                  -v ./monitoring_jaxy/:/app/mon/                 \
                  --name jaxy-prometheus  rac021/jaxy-prometheus
+              
+              
+   GoTo : http://prometheus:9090 
+   
 ```
 ---
 
