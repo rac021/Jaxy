@@ -57,7 +57,7 @@ services:
       JAXY_HOST: jaxy
       JAXY_PORT: 8181
       JAXY_TRANSPORT: http
-      SCRAPE_INTERVAL: 2s
+      SCRAPE_INTERVAL: 1s
     volumes:
       - monitoring:/app/mon/
     ports:
