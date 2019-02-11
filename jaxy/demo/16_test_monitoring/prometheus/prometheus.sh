@@ -13,7 +13,7 @@
     echo
     echo " ./prometheus.sh jaxy_host=localhost               : url of Jaxy server ( in order to collect metrics )                      "
     echo
-    echo " ./prometheus.sh scrape_interval=35s               : scarpe interval                                                         "
+    echo " ./prometheus.sh scrape_interval=35s               : scrape interval                                                         "
     echo ; echo 
  }
 
@@ -48,7 +48,7 @@
                     ;;
                     ("jaxy_port")        JAXY_PORT=$VALUE   
                     ;;
-                    ("scrape_interval")  SCARPE_INTERVAL=$VALUE
+                    ("scrape_interval")  SCRAPE_INTERVAL=$VALUE
                esac
          ;;
 
@@ -77,7 +77,7 @@
 
  JAXY_PORT=${JAXY_PORT:-"8181"} 
 
- SCARPE_INTERVAL=${SCARPE_INTERVAL:-"1s"} 
+ SCRAPE_INTERVAL=${SCRAPE_INTERVAL:-"1s"} 
 
  echo ;  echo " Transport Mode  => $TRANSPORT "   
 
@@ -117,7 +117,7 @@
  echo "   JAXY_TRANSPORT  : $TRANSPORT       "
  echo "   JAXY_HOST       : $JAXY_HOST       "
  echo "   JAXY_PORT       : $JAXY_PORT       "
- echo "   SCARPE_INTERVAL : $SCARPE_INTERVAL "
+ echo "   SCRAPE_INTERVAL : $SCRAPE_INTERVAL "
  echo
  echo " ==================================== "
  
@@ -158,7 +158,7 @@
 
  replaceInFile  "scheme:.*"           "scheme: $TRANSPORT"                   $PROMETHEUS_PATH/prometheus.yml
 
- replaceInFile  "scrape_interval:.*"  "scrape_interval: $SCARPE_INTERVAL"    $PROMETHEUS_PATH/prometheus.yml
+ replaceInFile  "scrape_interval:.*"  "scrape_interval: $SCRAPE_INTERVAL"    $PROMETHEUS_PATH/prometheus.yml
 
  replaceInFile  "- targets: \[.*"     "- targets: ['$JAXY_HOST:$JAXY_PORT']" $PROMETHEUS_PATH/prometheus.yml
 
