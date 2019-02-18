@@ -496,8 +496,9 @@ public class YamlConfigurator implements IConfigurator      {
            this.HOST = System.getenv("JAXY_URL") ;
             
            System.out.println( " JAXY HOST "     +
-                               "retrieved from " +
-                               "EVN : JAXY_URL") ;
+                               "Retrieved from " +
+                               "ENV variable : " +
+                               "JAXY_URL  " )    ;
             
            System.out.println(" JAXY_HOST : "    +
                        System.getenv("JAXY_URL"));
