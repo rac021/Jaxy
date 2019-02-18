@@ -5,7 +5,6 @@ import java.util.List ;
 import java.util.ArrayList ;
 import javax.inject.Inject ;
 import java.io.IOException ;
-import java.util.logging.Logger ;
 import javax.xml.bind.Marshaller ;
 import javax.xml.bind.JAXBContext ;
 import java.util.stream.IntStream ;
@@ -26,7 +25,6 @@ import java.util.concurrent.ExecutionException ;
 import java.util.concurrent.ArrayBlockingQueue ;
 import com.rac021.jaxy.api.analyzer.SqlAnalyzer ;
 import com.rac021.jaxy.api.root.ServicesManager ;
-import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 ;
 
@@ -102,7 +100,7 @@ public abstract class Streamer implements IStreamer {
     protected class Producer implements Callable    {
         
         @Override
-        public Void call() throws Exception {
+        public Void call()  {
            
                 while ( ! resource.isFinished() )   {
 
