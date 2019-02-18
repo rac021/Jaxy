@@ -34,7 +34,7 @@ public class GlobalConf implements Serializable         {
     }
 
     public Integer getThreadPoolSize()    {
-        return yamlConfigurator.getThreadPoolSizeApp() ;
+        return DefaultStreamerConfigurator.threadPoolSizeApp ;
     }
 
     public Integer getDefaultMaxThread()  {
