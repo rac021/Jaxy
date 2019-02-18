@@ -56,7 +56,7 @@ public class YamlConfigurator implements IConfigurator      {
     private String keycloakUrl         = null               ;
     
     private int  RATIO                 =  1                 ;
-    private int  ThreadPoolSizeApp     =  4                 ;
+    private int  ThreadPoolSizeApp     =  8                 ;
     private int  responseCacheSize     =  500               ;
     private int  selectSize            =  5000              ;
     private int  maxConcurrentUsers    =  Integer.MAX_VALUE ;
