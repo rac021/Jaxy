@@ -631,10 +631,11 @@ public class YamlConfigurator implements IConfigurator      {
     }
    
     public Map getAuthenticationInfos()   {
-       return (Map)((Map) this.configuration.get(AUTHENTICATION)) ;
+       return (Map)((Map) this.configuration
+                              .get(AUTHENTICATION)) ;
     }
 
-    public String getAuthenticationType(String serviceCode)       {
+    public String getAuthenticationType(String serviceCode)    {
       return security.getOrDefault( serviceCode, 
                                     Policy.Public.name().toLowerCase() ) ;
     }
