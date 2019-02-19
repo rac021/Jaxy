@@ -265,3 +265,5 @@
 
 * **Note** : it seems there's a bug in **play-with-docker** when **deploying grafana** :  [Reported bug](https://github.com/play-with-docker/play-with-docker/issues/318) ... ( **Fixed** )
 
+* **Note** : it seems there's a bug when using **"@Timed" ( Microprofile )** :  [Reported bug](https://issues.jboss.org/browse/THORN-2336)
+
