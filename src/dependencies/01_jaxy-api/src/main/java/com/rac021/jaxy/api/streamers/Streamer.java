@@ -167,52 +167,17 @@ public abstract class Streamer implements IStreamer {
       
       return null ;
     }
-    
-   
-    protected Marshaller getMashellerWithJSONProperties() {
-        
-        Marshaller localMarshaller= null ;
-        
-        try {
-            JAXBContext jc  = JAXBContext.newInstance(resource.getDto(), EmptyPojo.class)      ;
-            localMarshaller = jc.createMarshaller()                                            ;
-            localMarshaller.setProperty("eclipselink.media-type", "application/json")          ;
-            localMarshaller.setProperty("eclipselink.json.include-root" , Boolean.FALSE)       ;
-            localMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE)        ;
-        } catch (JAXBException ex) {
-            exceptions.add(ex)     ;
-        }
-        
-        return localMarshaller     ;
-    }
-    
-    protected Marshaller getMashellerWithXMLProperties() {
-       
-        Marshaller localMarshaller = null ;
-        try {
-            JAXBContext jxbContect = JAXBContext.newInstance( resource.getDto(), EmptyPojo.class) ;
-            localMarshaller        = jxbContect.createMarshaller()                                ;
-            localMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE)           ;
-            localMarshaller.setProperty("com.sun.xml.bind.xmlHeaders", "")                        ;
-            localMarshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE)                   ;
-            
-        } catch (JAXBException ex) {
-            exceptions.add(ex)     ;
-        }
-        return localMarshaller     ;
-    }
-   
-    
+      
     @Override
     public void setStreamerConfigurator( IStreamerConfigurator iStreamerConfigurator ) {
         this.maxThreads = iStreamerConfigurator.getMaxThreads() ;
-    }
-    
+    }    
     
     protected boolean checkIfExceptionsAndNotify( String messagefrom      ,
-                                                  boolean rootException ) throws IOException     {
+                                                  boolean rootException ) throws IOException {
 
         /** Check and flush exception before close Writer . */
+     
         if( ! exceptions.isEmpty() ) {
            
             while( ! exceptions.isEmpty() )               {
