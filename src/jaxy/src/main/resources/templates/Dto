@@ -3,6 +3,7 @@ package {PACKAGE_NAME} ;
 
 import java.io.Serializable ;
 import com.rac021.jaxy.api.manager.IDto ;
+import javax.xml.bind.annotation.XmlType ;
 import com.rac021.jaxy.api.qualifiers.RootDto ;
 import com.rac021.jaxy.api.qualifiers.ResultColumn ;
 import com.rac021.jaxy.api.qualifiers.security.Public ;
@@ -13,6 +14,7 @@ import com.rac021.jaxy.api.qualifiers.security.Public ;
  */
 
 @RootDto
+@XmlType(name="{TYPE}")
 public class {CLASS_NAME} implements IDto, Serializable {
 
 
