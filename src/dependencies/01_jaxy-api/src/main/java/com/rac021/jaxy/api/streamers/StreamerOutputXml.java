@@ -3,6 +3,7 @@ package com.rac021.jaxy.api.streamers ;
 
 import java.io.Writer ;
 import java.io.IOException ;
+import javax.inject.Inject ;
 import java.io.OutputStream ;
 import java.io.BufferedWriter ;
 import java.util.logging.Level ;
@@ -34,6 +35,10 @@ import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 @Format(AcceptType.XML_PLAIN)
 public class StreamerOutputXml extends Streamer implements StreamingOutput {
 
+    @Inject
+    @com.rac021.jaxy.api.qualifiers.MarshallerType("XML")
+    Marshaller marshaller ;
+    
     private static final Logger LOGGER  = getLogger() ;
    
     public StreamerOutputXml() {
@@ -53,17 +58,15 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
       
       try ( Writer writer = new BufferedWriter( new OutputStreamWriter(output, "UTF8") ) ;
             ByteArrayOutputStream baoStream = new ByteArrayOutputStream())               {
-          
-          Marshaller marshaller = getMashellerWithXMLProperties()       ;
                
-          writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")    ;
+          writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")  ;
           writer.write("\n<Root>") ;
                
           int iteration = 0 ;
            
-          while (!isFinishedProcess || !dtos.isEmpty() )         {
+          while (!isFinishedProcess || !dtos.isEmpty() )              {
 
-            IDto poll = dtos.poll( 50 , TimeUnit.MILLISECONDS  ) ;
+            IDto poll = dtos.poll( 50 , TimeUnit.MILLISECONDS  )      ;
                    
             if(poll != null) {
                 
