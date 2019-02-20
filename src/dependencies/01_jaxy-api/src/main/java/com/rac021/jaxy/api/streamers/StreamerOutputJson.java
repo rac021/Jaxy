@@ -1,7 +1,7 @@
 
 package com.rac021.jaxy.api.streamers ;
-
 import java.io.Writer ;
+import javax.inject.Inject ;
 import java.io.IOException ;
 import java.io.OutputStream ;
 import java.io.BufferedWriter ;
@@ -32,6 +32,10 @@ import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 @Format(AcceptType.JSON_PLAIN)
 public class StreamerOutputJson extends Streamer implements StreamingOutput {
 
+    @Inject
+    @com.rac021.jaxy.api.qualifiers.MarshallerType("JSON")
+    Marshaller marshaller ;
+    
     private static final Logger LOGGER = getLogger() ;
    
     public StreamerOutputJson() {
@@ -52,10 +56,6 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
        try (  Writer writer = new BufferedWriter ( new OutputStreamWriter(output, "UTF8")) ;
               ByteArrayOutputStream baoStream = new ByteArrayOutputStream()              ) {
 
-            System.setProperty( "javax.xml.bind.context.factory" ,
-                                "org.eclipse.persistenputce.jaxb.JAXBContextFactory") ;
-
-            Marshaller marshaller  =  getMashellerWithJSONProperties() ;
             int iteration          =  0                                ;
 
             while ( ! isFinishedProcess || !dtos.isEmpty() )           {
