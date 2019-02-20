@@ -50,6 +50,7 @@ import com.rac021.jaxy.api.qualifiers.security.Policy ;
 import com.rac021.jaxy.api.qualifiers.ServiceRegistry ;
 import com.rac021.jaxy.api.qualifiers.ResourceRegistry ;
 import com.rac021.jaxy.api.root.ConcurrentUsersManager ;
+import com.rac021.jaxy.api.streamers.MarshallerXmlJson ;
 import org.eclipse.microprofile.metrics.MetricRegistry ;
 import static com.rac021.jaxy.messages.Displayer.message ;
 import javax.enterprise.inject.spi.Unmanaged.UnmanagedInstance ;
@@ -80,7 +81,9 @@ public class GhostServicesManager    {
     @Inject
     YamlConfigurator yamlConfigurator ;
 
-
+    @Inject
+    MarshallerXmlJson marshaller      ;
+    
     @Inject
     private BeanManager bm            ;
 
@@ -182,6 +185,10 @@ public class GhostServicesManager    {
             ClassLoader classLoader = new GhostServicesManager().getClass()
                                                                 .getClassLoader() ;
            
+            marshaller.registerDto (
+               CompilerManager.compileDto(serviceCode, classLoader, cnn, sql)        
+            ) ;
+            
             CompilerManager.compileDto(serviceCode, classLoader, cnn, sql)        ;
 
             URL resourceService   = classLoader.getResource("templates/Service")  ;
@@ -308,7 +315,7 @@ public class GhostServicesManager    {
                    
                 final List<String> listServicesCodeForGrafana = new ArrayList<>()        ;
                 
-                try ( Connection cnn = entityManager.unwrap(java.sql.Connection.class )) {               
+                try ( Connection cnn = entityManager.unwrap(java.sql.Connection.class )) {
                 
                      ghostsServices.forEach (( final Map<String, Object> svice) ->       {
                         
@@ -324,6 +331,9 @@ public class GhostServicesManager    {
                             throw new RuntimeException(ex)                  ; 
                         }
                      }) ;
+                    
+                    marshaller.instanciateJaxbContext()           ;
+                    
                 } catch (SQLException ex) {
                     LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
                 }
@@ -382,7 +392,7 @@ public class GhostServicesManager    {
         
         LOGGER.log(Level.INFO , message("dash_1") ) ; 
         LOGGER.log(Level.INFO, message("new_line"))  ;
-        LOGGER.log(Level.INFO, message("max_concurent_users"), ConcurrentUsersManager.maxConcurrentUsers <= 0 ? "Unlimited" : 
+        LOGGER.log(Level.INFO, message("max_concurent_users"), ConcurrentUsersManager.maxConcurrentUsers <= 0 ? "Unlimited" :
                                                                ConcurrentUsersManager.maxConcurrentUsers ) ;
         LOGGER.log(Level.INFO,message("default_max_thread_per_service_01"), 
                                DefaultStreamerConfigurator.defaultMaxThreadsPerService ) ;
