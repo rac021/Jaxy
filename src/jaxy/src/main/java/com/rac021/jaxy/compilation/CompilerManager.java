@@ -39,7 +39,9 @@ public class CompilerManager {
         Query query = SqlAnalyzer.getSqlParamsWithTypes( cnn, sqlQuery) ;
 
         String dtoTemplate_1 = dtoTemplate.replace("{PACKAGE_NAME}", packageName )
-                                          .replace("{CLASS_NAME}", className)    ;
+                                          .replace("{CLASS_NAME}", className) 
+                                          .replace("{TYPE}", packageName + ". "  + 
+                                                             className )         ;
         int index = 0 ;
 
         for ( String column : query.getParameters().keySet() ) {
