@@ -5,6 +5,7 @@ import java.io.Writer ;
 import java.util.Queue ;
 import java.util.Arrays ;
 import java.util.Base64 ;
+import javax.inject.Inject ;
 import java.io.IOException ;
 import java.io.OutputStream ;
 import java.util.LinkedList ;
@@ -43,6 +44,10 @@ import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 @Format(AcceptType.XML_ENCRYPTED)
 public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOutput {
 
+    @Inject
+    @com.rac021.jaxy.api.qualifiers.MarshallerType("XML")
+    Marshaller marshaller ;
+    
     private static final Logger LOGGER  = getLogger() ;
    
     public StreamerOutputXmlEncrypted() { }
@@ -105,8 +110,6 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
       try ( ByteArrayOutputStream baoStream  = new ByteArrayOutputStream() ;
             ByteArrayOutputStream outString  = new ByteArrayOutputStream() ; ) {
           
-            Marshaller marshaller = getMashellerWithXMLProperties() ;
-
             baoStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
                      .getBytes(StandardCharsets.UTF_8))                   ;
             baoStream.write("\n<Root>".getBytes(StandardCharsets.UTF_8))  ;
