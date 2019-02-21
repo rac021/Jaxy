@@ -1,5 +1,6 @@
 
 package com.rac021.jaxy.api.streamers ;
+
 import java.io.Writer ;
 import javax.inject.Inject ;
 import java.io.IOException ;
@@ -99,9 +100,10 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
                     LOGGER.log(Level.SEVERE, "Exception : ", ex1 ) ;
                 }
             }
-        }   catch (InterruptedException ex) {
+        }   catch (InterruptedException ex)              {
             LOGGER.log(Level.SEVERE, "Exception : ", ex) ;
         } finally {
+             isFinishedProcess = true                                                         ;
              LOGGER.log(Level.CONFIG, " StreamerOutputJson : CLOSE WRITER AND BAOSTREAM")     ;
        }
     }
