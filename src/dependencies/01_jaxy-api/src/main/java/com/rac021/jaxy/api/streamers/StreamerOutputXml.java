@@ -18,7 +18,6 @@ import java.util.concurrent.TimeUnit ;
 import javax.ws.rs.core.MultivaluedMap ;
 import com.rac021.jaxy.api.manager.IDto ;
 import javax.ws.rs.core.StreamingOutput ;
-import com.rac021.jaxy.api.security.ISignOn ;
 import com.rac021.jaxy.api.crypto.AcceptType ;
 import com.rac021.jaxy.api.qualifiers.Format ;
 import com.rac021.jaxy.api.manager.IResource ;
@@ -116,8 +115,7 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
         }
         finally {
             LOGGER.log( Level.CONFIG, " StreamerOutputXml : CLOSE WRITER AND BAOSTREAM")    ;
-            isFinishedProcess = true      ;
-            ISignOn.SERVICE_NAME.remove() ;
+            isFinishedProcess = true  ;
         }
     }
 
