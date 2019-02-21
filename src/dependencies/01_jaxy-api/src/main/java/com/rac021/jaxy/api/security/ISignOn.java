@@ -9,9 +9,7 @@ import com.rac021.jaxy.api.exceptions.BusinessException ;
  * @author ryahiaoui
  */
 
-public interface ISignOn {
-
-   public static final ThreadLocal<String> SERVICE_NAME   = new ThreadLocal()   ;
+public interface ISignOn extends RuntimeServiceInfos {
 
    public static final ThreadLocal<String> ENCRYPTION_KEY = new ThreadLocal()   ;
    
