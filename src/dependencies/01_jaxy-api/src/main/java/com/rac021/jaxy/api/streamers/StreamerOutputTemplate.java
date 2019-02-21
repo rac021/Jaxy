@@ -131,7 +131,6 @@ public class StreamerOutputTemplate extends Streamer implements StreamingOutput 
         } finally {
             LOGGER.log( Level.CONFIG, " StreamerOutputTemplate : CLOSE WRITER AND BAOSTREAM")   ;
             isFinishedProcess = true      ;
-            ISignOn.SERVICE_NAME.remove() ;
             writer.close()                ;
        }
     }
