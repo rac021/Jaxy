@@ -1,6 +1,7 @@
 
 package com.rac021.jaxy.api.security ;
 
+import com.rac021.jaxy.api.root.RuntimeServiceInfos ;
 import com.rac021.jaxy.api.configuration.IConfigurator ;
 import com.rac021.jaxy.api.exceptions.BusinessException ;
 
