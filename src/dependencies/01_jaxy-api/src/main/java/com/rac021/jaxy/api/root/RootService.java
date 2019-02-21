@@ -3,10 +3,11 @@ package com.rac021.jaxy.api.root ;
 
 import javax.ws.rs.GET ;
 import javax.ws.rs.Path ;
+import java.time.Instant ;
 import javax.inject.Inject ;
 import javax.ws.rs.PathParam ;
-import javax.ws.rs.HeaderParam ;
 import java.util.logging.Level ;
+import javax.ws.rs.HeaderParam ;
 import java.util.logging.Logger ;
 import javax.ws.rs.core.Response ;
 import javax.ws.rs.core.MediaType ;
@@ -32,7 +33,6 @@ import com.rac021.jaxy.api.exceptions.UnAuthorizedResourceException ;
 import org.eclipse.microprofile.faulttolerance.exceptions.FaultToleranceException ;
 import static com.rac021.jaxy.api.root.ConcurrentUsersManager.tryingAcquireSemaphore ;
 import static com.rac021.jaxy.api.root.ConcurrentUsersManager.initSemaphoreConcurrentUsers ;
-
 /**
  * REST Web Service
  *
@@ -94,7 +94,12 @@ public class RootService implements IRootService     {
                                        @HeaderParam("Cipher")          String  cipher      ,
                                        @PathParam(SERVICENAME_P) final String  codeService ) throws BusinessException {
 
-        tryingAcquireSemaphore() ;
+        RuntimeServiceInfos.STARTED_TIME.set(Instant.now()) ;
+       
+        tryingAcquireSemaphore()                            ;
+          
+        RuntimeServiceInfos.SERVICE_NAME.set( codeService ) ;
+        RuntimeServiceInfos.ACCEPT.set( accept )            ;
           
         LOGGER.log( Level.INFO   , 
                     " +++ Invoke resource : ( code_service : {0} ) ( accept : {1} ) ( cipher : {2} ) ( token : {3} ) ",
@@ -126,12 +131,10 @@ public class RootService implements IRootService     {
                 throw new BusinessException(" Public Services can't be Encrypted ") ;
             }
            
-            ISignOn.SERVICE_NAME.set( codeService )   ;
             return servicesManager.get(codeService )  ;
         }
         
         if( policy == Policy.SSO ) {
-            ISignOn.SERVICE_NAME.set( codeService )   ;
             return servicesManager.get(codeService)   ;
         }
 
@@ -176,14 +179,13 @@ public class RootService implements IRootService     {
                     ISignOn.CIPHER.set(cipher.trim())   ; 
                 }
                 
-                ISignOn.SERVICE_NAME.set( codeService ) ;
                 return servicesManager.get(codeService) ;
             }
         }
         
         LOGGER.log( Level.SEVERE, " --- Unauthorized Resource :" +
                                   " ( code_service : {0} ) ( accept : {1} ) ( cipher : {2} ) ( token : {3} ) " ,
-                                 new Object[] { codeService, accept, cipher, token } )   ;
+                                 new Object[] { codeService, accept, cipher, token } )       ;
         
         throw new UnAuthorizedResourceException ("Unauthorized Resource - KO_Authentication") ;
     }
