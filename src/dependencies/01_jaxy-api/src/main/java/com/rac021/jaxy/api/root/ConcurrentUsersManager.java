@@ -39,9 +39,9 @@ public class ConcurrentUsersManager {
         try {
               LOGGER.log(Level.FINE, " Trying Aquire Semaphore")  ;
               semaphoreMaxConcurrentUsers.acquire()               ;
-              ResponseWriterInterceptorContext.SEMAPHORE_THREAD_LOCAL.set (
-                                   Thread.currentThread().getName() )     ;
-              LOGGER.log(Level.FINE, " Semaphore Aquired")                ;
+              RuntimeServiceInfos.SEMAPHORE_CURRENT_THREAD_NAME.set (
+                                   Thread.currentThread().getName() ) ;
+              LOGGER.log(Level.FINE, " Semaphore Aquired")            ;
               
           } catch( InterruptedException x )              {
               LOGGER.log(Level.SEVERE , x.getMessage())  ;
