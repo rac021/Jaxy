@@ -38,8 +38,7 @@ public class Metrics {
     @Gauge(unit = "count", absolute = true , name = "failureAuthentication")
     public long getFailureAuthentication()       {
         return failureAuthentication.longValue() ;
-    }
-    
+    }    
     
     @PostConstruct
     public void init( @Observes 
