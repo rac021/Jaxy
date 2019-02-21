@@ -220,7 +220,6 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
         finally {
            LOGGER.log( Level.CONFIG, " StreamerOutputXmlEncrypted : CLOSE WRITER AND BAOSTREAM " )  ;
            isFinishedProcess = true        ;
-           ISignOn.SERVICE_NAME.remove()   ;
            ISignOn.ENCRYPTION_KEY.remove() ;
            ISignOn.CIPHER.remove()         ;
            plainTextBuilder.setLength(0)   ;
