@@ -5,12 +5,9 @@ import java.util.List ;
 import java.util.ArrayList ;
 import javax.inject.Inject ;
 import java.io.IOException ;
-import javax.xml.bind.Marshaller ;
-import javax.xml.bind.JAXBContext ;
 import java.util.stream.IntStream ;
 import javax.annotation.PreDestroy ;
 import java.util.stream.Collectors ;
-import javax.xml.bind.JAXBException ;
 import java.util.concurrent.Callable ;
 import javax.annotation.PostConstruct ;
 import javax.persistence.EntityManager ;
@@ -18,13 +15,13 @@ import javax.ws.rs.core.MultivaluedMap ;
 import com.rac021.jaxy.api.manager.IDto ;
 import java.util.concurrent.BlockingQueue ;
 import javax.persistence.PersistenceContext ;
-import com.rac021.jaxy.api.security.ISignOn ;
 import com.rac021.jaxy.api.manager.IResource ;
 import javax.enterprise.context.RequestScoped ;
 import java.util.concurrent.ExecutionException ;
 import java.util.concurrent.ArrayBlockingQueue ;
-import com.rac021.jaxy.api.analyzer.SqlAnalyzer ;
 import com.rac021.jaxy.api.root.ServicesManager ;
+import com.rac021.jaxy.api.analyzer.SqlAnalyzer ;
+import com.rac021.jaxy.api.root.RuntimeServiceInfos ;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 ;
 
@@ -91,7 +88,7 @@ public abstract class Streamer implements IStreamer {
 
     protected void configureStreamer() {
   
-      this.maxThreads = servicesManager.getOrDefaultMaxThreadsFor ( ISignOn.SERVICE_NAME.get() ) ;
+      this.maxThreads = servicesManager.getOrDefaultMaxThreadsFor ( RuntimeServiceInfos.SERVICE_NAME.get() ) ;
       
       dtos = new ArrayBlockingQueue<>( ratio * selectSize * this.maxThreads ) ;
        
