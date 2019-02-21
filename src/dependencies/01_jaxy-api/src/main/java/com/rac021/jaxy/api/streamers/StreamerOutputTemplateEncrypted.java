@@ -30,6 +30,7 @@ import com.rac021.jaxy.api.qualifiers.Format ;
 import com.rac021.jaxy.api.manager.IResource ;
 import com.rac021.jaxy.api.crypto.EncDecRyptor ;
 import com.rac021.jaxy.api.crypto.FactoryCipher ;
+import com.rac021.jaxy.api.root.RuntimeServiceInfos ;
 import com.rac021.jaxy.api.exceptions.BusinessException ;
 import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import static com.rac021.jaxy.api.manager.TemplateManager.applyValue ;
@@ -102,7 +103,7 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
         StringBuilder         plainTextBuilder = new StringBuilder()         ;
         
         String template = 
-        servicesManager.getTemplate(ISignOn.SERVICE_NAME.get())              ;
+        servicesManager.getTemplate(RuntimeServiceInfos.SERVICE_NAME.get())  ;
        
         if( template == null ) {
             
@@ -247,7 +248,6 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
         finally {
             LOGGER.log( Level.CONFIG, " StreamerOutputTemplateEncrypted : CLOSE WRITER AND BAOSTREAM")   ;
             isFinishedProcess = true        ;
-            ISignOn.SERVICE_NAME.remove()   ;
             ISignOn.ENCRYPTION_KEY.remove() ;
             ISignOn.CIPHER.remove()         ;
             plainTextBuilder.setLength(0)   ;
