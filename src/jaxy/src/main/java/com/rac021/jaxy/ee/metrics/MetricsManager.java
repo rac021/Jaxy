@@ -1,6 +1,7 @@
 
 package com.rac021.jaxy.ee.metrics ;
 
+import com.rac021.jaxy.api.metrics.Metrics ;
 import org.eclipse.microprofile.metrics.Metadata ;
 import org.eclipse.microprofile.metrics.MetricType ;
 import org.eclipse.microprofile.metrics.MetricUnits ;
@@ -47,36 +48,50 @@ public class MetricsManager {
                                                                          MetricUnits.NONE ) ;
             metrics.counter(counterMetadata_TEMPLATE_ENCRYPTED ) ;
 
+            // TIMERS 
+            
             Metadata timerMetadata_XML = new Metadata( serviceCodeSnakeName + "_xml_plain_timer", 
                                                        MetricType.TIMER,
                                                        MetricUnits.MILLISECONDS ) ;
-            metrics.timer(timerMetadata_XML ) ;
+            
+            Metrics.addTimerService( serviceCodeSnakeName + "_xml_plain_timer",
+                                     metrics.timer(timerMetadata_XML ) )      ; 
 
             Metadata timerMetadata_XML_ENCRYPTED = new Metadata( serviceCodeSnakeName + "_xml_encrypted_timer",
-                                                                 MetricType.TIMER , 
+                                                                 MetricType.TIMER                             , 
                                                                  MetricUnits.MILLISECONDS ) ;
-            metrics.timer(timerMetadata_XML_ENCRYPTED ) ;
 
+            Metrics.addTimerService( serviceCodeSnakeName + "_xml_encrypted_timer" , 
+                                     metrics.timer(timerMetadata_XML_ENCRYPTED ) ) ; 
+            
             Metadata timerMetadata_JSON = new Metadata( serviceCodeSnakeName + "_json_plain_timer",
-                                                        MetricType.TIMER ,
+                                                        MetricType.TIMER                          ,
                                                         MetricUnits.MILLISECONDS ) ;
-            metrics.timer(timerMetadata_JSON ) ;
+
+            Metrics.addTimerService( serviceCodeSnakeName + "_json_plain_timer",
+                                     metrics.timer(timerMetadata_JSON ) )      ; 
 
             Metadata timerMetadata_JSON_ENCRYPTED = new Metadata( serviceCodeSnakeName + "_json_encrypted_timer",
-                                                                  MetricType.TIMER , 
+                                                                  MetricType.TIMER                              , 
                                                                   MetricUnits.MILLISECONDS ) ;
-            metrics.timer(timerMetadata_JSON_ENCRYPTED ) ;
-
+            
+            Metrics.addTimerService(  serviceCodeSnakeName + "_json_encrypted_timer", 
+                                      metrics.timer(timerMetadata_JSON_ENCRYPTED ) ) ; 
+            
             Metadata timerMetadata_TEMPLATE = new Metadata( serviceCodeSnakeName + "_template_plain_timer",
-                                                            MetricType.TIMER , 
+                                                            MetricType.TIMER                              , 
                                                             MetricUnits.MILLISECONDS ) ;
-            metrics.timer(timerMetadata_TEMPLATE ) ;
+            
+            Metrics.addTimerService(  serviceCodeSnakeName + "_template_plain_timer", 
+                                      metrics.timer(timerMetadata_TEMPLATE ) )      ; 
 
             Metadata timerMetadata_TEMPLATE_ENCRYPTED = new Metadata( serviceCodeSnakeName + "_template_encrypted_timer",
-                                                                      MetricType.TIMER , 
+                                                                      MetricType.TIMER                                  , 
                                                                       MetricUnits.MILLISECONDS ) ;
-            metrics.timer(timerMetadata_TEMPLATE_ENCRYPTED ) ;
-
+            
+            Metrics.addTimerService(  serviceCodeSnakeName + "_template_encrypted_timer" , 
+                                      metrics.timer(timerMetadata_TEMPLATE_ENCRYPTED ) ) ; 
+        
     }
     
 }
