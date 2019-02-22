@@ -56,21 +56,21 @@ public class ResourceManager {
 
         try {
 
-            long start    = System.currentTimeMillis()                   ;
-            
             Query createSQLQuery = manager.createNativeQuery(sqlQuery)   ;
             
-            int incOffset = incOffset(limit) ;
+            int incOffset        = incOffset(limit)                      ;
+            
             setLimitOffsetSQLParameter(createSQLQuery, limit, incOffset) ;
            
             List<IDto> list = DtoMapper.map(createSQLQuery.getResultList(), dtoClass, keepFields  ) ;
-            long duration   = System.currentTimeMillis() - start                                    ;
-          
-            LOGGER.log( Level.CONFIG, " Size Of the Result List --> {0} // DURATION --> {1} ms //"  +
-                                      " Limit  {2} // Offset {3} // Thread => {4} " , 
-                                      new Object[]{ list.size(), duration, limit, incOffset , 
+            
+            LOGGER.log( Level.CONFIG, " Size Of the Result List --> {0} // "         +
+                                      " Limit  {1} // Offset {2} // Thread => {3} "  , 
+                                      new Object[]{ list.size(), limit, incOffset    , 
                                                     Thread.currentThread().getName() } )    ;
+            
             LOGGER.log(Level.CONFIG, " *********************************************************" ) ;
+            
             return list ;
 
         } catch ( Exception ex)  {
