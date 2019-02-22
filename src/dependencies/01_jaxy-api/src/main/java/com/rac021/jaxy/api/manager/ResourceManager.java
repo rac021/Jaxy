@@ -68,7 +68,7 @@ public class ResourceManager {
                                        .map( obj  -> DtoMapper.map( (Object[]) obj ,
                                                                     dtoClass       ,
                                                                     keepFields )   )
-                                        .collect(Collectors.toList())              ;
+                                       .collect(Collectors.toList())               ;
             
         } catch ( Exception ex)            {
             throw new RuntimeException(ex) ;
