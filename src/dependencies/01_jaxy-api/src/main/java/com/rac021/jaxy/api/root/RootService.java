@@ -32,6 +32,7 @@ import com.rac021.jaxy.api.exceptions.UnAuthorizedResourceException ;
 import org.eclipse.microprofile.faulttolerance.exceptions.FaultToleranceException ;
 import static com.rac021.jaxy.api.root.ConcurrentUsersManager.tryingAcquireSemaphore ;
 import static com.rac021.jaxy.api.root.ConcurrentUsersManager.initSemaphoreConcurrentUsers ;
+
 /**
  * REST Web Service
  *
