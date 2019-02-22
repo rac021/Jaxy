@@ -18,16 +18,16 @@ import static com.rac021.jaxy.api.caller.UncheckCall.uncheckCall ;
 public class DtoMapper {
 
     public static <T> List<T> map( List<Object[]> objectArrayList , 
-                                   Class<T>       genericType     , 
+                                   Class<T>       genericDto      , 
                                    List<String>   keepFields      )   {
         
         List<T> ret = new ArrayList<>()                               ;
         if(objectArrayList.isEmpty()) return ret                      ;
-        List<Field> mappingFields = getAnnotatedFields( genericType ) ;
+        List<Field> mappingFields = getAnnotatedFields( genericDto )  ;
         
         try {
             for (Object[] objectArr : objectArrayList)     {
-                T t = genericType.newInstance()            ;
+                T t = genericDto.newInstance()             ;
                 for (int i = 0; i < objectArr.length; i++) {
                     if( i < mappingFields.size() ) {
                         Field field = t.getClass()
