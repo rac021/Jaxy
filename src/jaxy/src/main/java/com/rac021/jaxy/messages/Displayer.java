@@ -20,11 +20,11 @@ import javax.annotation.PostConstruct ;
 @Startup
 public class Displayer {
     
-    private static final String DELIMITTER = "="   ;
+    private String DELIMITTER       = "="           ;
     
-    static Map<String, String> map = new HashMap() ;
+    static  Map<String, String> map = new HashMap() ;
     
-    private static final String PATH = "com/rac021/jaxy/messages/messages.properties" ;
+    private String PATH = "com/rac021/jaxy/messages/messages.properties" ;
      
     @PostConstruct
     public void init() {
