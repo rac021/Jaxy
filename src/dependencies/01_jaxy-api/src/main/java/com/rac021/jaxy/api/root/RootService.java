@@ -8,6 +8,7 @@ import javax.inject.Inject ;
 import javax.ws.rs.PathParam ;
 import java.util.logging.Level ;
 import javax.ws.rs.HeaderParam ;
+import java.time.LocalDateTime ;
 import java.util.logging.Logger ;
 import javax.ws.rs.core.Response ;
 import javax.ws.rs.core.MediaType ;
@@ -15,6 +16,7 @@ import javax.enterprise.inject.Any ;
 import java.time.temporal.ChronoUnit ;
 import javax.annotation.PostConstruct ;
 import javax.enterprise.inject.Instance ;
+import java.time.format.DateTimeFormatter ;
 import com.rac021.jaxy.api.security.ISignOn ;
 import com.rac021.jaxy.api.crypto.CipherTypes ;
 import com.rac021.jaxy.api.crypto.JceSecurity ;
@@ -101,8 +103,15 @@ public class RootService implements IRootService     {
         RuntimeServiceInfos.ACCEPT.set( accept )            ;
           
         LOGGER.log( Level.INFO   , 
-                    " +++ Invoke resource : ( code_service : {0} ) ( accept : {1} ) ( cipher : {2} ) ( token : {3} ) ",
-                    new Object[] { codeService, accept, cipher, token } )   ;
+                    " +++ Invoke resource : ( code_service : {0} ) "
+                    + "( accept : {1} ) ( cipher : {2} ) ( token : {3} ) , Date : {4} ",
+                    new Object[] { codeService , 
+                                   accept      ,
+                                   cipher      , 
+                                   token       , 
+                                   LocalDateTime.now()
+                                                .format( DateTimeFormatter
+                                                .ofPattern("dd/MM/yyyy HH:mm:ss")) } ) ;
                 
         return checkAuthAndProcessService ( codeService, accept, token, cipher) ;
     }
