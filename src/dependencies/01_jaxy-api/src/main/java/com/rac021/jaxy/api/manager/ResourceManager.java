@@ -6,8 +6,8 @@ import java.util.List ;
 import java.util.HashMap ;
 import java.util.Collections ;
 import javax.persistence.Query ;
-import java.util.logging.Level ;
 import java.util.logging.Logger ;
+import java.util.stream.Collectors ;
 import javax.persistence.EntityManager ;
 import java.util.concurrent.atomic.AtomicInteger ;
 import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
@@ -19,20 +19,20 @@ import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 
 public class ResourceManager {
 
-    private static final Logger   LOGGER  = getLogger()   ;
+    private static final Logger   LOGGER  = getLogger()         ;
 
-    protected volatile boolean    finish = false          ;
+    protected volatile boolean    finish  = false               ;
 
-    protected Map<String, Object> queryListParameter      ;
+    protected Map<String, Object> queryListParameter            ;
 
-    protected Map<String, Class>  addEntityParameter      ;
+    protected Map<String, Class>  addEntityParameter            ;
 
-    protected Map<String, String> addJoinParamater        ;
+    protected Map<String, String> addJoinParamater              ;
 
     protected AtomicInteger       offset = new AtomicInteger(0) ;
     
 
-    public ResourceManager() {
+    public ResourceManager()                      {
 
         this.queryListParameter = new HashMap()   ;
         this.addEntityParameter = new HashMap()   ;
@@ -45,10 +45,10 @@ public class ResourceManager {
         query.setParameter( 2 , limit)  ;
     }
   
-    protected List<IDto> executeSQLQuery( EntityManager manager    , 
-                                          String        sqlQuery   ,
-                                          int           limit      ,
-                                          Class         dtoClass   ,
+    protected List<IDto> executeSQLQuery( EntityManager manager      , 
+                                          String        sqlQuery     ,
+                                          int           limit        ,
+                                          Class         dtoClass     ,
                                           List<String>  keepFields ) {
         
         if( sqlQuery == null || sqlQuery.isEmpty() ) 
@@ -62,18 +62,15 @@ public class ResourceManager {
             
             setLimitOffsetSQLParameter(createSQLQuery, limit, incOffset) ;
            
-            List<IDto> list = DtoMapper.map(createSQLQuery.getResultList(), dtoClass, keepFields  ) ;
+            return 
+                
+            (List<IDto>) createSQLQuery.getResultStream()
+                                       .map( obj  -> DtoMapper.map( (Object[]) obj ,
+                                                                    dtoClass       ,
+                                                                    keepFields )   )
+                                        .collect(Collectors.toList())              ;
             
-            LOGGER.log( Level.CONFIG, " Size Of the Result List --> {0} // "         +
-                                      " Limit  {1} // Offset {2} // Thread => {3} "  , 
-                                      new Object[]{ list.size(), limit, incOffset    , 
-                                                    Thread.currentThread().getName() } )    ;
-            
-            LOGGER.log(Level.CONFIG, " *********************************************************" ) ;
-            
-            return list ;
-
-        } catch ( Exception ex)  {
+        } catch ( Exception ex)            {
             throw new RuntimeException(ex) ;
         }
     }
@@ -87,3 +84,4 @@ public class ResourceManager {
     }
 
 }
+
