@@ -25,7 +25,6 @@ import com.rac021.jaxy.api.qualifiers.security.Policy ;
 import com.rac021.jaxy.api.exceptions.BusinessException ;
 import org.eclipse.microprofile.faulttolerance.Bulkhead ;
 import org.eclipse.microprofile.faulttolerance.Fallback ;
-import org.eclipse.microprofile.metrics.annotation.Timed ;
 import org.eclipse.microprofile.faulttolerance.CircuitBreaker ;
 import com.rac021.jaxy.api.exceptions.FallbackHandlerException ;
 import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
@@ -88,7 +87,6 @@ public class RootService implements IRootService     {
                      successThreshold       = 10            , 
                      requestVolumeThreshold = 4 )
     @Fallback( FallbackHandlerException.class )
-    @Timed( absolute = true , name = "time_execution_service" )
     public Object subResourceLocators( @HeaderParam("API-key-Token")   String  token       ,
                                        @HeaderParam("Accept")          String  accept      ,
                                        @HeaderParam("Cipher")          String  cipher      ,
