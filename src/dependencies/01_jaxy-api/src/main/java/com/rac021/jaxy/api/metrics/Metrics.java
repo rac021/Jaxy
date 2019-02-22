@@ -58,7 +58,12 @@ public class Metrics {
     }
     
     public static void updateTimerService( String serviceName, long val, TimeUnit unit ) {
-       timerServices.get(serviceName).update( val, unit ) ; 
+       
+       timerServices.computeIfPresent( serviceName , 
+                                       ( sName, timer ) -> { timer.update( val, unit ) ;
+                                                             return timer              ;
+                                                           }
+                                     ) ; 
     }
     
 }
