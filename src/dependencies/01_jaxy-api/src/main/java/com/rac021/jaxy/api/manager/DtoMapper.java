@@ -18,8 +18,8 @@ import static com.rac021.jaxy.api.caller.UncheckCall.uncheckCall ;
 public class DtoMapper {
 
     public static <T> List<T> map( List<Object[]> objectArrayList , 
-                                   Class<T> genericType           , 
-                                   List<String> feepFields    )   {
+                                   Class<T>       genericType     , 
+                                   List<String>   keepFields      )   {
         
         List<T> ret = new ArrayList<>()                               ;
         if(objectArrayList.isEmpty()) return ret                      ;
@@ -33,9 +33,9 @@ public class DtoMapper {
                         Field field = t.getClass()
                                        .getDeclaredField( mappingFields.get(i)
                                        .getName()) ;
-                        if( feepFields  != null   &&
-                            !feepFields.isEmpty() && 
-                            !feepFields.contains(field.getName())
+                        if(  keepFields  != null   &&
+                            !keepFields.isEmpty()  && 
+                            !keepFields.contains(field.getName())
                             )  continue ;
                         
                            // if(field.getAnnotation(Public.class) != null ) {
