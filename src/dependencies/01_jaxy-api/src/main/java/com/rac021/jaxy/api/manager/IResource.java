@@ -8,5 +8,5 @@ package com.rac021.jaxy.api.manager ;
 
 public interface IResource {
 
-
 }
+
