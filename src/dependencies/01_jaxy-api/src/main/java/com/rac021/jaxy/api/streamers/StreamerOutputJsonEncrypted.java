@@ -60,7 +60,7 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
         if( checkIfExceptionsAndNotify( "StreamerOutputJsonEncrypted-RuntimeException", false )) return ;
         
         if ( ISignOn.ENCRYPTION_KEY.get() == null ) {
-          LOGGER.log(Level.SEVERE, " Error : Key can't be NULL " )        ;
+          LOGGER.log( Level.SEVERE, " Error : Key can't be NULL " )       ;
           throw new WebApplicationException(" Error Key can't be NULL " ) ;
         }
         
@@ -102,7 +102,7 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
         Queue<Byte>           qeueBytes        = new LinkedList<>()          ;
         StringBuilder         plainTextBuilder = new StringBuilder()         ;
         
-        int nbrBlocks = 0   ;
+        int                   nbrBlocks        = 0                           ;
 
         try ( ByteArrayOutputStream baoStream  = new ByteArrayOutputStream() ;
               ByteArrayOutputStream outString  = new ByteArrayOutputStream() ; ) {
@@ -191,13 +191,13 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
                 try {
                     throw new BusinessException( "ClientAbortException !! " + ex.getMessage(), ex ) ;
                 } catch (BusinessException ex1) {
-                    LOGGER.log(Level.INFO , ex1.getMessage() ) ; 
+                    LOGGER.log(Level.SEVERE , ex1.getMessage() ) ; 
                 }
             } else {
                 try {
                     throw new BusinessException("Exception : " + ex.getMessage()) ;
                 } catch (BusinessException ex1)                {
-                    LOGGER.log(Level.INFO , ex1.getMessage() ) ;
+                    LOGGER.log(Level.SEVERE , ex1.getMessage() ) ;
                 }
             }
             
