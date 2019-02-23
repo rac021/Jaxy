@@ -61,14 +61,8 @@ public class ResourceWraper extends com.rac021.jaxy.api.manager.ResourceManager 
         this.offset.set(offset) ;
     }
 
-    public boolean isFinished() {
-        return finish ;
-    }
-    public void setIsFinished( boolean status ) {
-        finish = status ;
-    }
-
     private void initQueryParameter() {
     }
 
 }
+
