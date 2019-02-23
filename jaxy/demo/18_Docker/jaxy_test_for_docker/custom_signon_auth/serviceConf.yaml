@@ -64,7 +64,7 @@ Services :
  - planes :
      Query : > 
             SELECT model , total_passengers , distance_km  
-            FROM aircraft , pg_sleep(1) 
+            FROM aircraft -- , pg_sleep(1) 
      TemplateUri : template_services/template_planes.txt    # Path Relatif to this file
      MaxThreads : 2
  - vip_planes :
