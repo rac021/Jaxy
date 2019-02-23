@@ -43,12 +43,12 @@ public class SqlAnalyzer {
      
     public static Query buildQueryObject( Connection cnn, final String sqlQuery )     {
          
-        LOGGER.log( Level.INFO, "  - Processing SQL Query "         )       ;
+        LOGGER.log( Level.CONFIG , "  - Processing SQL Query "         ) ;
        
         String sub_sql = sqlQuery.length() > 60 ? 
-                         sqlQuery.substring ( 0, 60 ) : sqlQuery            ;
+                         sqlQuery.substring ( 0, 60 ) : sqlQuery         ;
            
-        LOGGER.log(Level.INFO, "      - Extracted SQL Query : {0} ...", sub_sql)      ;
+        LOGGER.log( Level.CONFIG, "      - Extracted SQL Query : {0} ...", sub_sql)   ;
            
         try ( PreparedStatement ps = cnn.prepareStatement(sqlQuery) )   {
 
@@ -58,7 +58,7 @@ public class SqlAnalyzer {
             SelectBody selectBody      = select.getSelectBody()         ;
             ResultSetMetaData metaData = ps.getMetaData()               ;
         
-            int count = metaData.getColumnCount(); //number of column
+            int count = metaData.getColumnCount() ; //number of column
            
             Query query = new Query() ;
             query.setContainsAggregationFunction ( containsAggregationFuntion(sqlQuery)) ;
@@ -93,28 +93,28 @@ public class SqlAnalyzer {
                                }
             }) ;
                      
-            LOGGER.log(Level.INFO, "      - OrderElementsList : {0}", orderElementsList)  ;
+            LOGGER.log( Level.CONFIG , "      - OrderElementsList : {0}", orderElementsList)  ;
              
-            ((PlainSelect) selectBody).setOrderByElements(orderElementsList )             ;
+            ((PlainSelect) selectBody).setOrderByElements(orderElementsList )                 ;
 
-            query.setQuery(select.toString() )                                            ;
+            query.setQuery(select.toString() )                                                ;
             
-            LOGGER.log(Level.INFO, "      - SQL Object Query  : {0}", query ) ;
+            LOGGER.log(Level.CONFIG , "      - SQL Object Query  : {0}", query )              ;
             
-           LOGGER.log(Level.INFO, " ------------------------------- "  )      ;
+            LOGGER.log(Level.CONFIG , " ------------------------------- "  )                  ;
 
             
-            return  query                                                     ; 
+            return  query                                                                     ; 
               
           } catch( SQLException | JSQLParserException ex )    {
               throw new RuntimeException(ex) ;
           }
     }
    
-    public static boolean containsAggregationFuntion( String query ) {
+    public static boolean containsAggregationFuntion( String query )             {
     
       try {
-           CCJSqlParserManager parserManager = new CCJSqlParserManager() ;
+           CCJSqlParserManager parserManager = new CCJSqlParserManager()         ;
            Select select = (Select) parserManager.parse(new StringReader(query)) ;
            PlainSelect ps = (PlainSelect) select.getSelectBody() ;
               
@@ -125,7 +125,8 @@ public class SqlAnalyzer {
               if( ps.getSelectItems().get(i) instanceof AllColumns) {
                      return false ;
               }
-              if ( ((SelectExpressionItem) ps.getSelectItems().get(i)).getExpression() instanceof Function ) 
+              if ( ((SelectExpressionItem) ps.getSelectItems()
+                                             .get(i)).getExpression() instanceof Function ) 
                     return true  ;
            }
            
@@ -159,7 +160,7 @@ public class SqlAnalyzer {
 
             if( query.isContainsAggregationFunction()) {
                 
-                Expression having = ps.getHaving() ;
+                Expression having = ps.getHaving()     ;
 
                if( having != null ) {
                  newQ = query.getQuery().replace( having.toString() , 
@@ -198,14 +199,15 @@ public class SqlAnalyzer {
         }
     }
 
-    private static String generateQueryApplyingFiledsFiltersIncludingLimitOffset ( final Query query , List<String> fields ) {
+    private static String generateQueryApplyingFiledsFiltersIncludingLimitOffset ( final Query query   , 
+                                                                                   List<String> fields ) {
             
         String queryApplyedFilters     = generateQueryWithFiledsFilters( query, fields )  ;
         String queryApplyedLimitOffset = appendLimitOffsetPaattern( queryApplyedFilters ) ;
           
-        LOGGER.log(Level.INFO, " Query  --> {0}", query  ) ;
-        LOGGER.log(Level.INFO, " Fields --> {0}", fields ) ;
-        return /*collect */ queryApplyedLimitOffset        ;
+        LOGGER.log(Level.CONFIG , " Query  --> {0}", query  ) ;
+        LOGGER.log(Level.CONFIG , " Fields --> {0}", fields ) ;
+        return /*collect */ queryApplyedLimitOffset           ;
     }
 
     public static Query getSqlParamsWithTypes( Connection cnn, String sqlQuery ) {
