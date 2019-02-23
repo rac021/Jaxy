@@ -94,12 +94,12 @@ public abstract class Streamer implements IStreamer {
        
     }
 
-    protected class Producer implements Callable    {
+    protected class Producer implements Callable  {
         
         @Override
         public Void call()  {
            
-                while ( ! resource.isFinished() )   {
+                while ( ! isFinishedProcess )     {
 
                     long count = resource.getDtoIterable( entityManager, 
                                                           selectSize * ratio ,
@@ -110,15 +110,14 @@ public abstract class Streamer implements IStreamer {
                                                    dtos.put(localDto)   ;
                                                    return localDto      ;
                                                } catch (InterruptedException ex)   {
-                                                   resource.setIsFinished(true)    ;
                                                    throw new RuntimeException(ex)  ;
                                                }})
                                          .count() ;
 
                    if (count == 0 ) {
 
-                       resource.setIsFinished(true) ;
-                       break                        ;
+                       isFinishedProcess = true ;
+                       break                    ;
 
                    } 
                 }
@@ -151,15 +150,19 @@ public abstract class Streamer implements IStreamer {
         this.resource = new ResourceWraper( resource, dto, queryWithAppliedFilters ) ; 
     }
     
-    protected List<String> toListNames( String names )     {
+    protected List<String> toListNames( String  names )  {
         
-      if( names != null && ! names.isEmpty() ) {
-         List<String> l = new ArrayList<>()    ;
-         String[] split = names.split("-")     ;
-         for( String fieldName : split)  {
-             l.add( fieldName.trim().replaceAll(" +", "")) ;
-         }
-         return l ;
+      if( names != null && ! names.isEmpty() )        {
+       
+           List<String> l = new ArrayList<>()         ; 
+           String[] split = names.split("-")          ;
+       
+           for ( String fieldName : split )           {
+               l.add( fieldName.trim()
+                               .replaceAll(" +", "")) ;
+           }
+       
+           return l ;
       }
       
       return null ;
@@ -178,12 +181,16 @@ public abstract class Streamer implements IStreamer {
         if( ! exceptions.isEmpty() ) {
            
             while( ! exceptions.isEmpty() )               {
+             
                   Exception exception = exceptions.poll() ;
+             
                   if( rootException ) {
+                   
                       while ( exception.getCause() != null) {
                          exception = (Exception) exception.getCause() ;
                       }
                   }
+             
                   /** Will invock the RuntimeExceptionMapper that will LOG and 
                       send response to the client . */
                   throw new RuntimeException(exception) ;
@@ -195,3 +202,4 @@ public abstract class Streamer implements IStreamer {
         return false ;
     }
 }
+
