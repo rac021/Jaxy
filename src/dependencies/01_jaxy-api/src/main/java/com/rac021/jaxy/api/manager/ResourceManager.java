@@ -1,9 +1,7 @@
 
 package com.rac021.jaxy.api.manager ;
 
-import java.util.Map ;
 import java.util.List ;
-import java.util.HashMap ;
 import java.util.Collections ;
 import javax.persistence.Query ;
 import java.util.logging.Logger ;
@@ -17,26 +15,13 @@ import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
  * @author yahiaoui
  */
 
-public class ResourceManager {
+public class ResourceManager  {
 
-    private static final Logger   LOGGER  = getLogger()         ;
+    private static final Logger  LOGGER  = getLogger()          ;
 
-    protected Map<String, Object> queryListParameter            ;
-
-    protected Map<String, Class>  addEntityParameter            ;
-
-    protected Map<String, String> addJoinParamater              ;
-
-    protected AtomicInteger       offset = new AtomicInteger(0) ;
+    protected AtomicInteger      offset  = new AtomicInteger(0) ;
     
-
-    public ResourceManager()                      {
-
-        this.queryListParameter = new HashMap()   ;
-        this.addEntityParameter = new HashMap()   ;
-        this.addJoinParamater   = new HashMap()   ;
-
-    }
+    public ResourceManager() {  }
 
     private void setLimitOffsetSQLParameter( Query query, int limit, int offset) {
         query.setParameter( 1 , offset) ;
