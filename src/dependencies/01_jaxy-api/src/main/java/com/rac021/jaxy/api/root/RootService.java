@@ -93,6 +93,7 @@ public class RootService implements IRootService     {
     public Object subResourceLocators( @HeaderParam("API-key-Token")   String  token       ,
                                        @HeaderParam("Accept")          String  accept      ,
                                        @HeaderParam("Cipher")          String  cipher      ,
+                                       @HeaderParam("Keep")            String  keep        ,
                                        @PathParam(SERVICENAME_P) final String  codeService ) throws BusinessException {
 
         RuntimeServiceInfos.STARTED_TIME.set(Instant.now()) ;
@@ -103,11 +104,13 @@ public class RootService implements IRootService     {
         RuntimeServiceInfos.ACCEPT.set( accept )            ;
           
         LOGGER.log( Level.INFO   , 
-                    " +++ Invoke resource : ( code_service : {0} ) "
-                    + "( accept : {1} ) ( cipher : {2} ) ( token : {3} ) , Date : {4} ",
+                    " +++ Invoke resource : ( code_service : {0} ) "    +
+                    "( accept : {1} ) ( cipher : {2} ) ( keep : {3} ) " +
+                    "( token : {4} ) , Date : {4} " ,
                     new Object[] { codeService , 
                                    accept      ,
                                    cipher      , 
+                                   keep        ,
                                    token       , 
                                    LocalDateTime.now()
                                                 .format( DateTimeFormatter
