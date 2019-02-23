@@ -21,8 +21,6 @@ public class ResourceManager {
 
     private static final Logger   LOGGER  = getLogger()         ;
 
-    protected volatile boolean    finish  = false               ;
-
     protected Map<String, Object> queryListParameter            ;
 
     protected Map<String, Class>  addEntityParameter            ;
