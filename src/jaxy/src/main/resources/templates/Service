@@ -108,7 +108,7 @@ public class {SERVICE_NAME}               {
         * streamerOutputXml.setStreamerConfigurator(defaultStreamerConfigurator) ;
         */
 
-        System.out.println(" JAX-Y - Process : getResourceASXml ... ") ; 
+        // System.out.println(" JAX-Y - Process : getResourceASXml ... ") ; 
 
         return Response.status(Response.Status.OK)
                        .entity( streamerOutputXml.wrapResource( {RESOURCE_NAME}           , 
@@ -134,7 +134,7 @@ public class {SERVICE_NAME}               {
         * streamerOutputXmlEncrypted.setStreamerConfigurator(defaultStreamerConfigurator) ;
         */
             
-        System.out.println(" JAX-Y - Process : getResourceASEnctyptedXml ... ") ; 
+        // System.out.println(" JAX-Y - Process : getResourceASEnctyptedXml ... ") ; 
         
         return Response.status(Response.Status.OK)
                        .entity(streamerOutputXmlEncrypted.wrapResource( {RESOURCE_NAME}           , 
@@ -160,7 +160,7 @@ public class {SERVICE_NAME}               {
         * streamerOutputJson.setStreamerConfigurator(defaultStreamerConfigurator) ;
         */
   
-        System.out.println(" JAX-Y - Process : getResourceASJson ... ") ; 
+        // System.out.println(" JAX-Y - Process : getResourceASJson ... ") ; 
 
         return Response.status(Response.Status.OK)
                        .entity(streamerOutputJson.wrapResource( {RESOURCE_NAME}           , 
@@ -188,7 +188,7 @@ public class {SERVICE_NAME}               {
         * streamerOutputJsonEncrypted.setStreamerConfigurator(defaultStreamerConfigurator) ;
         */
   
-        System.out.println(" JAX-Y - Process : getResourceASEncryptedJson ... ") ; 
+        // System.out.println(" JAX-Y - Process : getResourceASEncryptedJson ... ") ; 
 
         return Response.status(Response.Status.OK)
                        .entity( streamerOutputJsonEncrypted.wrapResource( {RESOURCE_NAME}           , 
@@ -216,7 +216,7 @@ public class {SERVICE_NAME}               {
         * streamerOutputTemplate.setStreamerConfigurator(defaultStreamerConfigurator) ;
         */
   
-        System.out.println(" JAX-Y - Process : getResourceASTemplate ... ") ; 
+        // System.out.println(" JAX-Y - Process : getResourceASTemplate ... ") ; 
 
         return Response.status(Response.Status.OK)
                        .entity( streamerOutputTemplate.wrapResource( {RESOURCE_NAME}           , 
@@ -244,7 +244,7 @@ public class {SERVICE_NAME}               {
         * streamerOutputTemplateEncrypted.setStreamerConfigurator(defaultStreamerConfigurator) ;
         */
   
-        System.out.println(" JAX-Y - Process : getResourceASEncryptedTemplate ... ") ; 
+        // System.out.println(" JAX-Y - Process : getResourceASEncryptedTemplate ... ") ; 
 
         return Response.status(Response.Status.OK)
                        .entity( streamerOutputTemplateEncrypted.wrapResource( {RESOURCE_NAME}           , 
