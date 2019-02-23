@@ -233,7 +233,7 @@ IO_THREADS       : 16
 # for the worker task thread pool.      ##
 ##########################################
 
-TASK_MAX_THREADS : 128
+TASK_MAX_THREADS : 1024
 
 
 #######################################
