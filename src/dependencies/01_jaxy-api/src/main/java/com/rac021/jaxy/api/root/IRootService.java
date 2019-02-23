@@ -16,6 +16,7 @@ public interface IRootService {
     Object subResourceLocators ( @HeaderParam("API-key-Token") String token  ,
                                  @HeaderParam("Accept")        String accept ,
                                  @HeaderParam("Cipher")        String cipher ,
+                                 @HeaderParam("Keep")          String keep   ,
                                  @PathParam("codeService")     String codeService) throws BusinessException ;
 
     Response authenticationCheck ( @PathParam("login") String login         ,
