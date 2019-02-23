@@ -230,13 +230,13 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
                 try {
                     throw new BusinessException("ClientAbortException !! " + ex.getMessage(), ex) ;
                 } catch (BusinessException ex1) {
-                    LOGGER.log(Level.INFO , ex1.getMessage() ) ; 
+                    LOGGER.log(Level.SEVERE , ex1.getMessage() ) ; 
                 }
             } else {
                 try {
                     throw new BusinessException("Exception : " + ex.getMessage()) ;
                 } catch (BusinessException ex1) {
-                    LOGGER.log(Level.INFO , ex1.getMessage() ) ;
+                    LOGGER.log(Level.SEVERE , ex1.getMessage() ) ;
                 }
             }
             
