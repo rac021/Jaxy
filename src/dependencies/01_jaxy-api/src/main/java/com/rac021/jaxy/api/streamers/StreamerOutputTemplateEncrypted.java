@@ -240,9 +240,7 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
                 }
             }
             
-            isFinishedProcess = true      ;
-            
-        } catch (InterruptedException ex) {
+        } catch ( InterruptedException ex )               {
             LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
         }
         finally {
