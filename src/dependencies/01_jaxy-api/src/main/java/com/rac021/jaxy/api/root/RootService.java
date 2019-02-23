@@ -10,6 +10,7 @@ import java.util.logging.Level ;
 import javax.ws.rs.HeaderParam ;
 import java.time.LocalDateTime ;
 import java.util.logging.Logger ;
+import javax.ws.rs.core.Context ;
 import javax.ws.rs.core.Response ;
 import javax.ws.rs.core.MediaType ;
 import javax.enterprise.inject.Any ;
@@ -18,6 +19,7 @@ import javax.annotation.PostConstruct ;
 import javax.enterprise.inject.Instance ;
 import java.time.format.DateTimeFormatter ;
 import com.rac021.jaxy.api.security.ISignOn ;
+import javax.servlet.http.HttpServletRequest ;
 import com.rac021.jaxy.api.crypto.CipherTypes ;
 import com.rac021.jaxy.api.crypto.JceSecurity ;
 import javax.enterprise.util.AnnotationLiteral ;
@@ -90,10 +92,11 @@ public class RootService implements IRootService     {
                      successThreshold       = 10            , 
                      requestVolumeThreshold = 4 )
     @Fallback( FallbackHandlerException.class )
-    public Object subResourceLocators( @HeaderParam("API-key-Token")   String  token       ,
-                                       @HeaderParam("Accept")          String  accept      ,
-                                       @HeaderParam("Cipher")          String  cipher      ,
-                                       @HeaderParam("Keep")            String  keep        ,
+    public Object subResourceLocators( @HeaderParam("API-key-Token") String             token     ,
+                                       @HeaderParam("Accept")        String             accept    ,
+                                       @HeaderParam("Cipher")        String             cipher    ,
+                                       @HeaderParam("Keep")          String             keep      ,
+                                       @Context                      HttpServletRequest request   ,
                                        @PathParam(SERVICENAME_P) final String  codeService ) throws BusinessException {
 
         RuntimeServiceInfos.STARTED_TIME.set(Instant.now()) ;
@@ -104,9 +107,9 @@ public class RootService implements IRootService     {
         RuntimeServiceInfos.ACCEPT.set( accept )            ;
           
         LOGGER.log( Level.INFO   , 
-                    " +++ Invoke resource : ( code_service : {0} ) "    +
-                    "( accept : {1} ) ( cipher : {2} ) ( keep : {3} ) " +
-                    "( token : {4} ) , Date : {4} " ,
+                    " +++ Invoke resource : ( code_service : {0} ) "     +
+                    "( accept : {1} ) ( cipher : {2} ) ( keep : {3} ) "  +
+                    "( token : {4} ) ( Date : {5} ) ( RemoteAddr : {6} ) " ,
                     new Object[] { codeService , 
                                    accept      ,
                                    cipher      , 
@@ -114,7 +117,8 @@ public class RootService implements IRootService     {
                                    token       , 
                                    LocalDateTime.now()
                                                 .format( DateTimeFormatter
-                                                .ofPattern("dd/MM/yyyy HH:mm:ss")) } ) ;
+                                                .ofPattern("dd/MM/yyyy HH:mm:ss")) ,
+                                   getRemoteAddr(request) } ) ;
                 
         return checkAuthAndProcessService ( codeService, accept, token, cipher) ;
     }
@@ -216,6 +220,15 @@ public class RootService implements IRootService     {
                             .build() ;
         }
         throw new UnAuthorizedResourceException ("KO_Authentication") ;
+    }
+    
+    private String getRemoteAddr( HttpServletRequest request ) {
+        
+        String ipAddress = request.getHeader("X-FORWARDED-FOR");  
+        if (ipAddress == null) {  
+         return request.getRemoteAddr();  
+        }
+        return ipAddress ;
     }
     
     /** Force Init ApplicationScoped at deployement time . */
