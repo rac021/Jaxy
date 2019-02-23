@@ -77,7 +77,7 @@ public enum Lexer {
                                            }
                           )) ;
 
-         LOGGER.log(Level.INFO , " Fileds Filters  = {0}", fieldsFiltersList ) ;
+         LOGGER.log( Level.CONFIG , " Fileds Filters  = {0}", fieldsFiltersList ) ;
        
          return fieldsFiltersList ;
    }
