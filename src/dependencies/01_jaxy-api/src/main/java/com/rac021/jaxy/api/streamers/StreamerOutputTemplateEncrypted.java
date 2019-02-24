@@ -32,7 +32,6 @@ import com.rac021.jaxy.api.crypto.EncDecRyptor ;
 import com.rac021.jaxy.api.crypto.FactoryCipher ;
 import com.rac021.jaxy.api.root.RuntimeServiceInfos ;
 import com.rac021.jaxy.api.exceptions.BusinessException ;
-import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import static com.rac021.jaxy.api.manager.TemplateManager.applyValue ;
 import static com.rac021.jaxy.api.manager.TemplateManager.extractArgs ;
 import static com.rac021.jaxy.api.manager.TemplateManager.extractBody ;
@@ -50,16 +49,14 @@ import static com.rac021.jaxy.api.manager.TemplateManager.removeMultipleBlankSpa
 @Format(AcceptType.TEMPLATE_ENCRYPTED)
 public class StreamerOutputTemplateEncrypted extends Streamer implements StreamingOutput {
 
-    private static final Logger LOGGER  = getLogger() ;
-   
     public StreamerOutputTemplateEncrypted() { }
 
     @Override
     public void write(OutputStream output) throws IOException {
         
-        LOGGER.log(Level.FINE ," Processing data in StreamerOutputTemplateEncrypted ... ") ;
+        LOGGER.log(Level.FINE ," Processing data in StreamerOutputTemplateEncrypted ... ")             ;
 
-        if( checkIfExceptionsAndNotify( "StreamerOutputTemplateEncrypted-RuntimeException", false )) return ;
+        checkIfExceptionsAndNotify( "StreamerOutputTemplateEncrypted-RuntimeException", false , null ) ;
         
         if ( ISignOn.ENCRYPTION_KEY.get() == null )                         {
           LOGGER.log(Level.SEVERE, " Error : Key can't be NULL " )          ;
@@ -200,7 +197,7 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
                    }
             }
 
-            if( templateFooter != null && ! templateFooter.trim().isEmpty() )     {
+            if( templateFooter != null && ! templateFooter.trim().isEmpty() )   {
                plainTextBuilder.append(templateFooter).append("\n") ;
             }
             
@@ -218,38 +215,27 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
             writer.flush()    ;
             
             /** Check and flush exception before close Writer . */
-            checkIfExceptionsAndNotify( "StreamerOutputTemplateEncrypted-RuntimeException", true ) ;
-           
+            checkIfExceptionsAndNotify( "StreamerOutputTemplateEncrypted-RuntimeException", true, writer ) ;           
  
         } catch (IOException ex ) {
             
             LOGGER.log(Level.SEVERE, ex.getMessage(), ex ) ;
             
-            if (ex.getClass().getName().endsWith(".ClientAbortException")) {
-                
-                try {
-                    throw new BusinessException("ClientAbortException !! " + ex.getMessage(), ex) ;
-                } catch (BusinessException ex1) {
-                    LOGGER.log(Level.SEVERE , ex1.getMessage() ) ; 
-                }
+            if (ex.getClass().getName().endsWith(".ClientAbortException"))                   {
+                 throw new RuntimeException("ClientAbortException - " + ex.getMessage(), ex) ;               
             } else {
-                try {
-                    throw new BusinessException("Exception : " + ex.getMessage()) ;
-                } catch (BusinessException ex1) {
-                    LOGGER.log(Level.SEVERE , ex1.getMessage() ) ;
-                }
+                 throw new RuntimeException("Exception - " + ex.getMessage())                ;
             }
             
         } catch ( InterruptedException ex )               {
             LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
+            throw new RuntimeException("RuntimeException - " + ex.getMessage(), ex ) ;
         }
         finally {
-            LOGGER.log( Level.CONFIG, " StreamerOutputTemplateEncrypted : CLOSE WRITER AND BAOSTREAM")   ;
-            isFinishedProcess = true        ;
+            LOGGER.log( Level.CONFIG, " StreamerOutputTemplateEncrypted : CLOSE ")   ;
             ISignOn.ENCRYPTION_KEY.remove() ;
             ISignOn.CIPHER.remove()         ;
             plainTextBuilder.setLength(0)   ;
-            writer.close()                  ;
         }
     }
 
