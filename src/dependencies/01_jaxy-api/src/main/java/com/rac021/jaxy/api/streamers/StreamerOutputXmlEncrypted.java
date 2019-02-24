@@ -11,7 +11,6 @@ import java.io.OutputStream ;
 import java.util.LinkedList ;
 import java.io.BufferedWriter ;
 import java.util.logging.Level ;
-import java.util.logging.Logger ;
 import javax.xml.namespace.QName ;
 import javax.xml.bind.Marshaller ;
 import java.io.OutputStreamWriter ;
@@ -33,7 +32,6 @@ import com.rac021.jaxy.api.qualifiers.Format ;
 import com.rac021.jaxy.api.crypto.EncDecRyptor ;
 import com.rac021.jaxy.api.crypto.FactoryCipher;
 import com.rac021.jaxy.api.exceptions.BusinessException ;
-import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 
 /**
@@ -48,24 +46,22 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
     @com.rac021.jaxy.api.qualifiers.MarshallerType("XML")
     Marshaller marshaller ;
     
-    private static final Logger LOGGER  = getLogger() ;
-   
     public StreamerOutputXmlEncrypted() { }
 
     @Override
     
     public void write( OutputStream output ) throws IOException {
 
-      LOGGER.log(Level.FINE ," Processing data in StreamerOutputXmlEncrypted ... ") ;
+      LOGGER.log(Level.FINE ," Processing data in StreamerOutputXmlEncrypted ... ")             ;
     
-      if( checkIfExceptionsAndNotify( "StreamerOutputXmlEncrypted-RuntimeException", false )) return ;
+      checkIfExceptionsAndNotify( "StreamerOutputXmlEncrypted-RuntimeException", false, null )  ;
       
       if( ISignOn.ENCRYPTION_KEY.get() == null ) {
          LOGGER.log(Level.SEVERE, " Error : Key can't be NULL " )        ;
          throw new WebApplicationException(" Error Key can't be NULL " ) ;
       }
       
-      configureStreamer() ;
+      configureStreamer()                              ;
 
       /** Submit Producers . */
       poolProducer.submit( () -> producerScheduler() ) ; 
@@ -187,7 +183,7 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
                                                       EncDecRyptor. _CipherOperation.dofinal) )
             )) ;
             
-            while (!qeueBytes.isEmpty())         {
+            while ( ! qeueBytes.isEmpty() )      {
                outString.write(qeueBytes.poll()) ;
             }
 
@@ -196,36 +192,32 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
             writer.flush()    ;
             
             /** Check and flush exception before close Writer . */
-            checkIfExceptionsAndNotify( "StreamerOutputXmlEncrypted-RuntimeException", true ) ;
+            checkIfExceptionsAndNotify( "StreamerOutputXmlEncrypted-RuntimeException", true, writer ) ;
             
-        } catch (IOException | JAXBException ex) {
+        } catch (IOException | JAXBException ex )          {
             
-            if (ex.getClass().getName().endsWith(".ClientAbortException")) {
-                try {
-                    throw new BusinessException("ClientAbortException !! " + ex.getMessage()) ;
-                } catch (BusinessException ex1)                     {
-                    LOGGER.log(Level.SEVERE, ex1.getMessage(), ex1) ;
-                }
+            LOGGER.log(Level.SEVERE, ex.getMessage(), ex ) ;
+          
+            if (ex.getClass().getName().endsWith(".ClientAbortException"))                {
+               
+                  throw new RuntimeException("ClientAbortException - " + ex.getMessage()) ;
+               
             } else {
-                try {
-                    throw new BusinessException("Exception : " + ex.getMessage()) ;
-                } catch (BusinessException ex1)                    {
-                    LOGGER.log(Level.SEVERE,ex1.getMessage(), ex1) ;
-                }
+                 
+                  throw new RuntimeException("Exception - " + ex.getMessage())            ;
             }
             
         } catch (InterruptedException ex)      {
+          
             LOGGER.log(Level.SEVERE, null, ex) ;
+            throw new RuntimeException("Exception - " + ex.getMessage())                  ;  
         }
         finally {
-           LOGGER.log( Level.CONFIG, " StreamerOutputXmlEncrypted : CLOSE WRITER AND BAOSTREAM " )  ;
-           isFinishedProcess = true        ;
+           LOGGER.log( Level.CONFIG, " StreamerOutputXmlEncrypted : CLOSE " )             ;
            ISignOn.ENCRYPTION_KEY.remove() ;
            ISignOn.CIPHER.remove()         ;
            plainTextBuilder.setLength(0)   ;
-           writer.close()                  ;
-        }
-       
+        }       
     }
 
     public ResourceWraper getResource() {
@@ -249,3 +241,4 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
     }
 
 }
+
