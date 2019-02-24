@@ -183,8 +183,8 @@ public abstract class Streamer implements IStreamer {
         this.maxThreads = iStreamerConfigurator.getMaxThreads() ;
     }    
     
-    protected void checkIfExceptionsAndNotify( String   messagefrom  ,
-                                               boolean rootException , 
+    protected void checkIfExceptionsAndNotify( String   messagefrom   ,
+                                               boolean  rootException , 
                                                Writer   writer       ) throws IOException {
 
         /** Check and flush exception before close Writer */
