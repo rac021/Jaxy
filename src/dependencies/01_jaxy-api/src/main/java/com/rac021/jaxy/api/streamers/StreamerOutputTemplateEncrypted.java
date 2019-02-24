@@ -256,5 +256,5 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
         rootResourceWraper(resource, dto, null ) ;        
         return this                              ;
     }
-
 }
+
