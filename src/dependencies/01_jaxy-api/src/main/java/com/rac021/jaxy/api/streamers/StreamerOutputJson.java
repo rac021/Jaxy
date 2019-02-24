@@ -54,14 +54,16 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
        /** Submit Producers . */
        poolProducer.submit( () -> producerScheduler() ) ;      
       
-       try (  Writer writer = new BufferedWriter ( new OutputStreamWriter(output, "UTF8")) ;
-              ByteArrayOutputStream baoStream = new ByteArrayOutputStream()              ) {
+       /** StreamingOutput must not be closed **/
+       Writer writer = new BufferedWriter ( new OutputStreamWriter(output, "UTF8")) ;
+        
+       try ( ByteArrayOutputStream baoStream = new ByteArrayOutputStream ()   )     {
 
-            int iteration          =  0                                ;
+            int iteration                    =  0                      ;
 
             while ( ! isFinishedProcess || !dtos.isEmpty() )           {
 
-                IDto poll = dtos.poll( 50 , TimeUnit.MILLISECONDS)     ;
+                IDto poll = dtos.poll ( 50 , TimeUnit.MILLISECONDS)    ;
                    
                 if( poll != null ) {
                     
@@ -79,32 +81,31 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
                 }
              }
 
-             writer.flush()    ;
+             checkIfExceptionsAndNotify( "StreamerOutputJson-RuntimeException",true )      ;
+           
+             writer.flush()                                                                ;
              
-             checkIfExceptionsAndNotify( "StreamerOutputJson-RuntimeException",true )  ;
-             
-        } catch (JAXBException | IOException ex)          {
+        } catch ( JAXBException | IOException ex )          {
             
-            LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
+            LOGGER.log( Level.SEVERE, ex.getMessage(), ex ) ;
             
-            if (ex.getClass().getName().endsWith(".ClientAbortException")) {
-                try {
-                    throw new BusinessException("ClientAbortException !! " + ex.getMessage()) ;
-                } catch (BusinessException ex1) {
-                     LOGGER.log(Level.SEVERE, ex1.getMessage(), ex1) ;
-                }
+            if ( ex.getClass().getName().endsWith(".ClientAbortException")) {
+                
+                throw new RuntimeException("ClientAbortException !! " + ex.getMessage())   ; 
+                
             } else {
-                try {
-                    throw new BusinessException("Exception : " + ex.getMessage(), ex)         ;
-                } catch (BusinessException ex1 )                   {
-                    LOGGER.log(Level.SEVERE, "Exception : ", ex1 ) ;
-                }
+                
+                throw new RuntimeException("Exception : " + ex.getMessage(), ex )          ;
             }
-        }   catch (InterruptedException ex)              {
-            LOGGER.log(Level.SEVERE, "Exception : ", ex) ;
+           
+        }   catch ( InterruptedException ex ) {
+           
+            LOGGER.log(Level.SEVERE, "InterruptedException : ", ex )                       ;
+            throw new RuntimeException("InterruptedException !! " + ex.getMessage())       ; 
+           
         } finally {
-             isFinishedProcess = true                                                         ;
-             LOGGER.log(Level.CONFIG, " StreamerOutputJson : CLOSE WRITER AND BAOSTREAM")     ;
+             isFinishedProcess = true                                                      ;
+             LOGGER.log(Level.CONFIG, " StreamerOutputJson : CLOSE WRITER AND BAOSTREAM")  ;
        }
     }
 
