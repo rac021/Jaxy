@@ -9,7 +9,6 @@ import java.io.IOException ;
 import java.io.OutputStream ;
 import java.io.BufferedWriter ;
 import java.util.logging.Level ;
-import java.util.logging.Logger ;
 import java.io.OutputStreamWriter ;
 import java.util.concurrent.TimeUnit ;
 import javax.ws.rs.core.MultivaluedMap ;
@@ -21,7 +20,6 @@ import com.rac021.jaxy.api.crypto.AcceptType ;
 import com.rac021.jaxy.api.manager.IResource ;
 import com.rac021.jaxy.api.exceptions.BusinessException ;
 import static com.rac021.jaxy.api.manager.TemplateManager.* ;
-import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 import static com.rac021.jaxy.api.manager.DtoMapper.extractValuesFromObject ;
 
@@ -33,17 +31,15 @@ import static com.rac021.jaxy.api.manager.DtoMapper.extractValuesFromObject ;
 @Format(AcceptType.TEMPLATE_PLAIN)
 public class StreamerOutputTemplate extends Streamer implements StreamingOutput {
 
-    private static final Logger LOGGER  = getLogger() ;
-   
     public StreamerOutputTemplate() {
     }
 
     @Override
     public void write(OutputStream output) throws IOException {
         
-       LOGGER.log(Level.FINE ," Processing data in StreamerOutputTemplate ... ") ;
+       LOGGER.log(Level.FINE ," Processing data in StreamerOutputTemplate ... ")           ;
        
-       if( checkIfExceptionsAndNotify( "StreamerOutputTemplate-RuntimeException", false )) return ;
+       checkIfExceptionsAndNotify( "StreamerOutputTemplate-RuntimeException", false, null) ;
        
        configureStreamer() ;
 
@@ -106,7 +102,7 @@ public class StreamerOutputTemplate extends Streamer implements StreamingOutput 
              writer.flush()         ;
              
              /** Check and flush exception before close Writer . */
-             checkIfExceptionsAndNotify( "StreamerOutputTemplate-RuntimeException", true ) ;
+             checkIfExceptionsAndNotify( "StreamerOutputTemplate-RuntimeException", true , writer ) ;
 
         } catch (IOException ex) {
             
