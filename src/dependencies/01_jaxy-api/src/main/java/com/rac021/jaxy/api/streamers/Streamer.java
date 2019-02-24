@@ -121,7 +121,8 @@ public abstract class Streamer implements IStreamer {
                                                      }})
                                                .count() ;
 
-                         if (count == 0 ) { // sql result = 0
+                         // sql result = 0 OR // sql result < selectSize
+                         if ( count == 0 || count < selectSize ) {
 
                              isFinishedProcess = true ;
                              break                    ;
