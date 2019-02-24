@@ -75,12 +75,12 @@ public abstract class Streamer implements IStreamer {
                             .stream()
                             .map ( future -> { try { return future.get() ; }
                                    catch ( InterruptedException | ExecutionException e) {
-                                     exceptions.add(e) ;
                                      throw new RuntimeException(e)      ;
                                    } } )
                             .count() ;
 
-        } catch( RuntimeException | InterruptedException e ) {
+        } catch( RuntimeException  | InterruptedException e ) {
+          exceptions.add(e)        ;
         } finally {
           isFinishedProcess = true ;
         }
@@ -101,25 +101,29 @@ public abstract class Streamer implements IStreamer {
            
                 while ( ! isFinishedProcess )     {
 
-                    long count = resource.getDtoIterable( entityManager, 
-                                                          selectSize * ratio ,
-                                                          keepFieldsList     )
-                                         .stream()
-                                         .map( (localDto) -> {
-                                               try {
-                                                   dtos.put(localDto)   ;
-                                                   return localDto      ;
-                                               } catch (InterruptedException ex)   {
-                                                   throw new RuntimeException(ex)  ;
-                                               }})
-                                         .count() ;
+                    try { 
+                          long count = resource.getDtoIterable( entityManager, 
+                                                                selectSize * ratio ,
+                                                                keepFieldsList     )
+                                               .stream()
+                                               .map( (localDto)  ->           {
+                                                     try {
+                                                         dtos.put(localDto)   ;
+                                                         return localDto      ;
+                                                     } catch (InterruptedException ex)   {
+                                                         throw new RuntimeException(ex)  ;
+                                                     }})
+                                               .count() ;
 
-                   if (count == 0 ) {
+                         if (count == 0 ) { // sql result = 0
 
-                       isFinishedProcess = true ;
-                       break                    ;
-
-                   } 
+                             isFinishedProcess = true ;
+                             break                    ;
+                         } 
+                     
+                    } catch ( Exception ex ) {
+                       throw new RuntimeException(ex) ;
+                   }
                 }
 
                 return null ;
