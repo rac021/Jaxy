@@ -163,11 +163,10 @@ KEY_STORE_PASSWORD :  jaxyjaxy
 #################################
 
 # * If Total connections >= RejectConnectionsWhenLimitExceeded 
-#    then clients will be rejected 
-#    If <=0 then no rejection
+#   then clients will be rejected 
+#   If <=0 then no rejection
 # * Should be > than MaxConcurrentUsers 
 RejectConnectionsWhenLimitExceeded : 100
-
 
 # Numbers concurent users
 # IF <=0 then unlimited users 
@@ -250,10 +249,13 @@ MANAGEMENT_ALLOWED_ORIGIN : *
 
 IO_THREADS       : 16 
 
-##########################################
-# Specify the maximum number of threads ## 
-# for the worker task thread pool.      ##
-##########################################
+###########################################################
+# Specify the maximum number of threads for the         ### 
+# worker task thread pool.                              ### 
+# HTTP connections are blocked when                     ###
+# Total connections > TASK_MAX_THREADS ,                ###
+# Should be >= than RejectConnectionsWhenLimitExceeded  ###
+###########################################################
 
 TASK_MAX_THREADS : 128
 
