@@ -207,7 +207,7 @@ public abstract class Streamer implements IStreamer {
                       LOGGER.log(Level.SEVERE, exception.getMessage(), exception ) ;
                       writer.write(" \n" )                                         ;
                       writer.write("// Exception : " + exception.getMessage())     ;
-                      writer.write(" \n" )                                         ;
+                      writer.write(" \n\n" )                                       ;
                       writer.flush()                                               ;
                    
                   } else {
