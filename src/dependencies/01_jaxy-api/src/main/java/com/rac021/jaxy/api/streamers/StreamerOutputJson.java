@@ -7,7 +7,6 @@ import java.io.IOException ;
 import java.io.OutputStream ;
 import java.io.BufferedWriter ;
 import java.util.logging.Level ;
-import java.util.logging.Logger ;
 import javax.xml.namespace.QName ;
 import javax.xml.bind.Marshaller ;
 import java.io.OutputStreamWriter ;
@@ -21,8 +20,6 @@ import javax.ws.rs.core.StreamingOutput ;
 import com.rac021.jaxy.api.manager.IResource ;
 import com.rac021.jaxy.api.crypto.AcceptType ;
 import com.rac021.jaxy.api.qualifiers.Format ;
-import com.rac021.jaxy.api.exceptions.BusinessException ;
-import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 
 /**
@@ -36,18 +33,16 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
     @Inject
     @com.rac021.jaxy.api.qualifiers.MarshallerType("JSON")
     Marshaller marshaller ;
-    
-    private static final Logger LOGGER = getLogger() ;
    
     public StreamerOutputJson() {
     }
 
     @Override
-    public void write(OutputStream output) throws IOException {
+    public void write(OutputStream output) throws IOException  {
         
-       LOGGER.log(Level.FINE ," Processing data in StreamerOutputJson ... ") ;
+       LOGGER.log( Level.FINE ," Processing data in StreamerOutputJson ... ")          ;
 
-       if( checkIfExceptionsAndNotify( "StreamerOutputJson-RuntimeException",false )) return ;
+       checkIfExceptionsAndNotify( "StreamerOutputJson-RuntimeException",false, null ) ;
             
        configureStreamer() ;
 
@@ -81,9 +76,9 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
                 }
              }
 
-             checkIfExceptionsAndNotify( "StreamerOutputJson-RuntimeException",true )      ;
+             checkIfExceptionsAndNotify( "StreamerOutputJson-RuntimeException",true, null ) ;
            
-             writer.flush()                                                                ;
+             writer.flush()                                                                 ;
              
         } catch ( JAXBException | IOException ex )          {
             
