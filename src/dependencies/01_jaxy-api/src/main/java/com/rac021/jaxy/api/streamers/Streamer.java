@@ -45,19 +45,19 @@ public abstract class Streamer implements IStreamer {
     @Inject 
     protected ServicesManager servicesManager       ;
  
-    protected static final Logger LOGGER = getLogger()                  ;
+    protected static final         Logger LOGGER   = getLogger()  ;
     
-    protected  BlockingQueue<IDto> dtos                                 ;
+    protected  BlockingQueue<IDto> dtos                           ;
     
-    protected  int                 maxThreads                           ;
+    protected  int                 maxThreads                     ;
     
-    protected  ResourceWraper      resource                             ;
+    protected  ResourceWraper      resource                       ;
     
-    private    List<String>        keepFieldsList       = null          ;
+    private    List<String>        keepFieldsList     = null      ;
     
-    protected  boolean             isFinishedProcess    = false         ;
+    protected  boolean             isFinishedProcess  = false     ;
     
-    private    BlockingQueue<Exception> exceptions      = new ArrayBlockingQueue<>(5) ;
+    private    BlockingQueue<Exception> exceptions    = new ArrayBlockingQueue<>(5) ;
     
     @PreDestroy   
     public void cleanup() {
