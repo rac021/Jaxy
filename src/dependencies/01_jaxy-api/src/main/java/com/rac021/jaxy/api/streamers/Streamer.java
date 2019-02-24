@@ -51,7 +51,7 @@ public abstract class Streamer implements IStreamer {
     
     protected  boolean             isFinishedProcess    = false         ;
     
-    protected  BlockingQueue<Exception> exceptions      = new ArrayBlockingQueue<>(5) ;
+    private    BlockingQueue<Exception> exceptions      = new ArrayBlockingQueue<>(5) ;
     
     @PreDestroy   
     public void cleanup() {
