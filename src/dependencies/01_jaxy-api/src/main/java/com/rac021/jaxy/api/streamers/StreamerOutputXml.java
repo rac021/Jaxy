@@ -7,7 +7,6 @@ import javax.inject.Inject ;
 import java.io.OutputStream ;
 import java.io.BufferedWriter ;
 import java.util.logging.Level ;
-import java.util.logging.Logger ;
 import javax.xml.bind.Marshaller ;
 import javax.xml.namespace.QName ;
 import java.io.OutputStreamWriter ;
@@ -21,8 +20,6 @@ import javax.ws.rs.core.StreamingOutput ;
 import com.rac021.jaxy.api.crypto.AcceptType ;
 import com.rac021.jaxy.api.qualifiers.Format ;
 import com.rac021.jaxy.api.manager.IResource ;
-import com.rac021.jaxy.api.exceptions.BusinessException ;
-import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 ;
 
@@ -37,8 +34,6 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
     @Inject
     @com.rac021.jaxy.api.qualifiers.MarshallerType("XML")
     Marshaller marshaller ;
-    
-    private static final Logger LOGGER  = getLogger() ;
    
     public StreamerOutputXml() {
     }
@@ -46,17 +41,18 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
     @Override
     public void write(OutputStream output) throws IOException {
 
-      LOGGER.log(Level.FINE ," Processing data in StreamerOutputXml ... ") ;
+      LOGGER.log(Level.FINE ," Processing data in StreamerOutputXml ... " )              ;
       
-      if( checkIfExceptionsAndNotify( "StreamerOutputXml-RuntimeException", false )) return ;
+      checkIfExceptionsAndNotify( "StreamerOutputXml-RuntimeException", false , null )   ;
       
-      configureStreamer() ;
+      configureStreamer()                                                                ;
 
       /** Prepare Thread Producers . */
       poolProducer.submit( () -> producerScheduler() ) ;      
       
-      try ( Writer writer = new BufferedWriter( new OutputStreamWriter(output, "UTF8") ) ;
-            ByteArrayOutputStream baoStream = new ByteArrayOutputStream())               {
+      Writer writer = new BufferedWriter( new OutputStreamWriter(output, "UTF8") )       ;
+            
+      try ( ByteArrayOutputStream baoStream = new ByteArrayOutputStream() )              {
                
           writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")  ;
           writer.write("\n<Root>") ;
@@ -90,32 +86,24 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
           writer.flush()            ;
           
           /** Check and flush exception before close Writer . */
-          checkIfExceptionsAndNotify( "StreamerOutputXml-RuntimeException", true ) ;
+          checkIfExceptionsAndNotify( "StreamerOutputXml-RuntimeException", true, writer ) ;
           
         } catch (IOException | JAXBException ex) {
             
             LOGGER.log(Level.SEVERE, ex.getMessage(), ex ) ;
             
-            if (ex.getClass().getName().endsWith(".ClientAbortException")) {
-                try {
-                    throw new BusinessException("ClientAbortException !! " + ex.getMessage()) ;
-                } catch (BusinessException ex1)                    {
-                    LOGGER.log(Level.SEVERE, ex.getMessage(), ex1) ;
-                }
+            if ( ex.getClass().getName().endsWith(".ClientAbortException"))               {
+                 throw new RuntimeException("ClientAbortException - " + ex.getMessage())  ;
             } else {
-                try {
-                    throw new BusinessException (" Exception : " + ex.getMessage()) ;
-                } catch (BusinessException ex1) {
-                    LOGGER.log(Level.SEVERE, ex.getMessage(), ex1) ;
-                }
+                 throw new RuntimeException (" Exception : " + ex.getMessage())           ;
             }
 
         } catch (InterruptedException ex)                 {
             LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
+            throw new RuntimeException (" Exception : " + ex.getMessage() )               ;
         }
         finally {
-            LOGGER.log( Level.CONFIG, " StreamerOutputXml : CLOSE WRITER AND BAOSTREAM")    ;
-            isFinishedProcess = true  ;
+           LOGGER.log( Level.CONFIG, " StreamerOutputXml : CLOSE ")                       ;
         }
     }
 
@@ -138,5 +126,5 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
       rootResourceWraper( resource, dto, null ) ;        
       return this                               ;
     }
-
 }
+
