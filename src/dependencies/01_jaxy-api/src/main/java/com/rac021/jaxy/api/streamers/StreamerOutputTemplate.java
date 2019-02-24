@@ -18,7 +18,6 @@ import com.rac021.jaxy.api.security.ISignOn ;
 import com.rac021.jaxy.api.qualifiers.Format ;
 import com.rac021.jaxy.api.crypto.AcceptType ;
 import com.rac021.jaxy.api.manager.IResource ;
-import com.rac021.jaxy.api.exceptions.BusinessException ;
 import static com.rac021.jaxy.api.manager.TemplateManager.* ;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 import static com.rac021.jaxy.api.manager.DtoMapper.extractValuesFromObject ;
@@ -99,35 +98,28 @@ public class StreamerOutputTemplate extends Streamer implements StreamingOutput 
                 writer.write( templateFooter + "\n" )                   ;
              }
              
-             writer.flush()         ;
+             writer.flush()                                             ;
              
-             /** Check and flush exception before close Writer . */
+             /** Check and flush exception before close Writer .      */
              checkIfExceptionsAndNotify( "StreamerOutputTemplate-RuntimeException", true , writer ) ;
 
-        } catch (IOException ex) {
-            
+       } catch (IOException ex) {
+           
+            LOGGER.log(Level.SEVERE, ex.getMessage(), ex )                 ;
+           
             if (ex.getClass().getName().endsWith(".ClientAbortException")) {
-                try {
-                    throw new BusinessException("ClientAbortException !! " + ex.getMessage()) ;
-                } catch ( BusinessException ex1 )         {
-                      LOGGER.log(Level.SEVERE, null, ex1) ;
-                }
+                 throw new RuntimeException("ClientAbortException - " + ex.getMessage()) ;                
             } else {
-                try {
-                    throw new BusinessException("Exception : " + ex.getMessage(), ex) ;
-                } catch (BusinessException ex1 )                   {
-                    LOGGER.log(Level.SEVERE, ex.getMessage(), ex1) ;
-                }
-            }
+                 throw new RuntimeException("Exception - " + ex.getMessage(), ex) ;
+            } 
             
-        }   catch (InterruptedException ex)               {
+       }  catch (InterruptedException ex )               {
         
-            LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
+            LOGGER.log(Level.SEVERE, ex.getMessage(), ex )                   ;
+            throw new RuntimeException("Exception - " + ex.getMessage(), ex) ;
         
-        } finally {
-            LOGGER.log( Level.CONFIG, " StreamerOutputTemplate : CLOSE WRITER AND BAOSTREAM")   ;
-            isFinishedProcess = true      ;
-            writer.close()                ;
+       } finally {
+            LOGGER.log( Level.CONFIG, " StreamerOutputTemplate : CLOSE ")    ;
        }
     }
 
