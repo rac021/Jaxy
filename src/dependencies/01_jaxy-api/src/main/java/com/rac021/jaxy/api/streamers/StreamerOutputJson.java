@@ -104,7 +104,6 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
             throw new RuntimeException("InterruptedException !! " + ex.getMessage())       ; 
            
         } finally {
-             isFinishedProcess = true                                                      ;
              LOGGER.log(Level.CONFIG, " StreamerOutputJson : CLOSE WRITER AND BAOSTREAM")  ;
        }
     }
