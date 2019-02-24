@@ -11,7 +11,6 @@ import java.util.LinkedList ;
 import java.io.OutputStream ;
 import java.io.BufferedWriter ;
 import java.util.logging.Level ;
-import java.util.logging.Logger ;
 import javax.xml.namespace.QName ;
 import javax.xml.bind.Marshaller ;
 import java.io.OutputStreamWriter ;
@@ -33,7 +32,6 @@ import com.rac021.jaxy.api.manager.IResource ;
 import com.rac021.jaxy.api.crypto.EncDecRyptor ;
 import com.rac021.jaxy.api.crypto.FactoryCipher ;
 import com.rac021.jaxy.api.exceptions.BusinessException ;
-import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
 
 /**
@@ -47,17 +45,15 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
     @Inject
     @com.rac021.jaxy.api.qualifiers.MarshallerType("JSON")
     Marshaller marshaller ;
-    
-    private static final Logger LOGGER  = getLogger() ;
    
     public StreamerOutputJsonEncrypted() { }
 
     @Override
     public void write(OutputStream output) throws IOException {
         
-        LOGGER.log(Level.FINE ," Processing data in StreamerOutputJsonEncrypted ... ") ;
+        LOGGER.log( Level.FINE ," Processing data in StreamerOutputJsonEncrypted ... ")           ;
       
-        if( checkIfExceptionsAndNotify( "StreamerOutputJsonEncrypted-RuntimeException", false )) return ;
+        checkIfExceptionsAndNotify( "StreamerOutputJsonEncrypted-RuntimeException", false, null ) ;
         
         if ( ISignOn.ENCRYPTION_KEY.get() == null ) {
           LOGGER.log( Level.SEVERE, " Error : Key can't be NULL " )       ;
@@ -168,7 +164,7 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
             }
 
             qeueBytes.addAll ( Arrays.asList( ArrayUtils.toObject(crypt.process (
-                                              plainTextBuilder.toString() ,
+                                              plainTextBuilder.toString()       ,
                                               EncDecRyptor._CipherOperation.dofinal ) ) 
             ) ) ;
  
@@ -181,7 +177,7 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
             writer.flush()    ;
             
             /** Check and flush exception before close Writer . */
-            checkIfExceptionsAndNotify( "StreamerOutputJsonEncrypted-RuntimeException", true ) ;
+            checkIfExceptionsAndNotify( "StreamerOutputJsonEncrypted-RuntimeException", true, writer ) ;
            
 
         } catch (JAXBException | IOException ex) {
@@ -195,8 +191,8 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
                 }
             } else {
                 try {
-                    throw new BusinessException("Exception : " + ex.getMessage()) ;
-                } catch (BusinessException ex1)                {
+                    throw new BusinessException("Exception : "   +  ex.getMessage()) ;
+                } catch (BusinessException ex1)                  {
                     LOGGER.log(Level.SEVERE , ex1.getMessage() ) ;
                 }
             }
@@ -207,12 +203,10 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
         
         } finally {
             LOGGER.log(Level.CONFIG, " StreamerOutputJsonEncrypted : CLOSE WRITER AND BAOSTREAM")  ;
-            isFinishedProcess = true        ;
             ISignOn.SERVICE_NAME.remove()   ;
             ISignOn.ENCRYPTION_KEY.remove() ;
             ISignOn.CIPHER.remove()         ;
             plainTextBuilder.setLength(0)   ;
-            writer.close()                  ;
         }
     }
 
