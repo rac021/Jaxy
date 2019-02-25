@@ -143,7 +143,7 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
             
             while ( ! isFinishedProcess || ! dtos.isEmpty()) {
                 
-                   IDto poll = dtos.poll( 50, TimeUnit.MILLISECONDS) ;
+                   IDto poll = dtos.poll( 30, TimeUnit.MILLISECONDS) ;
        
                    if( poll != null ) {
                        
