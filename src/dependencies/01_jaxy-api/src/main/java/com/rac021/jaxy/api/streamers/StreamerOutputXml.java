@@ -61,7 +61,7 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
            
           while (!isFinishedProcess || !dtos.isEmpty() )              {
 
-            IDto poll = dtos.poll( 50 , TimeUnit.MILLISECONDS  )      ;
+            IDto poll = dtos.poll( 30 , TimeUnit.MILLISECONDS  )      ;
                    
             if(poll != null) {
                 
