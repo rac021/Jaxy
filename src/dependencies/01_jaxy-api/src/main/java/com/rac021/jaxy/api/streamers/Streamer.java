@@ -210,6 +210,7 @@ public abstract class Streamer implements IStreamer {
                       writer.write("// Exception : " + exception.getMessage())     ;
                       writer.write(" \n\n" )                                       ;
                       writer.flush()                                               ;
+                      writer.close()                                               ;
                    
                   } else {
                    
