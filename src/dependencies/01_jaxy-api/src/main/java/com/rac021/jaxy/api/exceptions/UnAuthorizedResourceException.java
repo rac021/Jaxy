@@ -11,6 +11,6 @@ public class UnAuthorizedResourceException extends BusinessException {
     public UnAuthorizedResourceException(String message) {
         super( message )                                 ;
         
-    }
-    
+    }    
 }
+
