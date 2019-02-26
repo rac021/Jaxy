@@ -11,6 +11,7 @@ import javax.xml.namespace.QName ;
 import javax.xml.bind.Marshaller ;
 import java.io.OutputStreamWriter ;
 import javax.xml.bind.JAXBElement ;
+import java.util.concurrent.Future ;
 import javax.xml.bind.JAXBException ;
 import java.util.concurrent.TimeUnit ;
 import java.io.ByteArrayOutputStream ;
@@ -40,14 +41,12 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
     @Override
     public void write(OutputStream output) throws IOException  {
         
-       LOGGER.log( Level.FINE ," Processing data in StreamerOutputJson ... ")          ;
-
-       checkIfExceptionsAndNotify( "StreamerOutputJson-RuntimeException",false, null ) ;
+       LOGGER.log( Level.FINE ," Processing data in StreamerOutputJson ... ")       ;
             
-       configureStreamer() ;
+       configureStreamer()    ;
 
        /** Submit Producers . */
-       poolProducer.submit( () -> producerScheduler() ) ;      
+       Future<Long> producers = poolProducer.submit( () -> producerScheduler() )    ;      
       
        /** StreamingOutput must not be closed **/
        Writer writer = new BufferedWriter ( new OutputStreamWriter(output, "UTF8")) ;
@@ -72,34 +71,20 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
                       baoStream.reset()                        ;
                       iteration ++                             ;
                       
-                      if (iteration % responseCacheSize == 0 )  writer.flush() ;
+                      if ( iteration % responseCacheSize  == 0 )  writer.flush() ;
                 }
              }
 
-             checkIfExceptionsAndNotify( "StreamerOutputJson-RuntimeException",true, null ) ;
+             writer.flush()      ;
            
-             writer.flush()                                                                 ;
+             producers.get()     ;
              
-        } catch ( JAXBException | IOException ex )          {
-            
-            LOGGER.log( Level.SEVERE, ex.getMessage(), ex ) ;
-            
-            if ( ex.getClass().getName().endsWith(".ClientAbortException")) {
-                
-                throw new RuntimeException("ClientAbortException !! " + ex.getMessage())   ; 
-                
-            } else {
-                
-                throw new RuntimeException("Exception : " + ex.getMessage(), ex )          ;
-            }
+        } catch ( Exception ex ) {
            
-        }   catch ( InterruptedException ex ) {
+            throw new RuntimeException( ex )  ; 
            
-            LOGGER.log(Level.SEVERE, "InterruptedException : ", ex )                       ;
-            throw new RuntimeException("InterruptedException !! " + ex.getMessage())       ; 
-           
-        } finally {
-             LOGGER.log(Level.CONFIG, " StreamerOutputJson : CLOSE WRITER AND BAOSTREAM")  ;
+        }  finally     {
+            LOGGER.log ( Level.CONFIG , " StreamerOutputJson : CLOSE " )   ;
        }
     }
 
