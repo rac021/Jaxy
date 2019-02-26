@@ -97,10 +97,10 @@ public class StreamerOutputTemplate extends Streamer implements StreamingOutput 
                 writer.write( templateFooter + "\n" )                   ;
              }
              
-            /** Check Exceptions */
-             producers.get()                                            ;
-           
              writer.flush()                                             ;
+           
+             /** Check Exceptions */
+             producers.get()                                            ;           
            
        } catch ( Exception ex )  {
            
