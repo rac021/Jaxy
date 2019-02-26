@@ -12,7 +12,6 @@ import javax.xml.bind.Marshaller ;
 import java.io.OutputStreamWriter ;
 import javax.xml.bind.JAXBElement ;
 import java.util.concurrent.Future ;
-import javax.xml.bind.JAXBException ;
 import java.util.concurrent.TimeUnit ;
 import java.io.ByteArrayOutputStream ;
 import javax.ws.rs.core.MultivaluedMap ;
