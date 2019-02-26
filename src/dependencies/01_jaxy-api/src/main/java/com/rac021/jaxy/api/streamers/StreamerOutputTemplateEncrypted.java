@@ -128,7 +128,7 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
             writer.flush()  ;
         }
 
-       if( templateHeader != null && ! templateHeader.trim().isEmpty() )     {
+       if( templateHeader != null && ! templateHeader.trim().isEmpty() )         {
            plainTextBuilder.append(templateHeader).append("\n") ;
        }
  
