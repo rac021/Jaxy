@@ -13,8 +13,8 @@ import java.util.LinkedList ;
 import java.io.OutputStream ;
 import java.io.BufferedWriter ;
 import java.util.logging.Level ;
-import java.util.logging.Logger ;
 import java.io.OutputStreamWriter ;
+import java.util.concurrent.Future ;
 import java.io.ByteArrayOutputStream ;
 import java.util.concurrent.TimeUnit ;
 import javax.ws.rs.core.MultivaluedMap ;
@@ -54,10 +54,8 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
     @Override
     public void write(OutputStream output) throws IOException {
         
-        LOGGER.log(Level.FINE ," Processing data in StreamerOutputTemplateEncrypted ... ")             ;
+        LOGGER.log(Level.FINE ," Processing data in StreamerOutputTemplateEncrypted ... ")  ;
 
-        checkIfExceptionsAndNotify( "StreamerOutputTemplateEncrypted-RuntimeException", false , null ) ;
-        
         if ( ISignOn.ENCRYPTION_KEY.get() == null )                         {
           LOGGER.log(Level.SEVERE, " Error : Key can't be NULL " )          ;
           throw new WebApplicationException(" Error : Key can't be NULL " ) ;
@@ -66,7 +64,7 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
         configureStreamer() ;
 
         /** Submit Producers . */
-        poolProducer.submit( () -> producerScheduler() ) ;      
+        Future<Long> producers = poolProducer.submit( () -> producerScheduler() )    ;      
 
         Writer writer  = new BufferedWriter( new OutputStreamWriter(output, "UTF8")) ;
       
@@ -212,26 +210,17 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
 
             writer.write(new String(Base64.getEncoder().encode(outString.toByteArray() ) ) ) ;
 
+            producers.get()   ;           
+           
             writer.flush()    ;
+          
+        } catch ( Exception ex )  {
             
-            /** Check and flush exception before close Writer . */
-            checkIfExceptionsAndNotify( "StreamerOutputTemplateEncrypted-RuntimeException", true, writer ) ;           
- 
-        } catch (IOException ex ) {
-            
-            LOGGER.log(Level.SEVERE, ex.getMessage(), ex ) ;
-            
-            if (ex.getClass().getName().endsWith(".ClientAbortException"))                   {
-                 throw new RuntimeException("ClientAbortException - " + ex.getMessage(), ex) ;               
-            } else {
-                 throw new RuntimeException("Exception - " + ex.getMessage())                ;
-            }
-            
-        } catch ( InterruptedException ex )               {
-            LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
-            throw new RuntimeException("RuntimeException - " + ex.getMessage(), ex ) ;
+            throw new RuntimeException ( ex ) ;
         }
+        
         finally {
+            
             LOGGER.log( Level.CONFIG, " StreamerOutputTemplateEncrypted : CLOSE ")   ;
             ISignOn.ENCRYPTION_KEY.remove() ;
             ISignOn.CIPHER.remove()         ;
