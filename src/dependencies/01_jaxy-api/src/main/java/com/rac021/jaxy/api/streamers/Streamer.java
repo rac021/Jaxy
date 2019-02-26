@@ -69,7 +69,7 @@ public abstract class Streamer implements IStreamer {
     
     public Streamer() { }
 
-    public void producerScheduler()                 {
+    public long producerScheduler()                 {
         
         resource.initResource( selectSize * ratio ) ;
 
@@ -77,6 +77,7 @@ public abstract class Streamer implements IStreamer {
                                              .mapToObj( i -> (Callable<Void>) new Producer() )
                                              .collect(Collectors.toList());
         try {
+                return 
                 poolProducer.invokeAll(jobs)
                             .stream()
                             .map ( future -> { try { return future.get() ; }
@@ -86,9 +87,9 @@ public abstract class Streamer implements IStreamer {
                             .count() ;
 
         } catch( RuntimeException  | InterruptedException e ) {
-          exceptions.add(e)        ;
-        } finally {
-          isFinishedProcess = true ;
+          throw new RuntimeException(e) ;
+        } finally                       {
+          isFinishedProcess = true      ;
         }
     }
 
