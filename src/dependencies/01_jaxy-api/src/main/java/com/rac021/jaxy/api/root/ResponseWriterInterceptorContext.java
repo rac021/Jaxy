@@ -37,8 +37,8 @@ public class ResponseWriterInterceptorContext implements WriterInterceptor {
             
             context.getOutputStream()
                    .write( ( "\n<status> RuntimeException - "  +
-                              ex.getLocalizedMessage()         +
-                              " </status>\n\n" ) .getBytes() ) ;            
+                              getCause( ex )                   +
+                              " </status>\n\n" ) .getBytes() ) ;
         }
         
         finally {
@@ -68,5 +68,18 @@ public class ResponseWriterInterceptorContext implements WriterInterceptor {
             }
         }
     }
+    
+    private Throwable getCause(Throwable e) {
+        
+        Throwable cause  = null ; 
+        Throwable result = e    ;
+
+        while( ( cause = result.getCause() ) != null  && ( result != cause ) )  {
+            result = cause ;
+        }
+        
+        return result ;
+    }
+    
 }
 
