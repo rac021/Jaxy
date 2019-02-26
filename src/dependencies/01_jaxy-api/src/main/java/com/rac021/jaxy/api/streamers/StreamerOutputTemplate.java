@@ -10,6 +10,7 @@ import java.io.OutputStream ;
 import java.io.BufferedWriter ;
 import java.util.logging.Level ;
 import java.io.OutputStreamWriter ;
+import java.util.concurrent.Future ;
 import java.util.concurrent.TimeUnit ;
 import javax.ws.rs.core.MultivaluedMap ;
 import com.rac021.jaxy.api.manager.IDto ;
@@ -28,7 +29,7 @@ import static com.rac021.jaxy.api.manager.DtoMapper.extractValuesFromObject ;
  */
 
 @Format(AcceptType.TEMPLATE_PLAIN)
-public class StreamerOutputTemplate extends Streamer implements StreamingOutput {
+public class StreamerOutputTemplate extends Streamer implements StreamingOutput     {
 
     public StreamerOutputTemplate() {
     }
@@ -36,14 +37,12 @@ public class StreamerOutputTemplate extends Streamer implements StreamingOutput 
     @Override
     public void write(OutputStream output) throws IOException {
         
-       LOGGER.log(Level.FINE ," Processing data in StreamerOutputTemplate ... ")           ;
+       LOGGER.log(Level.FINE ," Processing data in StreamerOutputTemplate ... ")    ;
        
-       checkIfExceptionsAndNotify( "StreamerOutputTemplate-RuntimeException", false, null) ;
-       
-       configureStreamer() ;
+       configureStreamer()     ;
 
        /** Submit Producers . */
-       poolProducer.submit( () -> producerScheduler() ) ;      
+        Future<Long> producers =  poolProducer.submit( () -> producerScheduler() )  ;      
       
        Writer writer = new BufferedWriter ( new OutputStreamWriter(output, "UTF8")) ;
 
@@ -98,28 +97,17 @@ public class StreamerOutputTemplate extends Streamer implements StreamingOutput 
                 writer.write( templateFooter + "\n" )                   ;
              }
              
+            /** Check Exceptions */
+             producers.get()                                            ;
+           
              writer.flush()                                             ;
-             
-             /** Check and flush exception before close Writer .      */
-             checkIfExceptionsAndNotify( "StreamerOutputTemplate-RuntimeException", true , writer ) ;
-
-       } catch (IOException ex) {
            
-            LOGGER.log(Level.SEVERE, ex.getMessage(), ex )                 ;
+       } catch ( Exception ex )  {
            
-            if (ex.getClass().getName().endsWith(".ClientAbortException")) {
-                 throw new RuntimeException("ClientAbortException - " + ex.getMessage()) ;                
-            } else {
-                 throw new RuntimeException("Exception - " + ex.getMessage(), ex) ;
-            } 
-            
-       }  catch (InterruptedException ex )               {
-        
-            LOGGER.log(Level.SEVERE, ex.getMessage(), ex )                   ;
-            throw new RuntimeException("Exception - " + ex.getMessage(), ex) ;
+           throw new RuntimeException( ex ) ;
         
        } finally {
-            LOGGER.log( Level.CONFIG, " StreamerOutputTemplate : CLOSE ")    ;
+           LOGGER.log( Level.CONFIG, " StreamerOutputTemplate : CLOSE ")  ;
        }
     }
 
