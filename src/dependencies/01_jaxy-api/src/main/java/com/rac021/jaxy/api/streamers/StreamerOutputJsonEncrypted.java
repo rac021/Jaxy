@@ -172,11 +172,12 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
 
             writer.write(new String(Base64.getEncoder().encode(outString.toByteArray() ) ) ) ;
 
-            producers.get()      ;
+            writer.flush()         ;
             
-            writer.flush()       ;
+            /** Check Exceptions **/
+            producers.get()        ;
 
-        } catch ( Exception ex ) {
+        } catch ( Exception ex )  {
             
             throw new RuntimeException(ex)  ;
             
