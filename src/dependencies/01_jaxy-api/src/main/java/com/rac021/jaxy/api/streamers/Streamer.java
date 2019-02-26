@@ -1,12 +1,9 @@
 
 package com.rac021.jaxy.api.streamers ;
 
-import java.io.Writer ;
 import java.util.List ;
 import java.util.ArrayList ;
 import javax.inject.Inject ;
-import java.io.IOException ;
-import java.util.logging.Level ;
 import java.util.logging.Logger ;
 import java.util.stream.IntStream ;
 import javax.annotation.PreDestroy ;
@@ -25,9 +22,8 @@ import java.util.concurrent.ArrayBlockingQueue ;
 import com.rac021.jaxy.api.root.ServicesManager ;
 import com.rac021.jaxy.api.analyzer.SqlAnalyzer ;
 import com.rac021.jaxy.api.root.RuntimeServiceInfos ;
-import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger;
+import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
-;
 
 /**
  *
@@ -185,42 +181,5 @@ public abstract class Streamer implements IStreamer {
         this.maxThreads = iStreamerConfigurator.getMaxThreads() ;
     }    
     
-    protected void checkIfExceptionsAndNotify( String   messagefrom   ,
-                                               boolean  rootException , 
-                                               Writer   writer       ) throws IOException {
-
-        /** Check and flush exception before close Writer */
-     
-        if( ! exceptions.isEmpty() )                      {
-           
-            while( ! exceptions.isEmpty() )               {
-             
-                  Exception exception = exceptions.poll() ;
-             
-                  if( rootException ) {
-                   
-                      while ( exception.getCause() != null)           {
-                         exception = (Exception) exception.getCause() ;
-                      }
-                  }
-             
-                  if ( writer != null ) {
-                   
-                      LOGGER.log(Level.SEVERE, exception.getMessage(), exception ) ;
-                      writer.write(" \n" )                                         ;
-                      writer.write("// Exception : " + exception.getMessage())     ;
-                      writer.write(" \n\n" )                                       ;
-                      writer.flush()                                               ;
-                      writer.close()                                               ;
-                   
-                  } else {
-                   
-                      /** Will invock the RuntimeExceptionMapper that will LOG and 
-                          send response to the client . */
-                      throw new RuntimeException(exception)                        ;
-                  }
-            }
-        }
-    }
 }
 
