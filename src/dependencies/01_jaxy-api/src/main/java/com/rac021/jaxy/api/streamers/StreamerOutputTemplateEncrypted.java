@@ -210,10 +210,11 @@ public class StreamerOutputTemplateEncrypted extends Streamer implements Streami
 
             writer.write(new String(Base64.getEncoder().encode(outString.toByteArray() ) ) ) ;
 
-            producers.get()   ;           
-           
-            writer.flush()    ;
+            writer.flush()        ;
           
+            /** Check Exceptions */
+            producers.get()       ;           
+           
         } catch ( Exception ex )  {
             
             throw new RuntimeException ( ex ) ;
