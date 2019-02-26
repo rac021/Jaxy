@@ -15,7 +15,7 @@ import javax.xml.namespace.QName ;
 import javax.xml.bind.Marshaller ;
 import java.io.OutputStreamWriter ;
 import javax.xml.bind.JAXBElement ;
-import javax.xml.bind.JAXBException ;
+import java.util.concurrent.Future ;
 import java.util.concurrent.TimeUnit ;
 import java.io.ByteArrayOutputStream ;
 import javax.ws.rs.core.MultivaluedMap ;
@@ -52,19 +52,17 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
     
     public void write( OutputStream output ) throws IOException {
 
-      LOGGER.log(Level.FINE ," Processing data in StreamerOutputXmlEncrypted ... ")             ;
-    
-      checkIfExceptionsAndNotify( "StreamerOutputXmlEncrypted-RuntimeException", false, null )  ;
-      
+      LOGGER.log(Level.FINE ," Processing data in StreamerOutputXmlEncrypted ... ") ;
+     
       if( ISignOn.ENCRYPTION_KEY.get() == null ) {
-         LOGGER.log(Level.SEVERE, " Error : Key can't be NULL " )        ;
-         throw new WebApplicationException(" Error Key can't be NULL " ) ;
+         LOGGER.log(Level.SEVERE, " Error : Key can't be NULL " )                   ;
+         throw new WebApplicationException(" Error Key can't be NULL " )            ;
       }
       
       configureStreamer()                              ;
 
       /** Submit Producers . */
-      poolProducer.submit( () -> producerScheduler() ) ; 
+      Future<Long> producers =  poolProducer.submit( () -> producerScheduler() )   ; 
       
       Writer writer  = new BufferedWriter( new OutputStreamWriter(output, "UTF8")) ;
       
@@ -187,33 +185,20 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
                outString.write(qeueBytes.poll()) ;
             }
 
-            writer.write ( new String(Base64.getEncoder().encode(outString.toByteArray()))) ;
+            writer.write ( new String(Base64.getEncoder().encode(outString.toByteArray())))   ;
 
-            writer.flush()    ;
+            writer.flush()         ;
             
-            /** Check and flush exception before close Writer . */
-            checkIfExceptionsAndNotify( "StreamerOutputXmlEncrypted-RuntimeException", true, writer ) ;
+            /** Check Exception **/
+            producers.get()        ;
             
-        } catch (IOException | JAXBException ex )          {
+        } catch ( Exception ex )  {
             
-            LOGGER.log(Level.SEVERE, ex.getMessage(), ex ) ;
-          
-            if (ex.getClass().getName().endsWith(".ClientAbortException"))                {
-               
-                  throw new RuntimeException("ClientAbortException - " + ex.getMessage()) ;
-               
-            } else {
-                 
-                  throw new RuntimeException("Exception - " + ex.getMessage())            ;
-            }
-            
-        } catch (InterruptedException ex)      {
-          
-            LOGGER.log(Level.SEVERE, null, ex) ;
-            throw new RuntimeException("Exception - " + ex.getMessage())                  ;  
+          throw new RuntimeException( ex )                                     ;
         }
+        
         finally {
-           LOGGER.log( Level.CONFIG, " StreamerOutputXmlEncrypted : CLOSE " )             ;
+           LOGGER.log( Level.CONFIG, " StreamerOutputXmlEncrypted : CLOSE " )  ;
            ISignOn.ENCRYPTION_KEY.remove() ;
            ISignOn.CIPHER.remove()         ;
            plainTextBuilder.setLength(0)   ;
