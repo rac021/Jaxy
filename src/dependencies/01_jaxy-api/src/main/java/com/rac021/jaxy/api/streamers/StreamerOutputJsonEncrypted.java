@@ -15,7 +15,7 @@ import javax.xml.namespace.QName ;
 import javax.xml.bind.Marshaller ;
 import java.io.OutputStreamWriter ;
 import javax.xml.bind.JAXBElement ;
-import javax.xml.bind.JAXBException ;
+import java.util.concurrent.Future ;
 import java.io.ByteArrayOutputStream ;
 import java.util.concurrent.TimeUnit ;
 import javax.ws.rs.core.MultivaluedMap ;
@@ -51,10 +51,8 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
     @Override
     public void write(OutputStream output) throws IOException {
         
-        LOGGER.log( Level.FINE ," Processing data in StreamerOutputJsonEncrypted ... ")           ;
+        LOGGER.log( Level.FINE ," Processing data in StreamerOutputJsonEncrypted ... ") ;
       
-        checkIfExceptionsAndNotify( "StreamerOutputJsonEncrypted-RuntimeException", false, null ) ;
-        
         if ( ISignOn.ENCRYPTION_KEY.get() == null ) {
           LOGGER.log( Level.SEVERE, " Error : Key can't be NULL " )       ;
           throw new WebApplicationException(" Error Key can't be NULL " ) ;
@@ -63,7 +61,7 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
         configureStreamer() ;
 
         /** Submit Producers . */
-        poolProducer.submit( () -> producerScheduler() ) ;      
+        Future<Long> producers = poolProducer.submit( () -> producerScheduler() )    ;      
 
         Writer writer  = new BufferedWriter( new OutputStreamWriter(output, "UTF8")) ;
       
@@ -76,13 +74,13 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
           
         } catch( BusinessException ex ) {
            writer.write(" Exception  : Something went wrong // " + ex.getMessage()        ) ;
-           writer.write(" \n" ) ;
+           writer.write(" \n" )                                                             ;
            writer.write(" MediaType  : JSON/ENCRYPTED "                                   ) ;
-           writer.write(" \n" ) ;
+           writer.write(" \n" )                                                             ;
            writer.write(" Specify accept header in the Request if it's not already done " ) ;
-           writer.write(" \n" ) ;
-           writer.flush()       ; 
-           writer.close()       ;
+           writer.write(" \n" )                                                             ;
+           writer.flush()                                                                   ; 
+           writer.close()                                                                   ;
         }
         
         if( crypt == null ) throw new RuntimeException(" StreamerOutputJsonEncrypted Exception : Crypt = NULL " ) ;
@@ -174,35 +172,17 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
 
             writer.write(new String(Base64.getEncoder().encode(outString.toByteArray() ) ) ) ;
 
-            writer.flush()    ;
+            producers.get()      ;
             
-            /** Check and flush exception before close Writer . */
-            checkIfExceptionsAndNotify( "StreamerOutputJsonEncrypted-RuntimeException", true, writer ) ;
-           
+            writer.flush()       ;
 
-        } catch (JAXBException | IOException ex) {
+        } catch ( Exception ex ) {
             
-            if (ex.getClass().getName().endsWith(".ClientAbortException")) {
-                
-                try {
-                    throw new BusinessException( "ClientAbortException !! " + ex.getMessage(), ex ) ;
-                } catch (BusinessException ex1) {
-                    LOGGER.log(Level.SEVERE , ex1.getMessage() ) ; 
-                }
-            } else {
-                try {
-                    throw new BusinessException("Exception : "   +  ex.getMessage()) ;
-                } catch (BusinessException ex1)                  {
-                    LOGGER.log(Level.SEVERE , ex1.getMessage() ) ;
-                }
-            }
+            throw new RuntimeException(ex)  ;
             
-        } catch (InterruptedException ex) {
-           
-           LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;
-        
         } finally {
-            LOGGER.log(Level.CONFIG, " StreamerOutputJsonEncrypted : CLOSE WRITER AND BAOSTREAM")  ;
+            
+            LOGGER.log(Level.CONFIG, " StreamerOutputJsonEncrypted : CLOSE ")  ;
             ISignOn.SERVICE_NAME.remove()   ;
             ISignOn.ENCRYPTION_KEY.remove() ;
             ISignOn.CIPHER.remove()         ;
