@@ -74,10 +74,10 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
                       if ( iteration % responseCacheSize  == 0 )  writer.flush() ;
                 }
              }
-
-             writer.flush()      ;
            
-             producers.get()     ;
+             producers.get()     ;           
+           
+             writer.flush()      ;
              
         } catch ( Exception ex ) {
            
