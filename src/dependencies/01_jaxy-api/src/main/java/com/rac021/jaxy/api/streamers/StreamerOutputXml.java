@@ -82,6 +82,7 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
           writer.write("\n")        ;
           writer.flush()            ;
           
+          /** Check Exceptions    */
           producers.get()           ;
            
           
