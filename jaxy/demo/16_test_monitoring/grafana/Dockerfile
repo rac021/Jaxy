@@ -17,7 +17,7 @@
      apt-get install -y apt-utils && \
      apt-get install -y psmisc
 
- ADD https://dl.grafana.com/oss/release/grafana-5.4.3.linux-amd64.tar.gz /app/
+ ADD https://dl.grafana.com/oss/release/grafana-6.3.5.linux-amd64.tar.gz /app/
 
  RUN tar -zxf /app/grafana-5.4.3.linux-amd64.tar.gz && rm /app/grafana-5.4.3.linux-amd64.tar.gz
 
