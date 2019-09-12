@@ -83,7 +83,7 @@
 
  echo ;  echo " MONITORING_PATH => $JAXY_MONITORING_FILES_PATH" ; echo 
 
- PROMETHEUS_PATH="prometheus-2.7.0.linux-amd64"
+ PROMETHEUS_PATH="prometheus-2.12.0.darwin-amd64"
 
  PROMETHEUS_CONF="conf/prometheus"
  
