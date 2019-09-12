@@ -14,7 +14,7 @@
                  -p 3000:3000                                    \
                  -e "MONITORING_PATH=/app/mon/provisioning"      \
                  -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
-                 -v ./monitoring_jaxy/:/app/mon/                 \
+                 -v $(pwd)/monitoring_jaxy/:/app/mon/            \
                  --name jaxy-grafana   rac021/jaxy-grafana
               
       GoTo : http://jaxy-grafana:3000  
