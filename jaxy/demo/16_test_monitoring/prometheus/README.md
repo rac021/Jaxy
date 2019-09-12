@@ -17,7 +17,7 @@
                  -e "JAXY_PORT: 8181"                            \
                  -e "JAXY_TRANSPORT=http"                        \
                  -e "SCARPE_INTERVAL=2s"                         \
-                 -v ./monitoring_jaxy/:/app/mon/                 \
+                 -v $(pwd)/monitoring_jaxy/:/app/mon/            \
                  --name jaxy-prometheus  rac021/jaxy-prometheus
               
               
