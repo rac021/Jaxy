@@ -66,7 +66,7 @@
 
  echo ;  echo " MONITORING_PATH => $JAXY_MONITORING_FILES_PATH" ; echo 
 
- GRAFANA_PATH="grafana-5.4.3"
+ GRAFANA_PATH="grafana-6.3.5"
 
  GRAFANA_CONF="conf/grafana"
 
