@@ -4,7 +4,7 @@ language: java
 sudo: false # faster builds
 
 jdk:
-  - oraclejdk8
+  - openjdk8
   
 script:
   - cd /home/travis/build/rac021/Jaxy/src/dependencies/01_jaxy-api 
