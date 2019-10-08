@@ -129,6 +129,8 @@
  
  ## Run Jaxy
  
+ cd $DEMO_LOCATION
+  
  java  $DEBUG $TRUST_STORE $TRUST_STORE_KEYCLOAK $CONFIGURATION_FILE -jar $DEMO_LOCATION/jaxy-thorntail.jar    
 
 
