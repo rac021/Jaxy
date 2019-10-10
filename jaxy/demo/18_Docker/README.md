@@ -82,9 +82,9 @@
               -e "SCARPE_INTERVAL=2s"                         \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
               --network jaxy_net                              \
-              --name jaxy_prometheus  rac021/jaxy-prometheus
+              --name jaxy-prometheus  rac021/jaxy-prometheus
               
-   GoTo : http://jaxy_prometheus:9090     
+   GoTo : http://jaxy-prometheus:9090     
 ```
 
 * **Run Grafana** ( [Grafana Docker Image]( https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring/grafana) ) :
@@ -94,10 +94,10 @@
               --hostname jaxy_grafana                         \
               -p 3000:3000                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
-              -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
+              -e "PROMETHEUS_URL=http://jaxy-prometheus:9090" \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
               --network jaxy_net                              \
-              --name jaxy_grafana   rac021/jaxy-grafana
+              --name jaxy-grafana   rac021/jaxy-grafana
               
    GoTo : http://jaxy-grafana:3000  
 ```
@@ -164,7 +164,7 @@
               -e "SCARPE_INTERVAL=2s"                         \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
               --network jaxy_net                              \
-              --name jaxy_prometheus  rac021/jaxy-prometheus
+              --name jaxy-prometheus  rac021/jaxy-prometheus
               
    GoTo : http://jaxy-prometheus:9090     
 ```
@@ -179,7 +179,7 @@
               -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
               --network jaxy_net                              \
-              --name jaxy_grafana   rac021/jaxy-grafana
+              --name jaxy-grafana   rac021/jaxy-grafana
               
    GoTo : http://jaxy-grafana:3000  
 ```
