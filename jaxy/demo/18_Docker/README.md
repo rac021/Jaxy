@@ -146,7 +146,8 @@
               -v $(pwd)/monitoring_jaxy:/app/jaxy/monitoring_jaxy           \
               -v $(pwd)/logs:/app/jaxy/logs                                 \
               --network jaxy_net                                            \
-              rac021/jaxy
+              rac021/jaxy                                                   \
+              serviceConf=/app/service/serviceConf.yaml
               
    GoTo : http://jaxy:8181
 ```
