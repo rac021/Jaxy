@@ -84,7 +84,7 @@
               --network jaxy_net                              \
               --name jaxy_prometheus  rac021/jaxy-prometheus
               
-   GoTo : http://jaxy-prometheus:9090     
+   GoTo : http://jaxy_prometheus:9090     
 ```
 
 * **Run Grafana** ( [Grafana Docker Image]( https://github.com/rac021/Jaxy/tree/master/jaxy/demo/16_test_monitoring/grafana) ) :
