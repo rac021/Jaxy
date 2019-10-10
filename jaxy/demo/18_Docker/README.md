@@ -177,7 +177,7 @@
               --hostname jaxy_grafana                         \
               -p 3000:3000                                    \
               -e "MONITORING_PATH=/app/mon/provisioning"      \
-              -e "PROMETHEUS_URL=http://jaxy_prometheus:9090" \
+              -e "PROMETHEUS_URL=http://jaxy-prometheus:9090" \
               -v $(pwd)/monitoring_jaxy/:/app/mon/            \
               --network jaxy_net                              \
               --name jaxy-grafana   rac021/jaxy-grafana
