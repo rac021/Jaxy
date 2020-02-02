@@ -15,7 +15,7 @@
                  -e "MONITORING_PATH=/app/mon/provisioning"      \
                  -e "JAXY_HOST=jaxy"                             \
                  -e "JAXY_PORT=8181"                             \
-                 -e "JAXY_TRANSPORT=http"                        \
+                 -e "TRANSPORT=http"                             \
                  -e "SCARPE_INTERVAL=2s"                         \
                  -v $(pwd)/monitoring_jaxy/:/app/mon/            \
                  --name jaxy-prometheus  rac021/jaxy-prometheus
