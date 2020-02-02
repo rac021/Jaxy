@@ -15,6 +15,7 @@
  RUN apt-get upgrade              && \
      apt-get update               && \
      apt-get install -y apt-utils && \
+     apt-get install -y openssl   && \
      apt-get install -y psmisc
 
  ADD https://github.com/prometheus/prometheus/releases/download/v2.12.0/prometheus-2.12.0.linux-amd64.tar.gz /app/
