@@ -26,7 +26,7 @@ RUN ./compile.sh
 
 FROM openjdk:8u181-jdk-stretch
 
-COPY run.sh /app/
+COPY jaxy/run.sh /app/
 
 # Script Used Only for Play With Docker #
 # This script calls run.sh after setting some environnement variables 
