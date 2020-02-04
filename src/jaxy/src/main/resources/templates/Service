@@ -95,7 +95,7 @@ public class {SERVICE_NAME}               {
     @GET
     @Produces("xml/plain")
     @Fallback(fallbackMethod = "retryLaterMethod" )
-    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_xml_plain_counter", absolute = true, reusable = true, monotonic = true, unit = MetricUnits.NONE )
+    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_xml_plain_counter_total", absolute = true, reusable = true, /* monotonic = true, */ unit = MetricUnits.NONE )
     // @Timed(name = "{SERVICE_CODE_SNAKE_NAME}_xml_plain_timer",absolute = true, unit = MetricUnits.MILLISECONDS )
     public Response getResourceASXml( @HeaderParam("Keep") String filterdIndex, @Context UriInfo uriInfo , {SQL_PARAMS} ) {    
 
@@ -121,7 +121,7 @@ public class {SERVICE_NAME}               {
     @GET
     @Produces("xml/encrypted")
     @Fallback(fallbackMethod = "retryLaterMethod" )
-    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_xml_encrypted_counter", absolute = true, reusable = true, monotonic = true,  unit = MetricUnits.NONE )
+    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_xml_encrypted_counter_total", absolute = true, reusable = true, /* monotonic = true, */ unit = MetricUnits.NONE )
     // @Timed(name = "{SERVICE_CODE_SNAKE_NAME}_xml_encrypted_timer",absolute = true, unit = MetricUnits.MILLISECONDS)
     public Response getResourceASEnctyptedXml( @HeaderParam("Keep") String filterdIndex, @Context UriInfo uriInfo , {SQL_PARAMS} ) {    
 
@@ -147,7 +147,7 @@ public class {SERVICE_NAME}               {
     @GET
     @Produces("json/plain")
     @Fallback(fallbackMethod = "retryLaterMethod" )
-    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_json_plain_counter", absolute = true, reusable = true, monotonic = true,  unit = MetricUnits.NONE )
+    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_json_plain_counter_total", absolute = true, reusable = true, /* monotonic = true, */ unit = MetricUnits.NONE )
     // @Timed(name = "{SERVICE_CODE_SNAKE_NAME}_json_plain_timer",absolute = true, unit = MetricUnits.MILLISECONDS)
     public Response getResourceASJson( @HeaderParam("Keep") String filterdIndex, @Context UriInfo uriInfo, {SQL_PARAMS} ) {
         
@@ -173,7 +173,7 @@ public class {SERVICE_NAME}               {
     @GET
     @Produces("json/encrypted")
     @Fallback(fallbackMethod = "retryLaterMethod" )
-    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_json_encrypted_counter", absolute = true, reusable = true, monotonic = true, unit = MetricUnits.NONE )
+    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_json_encrypted_counter_total", absolute = true, reusable = true, /* monotonic = true, */ unit = MetricUnits.NONE )
     // @Timed(name = "{SERVICE_CODE_SNAKE_NAME}_json_encrypted_timer",absolute = true, unit = MetricUnits.MILLISECONDS)
     public Response getResourceASEncryptedJson( @HeaderParam("Keep") String filterdIndex , 
                                                 @Context UriInfo uriInfo                 , 
@@ -201,7 +201,7 @@ public class {SERVICE_NAME}               {
     @GET
     @Produces("template/plain")
     @Fallback(fallbackMethod = "retryLaterMethod" )
-    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_template_plain_counter", absolute = true, reusable = true, monotonic = true, unit = MetricUnits.NONE )
+    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_template_plain_counter_total", absolute = true, reusable = true, /* monotonic = true, */ unit = MetricUnits.NONE )
     // @Timed(name = "{SERVICE_CODE_SNAKE_NAME}_template_plain_timer",absolute = true, unit = MetricUnits.MILLISECONDS)
     public Response getResourceASTemplate( @HeaderParam("Keep") String filterdIndex , 
                                            @Context UriInfo uriInfo                 , 
@@ -229,7 +229,7 @@ public class {SERVICE_NAME}               {
     @GET
     @Produces("template/encrypted")
     @Fallback(fallbackMethod = "retryLaterMethod"  )
-    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_template_encrypted_counter", absolute = true, reusable = true, monotonic = true, unit = MetricUnits.NONE )
+    @Counted(name = "{SERVICE_CODE_SNAKE_NAME}_template_encrypted_counter_total", absolute = true, reusable = true, /* monotonic = true, */ unit = MetricUnits.NONE )
     // @Timed(name = "{SERVICE_CODE_SNAKE_NAME}_template_encrypted_timer",absolute = true, unit = MetricUnits.MILLISECONDS)
     public Response getResourceASTemplateEncrypted( @HeaderParam("Keep") String filterdIndex , 
                                                     @Context UriInfo uriInfo                 , 

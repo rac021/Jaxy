@@ -24,7 +24,6 @@ public class LetsEncryptManager {
         
        if ( cfg.isHttpsTransport() && 
             cfg.getSslMode() == YamlConfigurator.SslMode.LETS_ENCRYPT )  {
-             
          
             String letsEncryptGenerator = cfg.getLetsEncryptGeneratorLocation() ;
 

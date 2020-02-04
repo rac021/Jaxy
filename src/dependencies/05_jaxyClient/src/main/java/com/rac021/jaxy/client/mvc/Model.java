@@ -305,7 +305,7 @@ public class Model {
 
         final HttpGet request = new HttpGet( _url )            ;
 
-        request.addHeader( "Accept", accept)                   ;
+        request.addHeader( "Accept", accept )                  ;
         request.addHeader( "Keep", keep  )                     ;
         
         invoker( _url.split("://")[0] , out , request )        ;
@@ -392,7 +392,8 @@ public class Model {
             }
 
             @Override
-            public void failed(final Exception ex)  {  
+            public void failed(final Exception ex)  {
+                ex.printStackTrace()           ;
                 latch.countDown()              ;
                 throw new RuntimeException(ex) ;
             }

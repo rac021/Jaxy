@@ -19,10 +19,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME ;
 @Target ( { FIELD, TYPE, METHOD, PARAMETER } )
 public @interface ServiceRegistry {
    
-   public String value() ;
- 
+   public String value() ; 
    
 }
-
-
-

@@ -23,12 +23,12 @@ import org.eclipse.microprofile.metrics.annotation.Counted ;
 
 
 @ServiceRegistry("time")
-//@Secured(policy = Policy.Public)
-//@Cipher(cipherType = { CipherTypes.AES_128_CBC, CipherTypes.AES_256_CBC })
+// @Secured(policy = Policy.Public)
+// @Cipher(cipherType = { CipherTypes.AES_128_CBC, CipherTypes.AES_256_CBC })
 
-//@CircuitBreaker(requestVolumeThreshold = 2, failureRatio = 0.50, delay = 5000, successThreshold = 2)
-//@Bulkhead(value = 2, waitingTaskQueue = 100) // maximum 2 concurrent requests allowed
-//@Retry(delay = 100 , maxDuration = 3500, jitter = 400, maxRetries = 1_000_000 )
+// @CircuitBreaker(requestVolumeThreshold = 2, failureRatio = 0.50, delay = 5000, successThreshold = 2 )
+// @Bulkhead(value = 2, waitingTaskQueue = 100) // maximum 2 concurrent requests allowed
+// @Retry(delay = 100 , maxDuration = 3500, jitter = 400, maxRetries = 1_000_000 )
 
 public class ServiceTime {
 
@@ -43,7 +43,7 @@ public class ServiceTime {
     @Produces({ "xml/plain", "json/plain" })
     //@Fallback(fallbackMethod = "getTimeFallBack")
     @Timed(name = "service_timer_jaxy", absolute = true, unit = MetricUnits.MILLISECONDS)
-    @Counted(name = "countServiceTime", absolute = true, reusable = true, monotonic = true, unit = MetricUnits.NONE)
+    @Counted(name = "countServiceTime", absolute = true, reusable = true, /* monotonic = true, */ unit = MetricUnits.NONE )
     public Response getTime() throws InterruptedException {
        return Response.status(Response.Status.OK)
                       .entity(String.valueOf(Instant.now().toEpochMilli()))

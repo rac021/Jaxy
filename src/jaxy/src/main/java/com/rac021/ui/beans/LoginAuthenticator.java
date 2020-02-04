@@ -53,7 +53,7 @@ import com.rac021.jaxy.security_provider.configuration.YamlConfigurator ;
 
 @SessionScoped
 @Named(value = "loginAuthenticator")
-public class LoginAuthenticator implements Serializable {
+public class LoginAuthenticator  implements Serializable {
     
     private boolean logedIn = false                  ;
    
@@ -70,10 +70,13 @@ public class LoginAuthenticator implements Serializable {
     private static final Logger LOGGER = getLogger() ;
     
     static KeyStore             keystore             ;
+
+    public LoginAuthenticator() { }
     
     @PostConstruct
     public void init() {
-       initKeyStore()  ;
+       System.out.println(" - Init LoginAuthenticator " + this ) ;
+       if( keystore == null ) initKeyStore()  ;
     }
     
     private void initKeyStore() {
@@ -251,7 +254,7 @@ public class LoginAuthenticator implements Serializable {
     
     
     public void login() throws IOException, NoSuchAlgorithmException {
-
+      
       if ( yamlConfigurator.getLogindUI() == null     ||
            yamlConfigurator.getLogindUI().isEmpty()   ||
            yamlConfigurator.getPasswordUI() == null   || 
@@ -271,10 +274,11 @@ public class LoginAuthenticator implements Serializable {
       String hashedLoginPassword = toString ( toSHA256(yamlConfigurator.getLogindUI()        + 
                                               yamlConfigurator.getPasswordUI() + timestamp)) ;
 
-      if (hashedLoginPassword.equals(checkLoginPasswordSHA2)) {
+      if (hashedLoginPassword.equals(checkLoginPasswordSHA2))    {
 
           if ( ! logedIn )    {
               logedIn = true  ;
+              System.out.println(" Redirect to index.xhtml - From LoginAuthenticator ");
               context.getExternalContext().redirect("index.xhtml") ;
           }
           

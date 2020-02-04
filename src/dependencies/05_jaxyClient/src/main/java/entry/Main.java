@@ -32,7 +32,8 @@ public class Main {
            System.out.println ("  Ex Command :                                 "      ) ;
            System.out.println ("                                               "      ) ;
            System.out.println ("  java -jar jaxyClient.jar confPath jaxy_conf.txt "     +
-                                  "admin password out outputData.txt "                ) ;
+                                  "login my_login password my_password "                +
+                                  " out outputData.txt " )                              ;
            System.out.println ("                                               "      ) ;
            System.out.println(" ============================================== "      ) ;
            System.out.println ("                                               "      ) ;
@@ -45,10 +46,10 @@ public class Main {
            System.out.println ("  Ex Command :                                  "     ) ;
            System.out.println ("                                                "     ) ;
            System.out.println ("  java -jar jaxyClient.jar confPath  jaxy_conf.txt"     +
-                              " keycloak_client_id jaxyAppClient"                       +
-                              " keycloak_secret_id jaxySecretApp "                      +
-                                  "keycloak_login admin keycloak_password admin "       +
-                                  "out outputData.txt    "                            ) ;
+                               " keycloak_client_id jaxyAppClient"                      +
+                               " keycloak_secret_id jaxySecretApp"                      +
+                               " keycloak_login my_login keycloak_password"             + 
+                               " my_keycloack_password out outputData.txt  "          ) ;
            System.out.println ("                                               "      ) ;
            System.out.println(" ============================================== "      ) ;
            System.out.println ("                                               "      ) ;
@@ -63,10 +64,10 @@ public class Main {
            System.out.println ("  Ex Command :                                 "      ) ;
            System.out.println ("                                               "      ) ;
            System.out.println (" java -jar jaxyClient.jar decrypt pathFileToDecrypt "   +
-                               "./outputEncryptedData.txt password admin "              +
+                               "./outputEncryptedData.txt password my_password "        +
                                " cipher AES_128_CBC hash MD5 out decryptedData.txt " )  ;
            System.out.println (" java -jar jaxyClient.jar decrypt pathFileToDecrypt "   +
-                               "./outputEncryptedData.txt password admin "              +
+                               "./outputEncryptedData.txt password my_password "        +
                                "confPath jaxy_conf.txt out decryptedData.txt " )        ;
            System.out.println ("                                               "      ) ;
            System.out.println(" ============================================== "      ) ;
@@ -352,4 +353,3 @@ public class Main {
     }
 }
 
-        

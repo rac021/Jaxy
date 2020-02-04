@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.rac021</groupId>
     <artifactId>jaxy-service-discovery</artifactId>
-    <version>2.1</version>
+    <version>2.2</version>
     <name>jaxy-service-discovery</name>
     <description>Jax-rs Default Service Descovery Implementation</description>
     <url>https://github.com/rac021/Jaxy/lib/dependencies/Jaxy-Service-Discovery</url>
@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <version.jaxy>2.1</version.jaxy>
+        <version.jaxy>2.2</version.jaxy>
     </properties>
     
     <developers>
@@ -82,7 +82,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.1.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -96,7 +96,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>

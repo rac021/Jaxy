@@ -2,22 +2,22 @@
 
  # Cmd Example : ./run.sh serviceConf=demo/Full_Conf/serviceConf.yaml       trustStore=keystoreKeyCloak.jks  debug
  # Cmd Example : ./run.sh serviceConf=jaxy/demo/Full_Conf/serviceConf.yaml  auto_extract_keycloak_certificate
+  
 
- DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
- DEMO_LOCATION="$DIR/jaxy"
-
- SRC_JAXY_LOCATION="src/jaxy/target/jaxy-thorntail.jar"
- 
+ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+   
  help() {
  
     echo
     echo " Total Arguments : Four                                                                                            "
     echo 
+    echo "   serviceConf=                      :  Path of the serviceConf File ( REQUIRED )                                  "
     echo "   debug                             :  Start jaxy in debug mode                                                   "
-    echo "   serviceConf=                      :  Path of the serviceConf File                                               "
     echo "   trustStore=                       :  Path of the certificate to Trust ( for trusting self-signed certiciates )  "
     echo "   auto_extract_keycloak_certificate :  Automatic download of keycloak SSL certificate FROM https://localhost:8543 "
     echo "                                        Then add this certificate in the JAXY TrustStore ( Only in HTTPS Mode )    "
+    echo "   keycloakHost=                     :  Keycloak Host ( DEFAULT : localhost )                                      "
+    echo "   keycloakPort=                     :  Keycloak Port ( DEFAULT : 8543      )                                      "
     echo 
     echo " Sample Cmd : ./run.sh  serviceConf=jaxy/demo/Full_Conf/serviceConf.yaml  trustStore=keystoreKeyCloak.jks  debug   "
     echo "              ./run.sh  serviceConf=jaxy/demo/Full_Conf/serviceConf.yaml  auto_extract_keycloak_certificate        "
@@ -35,9 +35,13 @@
             
             case "$KEY" in
                                
-                ("serviceConf") CONFIGURATION_FILE=$VALUE
+                ("serviceConf")   CONFIGURATION_FILE=$VALUE
                 ;;                    
-                ("trustStore")  TRUST_STORE=$VALUE
+                ("trustStore")    TRUST_STORE=$VALUE
+                ;;                    
+                ("keycloakHost")  KEYCLOAK_HOST=$VALUE
+                ;;                    
+                ("keycloakPort")  KEYCLOAK_PORT=$VALUE
                 
             esac
       ;;
@@ -55,12 +59,51 @@
   
   shift
   
- done   
+ done 
  
-
+ if [ -f "$CONFIGURATION_FILE" ]; then 
+     # Get Real Path of the File Configuration :
+    CONFIGURATION_FILE="-DserviceConf=$(realpath $CONFIGURATION_FILE)"    
+ elif [ -f "./serviceConf.yaml" ]; then 
+    CONFIGURATION_FILE="-DserviceConf=$(realpath ./serviceConf.yaml)" 
+ else
+     cd $CURRENT_DIR ;
+     if [ -f "./serviceConf.yaml" ]; then 
+       CONFIGURATION_FILE="-DserviceConf=$(realpath ./serviceConf.yaml)" 
+     else 
+         echo ;
+         if [ -z "$CONFIGURATION_FILE" ]; then
+             echo " Missed : [ serviceConf ] Argument " ; echo 
+             help ;
+         else 
+            echo " serviceConf : [ $CONFIGURATION_FILE ] Not Found " ; 
+            echo ; exit ;
+         fi
+         echo ;
+     fi
+ fi
+ 
+ 
+ cd $CURRENT_DIR
+ 
+ SRC_JAXY_LOCATION="../src/jaxy/target/jaxy-thorntail.jar"
+   
+ if [ -f "$SRC_JAXY_LOCATION" ]; then
+ 
+    echo 
+    echo " Move [ $SRC_JAXY_LOCATION ] TO [ $CURRENT_DIR/ ] " 
+    echo
+    mv $SRC_JAXY_LOCATION $CURRENT_DIR/
+ 
+ fi
+ 
+ 
  KEYCLOAK_CERTIFICATE_NAME="keycloak.cert"
  
  KEYCLOAK_CERTIFICATE_NAME_JKS="keycloak.jks"
+ 
+ KEYCLOAK_HOST=${KEYCLOAK_HOST:-"localhost"}
+ KEYCLOAK_PORT=${KEYCLOAK_PORT:-"8543"}
  
  if [ "$KEYCLOAK" == "AUTO_EXTRACT_CERTIFICATE_FROM_KEYCLOAK" ] ; then
  	
@@ -75,9 +118,9 @@
     # HTTPS MODE
     # Download the KEYCLOAK certificate that will be trusted by JAXY
     echo
-    echo " Automatic download of keycloak SSL certificate from https://localhost:8543 " 
+    echo " Automatic download of keycloak SSL certificate from https://$KEYCLOAK_HOST:$KEYCLOAK_PORT" 
     echo 
-    echo "Q" | openssl s_client -host localhost -port 8543 -prexit -showcerts > $KEYCLOAK_CERTIFICATE_NAME
+    echo "Q" | openssl s_client -host $KEYCLOAK_HOST -port $KEYCLOAK_PORT -prexit -showcerts > $KEYCLOAK_CERTIFICATE_NAME
     
     keytool -importcert                              \
             -file $KEYCLOAK_CERTIFICATE_NAME         \
@@ -90,17 +133,7 @@
     rm $KEYCLOAK_CERTIFICATE_NAME
    
  fi
- 
- 
- if [ -f "$SRC_JAXY_LOCATION" ]; then
- 
-    echo 
-    echo " Move [ $SRC_JAXY_LOCATION ] TO [ $DEMO_LOCATION/ ] " 
-    echo
-    mv $SRC_JAXY_LOCATION $DEMO_LOCATION/
- 
- fi
-  
+
   
  if [ "$DEBUG" == "true" ]; then
  
@@ -120,17 +153,10 @@
     
     TRUST_STORE_KEYCLOAK="-Djavax.net.ssl.trustStore=$KEYCLOAK_CERTIFICATE_NAME_JKS"
  fi
-   
- if [ ! -z "$CONFIGURATION_FILE" ]; then
-    
-    CONFIGURATION_FILE="-DserviceConf=$CONFIGURATION_FILE"
- fi
  
  
  ## Run Jaxy
- 
- cd $DEMO_LOCATION
   
- java  $DEBUG $TRUST_STORE $TRUST_STORE_KEYCLOAK $CONFIGURATION_FILE -jar $DEMO_LOCATION/jaxy-thorntail.jar    
+ java  $DEBUG $TRUST_STORE $TRUST_STORE_KEYCLOAK $CONFIGURATION_FILE -jar $CURRENT_DIR/jaxy-thorntail.jar    
 
 

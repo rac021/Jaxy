@@ -26,4 +26,3 @@
  ENTRYPOINT ["/bin/bash", "-c", "/app/prometheus.sh && tail -f /dev/null "]
 
  CMD []
-

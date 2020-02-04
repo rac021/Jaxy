@@ -4,11 +4,11 @@
   
   DEMO_PATH="jaxy"
 
-  cd $CURRENT_LOCATION/dependencies/01_jaxy-api               &&  mvn clean install -Dmaven.test.skip=true
+  cd $CURRENT_LOCATION/dependencies/01_jaxy-api               &&  mvn clean install -Dmaven.test.skip=true && mvn clean 
 
-  cd $CURRENT_LOCATION/dependencies/02_jaxy-security-provider &&  mvn clean install -Dmaven.test.skip=true
+  cd $CURRENT_LOCATION/dependencies/02_jaxy-security-provider &&  mvn clean install -Dmaven.test.skip=true && mvn clean 
 
-  cd $CURRENT_LOCATION/dependencies/03_jaxy-service-discovery &&  mvn clean install -Dmaven.test.skip=true
+  cd $CURRENT_LOCATION/dependencies/03_jaxy-service-discovery &&  mvn clean install -Dmaven.test.skip=true && mvn clean 
   
 
   ## Compile certMe for generating letsEncrypt Certificates
@@ -25,7 +25,7 @@
     
   mv target/certMe.jar $CERT_ME_PATH/certMe.jar
   
-  rm -rf $CURRENT_LOCATION/dependencies/04_certMe_ee/target
+  rm -rf $CURRENT_LOCATION/dependencies/04_certMe/target
 
   ## Compile jaxyClient ( that will be downloaded by users from UI ) 
   
@@ -65,6 +65,8 @@
     fi
     
     mv $CURRENT_LOCATION/jaxy/target/jaxy-thorntail.jar ../../$DEMO_PATH/jaxy-thorntail.jar
+ 
+    rm -rf $CURRENT_LOCATION/jaxy/target
  
   fi
 

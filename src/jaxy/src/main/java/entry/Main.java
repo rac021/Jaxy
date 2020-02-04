@@ -125,7 +125,6 @@ public class Main                {
                                                managementPortHttps ,
                                                HOST                ) ;
         HttpTransportConfigurator.configurateLetsEncrypt( cfg )      ;
-
         
         /**
          * Max Concurent Thread for the Application 

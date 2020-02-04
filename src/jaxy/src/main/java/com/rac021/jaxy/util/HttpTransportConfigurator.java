@@ -64,7 +64,6 @@ public class HttpTransportConfigurator {
             
             display( message("use_custom_ssl_conf"))                   ;
         }
-        
     }
     
     public static void configurateLetsEncrypt ( YamlConfigurator cfg ) {

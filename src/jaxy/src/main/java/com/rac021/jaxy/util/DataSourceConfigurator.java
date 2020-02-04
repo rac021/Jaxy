@@ -39,7 +39,6 @@ public class DataSourceConfigurator {
 
         int maxPoolConnection  = cfg.getMaxPoolConnection()  ;
        
-       
         LOGGER.log(java.util.logging.Level.INFO , message("new_line"))                                 ;
         LOGGER.log(java.util.logging.Level.INFO , message("data_source_config"))                       ;
         LOGGER.log(java.util.logging.Level.INFO , message("driver_class_name"), driverClassName  )     ;

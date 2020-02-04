@@ -27,4 +27,3 @@ public interface IRootService {
                                    @PathParam("timeStamp") String timeStamp) throws BusinessException ;
 
 }
-

@@ -126,22 +126,22 @@ public class GrafanaManager {
         acceptedTypeByTheService.forEach( acceptType ->  {
             
             if( acceptType == AcceptType.XML_PLAIN )     {
-                 combinedNames.add( serviceCodeSnakeName + "_xml_plain_counter"      )    ;
+                 combinedNames.add( serviceCodeSnakeName + "_xml_plain_counter_total"      )    ;
             }
             if( acceptType == AcceptType.JSON_PLAIN )    {
-                 combinedNames.add(serviceCodeSnakeName  + "_json_plain_counter"     )     ;
+                 combinedNames.add(serviceCodeSnakeName  + "_json_plain_counter_total"     )     ;
             }
             if( acceptType == AcceptType.XML_ENCRYPTED ) {
-                 combinedNames.add(serviceCodeSnakeName  + "_xml_encrypted_counter"  )     ;
+                 combinedNames.add(serviceCodeSnakeName  + "_xml_encrypted_counter_total"  )     ;
             }
             if( acceptType == AcceptType.JSON_ENCRYPTED) {
-                 combinedNames.add( serviceCodeSnakeName + "_json_encrypted_counter" )     ;
+                 combinedNames.add( serviceCodeSnakeName + "_json_encrypted_counter_total" )     ;
             }
             if( acceptType == AcceptType.TEMPLATE_PLAIN ) {
-                 combinedNames.add(serviceCodeSnakeName  + "_template_plain_counter" )     ;
+                 combinedNames.add(serviceCodeSnakeName  + "_template_plain_counter_total" )     ;
             }
             if( acceptType == AcceptType.TEMPLATE_ENCRYPTED ) {
-                 combinedNames.add( serviceCodeSnakeName + "_template_encrypted_counter" ) ;
+                 combinedNames.add( serviceCodeSnakeName + "_template_encrypted_counter_total" ) ;
             }
             
         });
@@ -170,19 +170,19 @@ public class GrafanaManager {
         acceptedTypeByTheService.forEach( acceptType ->  {
             
             if( acceptType == AcceptType.XML_PLAIN ) {
-                 combinedNames.add( serviceCodeSnakeName + "_xml_plain_timer_mean_seconds"       )    ;
+                 combinedNames.add( serviceCodeSnakeName + "_xml_plain_timer_mean_seconds"          ) ;
             }
             if( acceptType == AcceptType.JSON_PLAIN )    {
-                 combinedNames.add(serviceCodeSnakeName  + "_json_plain_timer_mean_seconds"      )    ;
+                 combinedNames.add(serviceCodeSnakeName  + "_json_plain_timer_mean_seconds"         ) ;
             }
             if( acceptType == AcceptType.XML_ENCRYPTED ) {
-                 combinedNames.add(serviceCodeSnakeName  + "_xml_encrypted_timer_mean_seconds"   )    ;
+                 combinedNames.add(serviceCodeSnakeName  + "_xml_encrypted_timer_mean_seconds"      ) ;
             }
             if( acceptType == AcceptType.JSON_ENCRYPTED) {
-                 combinedNames.add( serviceCodeSnakeName + "_json_encrypted_timer_mean_seconds"  )    ;
+                 combinedNames.add( serviceCodeSnakeName + "_json_encrypted_timer_mean_seconds"     ) ;
             }
             if( acceptType == AcceptType.TEMPLATE_PLAIN ) {
-                 combinedNames.add(serviceCodeSnakeName   + "_template_plain_timer_mean_seconds" )    ;
+                 combinedNames.add(serviceCodeSnakeName   + "_template_plain_timer_mean_seconds"    ) ;
             }
             if( acceptType == AcceptType.TEMPLATE_ENCRYPTED ) {
                  combinedNames.add( serviceCodeSnakeName + "_template_encrypted_timer_mean_seconds" ) ;
@@ -220,7 +220,8 @@ public class GrafanaManager {
                                .replace(Template.GridPosY, String.valueOf(gridPosY) )
                                .replace(Template.ID, String.valueOf(idDashboard)    )
                                .replace(Template.SNAKE_SERVICE_NAME_FROM_PROMETHEUS, serviceName)
-                               .replace(Template.SNAKE_SERVICE_NAME, serviceName.replace("_counter", "") )
+                               // .replace(Template.SNAKE_SERVICE_NAME, serviceName.replace("_counter", "") )
+                               .replace(Template.SNAKE_SERVICE_NAME, serviceName.replace("_counter_total", "") )
                                .replace(Template.COLOR_TEMPLATE, Template.colors.get( colorIndex )     ) ; 
         
         whichCounter.getAndIncrement() ;

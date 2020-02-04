@@ -100,7 +100,6 @@ public class UnzipUtility {
         }
     }
     
-    
     public static void unzipJavaEEdependency( String searchInto , String destination) throws Exception {
 
         Optional<Path> javaEEPath = Files.list(Paths.get(searchInto))
@@ -143,7 +142,7 @@ public class UnzipUtility {
     public static void unzipJavaDependencies(List<Optional<Path>> deps, String destination) throws Exception {
 
         deps.forEach( dep -> {
-            
+
                  if (!dep.isPresent()) {
 
                     LOGGER.log(Level.SEVERE, message("stars_5"))            ;

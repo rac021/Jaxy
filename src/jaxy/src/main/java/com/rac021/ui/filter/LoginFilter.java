@@ -19,6 +19,8 @@ import javax.servlet.annotation.WebFilter ;
 import javax.servlet.http.HttpServletRequest ;
 import javax.servlet.http.HttpServletResponse ;
 import com.rac021.ui.beans.LoginAuthenticator ;
+import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 
 /**
  * Filter checks if LoginBean has loginIn property set to true
@@ -26,18 +28,18 @@ import com.rac021.ui.beans.LoginAuthenticator ;
  * login.xhml page .
  */
 
+@SessionScoped
 @WebFilter( urlPatterns = { "*.xhtml", "*.html" })
-public class LoginFilter implements Filter {
+public class LoginFilter implements Filter, Serializable {
 
     @Inject
     LoginAuthenticator loginAuthenticator ;
 
     static String      CONTEXT            ;
     
-    
     @PostConstruct
     public void init() {
-      System.out.println(" Init Login Filter " + this )        ;
+      System.out.println(" *** Init Login_Filter " + this )    ;
       CONTEXT = loginAuthenticator.getYamlConfigurator()
                                   .getRootApplicationContext() ;
         

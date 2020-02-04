@@ -1,8 +1,6 @@
 
 package com.rac021.jaxy.shared ;
 
-import java.io.File ;
-
 /**
  *
  * @author ryahiaoui

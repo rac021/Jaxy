@@ -22,6 +22,3 @@ public @interface MarshallerType {
    public String value() ;
 }
 
-
-
-

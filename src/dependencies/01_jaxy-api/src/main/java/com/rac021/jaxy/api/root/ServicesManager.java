@@ -42,7 +42,6 @@ import com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator ;
 import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import io.github.lukehutch.fastclasspathscanner.FastClasspathScanner ;
 
-
 /**
  *
  * @author ryahiaoui
@@ -258,6 +257,10 @@ public class ServicesManager {
         
         List<String> namesOfAnnotationsWithMetaAnnotation = new FastClasspathScanner().scan()
                                                                 .getNamesOfClassesWithAnnotation( registryAnnotation) ;
+        
+                                                            // new ClassGraph().scan()
+                                                            //                 .getClassesWithAnnotation(registryAnnotation.getName())
+                                                            //                 .getNames() ;
         
         try ( Connection cnn  = entityManager.unwrap(java.sql.Connection.class )) {
             

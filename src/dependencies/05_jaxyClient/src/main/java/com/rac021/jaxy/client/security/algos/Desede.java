@@ -85,8 +85,9 @@ public class Desede extends EncDecRyptor           {
                       cipherOperation == _CipherOperation.dofinal ?
                                          cipher.doFinal( message.getBytes(StandardCharsets.UTF_8)) :
                                          cipher.update(message.getBytes(StandardCharsets.UTF_8))   ;
-         } catch( Exception ex ) {
-             return null ;
+         } catch( Exception ex )  {
+             ex.printStackTrace() ;
+             return null          ;
          }
     }
     
