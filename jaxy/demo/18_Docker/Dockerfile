@@ -26,16 +26,16 @@ RUN ./compile.sh
 
 FROM openjdk:8u181-jdk-stretch
 
-COPY jaxy/run.sh /app/jaxy
+COPY jaxy/run.sh /app/jaxy/
 
 # Script Used Only for Play With Docker #
 # This script calls run.sh after setting some environnement variables 
 
-COPY jaxy/demo/18_Docker/play_with_docker_script/jaxy_pwd_launcher.sh /app/jaxy
+COPY jaxy/demo/18_Docker/play_with_docker_script/jaxy_pwd_launcher.sh /app/jaxy/
 
 RUN chmod +x /app/jaxy/*.sh
 
-COPY --from=compilation_stage /tmp/jaxy/ /app/jaxy
+COPY --from=compilation_stage /tmp/jaxy/ /app/jaxy/
 
 WORKDIR /app/jaxy
 
