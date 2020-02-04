@@ -120,7 +120,7 @@
 	echo 
 	echo " =================================== "
 	echo 
-	echo " - JAXY_URL     : $JAXY_URL     "
+	echo " - JAXY_URL     : $JAXY_URL          "
 	
 	if [[ -n  "$KEYCLOAK_PORT"  ]] ; then 
 
