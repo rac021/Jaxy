@@ -33,7 +33,7 @@ COPY jaxy/run.sh /app/jaxy
 
 COPY jaxy/demo/18_Docker/play_with_docker_script/jaxy_pwd_launcher.sh /app/jaxy
 
-WORKDIR /app/
+WORKDIR /app/jaxy
 
 RUN chmod +x /app/*.sh
 
