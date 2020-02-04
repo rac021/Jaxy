@@ -26,7 +26,7 @@ RUN ./compile.sh
 
 FROM openjdk:8u181-jdk-stretch
 
-COPY jaxy/run.sh /app/
+COPY jaxy/run.sh /app/jaxy
 
 # Script Used Only for Play With Docker #
 # This script calls run.sh after setting some environnement variables 
@@ -40,7 +40,7 @@ RUN chmod +x /app/*.sh
 COPY --from=compilation_stage /tmp/jaxy/ /app/jaxy
 
 
-ENTRYPOINT ["/app/run.sh"]
+ENTRYPOINT ["/app/jaxy/run.sh"]
 
 CMD ["serviceConf=service/serviceConf.yaml"]
 
