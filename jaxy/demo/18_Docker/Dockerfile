@@ -33,12 +33,11 @@ COPY jaxy/run.sh /app/jaxy
 
 COPY jaxy/demo/18_Docker/play_with_docker_script/jaxy_pwd_launcher.sh /app/jaxy
 
-WORKDIR /app/jaxy
-
-RUN chmod +x /app/*.sh
+RUN chmod +x /app/jaxy/*.sh
 
 COPY --from=compilation_stage /tmp/jaxy/ /app/jaxy
 
+WORKDIR /app/jaxy
 
 ENTRYPOINT ["/app/jaxy/run.sh"]
 
