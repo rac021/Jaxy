@@ -126,8 +126,8 @@
 
 	  KEYCLOAK_URL="http://$PWD_SUB_URL-$KEYCLOAK_PORT.direct.labs.play-with-docker.com"
 
-	  HttpkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_http.json"
-	  HttspkeycloakFileLocation="jaxy/demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_https.json"
+	  HttpkeycloakFileLocation="demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_http.json"
+	  HttspkeycloakFileLocation="demo/18_Docker/jaxy_test_for_docker/sso_keycloak_auth/keyCloak/keyCloak_https.json"
 
 	  if [[ -f $serviceConf ]] ; then 
 
