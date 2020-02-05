@@ -21,7 +21,7 @@
  * **Change Directory** 
  
  ```
-   cd jaxy/demo/18_Docker/
+   cd jaxy/demo/18_Docker/ # ( From the root of the project )
  ```
  
 ---
@@ -139,9 +139,7 @@
 
 * **Run Jaxy-App :**
 
-```
-   cd jaxy/demo/18_Docker/ # ( From the root of the project )
-  
+```   
    docker run --name jaxy -d -P                                             \
               --hostname jaxy                                               \
               -p 8181:8181                                                  \
@@ -203,7 +201,9 @@
 ## 2. **Build the docker image of Jaxy from scratch : [Dockerfile](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/18_Docker/Dockerfile)**
 
 ``` 
-     docker build -t jaxy -f Dockerfile ../../
+     # Go to the root directory of the project
+      
+     docker build -t jaxy -f jaxy/demo/18_Docker/Dockerfile .
 ```
 
 ---
