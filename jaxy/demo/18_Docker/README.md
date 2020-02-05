@@ -140,6 +140,8 @@
 * **Run Jaxy-App :**
 
 ```
+   cd jaxy/demo/18_Docker/ # ( From the root of the project )
+  
    docker run --name jaxy -d -P                                             \
               --hostname jaxy                                               \
               -p 8181:8181                                                  \
