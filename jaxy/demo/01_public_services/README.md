@@ -7,15 +7,17 @@
          vim jaxy/demo/01_public_services/serviceConf.yaml
 
   #### 2 - Run jaxy using the configuration file located in the directory jaxy/demo/01_public_services  :
-                  
-         java -jar                                                        \
-              -DserviceConf=jaxy/demo/01_public_services/serviceConf.yaml \
-              jaxy/jaxy-thorntail.jar    
+             
+         cd jaxy   
+         
+         java -jar                                                   \
+              -DserviceConf=demo/01_public_services/serviceConf.yaml \
+               jaxy-thorntail.jar    
         
 -----------------------------------------------------------------
 
-  **Note :** If the jar **jaxy-thorntail** and the file **serviceConf.yaml** are located in the same **directory**,
-         you don't need to provide the -DserviceConf=.. ( this will be **automatically**  **detected**  by jaxy )
+  ~~**Note :** If the jar **jaxy-thorntail** and the file **serviceConf.yaml** are located in the same **directory**,
+         you don't need to provide the -DserviceConf=.. ( this will be **automatically**  **detected**  by jaxy )~~
 
 -----------------------------------------------------------------
 
