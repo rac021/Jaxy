@@ -2,7 +2,7 @@
 
 ##  Public_services ( Minimalist configuration file ) [ ( watch the demo ) ](https://www.youtube.com/watch?v=-uH29g2xSFg&list=PLgd4yhA9GWz3lc2XmuW1lwlH3sjT4gHwa&index=3)
 
-  #### 1- Let's take a look at the configuration file :
+  #### 1- Let's take a look at the configuration file [serviceConf.yaml](https://github.com/rac021/Jaxy/blob/master/jaxy/demo/01_public_services/serviceConf.yaml) :
         
          vim jaxy/demo/01_public_services/serviceConf.yaml
 
