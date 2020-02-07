@@ -1,11 +1,11 @@
 
 | Resources  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Links &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |-----------|---------------|
-|  Doc_2017  |  [Full_Talk_2017](https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf)              | -- | -- |
-|  Doc_2020  |  [Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf) | -- | -- |
-|  jaxy_bin  |  [jaxy_bin](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) | -- | -- |
-|  jaxy_src  |  [jaxy_src](https://sourceforge.net/projects/jaxy/files/Jaxy_2.2_src.zip/download) | -- | -- |
-|  jaxy_github_project |  [jaxy_github](https://github.com/rac021/Jaxy) | -- | -- |
+|  Talk_2017  |  [Full_Talk_2017](https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf)              | -- | -- |
+|  **Talk_2020**  |  [Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf) | -- | -- |
+|  **Jaxy_bin_project**  |  [jaxy_bin_project](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) | -- | -- |
+|  Jaxy_src_project  |  [jaxy_src_project](https://sourceforge.net/projects/jaxy/files/Jaxy_2.2_src.zip/download) | -- | -- |
+|  Jaxy_github_project |  [jaxy_github](https://github.com/rac021/Jaxy) | -- | -- |
 
 
 
