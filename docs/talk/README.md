@@ -23,48 +23,58 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
  
  cd jaxy ( the root of the project )
  
- 0 )   [Download](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) / or [Compile](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy) ( For the most courageour ) the project :
+ I )   [Download](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) / or [Compile](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy) ( For the most courageour ) the project :
  
          1 ) Download : https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download
          
          2 ) Compilation Steps : https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy
  
- I )   [Install demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script) :
+ II )   [Install demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script) :
  
          1 )  https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script 
        
        
- II )   [Public_services : Minimalist configuration file](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services) :
+ III )  [Public_services : Minimalist configuration file](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services) :
   
          1 )  https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services
        
  
- III ) [Secured Services using CSO ( With Full_Conf)](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
+ IV )  [Secured Services using CSO (With Full_Conf)](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
  
          1 )  ./run.sh serviceConf=demo/demo/Full_Conf/serviceConf.yaml
  
          2 )  Go to UI - Test Auth - Test secured Services
          
-         3 )  Test Generated scripts client
-         
-         4 )  Invoke the service planes :        
-              http://localhost:8080/rest/resources/planes ( XML / JSON )
-         
-         5 )  Test Generated java client 
+         3 )  Test Generated scripts client ( service plane : XML / JSON )
         
-         6 )  Filter on : total_pssengers > 300 
+         4 )  Test Generated java client 
+        
+         5 )  Filter on : total_pssengers > 300 
          
-         7 )  Keep Only : model 
+         6 )  Keep Only : model 
          
-         8 )  Keep Only model + distance_km 
+         7 )  Keep Only model + distance_km 
          
  
- IV  ) Run the GUI Client :
+ V )   [Secured Services using SSO ( With Full_Conf)](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
+ 
+         1 )  Start keycloak Server 
+         
+         2 )  Take a look at the Keycloak configuration
+         
+         3 )  ./run.sh serviceConf=demo/demo/Full_Conf/serviceConf_keycloak.yaml
+ 
+         4 )  Test Generated scripts client
+         
+         5 )  Test Generated java client         
+                  
+         
+ V  )  Run the GUI Client :
         
          1 )  java -jar GUI/jaxy-ui.jar
        
         
- V  ) Tests ( Public serivce ) :
+ VI  ) Tests ( Public serivce ) :
  
          1 ) invoke the serviceDiscovery     
              http://localhost:8080/rest/resources/infoServices
