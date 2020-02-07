@@ -39,7 +39,7 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
          1 )  https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services
        
  
- IV )  [Secured Services using CSO (With Full_Conf)](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
+ IV )  [Secured Services using CSO ( With Full_Conf )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
  
          1 )  ./run.sh serviceConf=demo/demo/Full_Conf/serviceConf.yaml
  
@@ -56,7 +56,7 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
          7 )  Keep Only model + distance_km 
          
  
- V )   [Secured Services using SSO ( With Full_Conf)](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
+ V )   [Secured Services using SSO ( With Full_Conf )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
  
          1 )  Start keycloak Server :
          
