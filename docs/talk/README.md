@@ -74,7 +74,13 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
  
          4 )  Test Generated scripts client
          
-         5 )  Test Generated java client         
+         5 )  Test Generated java client 
+         
+              =>     java -jar jaxyClient.jar  confPath            jaxy_conf.txt \
+                                               keycloak_client_id  my_app        \
+                                               keycloak_secret_id  my_secret     \
+                                               keycloak_login      admin         \
+                                               keycloak_password   admin
                   
          
  V  )  Run the GUI Client :
