@@ -1,9 +1,9 @@
-
-## SI_ORL_Présentation
-
+### SI_ORL_Présentation
 --------------------------------------
 
-| Resources  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Links &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+#### Resources :
+
+| Resource  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Links &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |-----------|---------------|
 |  Talk_2017  |  [Full_Talk_2017](https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf)              | -- | -- |
 |  **Talk_2020**  |  [Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf) | -- | -- |
@@ -11,12 +11,7 @@
 |  Jaxy_src_project  |  [jaxy_src_project](https://sourceforge.net/projects/jaxy/files/Jaxy_2.2_src.zip/download) | -- | -- |
 |  Jaxy_github_project |  [jaxy_github](https://github.com/rac021/Jaxy) | -- | -- |
 
-
-
-
-
-
-===============================
+--------------------------------------
 
 
 
