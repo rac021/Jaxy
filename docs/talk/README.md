@@ -69,7 +69,8 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
          
          2 )  Take a look at the Keycloak configuration : https://localhost:8543
          
-         3 )  ./run.sh serviceConf=demo/Full_Conf/serviceConf_keycloak.yaml auto_extract_keycloak_certificate
+         3 )  ./run.sh serviceConf=demo/Full_Conf/serviceConf_keycloak.yaml \
+                       auto_extract_keycloak_certificate
  
          4 )  Test Generated scripts client
          
