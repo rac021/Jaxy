@@ -27,7 +27,7 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
  
          1 ) Download : https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download
          
-         1 ) Compilation Steps : https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy
+         2 ) Compilation Steps : https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy
  
  I )   [Install demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script) :
  
@@ -39,11 +39,17 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
          1 )  https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services
        
  
- III ) Wildfly swarm Server Administration 
+ III ) [Secured Services using CSO ( With Full_Conf)](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
  
-         1 ) http://localhost:8080/console/
+         1 )  ./run.sh serviceConf=demo/demo/Full_Conf/serviceConf.yaml
+ 
+         2 )   Go to UI - Test Auth - Test secured Services
          
-         2 ) Test jax-y deployment
+         3 )  Test Generated scripts client
+         
+         4 )  Test Generated java client 
+         
+         
          
  
  IV  ) Run the GUI Client :
