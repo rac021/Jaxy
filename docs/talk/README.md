@@ -1,3 +1,16 @@
+### Talks :  
+Full_Talk_2017 : [https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf](https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf) 
+
+Short_Talk_2020 : [https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf (https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf)
+
+[jaxy_src](https://sourceforge.net/projects/jaxy/files/Jaxy_2.2_src.zip/download)
+
+[jaxy_bin](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download)
+
+[jaxy_github](https://github.com/rac021/Jaxy)
+
+===============================
+
 
 ## SI_ORL_Présentation
 
