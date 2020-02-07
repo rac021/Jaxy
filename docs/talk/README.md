@@ -47,9 +47,16 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
          
          3 )  Test Generated scripts client
          
-         4 )  Test Generated java client 
+         4 ) invoke the service planes :        
+             http://localhost:8080/rest/resources/planes ( XML / JSON )
          
+         5 ) Test Generated java client 
+        
+         6 ) Filter on : total_pssengers > 300 
          
+         7 ) Keep Only : model 
+         
+         8 ) Keep Only model + distance_km 
          
  
  IV  ) Run the GUI Client :
