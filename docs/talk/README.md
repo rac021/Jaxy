@@ -23,7 +23,7 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
  
  cd jaxy ( the root of the project )
  
- 0 )   Download / or Compile ( For the most courageour ) the project :
+ 0 )   [Download](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) / or [Compile](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy) ( For the most courageour ) the project :
  
          1 ) Download : https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download
          
@@ -43,20 +43,20 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
  
          1 )  ./run.sh serviceConf=demo/demo/Full_Conf/serviceConf.yaml
  
-         2 )   Go to UI - Test Auth - Test secured Services
+         2 )  Go to UI - Test Auth - Test secured Services
          
          3 )  Test Generated scripts client
          
-         4 ) invoke the service planes :        
-             http://localhost:8080/rest/resources/planes ( XML / JSON )
+         4 )  Invoke the service planes :        
+              http://localhost:8080/rest/resources/planes ( XML / JSON )
          
-         5 ) Test Generated java client 
+         5 )  Test Generated java client 
         
-         6 ) Filter on : total_pssengers > 300 
+         6 )  Filter on : total_pssengers > 300 
          
-         7 ) Keep Only : model 
+         7 )  Keep Only : model 
          
-         8 ) Keep Only model + distance_km 
+         8 )  Keep Only model + distance_km 
          
  
  IV  ) Run the GUI Client :
