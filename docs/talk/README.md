@@ -11,17 +11,13 @@
 |  **Jaxy_bin_project**  |  [jaxy_bin_project](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) | -- | -- |
 |  Jaxy_src_project  |  [jaxy_src_project](https://sourceforge.net/projects/jaxy/files/Jaxy_2.2_src.zip/download) | -- | -- |
 |  Jaxy_github_project |  [jaxy_github](https://github.com/rac021/Jaxy) | -- | -- |
-
-
---------------------------------------
-
-https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
+|  CSO Auth Mechanism |  [CSO Auth Mechanism](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services_with_custom_signon_auth) | -- | -- |
 
 --------------------------------------
 
  **Demo :** 
  
- cd jaxy ( the root of the project )
+ **cd jaxy** # ( the root of the project )
  
  I )   [Download](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) / or [Compile](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy) ( For the most courageour ) the project :
  
@@ -82,8 +78,21 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
                                                keycloak_login      admin         \
                                                keycloak_password   admin
                   
+ VI  )  Monitorin ( Prometheus / Grafana ) :
          
- V  )  Run the GUI Client :
+         1 )  java -jar GUI/jaxy-ui.jar
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+ VI  )  Run the GUI Client :
         
          1 )  java -jar GUI/jaxy-ui.jar
        
