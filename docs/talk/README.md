@@ -1,4 +1,4 @@
-### __SI_ORL_Présentation__
+### SI_ORL_Présentation
 
 --------------------------------------
 
