@@ -34,7 +34,7 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
          1 )  https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script 
        
        
- II )  Public_services ( [Minimalist configuration file](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services) ) :
+ II )   [Public_services : Minimalist configuration file](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services) :
   
          1 )  https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services
        
