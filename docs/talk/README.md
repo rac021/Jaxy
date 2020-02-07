@@ -58,9 +58,16 @@ https://github.com/rac021/Jax-Y/tree/master/demo_sourceForge
  
  V )   [Secured Services using SSO ( With Full_Conf)](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
  
-         1 )  Start keycloak Server 
+         1 )  Start keycloak Server :
          
-         2 )  Take a look at the Keycloak configuration
+               docker run -d                     \
+                          --net host             \
+                          -e "TRANSPORT=https"   \
+                          -e "MODE=DEMO"         \
+                          --name keycloakme      \
+                          rac021/jaxy-keycloakme                         
+         
+         2 )  Take a look at the Keycloak configuration : https://localhost:8543
          
          3 )  ./run.sh serviceConf=demo/demo/Full_Conf/serviceConf_keycloak.yaml
  
