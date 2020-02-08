@@ -102,7 +102,9 @@
                   
          2 ) Using Java Client :
          
-             2.1 java -jar jaxyClient.jar decrypt pathFileToDecrypt encrypted_data.txt password admin
+             2.1 java -jar jaxyClient.jar decrypt                              \
+                                          pathFileToDecrypt encrypted_data.txt \
+                                          password          admin
          
          
  VI ) Secured Services using SSO ( [Keycloak  With HTTPS + Full_Conf](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf) )
