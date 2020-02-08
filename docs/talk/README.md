@@ -13,8 +13,12 @@
 
 --------------------------------------
 
- *** **Demo** ***
- 
+**Agenda :**
+
+| Talk  | Time | 
+|:---------------------------|:----------------------------|
+|  [ Short_Talk_2020 :](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf) | ~ 10 mn |
+|  **Demo**  | ~ 15 mn |
  
 -----------------------------------------------------
 
@@ -31,19 +35,18 @@
 
 ---
 
-
- **cd jaxy** # ( the root of the project )
- 
  I )   [Download](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) / or [Compile](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy) ( For the most courageour ) the project :
  
          1 ) Download : https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download
          
          2 ) Compilation Steps : https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy
  
+         3 )  **cd jaxy** # ( the root of the project )
+         
  II )   [Install demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script) :
  
-         1 )  https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script 
-       
+         1 )  https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script    
+         
        
  III )  [Public_services : Minimalist configuration file](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services) :
   
@@ -52,7 +55,7 @@
  
  IV )  [Secured Services using CSO ( With Full_Conf )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
  
-         1 )  ./run.sh serviceConf=demo/demo/Full_Conf/serviceConf.yaml
+         1 )  ./run.sh serviceConf=demo/Full_Conf/serviceConf.yaml
  
          2 )  Go to UI - Test Auth - Test secured Services
          
