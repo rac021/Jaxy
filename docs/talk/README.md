@@ -42,7 +42,7 @@
          1 )  https://github.com/rac021/Jaxy/tree/master/jaxy/demo/01_public_services
        
  
- IV )  [Secured Services using CSO ( With Full_Conf )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
+ IV )  Secured Services using CSO ( [With Full_Conf](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf) )
  
          1 )  ./run.sh serviceConf=demo/Full_Conf/serviceConf.yaml
  
@@ -66,7 +66,7 @@
          2 ) Using Java Client 
          
          
- VI ) [Secured Services using SSO : Keycloak  With HTTPS + Full_Conf )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
+ VI ) Secured Services using SSO ( [Keycloak  With HTTPS + Full_Conf )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
  
          1 )  Start keycloak Server :
          
