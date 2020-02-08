@@ -8,7 +8,7 @@
 |:---------------------------|:----------------------------|:---------------------|
 | Talks|  [Full_Talk_2017](https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf) | [ Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf)  |
 | Jaxy_src |    [sourceforge_project](https://sourceforge.net/projects/jaxy/files/Jaxy_2.2_src.zip/download)    |    [github_project](https://github.com/rac021/Jaxy) |
-| Jaxy_bin | [bin_project](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download)  |    [CSO Auth Mechanism](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services_with_custom_signon_auth) | |
+| Jaxy_bin | [bin_project](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download)  |    [CSO Auth Mechanism](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services_with_custom_signon_auth) |
 
 
 --------------------------------------
@@ -20,17 +20,14 @@
 
 ###### **Requirements :**
 
--    `JAVA 8`   **Required**
-    
--    `MAVEN 3.3.9 +` **Required for compilation**
-   
--    `Postgres | mySql` **Required**
-
--    `git` **Required for cloning the project**
-
--    `openssl` **Required for LetsEncrypt + Decryption**
-
--    `curl`   **Required for script client**
+| Tool               | Requirement                              | 
+|:-------------------|:--------------------------------         |
+| `JAVA 8`           | **Required**                             |
+| `MAVEN 3.3.9 +`    | **Required for Compilation**             |
+| `Postgres - mySql` | **Required**                             |
+| `git`              | **Required for Cloning the project**     |
+| `openssl`          | **Required for LetsEncrypt + Decryption**|
+| `curl`             | **Required for Script client**           |
 
 ---
 
