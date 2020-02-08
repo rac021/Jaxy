@@ -4,11 +4,11 @@
 
 ### **Agenda :**
 
-| Session  | Reference  |  Time |
+| <ins>Session</ins>  | <ins>Reference</ins>  |  <ins>Time</ins> |
 |:---------------------------|:----------------------------|:----------------------------|
-| Talk | [ Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf) | ~ 15 mn |
+| **Talk** | [ Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf) | ~ 15 mn |
 |  **Demo** | [Short_Demo](https://github.com/rac021/Jaxy/tree/master/docs/talk#requirements-) | ~ 15 mn |
-|  **Resources** | [Resources](https://github.com/rac021/Jaxy/blob/master/docs/talk/README.md#resources-) | ---- |
+|  Resources | [Resources](https://github.com/rac021/Jaxy/blob/master/docs/talk/README.md#resources-) | ---- |
 -----------------------------------------------------
 
 ###### **Requirements :**
