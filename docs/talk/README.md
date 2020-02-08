@@ -2,23 +2,12 @@
 
 --------------------------------------
 
- #### Resources :
+### **Agenda :**
 
-| Resource  | Link |  Link |
-|:---------------------------|:----------------------------|:---------------------|
-| Talks|  [Full_Talk_2017](https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf) | [ Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf)  |
-| Jaxy_src |    [sourceforge_project](https://sourceforge.net/projects/jaxy/files/Jaxy_2.2_src.zip/download)    |    [github_project](https://github.com/rac021/Jaxy) |
-| Jaxy_bin | [bin_project](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download)  |    [CSO Auth Mechanism](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services_with_custom_signon_auth) |
-
-
---------------------------------------
-
-**Agenda :**
-
-| Talk  | Time | 
-|:---------------------------|:----------------------------|
-|  [ Short_Talk_2020 :](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf) | ~ 10 mn |
-|  **Demo**  | ~ 15 mn |
+| Session  | Reference  |  Time |
+|:---------------------------|:----------------------------|:----------------------------|
+| Talk | [ Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf) | ~ 10 mn |
+|  **Demo** | [Short_Demo](https://github.com/rac021/Jaxy/edit/master/docs/talk/README.md) | ~ 15 mn |
  
 -----------------------------------------------------
 
@@ -163,4 +152,15 @@
          
          2 )  java -jar lib/client/jaxy-client.jar
 
+
+
+--------------------------------------
+
+ #### Resources :
+
+| Resource  | Link |  Link |
+|:---------------------------|:----------------------------|:---------------------|
+| Talks|  [Full_Talk_2017](https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf) | [ Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf)  |
+| Jaxy_src |    [sourceforge_project](https://sourceforge.net/projects/jaxy/files/Jaxy_2.2_src.zip/download)    |    [github_project](https://github.com/rac021/Jaxy) |
+| Jaxy_bin | [bin_project](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download)  |    [CSO Auth Mechanism](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/02_secured_services_with_custom_signon_auth) |
 
