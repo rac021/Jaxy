@@ -15,8 +15,28 @@
 
 --------------------------------------
 
- **Demo :** 
+ *** **Demo :** ***
  
+ 
+-----------------------------------------------------
+
+###### **Requirements :**
+
+-    `JAVA 8`   **Required**
+    
+-    `MAVEN 3.3.9 +` **Required for compilation**
+   
+-    `Postgres | mySql` **Required**
+
+-    `git` **Required for cloning the project**
+
+-    `openssl` **Required for LetsEncrypt + Decryption**
+
+-    `curl`   **Required for script client**
+
+---
+
+
  **cd jaxy** # ( the root of the project )
  
  I )   [Download](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) / or [Compile](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy) ( For the most courageour ) the project :
@@ -52,7 +72,12 @@
          7 )  Keep Only model + distance_km 
          
  
- V )   [Secured Services using SSO : Keycloak  With HTTPS + Full_Conf )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
+ V  ) Test Decryption Features : 
+ 
+         1 ) TO DO
+         
+         
+ VI ) [Secured Services using SSO : Keycloak  With HTTPS + Full_Conf )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
  
          1 )  Start keycloak Server :
          
@@ -88,10 +113,10 @@
                                                keycloak_login      admin         \
                                                keycloak_password   admin
          
-         6 ) Remove Manager Role to Admin User & Test vip_planes service
+         6 ) Remove Manager Role for Admin User & Test vip_planes service
          
          
- VI  )  [Jaxy Monitoring ( Prometheus / Grafana )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker#3-docker-compose-) :
+ VII )  [Jaxy Monitoring ( Prometheus / Grafana )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker#3-docker-compose-) :
          
          1 ) cd demo/18_Docker/
          
@@ -116,14 +141,14 @@
          8 ) Test real time Exceptions Dashboard
          
          
- VII  )  [Cloud Deployment](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker#4-try-play-with-docker-) :
+ VIII )  [Cloud Deployment](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker#4-try-play-with-docker-) :
          
          1 ) Because it works on the local machine, it should also works in the cloud :-) : 
              
              https://github.com/rac021/Jaxy/tree/master/jaxy/demo/18_Docker#4-try-play-with-docker-
          
   
- VIII  )  [LetsEncryt Feature : X509 certificates Generator](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/17_test_letsEncrypt) :
+ IX  )  [LetsEncryt Feature : X509 certificates Generator](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/17_test_letsEncrypt) :
  
          1 )  cd jaxy
       
@@ -132,7 +157,7 @@
          3 ) ./run.sh serviceConf=demo/17_test_letsEncrypt/serviceConf.yaml 
        
        
- IX  ) Bonus : GUI Client :
+ X  ) Bonus : GUI Client :
         
          1 )  cd jaxy
          
