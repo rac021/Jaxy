@@ -30,7 +30,7 @@
          
          2 ) Compilation Steps : https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy
  
-         3 )  **cd jaxy** # ( the root of the project )
+         3 ) cd jaxy # ( the root of the project )
          
  II )   [Install demo Database](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_db-script) :
  
