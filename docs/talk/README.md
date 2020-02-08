@@ -156,6 +156,6 @@
         
          1 )  cd jaxy
          
-         2 )  java -jar libs/client/jaxyClient.jar
+         2 )  java -jar lib/client/jaxy-client.jar
 
 
