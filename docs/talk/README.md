@@ -154,9 +154,9 @@
          
          3 ) Go to : 
           
-             - http://jaxy:8181
+             - http://jaxy:8181 # ( Login / password : jaxy / jaxy )
              
-             - http://jaxy-prometheus:9090     
+             - http://jaxy-prometheus:9090 
              
              - http://jaxy-grafana:3000 
              
