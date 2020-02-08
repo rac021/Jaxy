@@ -4,7 +4,7 @@
 
 1. #### Resources :
 
-| Resource &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Link &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  Link &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| Resource ;  | Link |  Link |
 |:---------------------------|:----------------------------|:---------------------|
 | Talks|  [Full_Talk_2017](https://github.com/rac021/Jax-Y/blob/master/demo_sourceForge/Talk_PasSageEnSeine/Jax-Y.pdf) | [ Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf)  |
 | Jaxy_rsc |    [sourceforge_project](https://sourceforge.net/projects/jaxy/files/Jaxy_2.2_src.zip/download)    |    [github_project](https://github.com/rac021/Jaxy) |
