@@ -56,9 +56,23 @@
             
               - Copy/download the Generated jaxy_script : jaxy_client.sh
               
-              - ./client.sh login=admin password=admin  
+              -  ./jaxy_client.sh login=admin password=admin
+              
+              -  Filter on : total_pssengers > 300 
+         
+              - Keep Only : model 
+         
+              - Keep Only model + distance_km 
+              
+              - Change Accepted_Format to : XML/ENCRYPTED ( With Cipher : AES_256_CBC ) 
+              
+              - Update jaxy_client.sh
+              
+              - ./jaxy_client.sh login=admin password=admin 
+              
+              - - ./jaxy_client.sh login=admin password=admin > encrypted_data.txt
         
-         6 )  Test Generated java client 
+         6 ) Test Generated java client 
          
               - Copy/download the generated jaxy_conf.txt
               
@@ -66,18 +80,26 @@
               
               - java -jar jaxyClient.jar confPath jaxy_conf.txt login admin password admin
               
-         7 )  Filter on : total_pssengers > 300 
-         
-         8 )  Keep Only : model 
-         
-         9 )  Keep Only model + distance_km 
+              - Change Accepted_Format to : XML/ENCRYPTED ( With Cipher : AES_256_CBC ) 
+              
+              - Update  jaxy_conf.txt
+              
+              - java -jar jaxyClient.jar confPath jaxy_conf.txt login admin password admin out encrypted_data.txt
          
  
  V  ) Test Decryption Features : 
  
-         1 ) https://github.com/rac021/Jaxy/tree/master/jaxy/demo/06_test_scripts_for_decryption
+         1 ) Using Script_Decryptor : 
+            
+             1.1 ) Copy / download The generated jaxy_decryptor.sh 
          
-         2 ) Using Java Client 
+             1.2 ) ./jaxy_decryptor.sh file=encrypted_data.txt  password=admin
+             
+             1.3 ) See : https://github.com/rac021/Jaxy/tree/master/jaxy/demo/06_test_scripts_for_decryption 
+                  
+         2 ) Using Java Client :
+         
+             2.1 java -jar jaxyClient.jar decrypt pathFileToDecrypt encrypted_data.txt password admin
          
          
  VI ) Secured Services using SSO ( [Keycloak  With HTTPS + Full_Conf](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf) )
