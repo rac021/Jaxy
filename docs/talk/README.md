@@ -8,7 +8,7 @@
 |:---------------------------|:----------------------------|:----------------------------|
 | Talk | [ Short_Talk_2020](https://github.com/rac021/Jaxy/blob/master/docs/talk/Jaxy.pdf) | ~ 10 mn |
 |  **Demo** | [Short_Demo](https://github.com/rac021/Jaxy/tree/master/docs/talk#requirements-) | ~ 15 mn |
-|  **Resources** | [Resources](https://github.com/rac021/Jaxy/tree/master/docs/talk#requirements-) | ---- |
+|  **Resources** | [Resources](https://github.com/rac021/Jaxy/blob/master/docs/talk/README.md#resources-) | ---- |
 -----------------------------------------------------
 
 ###### **Requirements :**
