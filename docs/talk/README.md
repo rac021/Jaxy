@@ -56,7 +56,7 @@
             
               - Copy/download the Generated jaxy_script : jaxy_client.sh
               
-              -  ./jaxy_client.sh login=admin password=admin
+              - ./jaxy_client.sh login=admin password=admin
               
               -  Filter on : total_pssengers > 300 
          
@@ -70,7 +70,7 @@
               
               - ./jaxy_client.sh login=admin password=admin 
               
-              - - ./jaxy_client.sh login=admin password=admin > encrypted_data.txt
+              - ./jaxy_client.sh login=admin password=admin > encrypted_data.txt
         
          6 ) Test Generated java client 
          
@@ -84,7 +84,10 @@
               
               - Update  jaxy_conf.txt
               
-              - java -jar jaxyClient.jar confPath jaxy_conf.txt login admin password admin out encrypted_data.txt
+              - java -jar jaxyClient.jar confPath jaxy_conf.txt    \
+                                        login     admin            \
+                                        password  admin            \
+                                        out       encrypted_data.txt
          
  
  V  ) Test Decryption Features : 
