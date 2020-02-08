@@ -46,17 +46,31 @@
  
          1 )  ./run.sh serviceConf=demo/Full_Conf/serviceConf.yaml
  
-         2 )  Go to UI - Test Auth - Test secured Services
+         2 )  Go to UI : https://localhost:8443/jaxy
          
-         3 )  Test Generated scripts client ( service plane : XML / JSON )
+         3 )  Test UI Auth : ( Login / password : jaxy / jaxy )
+         
+         4 )  Test secured Services ( vip_plane ) ( without Authentication )
+              
+         5 )  Test Generated scripts client ( service vip_plane : XML / JSON )
+            
+              - Copy/download the Generated jaxy_script : jaxy_client.sh
+              
+              - ./client.sh login=admin password=admin  
         
-         4 )  Test Generated java client 
-        
-         5 )  Filter on : total_pssengers > 300 
+         6 )  Test Generated java client 
          
-         6 )  Keep Only : model 
+              - Copy/download the generated jaxy_conf.txt
+              
+              - Download the  jaxyClient.jar
+              
+              - java -jar jaxyClient.jar confPath jaxy_conf.txt login admin password admin
+              
+         7 )  Filter on : total_pssengers > 300 
          
-         7 )  Keep Only model + distance_km 
+         8 )  Keep Only : model 
+         
+         9 )  Keep Only model + distance_km 
          
  
  V  ) Test Decryption Features : 
