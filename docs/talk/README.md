@@ -98,7 +98,7 @@
          
              1.2 ) ./jaxy_decryptor.sh file=encrypted_data.txt  password=admin
              
-             1.3 ) See : https://github.com/rac021/Jaxy/tree/master/jaxy/demo/06_test_scripts_for_decryption 
+             1.3 ) https://github.com/rac021/Jaxy/tree/master/jaxy/demo/06_test_scripts_for_decryption 
                   
          2 ) Using Java Client :
          
