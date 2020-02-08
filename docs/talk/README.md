@@ -69,7 +69,9 @@
  
  V  ) Test Decryption Features : 
  
-         1 ) TO DO
+         1 ) https://github.com/rac021/Jaxy/tree/master/jaxy/demo/06_test_scripts_for_decryption
+         
+         2 ) Using Java Client 
          
          
  VI ) [Secured Services using SSO : Keycloak  With HTTPS + Full_Conf )](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/Full_Conf)
