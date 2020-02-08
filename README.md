@@ -104,6 +104,6 @@
 ) ( PDF ) 
 
 
- [Talk_2020_Infosol](https://github.com/rac021/Jaxy/tree/master/docs/talk) ( PDF + Commands )
+ [Talk_2020_Infosol](https://github.com/rac021/Jaxy/tree/master/docs/talk) ( PDF + Demo )
 
 
