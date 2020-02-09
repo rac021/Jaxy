@@ -84,10 +84,10 @@
               
               - Update  jaxy_conf.txt
               
-              - java -jar jaxyClient.jar confPath jaxy_conf.txt    \
-                                        login     admin            \
-                                        password  admin            \
-                                        out       encrypted_data.txt
+              - java -jar jaxyClient.jar confPath  jaxy_conf.txt    \
+                                         login     admin            \
+                                         password  admin            \
+                                         out       encrypted_data.txt
          
  
  V  ) Test Decryption Features : 
