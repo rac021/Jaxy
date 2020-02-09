@@ -104,6 +104,7 @@
          
              2.1 java -jar jaxyClient.jar decrypt                              \
                                           pathFileToDecrypt encrypted_data.txt \
+                                          confPath          jaxy_conf.txt      \
                                           password          admin
          
          
