@@ -111,4 +111,7 @@
     echo 
     echo " Error, Jaxy Jar : $CURRENT_LOCATION/jaxy/target/jaxy-thorntail.jar not found !! "
     echo 
+    echo "Target : "
+    ls $CURRENT_LOCATION/jaxy/target/
+    exit 21
   fi
