@@ -4,7 +4,7 @@
   
   DEMO_PATH="jaxy"
 
-  cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvn clean install -Dmaven.test.skip=true 
+  cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvn clean install -Dmaven.test.skip=true -Dhttps.protocols=TLSv1.2
   
   if [[ "$?" -ne 0 ]] ; then
      echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
