@@ -37,7 +37,7 @@ RUN chmod +x /app/jaxy/*.sh
 
 COPY --from=compilation_stage /tmp/jaxy/ /app/jaxy/
 
-RUN echo "APP/JAXY ==> " ; ls /app/jaxy/
+RUN echo " + Content APP/JAXY : " ; ls /app/jaxy/
 
 WORKDIR /app/jaxy
 
