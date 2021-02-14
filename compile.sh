@@ -9,7 +9,7 @@
   cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvn clean install -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   if [[ "$?" -ne 0 ]] ; then
-     echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
+     echo ; echo 'Could not perform mvn clean install -Dmaven.test.skip=true' ; echo 
      exit 21
   else 
      mvn clean 
@@ -18,7 +18,7 @@
   cd $CURRENT_LOCATION/dependencies/02_jaxy-security-provider && mvn clean install -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   if [[ "$?" -ne 0 ]] ; then
-     echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
+     echo ; echo 'Could not perform mvn clean install -Dmaven.test.skip=true' ; echo 
      exit 21
   else 
      mvn clean 
@@ -27,7 +27,7 @@
   cd $CURRENT_LOCATION/dependencies/03_jaxy-service-discovery &&  mvn clean install -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   if [[ "$?" -ne 0 ]] ; then
-     echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
+     echo ; echo 'Could not perform mvn clean install -Dmaven.test.skip=true' ; echo 
      exit 21
   else 
      mvn clean 
@@ -54,7 +54,7 @@
   cd $CURRENT_LOCATION/dependencies/05_jaxyClient &&  mvn clean install assembly:single -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   if [[ "$?" -ne 0 ]] ; then
-     echo 'Could not perform mvn clean install assembly:single -Dmaven.test.skip=true'
+     echo ; echo 'Could not perform mvn clean install assembly:single -Dmaven.test.skip=true' ; echo 
      exit 21
   else 
      mvn clean 
@@ -69,7 +69,6 @@
   mv target/jaxyClient.jar ../../jaxy/src/main/resources/jaxy-client/jaxyClient.jar
   
   rm -rf $CURRENT_LOCATION/dependencies/05_jaxyClient/target
-
   
   cd $CURRENT_LOCATION/jaxy/
   
@@ -88,7 +87,7 @@
   fi
   
   if [[ "$?" -ne 0 ]] ; then
-     echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
+     echo ; echo 'Could not perform mvn clean install -Dmaven.test.skip=true' ; echo 
      exit 21
   else 
      mvn clean 
