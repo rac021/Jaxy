@@ -3,37 +3,39 @@
   CURRENT_LOCATION=`pwd`/src
   
   DEMO_PATH="jaxy"
-
-  cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvn clean install -Dmaven.test.skip=true -Dhttps.protocols=TLSv1.2
+   
+  MVN_HTTPS_PROTOCOLS="-Dhttps.protocols=TLSv1.2"
+  
+  cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvn clean install -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   if [[ "$?" -ne 0 ]] ; then
      echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
-     exit $rc
+     exit 21
   else 
      mvn clean 
   fi
   
-  cd $CURRENT_LOCATION/dependencies/02_jaxy-security-provider && mvn clean install -Dmaven.test.skip=true 
+  cd $CURRENT_LOCATION/dependencies/02_jaxy-security-provider && mvn clean install -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   if [[ "$?" -ne 0 ]] ; then
      echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
-     exit $rc
+     exit 21
   else 
      mvn clean 
   fi
   
-  cd $CURRENT_LOCATION/dependencies/03_jaxy-service-discovery &&  mvn clean install -Dmaven.test.skip=true 
+  cd $CURRENT_LOCATION/dependencies/03_jaxy-service-discovery &&  mvn clean install -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   if [[ "$?" -ne 0 ]] ; then
      echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
-     exit $rc
+     exit 21
   else 
      mvn clean 
   fi  
 
   ## Compile certMe for generating letsEncrypt Certificates
   
-  cd $CURRENT_LOCATION/dependencies/04_certMe &&  mvn clean install assembly:single -Dmaven.test.skip=true
+  cd $CURRENT_LOCATION/dependencies/04_certMe &&  mvn clean install assembly:single -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
 
   CERT_ME_PATH="../../../$DEMO_PATH/lib"
 
@@ -49,11 +51,11 @@
 
   ## Compile jaxyClient ( that will be downloaded by users from UI ) 
   
-  cd $CURRENT_LOCATION/dependencies/05_jaxyClient &&  mvn clean install assembly:single -Dmaven.test.skip=true
+  cd $CURRENT_LOCATION/dependencies/05_jaxyClient &&  mvn clean install assembly:single -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   if [[ "$?" -ne 0 ]] ; then
      echo 'Could not perform mvn clean install assembly:single -Dmaven.test.skip=true'
-     exit $rc
+     exit 21
   else 
      mvn clean 
   fi
@@ -75,19 +77,19 @@
   
       # Compile m2repo Profile 
   
-      mvn clean package -Pm2repo -Dmaven.test.skip=true
+      mvn clean package -Pm2repo -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
     
   else
   
     # FatJar Compilation
      
-     mvn clean package -Dmaven.test.skip=true
+     mvn clean package -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   fi
   
   if [[ "$?" -ne 0 ]] ; then
      echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
-     exit $rc
+     exit 21
   else 
      mvn clean 
   fi 
