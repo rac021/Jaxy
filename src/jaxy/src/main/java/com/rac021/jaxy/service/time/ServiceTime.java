@@ -43,7 +43,7 @@ public class ServiceTime {
     @Produces({ "xml/plain", "json/plain" })
     //@Fallback(fallbackMethod = "getTimeFallBack")
     @Timed(name = "service_timer_jaxy", absolute = true, unit = MetricUnits.MILLISECONDS)
-    @Counted(name = "countServiceTime", absolute = true, reusable = true, /* monotonic = true, */ unit = MetricUnits.NONE )
+    @Counted( name = "countServiceTime", absolute = true, /* reusable = true, /* monotonic = true, */ unit = MetricUnits.NONE )
     public Response getTime() throws InterruptedException {
        return Response.status(Response.Status.OK)
                       .entity(String.valueOf(Instant.now().toEpochMilli()))

@@ -11,7 +11,7 @@ import java.io.IOException ;
 import java.util.logging.Level ;
 import javax.ws.rs.ext.Provider ;
 import java.util.logging.Logger ;
-import java.util.concurrent.TimeUnit ;
+import java.time.temporal.ChronoUnit ;
 import javax.ws.rs.ext.WriterInterceptor ;
 import com.rac021.jaxy.api.metrics.Metrics ;
 import javax.ws.rs.ext.WriterInterceptorContext ;
@@ -52,7 +52,7 @@ public class ResponseWriterInterceptorContext implements WriterInterceptor {
                                RuntimeServiceInfos.ACCEPT.get().replaceAll("/", "_")   +
                                "_timer" ;
                 
-                Metrics.updateTimerService( timer, timeElapsed, TimeUnit.MILLISECONDS) ;
+                Metrics.updateTimerService( timer, timeElapsed, ChronoUnit.MILLIS ) ;
 
                 RuntimeServiceInfos.STARTED_TIME.remove() ;
                 RuntimeServiceInfos.SERVICE_NAME.remove() ;

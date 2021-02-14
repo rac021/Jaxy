@@ -5,7 +5,6 @@ import java.util.Map ;
 import java.util.HashMap ;
 import java.util.logging.Level ;
 import java.util.logging.Logger ;
-import java.util.concurrent.TimeUnit ;
 import javax.annotation.PostConstruct ;
 import javax.enterprise.event.Observes ;
 import javax.enterprise.context.Initialized ;
@@ -14,6 +13,8 @@ import org.eclipse.microprofile.metrics.Timer ;
 import javax.enterprise.context.ApplicationScoped ;
 import org.eclipse.microprofile.metrics.annotation.Gauge ;
 import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
+import java.time.Duration;
+import java.time.temporal.TemporalUnit;
 
 /**
  *
@@ -57,11 +58,11 @@ public class Metrics {
        timerServices.put( serviceName, timer ) ;
     }
     
-    public static void updateTimerService( String serviceName, long val, TimeUnit unit ) {
+    public static void updateTimerService( String serviceName, long val,  TemporalUnit unit ) {
        
        timerServices.computeIfPresent( serviceName , 
-                                       ( sName, timer ) -> { timer.update( val, unit ) ;
-                                                             return timer              ;
+                                       ( sName, timer ) -> { timer.update( Duration.of( val, unit ) ) ;
+                                                             return timer                             ;
                                                            }
                                      ) ; 
     }

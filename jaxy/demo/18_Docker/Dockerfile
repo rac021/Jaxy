@@ -7,7 +7,7 @@
 # Step : Compile Jaxy ##
 ########################
 
-FROM maven:3.6.0-jdk-8-alpine as compilation_stage
+FROM maven:3.6.3-jdk-11-slim as compilation_stage
 
 ADD src/ /tmp/src
 
@@ -24,7 +24,7 @@ RUN ./compile.sh
 # Step : Package image ##
 #########################
 
-FROM openjdk:8u181-jdk-stretch
+FROM adoptopenjdk/openjdk11
 
 COPY jaxy/run.sh /app/jaxy/
 

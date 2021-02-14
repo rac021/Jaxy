@@ -125,7 +125,7 @@ public class CompilerManager {
             throw new IllegalArgumentException(" Unknown Authentication Mode for [ " + security + " ] ")              ;
         }
 
-        List<String> params = new ArrayList()  ;
+        List<String> params = new ArrayList<>()  ;
 
         for (String column : query.getParameters().keySet()) {
             params.add( "@QueryParam(\"" + column + "\") " + "java.lang.String" + " " + column ) ;
