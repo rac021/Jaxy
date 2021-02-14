@@ -36,7 +36,6 @@ after_success:
     - docker tag jaxy $DOCKER_USERNAME/jaxy:latest
     - docker push $DOCKER_USERNAME/jaxy:latest
     
-
 # env:
 #   global:
 #     - secure: "JxXU4AjuJFHZxUDp+n99YS2VSj+Ss0op40EsOgR9dRr3moBoQO1+MQOW1SRfV7N4zKzHbR13JFrBkatKbH5LKGRtiJYg2MMNhivmcdfnd4lEFPf0Nw3IxRpqKSiXNi+O/CTGh0V2cGvef49Onf6FbI+BIpNayvXjnryHF9yf6/m5etlfu8fscz2UA2iqcm9KUf6lxQgURhboc1WeAUACGHypoRjBIYO6npadn00D/PUIXhXAT9R9k0CFsHwu5rW7GQ+aFP4gUAQyq8zzcEtDytudiq19pFelVgNz9iDeuQbLdcbtkZxI9j4MorqCLJC+Th9PE/UzI/UrTyuHrE9wtCovlgVgmm9dA65jfOFbjiBYdGxgUVAPL/P6DurtC6yPcDzHNXotN6+DghSLbyDtGmFk/vEltyFO5MJkJjEmspr7HgXTYOcYgQObHo82OIQzRsqoHX517NEn7QSKltve5nWDcfW7TKY/ODy+YrQGQDIq/W721AFZNYEiFO6yVchG0ztlcZg1BPr6wXyUpUle/mFjfH6XY+j3AwG2+i1HNSyu5L0b5Rfjk4Yvxwqinb0YihSeOsbV6hybLjkDWDE3ePyfclnc4vLBrFxungnOV1VDPXDZs6iuvfRBE2hv/oAfWBqwhSrtE8ud5hUZZFHTrR2fmtZ43HoDtZFHAalxpos=" # DOCKER_USER
