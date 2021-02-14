@@ -97,15 +97,18 @@
   
   if [ -f "$CURRENT_LOCATION/jaxy/target/jaxy-thorntail.jar" ]; then
  
-    if [ -f "$DEMO_PATH/jaxy-thorntail.jar" ]; then
+     if [ -f "$DEMO_PATH/jaxy-thorntail.jar" ]; then
     
-        rm $DEMO_PATH/jaxy-thorntail.jar
+         rm $DEMO_PATH/jaxy-thorntail.jar    
+     fi
     
-    fi
-    
-    mv $CURRENT_LOCATION/jaxy/target/jaxy-thorntail.jar ../../$DEMO_PATH/jaxy-thorntail.jar
+     mv $CURRENT_LOCATION/jaxy/target/jaxy-thorntail.jar ../../$DEMO_PATH/jaxy-thorntail.jar
  
-    rm -rf $CURRENT_LOCATION/jaxy/target
+     rm -rf $CURRENT_LOCATION/jaxy/target
  
+  else 
+  
+    echo 
+    echo " Error, Jaxy Jar : $CURRENT_LOCATION/jaxy/target/jaxy-thorntail.jar not found !! "
+    echo 
   fi
-
