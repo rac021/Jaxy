@@ -99,14 +99,12 @@
             <version>1.9</version>
         </dependency>
 
-        <!--        
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
             <scope>provided</scope>
         </dependency>
-        -->
 
         <dependency>
             <groupId>junit</groupId>
@@ -178,20 +176,6 @@
                     </execution>
                 </executions>
             </plugin>
-            
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
         </plugins>
         
@@ -227,7 +211,6 @@
                     </plugin>
                 </plugins>
             </build>
-
         </profile>
        
     </profiles>
