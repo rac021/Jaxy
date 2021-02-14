@@ -6,6 +6,13 @@ sudo: false # faster builds
 jdk:
   - openjdk11
   
+matrix:
+  include:
+    - jdk: openjdk11
+      before_install:
+        - rm "${JAVA_HOME}/lib/security/cacerts"
+        - ln -s /etc/ssl/certs/java/cacerts "${JAVA_HOME}/lib/security/cacerts"
+
 script:
   - cd /home/travis/build/rac021/Jaxy/src/dependencies/01_jaxy-api 
   - mvn -q clean install
