@@ -6,6 +6,13 @@ sudo: false # faster builds
 jdk:
   - openjdk11
 
+before_script:
+  - echo $TRAVIS_COMMIT
+  - echo $TRAVIS_TAG
+  - echo $TRAVIS_BRANCH
+  - echo $TRAVIS_BUILD_NUMBER
+  - echo $TRAVIS_REPO_SLUG
+
 script:
   - echo " 1- Compile jaxy-api : "               && cd /home/travis/build/rac021/Jaxy/src/dependencies/01_jaxy-api 
   - mvn -q clean install
@@ -20,18 +27,6 @@ script:
   - echo " 6- Compile jaxy : "                   && cd /home/travis/build/rac021/Jaxy/src/jaxy
   - mvn -q clean package 
 
-# env:
-#   global:
-#     - secure: "JxXU4AjuJFHZxUDp+n99YS2VSj+Ss0op40EsOgR9dRr3moBoQO1+MQOW1SRfV7N4zKzHbR13JFrBkatKbH5LKGRtiJYg2MMNhivmcdfnd4lEFPf0Nw3IxRpqKSiXNi+O/CTGh0V2cGvef49Onf6FbI+BIpNayvXjnryHF9yf6/m5etlfu8fscz2UA2iqcm9KUf6lxQgURhboc1WeAUACGHypoRjBIYO6npadn00D/PUIXhXAT9R9k0CFsHwu5rW7GQ+aFP4gUAQyq8zzcEtDytudiq19pFelVgNz9iDeuQbLdcbtkZxI9j4MorqCLJC+Th9PE/UzI/UrTyuHrE9wtCovlgVgmm9dA65jfOFbjiBYdGxgUVAPL/P6DurtC6yPcDzHNXotN6+DghSLbyDtGmFk/vEltyFO5MJkJjEmspr7HgXTYOcYgQObHo82OIQzRsqoHX517NEn7QSKltve5nWDcfW7TKY/ODy+YrQGQDIq/W721AFZNYEiFO6yVchG0ztlcZg1BPr6wXyUpUle/mFjfH6XY+j3AwG2+i1HNSyu5L0b5Rfjk4Yvxwqinb0YihSeOsbV6hybLjkDWDE3ePyfclnc4vLBrFxungnOV1VDPXDZs6iuvfRBE2hv/oAfWBqwhSrtE8ud5hUZZFHTrR2fmtZ43HoDtZFHAalxpos=" # DOCKER_USER
-#     - secure: "qgRqY3QT/g4+MtGrPZKthQieTuo2vsaluUXZc74BMjyflcMr/D47I1vgzuieQqMfOiFwrRadNLIrJQ1f72C+huuJ/YsofOyj/WkI65FA+hhfgk0iLp08ND9V2qcyshLdaRlNPo53I1zonSI1k0N+c8g4RK2Z8fipujLRndI2al7t2+Kaz1f7bNa8obu9M4YoH7OOPvF+Vs2mi88c7yZOZ14Iwd4ejzRVwQQWlehrIimRWkUgRWGfLW9GxV8QhHf7mbl5pZoGadkX5KnIc34uBorc7OBH3D6/W7oWH3Zt5qFIok2ALLSDUbJQhOeiG1VStwxaaPE8QfyoG33ILZ9HewnJ11fRUC5f2oTecko7b1gM+F8wsJe+h8XA1t42Mhre0l/NeqjkVnpS94qWt56ozw/9fI2HiqPEN8sQ510WovfnQD/DhES2zXBxO7D9vtq/3x0EhH8BJx7tMUVfQwLG5raFVbRBXf2xzYpcHcYQLcS6shn6EXbxa++cxokCIfvQWOyqSxneq4t85S3tfkmdFgDJL93hceXhqQTqsd7GtCm276MSYMOFAzaxqdlq0MPHICv3d+eqFxcgidRsOmU2a5D2PxTyXuBKOg4KiT7b5I70/YTdNUgX2fei3hZRzJBJnMSkQ3gXWwV1fzFWwzSYkIRYJu7iXFAfbJL9q7FCyV8=" # DOCKER_PASS
-
-script:
-  - echo $TRAVIS_COMMIT
-  - echo $TRAVIS_TAG
-  - echo $TRAVIS_BRANCH
-  - echo $TRAVIS_BUILD_NUMBER
-  - echo $TRAVIS_REPO_SLUG
-  
 after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME --password-stdin
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ] ; then echo "travis-$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER" ; else echo "travis-$TRAVIS_BRANCH-$TRAVIS_BUILD_NUMBER-snapshot" ; fi`
@@ -41,3 +36,8 @@ after_success:
     - docker tag jaxy $DOCKER_USERNAME/jaxy:latest
     - docker push $DOCKER_USERNAME/jaxy:latest
     
+
+# env:
+#   global:
+#     - secure: "JxXU4AjuJFHZxUDp+n99YS2VSj+Ss0op40EsOgR9dRr3moBoQO1+MQOW1SRfV7N4zKzHbR13JFrBkatKbH5LKGRtiJYg2MMNhivmcdfnd4lEFPf0Nw3IxRpqKSiXNi+O/CTGh0V2cGvef49Onf6FbI+BIpNayvXjnryHF9yf6/m5etlfu8fscz2UA2iqcm9KUf6lxQgURhboc1WeAUACGHypoRjBIYO6npadn00D/PUIXhXAT9R9k0CFsHwu5rW7GQ+aFP4gUAQyq8zzcEtDytudiq19pFelVgNz9iDeuQbLdcbtkZxI9j4MorqCLJC+Th9PE/UzI/UrTyuHrE9wtCovlgVgmm9dA65jfOFbjiBYdGxgUVAPL/P6DurtC6yPcDzHNXotN6+DghSLbyDtGmFk/vEltyFO5MJkJjEmspr7HgXTYOcYgQObHo82OIQzRsqoHX517NEn7QSKltve5nWDcfW7TKY/ODy+YrQGQDIq/W721AFZNYEiFO6yVchG0ztlcZg1BPr6wXyUpUle/mFjfH6XY+j3AwG2+i1HNSyu5L0b5Rfjk4Yvxwqinb0YihSeOsbV6hybLjkDWDE3ePyfclnc4vLBrFxungnOV1VDPXDZs6iuvfRBE2hv/oAfWBqwhSrtE8ud5hUZZFHTrR2fmtZ43HoDtZFHAalxpos=" # DOCKER_USER
+#     - secure: "qgRqY3QT/g4+MtGrPZKthQieTuo2vsaluUXZc74BMjyflcMr/D47I1vgzuieQqMfOiFwrRadNLIrJQ1f72C+huuJ/YsofOyj/WkI65FA+hhfgk0iLp08ND9V2qcyshLdaRlNPo53I1zonSI1k0N+c8g4RK2Z8fipujLRndI2al7t2+Kaz1f7bNa8obu9M4YoH7OOPvF+Vs2mi88c7yZOZ14Iwd4ejzRVwQQWlehrIimRWkUgRWGfLW9GxV8QhHf7mbl5pZoGadkX5KnIc34uBorc7OBH3D6/W7oWH3Zt5qFIok2ALLSDUbJQhOeiG1VStwxaaPE8QfyoG33ILZ9HewnJ11fRUC5f2oTecko7b1gM+F8wsJe+h8XA1t42Mhre0l/NeqjkVnpS94qWt56ozw/9fI2HiqPEN8sQ510WovfnQD/DhES2zXBxO7D9vtq/3x0EhH8BJx7tMUVfQwLG5raFVbRBXf2xzYpcHcYQLcS6shn6EXbxa++cxokCIfvQWOyqSxneq4t85S3tfkmdFgDJL93hceXhqQTqsd7GtCm276MSYMOFAzaxqdlq0MPHICv3d+eqFxcgidRsOmU2a5D2PxTyXuBKOg4KiT7b5I70/YTdNUgX2fei3hZRzJBJnMSkQ3gXWwV1fzFWwzSYkIRYJu7iXFAfbJL9q7FCyV8=" # DOCKER_PASS
