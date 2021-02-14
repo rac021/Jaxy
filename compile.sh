@@ -4,12 +4,32 @@
   
   DEMO_PATH="jaxy"
 
-  cd $CURRENT_LOCATION/dependencies/01_jaxy-api               &&  mvn clean install -Dmaven.test.skip=true && mvn clean 
-
-  cd $CURRENT_LOCATION/dependencies/02_jaxy-security-provider &&  mvn clean install -Dmaven.test.skip=true && mvn clean 
-
-  cd $CURRENT_LOCATION/dependencies/03_jaxy-service-discovery &&  mvn clean install -Dmaven.test.skip=true && mvn clean 
+  cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvn clean install -Dmaven.test.skip=true 
   
+  if [[ "$?" -ne 0 ]] ; then
+     echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
+     exit $rc
+  else 
+     mvn clean 
+  fi
+  
+  cd $CURRENT_LOCATION/dependencies/02_jaxy-security-provider && mvn clean install -Dmaven.test.skip=true 
+  
+  if [[ "$?" -ne 0 ]] ; then
+     echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
+     exit $rc
+  else 
+     mvn clean 
+  fi
+  
+  cd $CURRENT_LOCATION/dependencies/03_jaxy-service-discovery &&  mvn clean install -Dmaven.test.skip=true 
+  
+  if [[ "$?" -ne 0 ]] ; then
+     echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
+     exit $rc
+  else 
+     mvn clean 
+  fi  
 
   ## Compile certMe for generating letsEncrypt Certificates
   
@@ -30,6 +50,13 @@
   ## Compile jaxyClient ( that will be downloaded by users from UI ) 
   
   cd $CURRENT_LOCATION/dependencies/05_jaxyClient &&  mvn clean install assembly:single -Dmaven.test.skip=true
+  
+  if [[ "$?" -ne 0 ]] ; then
+     echo 'Could not perform mvn clean install assembly:single -Dmaven.test.skip=true'
+     exit $rc
+  else 
+     mvn clean 
+  fi
 
   if [ ! -d "../../jaxy/src/main/resources/jaxy-client/" ]; then
   
@@ -57,6 +84,13 @@
      mvn clean package -Dmaven.test.skip=true
   
   fi
+  
+  if [[ "$?" -ne 0 ]] ; then
+     echo 'Could not perform mvn clean install -Dmaven.test.skip=true'
+     exit $rc
+  else 
+     mvn clean 
+  fi 
   
   # Copy jaxy-thorntail to $DEMO_PATH
   
