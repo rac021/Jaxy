@@ -156,6 +156,8 @@
  
  
  ## Run Jaxy
+ 
+ echo ; echo " Deploy Jaxy. Url : $JAXY_URL " ; echo
   
  java  $DEBUG $TRUST_STORE $TRUST_STORE_KEYCLOAK $CONFIGURATION_FILE -jar $CURRENT_DIR/jaxy-thorntail.jar    
 
