@@ -9,7 +9,7 @@
  help() {
  
     echo
-    echo " Total Arguments : Six                                                                                             "
+    echo " Total Arguments : Six  --------------                                                                             "
     echo 
     echo "   serviceConf=                      :  Path of the serviceConf File ( REQUIRED )                                  "
     echo "   debug                             :  Start jaxy in debug mode                                                   "
@@ -133,7 +133,6 @@
     rm $KEYCLOAK_CERTIFICATE_NAME
    
  fi
-
   
  if [ "$DEBUG" == "true" ]; then
  
@@ -152,8 +151,7 @@
  if [ ! -z "$KEYCLOAK" ]; then
     
     TRUST_STORE_KEYCLOAK="-Djavax.net.ssl.trustStore=$KEYCLOAK_CERTIFICATE_NAME_JKS"
- fi
- 
+ fi 
  
  ## Run Jaxy
  
