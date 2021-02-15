@@ -157,11 +157,13 @@
 	
 	 echo ; echo " =================================== " ; echo
 	 
-	./run.sh $ARG 
+	 ( . ./run.sh $ARG )
+	
 
  
  else 
- 	echo ; echo " Docker-compose .. " ; echo  
-	./run.sh $ARG 
+ 	echo ; echo " Docker-compose .. " ; echo 
+
+	( . ./run.sh $ARG )
  fi
 
