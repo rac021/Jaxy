@@ -40,6 +40,11 @@ public class Main                {
         
         System.out.println( " ENV_JAXY_URL ===> " +  System.getenv("JAXY_URL")  ) ;
         System.out.println( " ENV_JAXY_URL ===> " +  System.getenv("JAXY_URL")  ) ;
+        
+        System.getenv().forEach((k, v) -> {
+            System.out.println(k + " ==== " + v);
+        });
+
         System.out.println( " ENV_JAXY_URL ===> " +  System.getenv("JAXY_URL")  ) ;
         
         /** Debugger Mode  . **/
