@@ -510,18 +510,20 @@ public class YamlConfigurator implements IConfigurator      {
         else if ( ( getConfiguration().get(OVERRIDE_HOST)) != null &&
                 ! ((String) getConfiguration().get(OVERRIDE_HOST)).isEmpty() ) {
        
-          String ovr = (String) getConfiguration().get(OVERRIDE_HOST) ;
+          String ovr = (String) getConfiguration().get(OVERRIDE_HOST)  ;
           
-          System.out.println("\n OVERRIDE_HOST is Enable" ) ;
+          System.out.println("\n OVERRIDE_HOST is Enable \n"   )       ;
             
-          this.HOST  = (String) getConfiguration().get(OVERRIDE_HOST) ;
+          this.HOST  = (String) getConfiguration().get(OVERRIDE_HOST)  ;
         }
        
-        else if ((getConfiguration().get(HOST_TYPE)) != null )         {
+        else if ((getConfiguration().get(HOST_TYPE)) != null   )       {
            
+          System.out.println(" Apply Host Type..           : " )       ;
+            
           String hostType = (String) getConfiguration().get(HOST_TYPE) ;
          
-          if( hostType.equalsIgnoreCase( IP ))      {
+          if( hostType.equalsIgnoreCase( IP ) )     {
               this.HOST = HostManager.getIp()       ;
           }
           else {
@@ -530,13 +532,15 @@ public class YamlConfigurator implements IConfigurator      {
          
         } else {
            
+             System.out.println(" Extract Host..              : " ) ;
+            
              this.HOST = HostManager.getHostName()  ;
         }
        
         System.out.println(" JAXY_HOST                   : " +
                              this.HOST                  )    ;
 
-        if ((getConfiguration().get(HTTP_PORT)) != null )   {
+        if ((getConfiguration().get(HTTP_PORT)) != null )    {
           this.httpPort = (String) getConfiguration()
                                .get(HTTP_PORT) ;
         }
@@ -546,7 +550,7 @@ public class YamlConfigurator implements IConfigurator      {
                                .get(HTTPS_PORT) ;
         }
        
-        if ((getConfiguration().get(TRANSPORT)) != null )   {
+        if ((getConfiguration().get(TRANSPORT)) != null  )  {
           this.transport = (String) getConfiguration()
                                    .get(TRANSPORT).toString()
                                    .toLowerCase()           ;
@@ -570,27 +574,27 @@ public class YamlConfigurator implements IConfigurator      {
         }
     }
 
-    private void setSelfConfiguration()                          { 
+    private void setSelfConfiguration()                           { 
    
-      if((getConfiguration().get(CERT_PATH)) != null )           {
+      if((getConfiguration().get(CERT_PATH)) != null )            {
           
          this.certificatePath = getAbsolutePath ( 
                                   (String) getConfiguration()
                                   .get(CERT_PATH)  ) ;
       }
       
-      if((getConfiguration().get(KEY_STORE_PASSWORD)) != null )  {
+      if((getConfiguration().get(KEY_STORE_PASSWORD)) != null )   {
          this.keyStorePassword = (String) getConfiguration()
                                  .get(KEY_STORE_PASSWORD) ;
       }
       
-      if((getConfiguration().get(KEY_PASSWORD)) != null )        {
+      if((getConfiguration().get(KEY_PASSWORD)) != null )         {
          this.keyPassword = (String) getConfiguration()
                             .get(KEY_PASSWORD) ;
       }
       
-      if((getConfiguration().get(ALIAS)) != null )               {
-        this.alias = (String) getConfiguration().get(ALIAS)      ;
+      if((getConfiguration().get(ALIAS)) != null )                {
+        this.alias = (String) getConfiguration().get(ALIAS)       ;
       }
     }
   
