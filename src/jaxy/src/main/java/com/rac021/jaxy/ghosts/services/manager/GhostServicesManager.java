@@ -292,6 +292,7 @@ public class GhostServicesManager    {
                                                      Arrays.asList( "javaee-api"                       ,
                                                                     "jaxy-api"                         ,
                                                                     "microprofile-metrics-api"         ,
+                                                                    "jakarta.xml.bind-api"             ,
                                                                     "microprofile-fault-tolerance-api" ) ) ;
                         
                         UnzipUtility.unzipJavaDependencies( deps , tmpPathDependenciesForCompilation )     ;
