@@ -20,7 +20,7 @@ services:
     hostname: jaxy
     entrypoint:
       - /app/jaxy/jaxy_pwd_launcher.sh
-    command: 'serviceConf=demo/18_Docker/jaxy_test_for_docker/custom_signon_auth/serviceConf.yaml'
+    command: 'serviceConf=demo/18_Docker/jaxy_test_for_docker/custom_signon_auth/serviceConf.yaml debug'
     ports:
       - 8181:8181
       - 6981:6981
