@@ -5,6 +5,14 @@
 ### DEPLOYING JAXY ON PWD WITH ONE CLICK     ######
 ###################################################
 
+ set -e 
+ 
+ trap notify ERR
+
+ function notify {
+   echo "$(caller): ${BASH_COMMAND}"
+ }
+ 
  ARG="$1"
  
  while [[ "$#" > "0" ]] ; do
