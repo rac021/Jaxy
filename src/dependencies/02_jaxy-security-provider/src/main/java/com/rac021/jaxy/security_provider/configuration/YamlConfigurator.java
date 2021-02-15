@@ -512,7 +512,7 @@ public class YamlConfigurator implements IConfigurator      {
        
           String ovr = (String) getConfiguration().get(OVERRIDE_HOST) ;
           
-          System.out.println(" OVERRIDE_HOST is Enable" ) ;
+          System.out.println("\n OVERRIDE_HOST is Enable" ) ;
             
           this.HOST  = (String) getConfiguration().get(OVERRIDE_HOST) ;
         }
@@ -533,7 +533,8 @@ public class YamlConfigurator implements IConfigurator      {
              this.HOST = HostManager.getHostName()  ;
         }
        
-        System.out.println(" JAXY_HOST : " + this.HOST  )   ;
+        System.out.println(" JAXY_HOST                   : " +
+                             this.HOST                  )    ;
 
         if ((getConfiguration().get(HTTP_PORT)) != null )   {
           this.httpPort = (String) getConfiguration()
