@@ -38,6 +38,10 @@ public class Main                {
 
     public static void main(String[] args) throws Exception     {
         
+        System.out.println( " ENV_JAXY_URL ===> " +  System.getenv("JAXY_URL")  ) ;
+        System.out.println( " ENV_JAXY_URL ===> " +  System.getenv("JAXY_URL")  ) ;
+        System.out.println( " ENV_JAXY_URL ===> " +  System.getenv("JAXY_URL")  ) ;
+        
         /** Debugger Mode  . **/
         // System.setProperty("thorntail.debug.port" ,"11555")  ;
          
