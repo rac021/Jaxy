@@ -9,7 +9,7 @@
  help() {
  
     echo
-    echo " Total Arguments : Four                                                                                            "
+    echo " Total Arguments : Six                                                                                             "
     echo 
     echo "   serviceConf=                      :  Path of the serviceConf File ( REQUIRED )                                  "
     echo "   debug                             :  Start jaxy in debug mode                                                   "
