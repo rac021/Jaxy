@@ -213,16 +213,16 @@ public class StreamerOutputXmlEncrypted extends Streamer implements StreamingOut
     public StreamerOutputXmlEncrypted wrapResource( IResource resource    ,
                                                     Class dto             ,
                                                     String filteredIndexs ,
-                                                    MultivaluedMap <String, String> ... sqlParams ) {
+                                                    MultivaluedMap <String, String>  filedsFilter ) {
 
-      rootResourceWraper( resource, dto, filteredIndexs, sqlParams) ;
-      return this                                                   ;
+      rootResourceWraper( resource, dto, filteredIndexs, filedsFilter ) ;
+      return this                                                       ;
     }
 
     public StreamerOutputXmlEncrypted wrapResource( IResource resource , Class dto ) {
 
-      rootResourceWraper( resource, dto, null ) ;        
-      return this                               ;
+      rootResourceWraper( resource, dto, null, null ) ;        
+      return this                                    ;
     }
 
 }

@@ -51,7 +51,7 @@ public class StreamerOutputTemplate extends Streamer implements StreamingOutput 
        
        Objects.requireNonNull(template)                                      ;
        
-       String templateBody        = removeMultipleBlankSpaces(
+       String templateBody        = removeMultipleBlankSpaces (
                                                  extractBody  ( template ))  ;
       
        String templateHeader      = extractHeader( template )                ;
@@ -119,15 +119,15 @@ public class StreamerOutputTemplate extends Streamer implements StreamingOutput 
     public StreamerOutputTemplate wrapResource(  IResource resource       , 
                                                  Class     dto            ,
                                                  String    filteredNmames ,
-                                                 MultivaluedMap<String, String> ... sqlParams ) {
+                                                 MultivaluedMap<String, String> filedsFilter ) {
 
-        rootResourceWraper( resource, dto, filteredNmames, sqlParams ) ;
-        return this                                                    ;
+        rootResourceWraper( resource, dto, filteredNmames, filedsFilter ) ;
+        return this                                                       ;
     }
     
     public StreamerOutputTemplate wrapResource( IResource resource , Class dto ) {
 
-        rootResourceWraper( resource, dto, null ) ;        
-        return this                               ;
+        rootResourceWraper( resource, dto, null , null ) ;        
+        return this                                      ;
     }
 }

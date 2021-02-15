@@ -288,15 +288,15 @@ public class GhostServicesManager    {
                     
                     try {
                         
-                        deps = searchAndGetFullPath( webInfLibLocation                                 , 
-                                                     Arrays.asList( "javaee-api"                       ,
-                                                                    "jaxy-api"                         ,
-                                                                    "microprofile-metrics-api"         ,
-                                                                    "jakarta.xml.bind-api"             ,
-                                                                    "microprofile-fault-tolerance-api" ) ) ;
+                        deps = searchAndGetFullPath( System.getProperty(VIRTUAL_FILE_SYSTEM)                                   , 
+                                                     Arrays.asList( "javaee-api"                         ,
+                                                                    "jaxb-api"                           ,
+                                                                    "microprofile-metrics-api"           ,
+                                                                    "microprofile-fault-tolerance-api"   ,
+                                                                    "jaxy-api"                       ) ) ;
                         
-                        UnzipUtility.unzipJavaDependencies( deps , tmpPathDependenciesForCompilation )     ;
-                        CompilerManager.addClassPath( tmpPathDependenciesForCompilation )                  ;
+                        UnzipUtility.unzipJavaDependencies( deps , tmpPathDependenciesForCompilation ) ;
+                        CompilerManager.addClassPath( tmpPathDependenciesForCompilation )              ;
                         
                     } catch ( Exception ex)                           {
                         LOGGER.log(Level.SEVERE, ex.getMessage(), ex) ;

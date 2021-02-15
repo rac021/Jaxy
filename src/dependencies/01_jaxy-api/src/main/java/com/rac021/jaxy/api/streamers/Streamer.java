@@ -21,6 +21,7 @@ import java.util.concurrent.ExecutionException ;
 import java.util.concurrent.ArrayBlockingQueue ;
 import com.rac021.jaxy.api.root.ServicesManager ;
 import com.rac021.jaxy.api.analyzer.SqlAnalyzer ;
+import java.util.concurrent.atomic.AtomicInteger ;
 import com.rac021.jaxy.api.root.RuntimeServiceInfos ;
 import static com.rac021.jaxy.api.logger.LoggerFactory.getLogger ;
 import static com.rac021.jaxy.api.streamers.DefaultStreamerConfigurator.* ;
@@ -41,35 +42,34 @@ public abstract class Streamer implements IStreamer {
     @Inject 
     protected ServicesManager servicesManager       ;
  
-    protected static final         Logger LOGGER   = getLogger()       ;
+    protected static final         Logger LOGGER   = getLogger()    ;
     
-    protected  BlockingQueue<IDto> dtos                                ;
+    protected  BlockingQueue<IDto> dtos                             ;
     
-    protected  int                 maxThreads                          ;
+    protected  int                 maxThreads                       ;
     
-    protected  ResourceWraper      resource                            ;
+    protected  ResourceWraper      resource                         ;
     
-    private    List<String>        keepFieldsList          = null      ;
+    private    List<String>        keepFieldsList       = null      ;
     
-    protected  boolean             isFinishedProcess       = false     ;
+    protected  boolean             isFinishedProcess    = false     ;
     
     @PreDestroy   
     public void cleanup() {
     }
      
     @PostConstruct
-    public void init() {
-    }
+    public void init() {  }
     
-    public Streamer() { }
+    public Streamer()  {  }
 
     public long producerScheduler()                 {
         
         resource.initResource( selectSize * ratio ) ;
 
         List<Callable<Void>> jobs = IntStream.range( 0 , maxThreads )
-                                             .mapToObj( i -> (Callable<Void>) new Producer() )
-                                             .collect(Collectors.toList());
+                                             .mapToObj( i -> (Callable<Void> ) new Producer() )
+                                             .collect(Collectors.toList() )  ;
         try {
                 return 
                 poolProducer.invokeAll(jobs)
@@ -95,7 +95,7 @@ public abstract class Streamer implements IStreamer {
        
     }
 
-    protected class Producer implements Callable  {
+    private class Producer implements Callable<Void>  {
         
         @Override
         public Void call()  {
@@ -103,21 +103,23 @@ public abstract class Streamer implements IStreamer {
                 while ( ! isFinishedProcess )     {
 
                     try { 
-                          long count = resource.getDtoIterable( entityManager, 
-                                                                selectSize * ratio ,
-                                                                keepFieldsList     )
-                                               .stream()
-                                               .map( (localDto)  ->           {
-                                                     try {
-                                                         dtos.put(localDto)   ;
-                                                         return localDto      ;
-                                                     } catch (InterruptedException ex)   {
-                                                         throw new RuntimeException(ex)  ;
-                                                     }})
-                                               .count() ;
+                        
+                         AtomicInteger count = new AtomicInteger()   ;
+                         
+                         resource.getDtoIterable( entityManager      , 
+                                                  selectSize * ratio ,
+                                                  keepFieldsList     )
+                                 .forEach ( localDto ->  {
+                                                         try {
+                                                             dtos.put( localDto )    ;
+                                                             count.incrementAndGet() ;
+                                                         } catch ( InterruptedException ex ) {
+                                                             throw new RuntimeException(ex)  ;
+                                                         }
+                         } ) ;
 
                          // sql result = 0 OR // sql result < selectSize
-                         if ( count == 0 || count < selectSize ) {
+                         if ( count.get() == 0 || count.get() < selectSize ) {
 
                              isFinishedProcess = true ;
                              break                    ;
@@ -131,12 +133,11 @@ public abstract class Streamer implements IStreamer {
                 return null ;
         }
     }
-    
-    public void rootResourceWraper( IResource resource     ,
-                                    Class     dto          , 
-                                    String    keepFields   , 
-                                    MultivaluedMap <String ,
-                                    String> ... filedsFilters ) {
+
+    public void rootResourceWraper( IResource  resource                             ,
+                                    Class<?>   dto                                  , 
+                                    String     keepFields                           , 
+                                    MultivaluedMap <String ,String> filedsFilters ) {
         
         this.keepFieldsList = toListNames(keepFields) ;
         
@@ -147,7 +148,7 @@ public abstract class Streamer implements IStreamer {
             queryWithAppliedFilters = SqlAnalyzer.generateQueryAccordingFieldsFilters (
                                                      servicesManager.getQueriesByResourceName ( 
                                                       resource.getClass().getName() 
-                                                     ) ,  filedsFilters[0] )                  ;
+                                                     ) ,  filedsFilters  )                    ;
             } catch( Exception ex )            {
                 throw new RuntimeException(ex) ;
             }

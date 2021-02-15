@@ -95,13 +95,13 @@ public class SqlAnalyzer {
                      
             LOGGER.log( Level.CONFIG , "      - OrderElementsList : {0}", orderElementsList)  ;
              
-            ((PlainSelect) selectBody).setOrderByElements(orderElementsList )                 ;
+            ((PlainSelect) selectBody).setOrderByElements( orderElementsList   )              ;
 
             query.setQuery(select.toString() )                                                ;
             
             LOGGER.log(Level.CONFIG , "      - SQL Object Query  : {0}", query )              ;
             
-            LOGGER.log(Level.CONFIG , " ------------------------------- "  )                  ;
+            LOGGER.log(Level.CONFIG , " ------------------------------- "      )              ;
 
             
             return  query                                                                     ; 

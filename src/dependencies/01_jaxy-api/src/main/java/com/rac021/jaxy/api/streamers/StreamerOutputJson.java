@@ -96,7 +96,7 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
     public StreamerOutputJson wrapResource( IResource resource   , 
                                             Class     dto        ,
                                             String    keepFields ,
-                                            MultivaluedMap<String, String> ... filedsFilter ) {
+                                            MultivaluedMap<String, String> filedsFilter ) {
 
         rootResourceWraper( resource, dto, keepFields, filedsFilter ) ;
         
@@ -105,8 +105,8 @@ public class StreamerOutputJson extends Streamer implements StreamingOutput {
     
     public StreamerOutputJson wrapResource( IResource resource , Class dto ) {
 
-        rootResourceWraper( resource, dto, null ) ;        
-        return this                               ;
+        rootResourceWraper( resource, dto, null , null ) ;        
+        return this                                      ;
     }
 }
 

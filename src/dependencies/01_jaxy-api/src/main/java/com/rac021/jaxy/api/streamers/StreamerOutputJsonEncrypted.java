@@ -199,14 +199,14 @@ public class StreamerOutputJsonEncrypted extends Streamer implements StreamingOu
     public StreamerOutputJsonEncrypted wrapResource( IResource resource    , 
                                                      Class dto             ,
                                                      String filteredIndexs ,
-                                                     MultivaluedMap<String , String> ... sqlParams ) {
-        rootResourceWraper(resource, dto, filteredIndexs, sqlParams) ;
-        return this                                                  ;
+                                                     MultivaluedMap<String , String> filedsFilter ) {
+        rootResourceWraper(resource, dto, filteredIndexs, filedsFilter )   ;
+        return this                                                        ;
     }
 
     public StreamerOutputJsonEncrypted wrapResource( IResource resource , Class dto ) {
-        rootResourceWraper(resource, dto, null ) ;        
-        return this                              ;
+        rootResourceWraper(resource, dto, null , null ) ;        
+        return this                                     ;
     }
 
 }

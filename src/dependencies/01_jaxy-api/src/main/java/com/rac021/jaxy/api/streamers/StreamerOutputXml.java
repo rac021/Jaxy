@@ -100,19 +100,19 @@ public class StreamerOutputXml extends Streamer implements StreamingOutput {
     }
     
     @Override
-    public StreamerOutputXml wrapResource( IResource resource     ,
+    public StreamerOutputXml wrapResource( IResource resource    ,
                                            Class dto             ,
                                            String filteredIndexs ,
-                                           MultivaluedMap<String , String> ... sqlParams ) {
+                                           MultivaluedMap<String , String> filedsFilter ) {
 
-      rootResourceWraper( resource, dto, filteredIndexs, sqlParams) ;
-      return this                                                   ;
+      rootResourceWraper( resource, dto, filteredIndexs, filedsFilter) ;
+      return this                                                      ;
     }
     
     public StreamerOutputXml wrapResource( IResource resource , Class dto ) {
 
-      rootResourceWraper( resource, dto, null ) ;        
-      return this                               ;
+      rootResourceWraper( resource, dto, null , null ) ;        
+      return this                                      ;
     }
 }
 

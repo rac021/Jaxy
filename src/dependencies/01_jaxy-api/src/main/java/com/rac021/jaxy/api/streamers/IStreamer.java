@@ -16,6 +16,6 @@ public interface IStreamer {
    public IStreamer wrapResource(  IResource resource       , 
                                    Class     dto            ,
                                    String    filteredNmames ,
-                                   MultivaluedMap<String, String> ... sqlParams ) ;
+                                   MultivaluedMap<String, String> sqlParams ) ;
    
 }
