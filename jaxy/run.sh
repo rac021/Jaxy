@@ -2,8 +2,7 @@
 
  # Cmd Example : ./run.sh serviceConf=demo/Full_Conf/serviceConf.yaml       trustStore=keystoreKeyCloak.jks  debug
  # Cmd Example : ./run.sh serviceConf=jaxy/demo/Full_Conf/serviceConf.yaml  auto_extract_keycloak_certificate
-  
-
+ 
  CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
    
  help() {
@@ -156,7 +155,9 @@
  ## Run Jaxy
  
  echo ; echo " Deploy Jaxy. Url : $JAXY_URL " ; echo
-  
+ 
+ export JAXY_URL=$JAXY_URL
+ 
  java  $DEBUG $TRUST_STORE $TRUST_STORE_KEYCLOAK $CONFIGURATION_FILE -jar $CURRENT_DIR/jaxy-thorntail.jar    
 
 
