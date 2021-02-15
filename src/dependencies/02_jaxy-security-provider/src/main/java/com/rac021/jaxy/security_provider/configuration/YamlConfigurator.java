@@ -489,10 +489,6 @@ public class YamlConfigurator implements IConfigurator      {
     }
     
     private void setServerConfiguration()        {
- 
-        System.out.println( " ENV_JAXY_URL ===> " +  System.getenv("JAXY_URL")  ) ;
-        System.out.println( " ENV_JAXY_URL ===> " +  System.getenv("JAXY_URL")  ) ;
-        System.out.println( " ENV_JAXY_URL ===> " +  System.getenv("JAXY_URL")  ) ;
         
         if( System.getenv("JAXY_URL") != null )  {
            
