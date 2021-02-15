@@ -512,57 +512,61 @@ public class YamlConfigurator implements IConfigurator      {
        
           String ovr = (String) getConfiguration().get(OVERRIDE_HOST) ;
           
+          System.out.println(" OVERRIDE_HOST is Enable" ) ;
+            
           this.HOST  = (String) getConfiguration().get(OVERRIDE_HOST) ;
-       }
+        }
        
-       else if ((getConfiguration().get(HOST_TYPE)) != null )         {
+        else if ((getConfiguration().get(HOST_TYPE)) != null )         {
            
-         String hostType = (String) getConfiguration().get(HOST_TYPE) ;
+          String hostType = (String) getConfiguration().get(HOST_TYPE) ;
          
-         if( hostType.equalsIgnoreCase( IP ))      {
-             this.HOST = HostManager.getIp()       ;
-         }
-         else {
-             this.HOST = HostManager.getHostName() ;
-         }
+          if( hostType.equalsIgnoreCase( IP ))      {
+              this.HOST = HostManager.getIp()       ;
+          }
+          else {
+              this.HOST = HostManager.getHostName() ;
+          }
          
-       } else {
+        } else {
            
-             this.HOST = HostManager.getHostName() ;
-       }
+             this.HOST = HostManager.getHostName()  ;
+        }
        
-       if ((getConfiguration().get(HTTP_PORT)) != null )   {
-         this.httpPort = (String) getConfiguration()
-                             .get(HTTP_PORT) ;
-       }
+        System.out.println(" JAXY_HOST : " + this.HOST  )   ;
+
+        if ((getConfiguration().get(HTTP_PORT)) != null )   {
+          this.httpPort = (String) getConfiguration()
+                               .get(HTTP_PORT) ;
+        }
        
-       if ((getConfiguration().get(HTTPS_PORT)) != null )  {
-         this.httpsPort = (String) getConfiguration()
-                             .get(HTTPS_PORT) ;
-       }
+        if ((getConfiguration().get(HTTPS_PORT)) != null )  {
+          this.httpsPort = (String) getConfiguration()
+                               .get(HTTPS_PORT) ;
+        }
        
-       if ((getConfiguration().get(TRANSPORT)) != null )   {
-         this.transport = (String) getConfiguration()
-                                  .get(TRANSPORT).toString()
-                                  .toLowerCase()           ;
-       }
+        if ((getConfiguration().get(TRANSPORT)) != null )   {
+          this.transport = (String) getConfiguration()
+                                   .get(TRANSPORT).toString()
+                                   .toLowerCase()           ;
+        }
        
-       if ((getConfiguration().get(SSL_MODE)) != null )           {
+        if ((getConfiguration().get(SSL_MODE)) != null )           {
         
-        String sslMod = (String )getConfiguration().get(SSL_MODE) ;
+         String sslMod = (String )getConfiguration().get(SSL_MODE) ;
            
-        if( sslMod.equalsIgnoreCase(SslMode.SELF_SSL.name()    ) ||
-            sslMod.equalsIgnoreCase(SslMode.LETS_ENCRYPT.name()) ||
-            sslMod.equalsIgnoreCase(SslMode.PROVIDED_SSL.name())  ) 
-        {
-              YamlConfigurator.sslMode = SslMode.valueOf(sslMod)  ;
-        } 
-        else {
+         if( sslMod.equalsIgnoreCase(SslMode.SELF_SSL.name()    ) ||
+             sslMod.equalsIgnoreCase(SslMode.LETS_ENCRYPT.name()) ||
+             sslMod.equalsIgnoreCase(SslMode.PROVIDED_SSL.name())  ) 
+         {
+               YamlConfigurator.sslMode = SslMode.valueOf(sslMod)  ;
+         } 
+         else {
             
               YamlConfigurator.sslMode =  SslMode.SELF_SSL        ;
-        }
+         }
         
-       }
+        }
     }
 
     private void setSelfConfiguration()                          { 
@@ -1117,4 +1121,3 @@ public class YamlConfigurator implements IConfigurator      {
     }
 
 }
-
