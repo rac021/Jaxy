@@ -4,8 +4,8 @@
   
   DEMO_PATH="jaxy"
    
-  MVN_HTTPS_PROTOCOLS="-Dhttps.protocols=TLSv1.2"
-  
+  MVN_HTTPS_PROTOCOLS="-Dhttps.protocols=TLSv1.2 -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 -Dmaven.wagon.http.retryHandler.requestSentEnabled=true "
+ 
   cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvn clean install -Dmaven.test.skip=true $MVN_HTTPS_PROTOCOLS
   
   if [[ "$?" -ne 0 ]] ; then
