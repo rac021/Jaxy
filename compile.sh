@@ -4,7 +4,7 @@
   
   DEMO_PATH="jaxy"
    
-  MVN_HTTPS_PROTOCOLS=" -Dhttps.protocols=TLSv1.2 "
+  MVN_HTTPS_PROTOCOLS=" -Dhttps.protocols=TLSv1.2 -Dhttp.keepAlive=false -Dmaven.wagon.http.pool=false "
  
   cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvn $MVN_HTTPS_PROTOCOLS clean install -Dmaven.test.skip=true
   
