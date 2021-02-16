@@ -144,17 +144,16 @@
             <groupId>io.thorntail</groupId>
             <artifactId>microprofile</artifactId>
         </dependency> 
-        
-        <!--    
+           
         <dependency>
             <groupId>io.thorntail</groupId>
             <artifactId>microprofile-metrics</artifactId>
         </dependency> 
+
         <dependency>
             <groupId>io.thorntail</groupId>
             <artifactId>microprofile-fault-tolerance</artifactId>
         </dependency>
-        -->
 
         <dependency>
             <groupId>io.thorntail</groupId>
