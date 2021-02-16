@@ -26,7 +26,7 @@
 
  I )   [Download](https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download) / or [Compile](https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy) ( For the most courageour ) the project :
  
-         1 ) Download : https://sourceforge.net/projects/jaxy/files/jaxy_2.2_bin.zip/download
+         1 ) Download : https://sourceforge.net/projects/jaxy/files/jaxy_2.3.zip/download
          
          2 ) Compilation Steps : https://github.com/rac021/Jaxy/tree/master/jaxy/demo/00_0_installing_jaxy
  
