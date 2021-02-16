@@ -91,7 +91,9 @@ public class RootService implements IRootService     {
                      failOn = FaultToleranceException.class ,
                      successThreshold       = 10            , 
                      requestVolumeThreshold = 4 )
-    @Fallback( FallbackHandlerException.class )
+    @Fallback( value = FallbackHandlerException.class  , 
+               skipOn = { BusinessException.class      , 
+                          UnAuthorizedResourceException.class }  )
     public Object subResourceLocators( @HeaderParam("API-key-Token") String             token     ,
                                        @HeaderParam("Accept")        String             accept    ,
                                        @HeaderParam("Cipher")        String             cipher    ,
