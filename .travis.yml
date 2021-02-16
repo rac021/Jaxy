@@ -18,18 +18,19 @@ cache:
     - $HOME/.m2
     
 script:
+  - MVN_ARGS="-Dmaven.wagon.httpconnectionManager.ttlSeconds=120 -Dmaven.wagon.http.retryHandler.requestSentEnabled=true"
   - echo '1- Compile jaxy-api :'               && cd /home/travis/build/rac021/Jaxy/src/dependencies/01_jaxy-api 
-  - mvn -q clean install
+  - mvn $MVN_ARGS -q clean install
   - echo '2- Compile jaxy-security-provider :' && cd /home/travis/build/rac021/Jaxy/src/dependencies/02_jaxy-security-provider
-  - mvn -q clean install
+  - mvn $MVN_ARGS -q clean install
   - echo '3- Compile jaxy-service-discovery :' && cd /home/travis/build/rac021/Jaxy/src/dependencies/03_jaxy-service-discovery
-  - mvn -q clean install
+  - mvn $MVN_ARGS -q clean install
   - echo '4- Compile certMe :'                 && cd /home/travis/build/rac021/Jaxy/src/dependencies/04_certMe
-  - mvn -q clean install
+  - mvn $MVN_ARGS -q clean install
   - echo '5- Compile jaxyClient :'             && cd /home/travis/build/rac021/Jaxy/src/dependencies/05_jaxyClient
-  - mvn -q clean install
+  - mvn $MVN_ARGS -q clean install
   - echo '6- Compile jaxy :'                   && cd /home/travis/build/rac021/Jaxy/src/jaxy
-  - mvn -q clean package 
+  - mvn $MVN_ARGS -q clean package 
 
 after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME --password-stdin
