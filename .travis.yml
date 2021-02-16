@@ -4,6 +4,8 @@ language: java
 jdk:
   - openjdk11
 
+sudo: required
+
 before_script:
   - echo $TRAVIS_COMMIT
   - echo $TRAVIS_TAG
