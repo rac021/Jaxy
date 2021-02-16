@@ -44,9 +44,9 @@
 
 **Requirements :**
 
--    `JAVA 8`
+-    `JAVA 11`
     
--    `MAVEN 3.3.9 + `
+-    `MAVEN 3.6.0 + `
    
 -    `Postgres | mySql `
 
