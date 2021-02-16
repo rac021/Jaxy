@@ -6,7 +6,7 @@
    
   MVN_HTTPS_PROTOCOLS="-Dhttps.protocols=TLSv1.2 -Dmaven.wagon.httpconnectionManager.ttlSeconds=120 -Dmaven.wagon.http.retryHandler.requestSentEnabled=true "
  
-  cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvN $MVN_HTTPS_PROTOCOLS clean install -Dmaven.test.skip=true
+  cd $CURRENT_LOCATION/dependencies/01_jaxy-api && mvn $MVN_HTTPS_PROTOCOLS clean install -Dmaven.test.skip=true
   
   if [[ "$?" -ne 0 ]] ; then
      echo ; echo 'Could not perform mvn clean install -Dmaven.test.skip=true' ; echo 
