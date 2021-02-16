@@ -151,15 +151,12 @@
 	  fi 
 
 	  echo ; echo " - KEYCLOAK_URL : $KEYCLOAK_URL "
-
 	  
 	fi
 	
 	 echo ; echo " =================================== " ; echo
 	 
 	 ( . ./run.sh $ARG )
-	
-
  
  else 
  	echo ; echo " Docker-compose .. " ; echo 
