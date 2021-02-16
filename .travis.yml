@@ -13,6 +13,10 @@ before_script:
   - echo $TRAVIS_BUILD_NUMBER
   - echo $TRAVIS_REPO_SLUG
 
+cache:
+  directories:
+    - $HOME/.m2
+    
 script:
   - echo '1- Compile jaxy-api :'               && cd /home/travis/build/rac021/Jaxy/src/dependencies/01_jaxy-api 
   - mvn -q clean install
