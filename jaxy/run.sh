@@ -154,10 +154,11 @@
  
  ## Run Jaxy
  
- echo ; echo " Deploy Jaxy. Url : $JAXY_URL " ; echo
+ # echo ; echo " Deploy Jaxy. Url : $JAXY_URL " ; echo
  
- source ~/.bashrc
- export JAXY_URL=$JAXY_URL
+ source ~/.bashrc # Reload Env Vars
+ 
+ # export JAXY_URL=$JAXY_URL
  
  java  $DEBUG $TRUST_STORE $TRUST_STORE_KEYCLOAK $CONFIGURATION_FILE -jar $CURRENT_DIR/jaxy-thorntail.jar    
 
