@@ -3,7 +3,7 @@
 
 | Branch  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  build status ( Travis ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  [ Docker Pulls ](https://hub.docker.com/r/rac021/jaxy) | SourceForge |
 |-----------|---------------|---------------------------|---------------------------|
-| [master](https://github.com/rac021/Jaxy/tree/master)  | [![Build Status](https://api.travis-ci.org/rac021/Jaxy.svg?branch=master)](https://travis-ci.org/rac021/Jaxy) | ![Docker Pulls](https://img.shields.io/docker/pulls/rac021/jaxy.svg) | [ Jaxy Download Link ]( https://sourceforge.net/projects/jaxy/)
+| [master](https://github.com/rac021/Jaxy/tree/master)  | [![Build Status](https://api.travis-ci.org/rac021/Jaxy.svg?branch=master)](https://travis-ci.org/rac021/Jaxy) | ![Docker Pulls](https://img.shields.io/docker/pulls/rac021/jaxy.svg) | [ Jaxy Download Link ( bin ) ]( https://sourceforge.net/projects/jaxy/)
 
 ------------------------------------------------------
 
