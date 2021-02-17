@@ -15,7 +15,7 @@
 
 | Tool               | Requirement                              | 
 |:-------------------|:--------------------------------         |
-| `JAVA 8`           | **Required**                             |
+| `JAVA 11`          | **Required**                             |
 | `MAVEN 3.3.9 +`    | **Required for Compilation**             |
 | `Postgres - mySql` | **Required**                             |
 | `git`              | **Required for Cloning the project**     |
